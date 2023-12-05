@@ -85,3 +85,9 @@ header{
     border: none;
     outline: none;
 }
+
+.user-wrapper{
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+}

@@ -5,7 +5,7 @@ import { AiFillAccountBook} from "react-icons/ai";
 import { TiHome } from "react-icons/ti";
 import { FaBowlFood } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
-import { FaBars } from "react-icons/fa";
+// import { FaBars } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { FaClipboard } from "react-icons/fa6";
@@ -29,9 +29,7 @@ function AdminDashboard(){
 
             <div className={"main-content"}>
                 <header>
-                    <h1><span><FaBars /></span>
-                        Dashboard
-                    </h1>
+                    <h1>Dashboard</h1>
 
                     <div className={"search-wrapper"}>
                         <span><FaSearch /></span>
@@ -39,7 +37,7 @@ function AdminDashboard(){
                     </div>
 
                     <div className={"user-wrapper"}>
-                        <img src={"./Images/"} width={"40px"} height={"40px"} alt={""}/>
+                        <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={""}/>
                         <div>
                             <h4>Nirajan Mahato</h4>
                             <small>Super admin</small>

@@ -5,10 +5,9 @@ import { AiFillAccountBook} from "react-icons/ai";
 import { TiHome } from "react-icons/ti";
 import { FaBowlFood } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
-import { FaBars } from "react-icons/fa";
+// import { FaBars } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 
-// import React from "react";
 function ManageItem(){
     return(
         <div>
@@ -28,9 +27,7 @@ function ManageItem(){
 
             <div className={"main-content"}>
                 <header>
-                    <h1><span><FaBars /></span>
-                        Manage Items
-                    </h1>
+                    <h1>Manage Items</h1>
 
                     <div className={"search-wrapper"}>
                         <span><FaSearch /></span>
