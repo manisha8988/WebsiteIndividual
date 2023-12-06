@@ -37,7 +37,7 @@ function AdminDashboard(){
                     </div>
 
                     <div className={"user-wrapper"}>
-                        <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={""}/>
+                        <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
                         <div>
                             <h4>Nirajan Mahato</h4>
                             <small>Super admin</small>
