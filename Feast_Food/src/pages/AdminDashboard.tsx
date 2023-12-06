@@ -47,15 +47,17 @@ function AdminDashboard(){
 
                 <main>
                     <div className={"cards"}>
-                        <div className={"card-single"}>
+                        <div className={"card-single01"}>
                             <div>
                                 <h1>54</h1>
+                            </div >
+                            <div  className={"card-nameicon"}>
+                                <span><FaUsers /></span>
                                 <span>Customers</span>
                             </div>
-                            <div><FaUsers /></div>
                         </div>
 
-                        <div className={"card-single"}>
+                        <div className={"card-single02"}>
                             <div>
                                 <h1>79</h1>
                                 <span>Projects</span>
