@@ -29,6 +29,35 @@
   /*  outline: 4px auto -webkit-focus-ring-color;*/
   /*}*/
 
+table {
+    margin: 1rem auto;
+    border-radius: 0.6rem;
+    border: 3rem hidden #000000;
+    box-shadow: 0 0 0 1px black;
+    overflow: hidden;
+    max-width: 80rem;
+    background-color: #222222;
+}
+
+thead {
+    font-size: 1.2rem;
+    background-color: #312e2e;
+    color: #fff;
+}
+
+th,td {
+    border: 1px solid #312e2e;
+    min-width: 5rem;
+    padding: 1.5rem;
+    line-height: 0.2;
+    border-radius: 0.6rem;
+}
+
+td {
+    font-size: 1rem;
+    background-color: white;
+}
+
   @media (prefers-color-scheme: light) {
     :root {
       color: #213547;
