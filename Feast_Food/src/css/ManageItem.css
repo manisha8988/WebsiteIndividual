@@ -102,3 +102,19 @@ header lable span{
     border: none;
     outline: none;
 }
+
+.user-wrapper3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-wrapper3 img{
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-wrapper3 small{
+    display: inline-block;
+    color: grey;
+}
