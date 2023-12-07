@@ -6,45 +6,52 @@
     text-decoration: none;
 }
 
-.sidebar{
-    width: 27vw;
+.sidebar3{
+    width: 22vw;
     position: fixed;
-    left: 0;
-    top: 0;
+    left: 4px;
+    top: 5px;
+    border-radius: 10px;
     height: 100%;
     background-color: #f3ad16;
+    z-index: 100;
 }
-.sidebar-brand{
+.sidebar-brand3{
     height: 90px;
     padding: 1rem 0 1rem 2rem;
     color: white;
     letter-spacing: 2px;
 }
-.sidebar-brand span{
+.sidebar-brand3 span{
     display: inline-block;
     padding-right: 1rem;
 }
-.sidebar-menu li{
-    width: 100%;
+
+.sidebar-menu3{
+    margin-top: 1rem;
+}
+
+.sidebar-menu3 li{
+    width: 22vw;
     margin-bottom: 1.3rem;
     padding-left: 2rem;
     letter-spacing: 1px;
 }
 
-.sidebar-menu a{
+.sidebar-menu3 a{
     padding-left: 1rem;
     display: block;
     color: #ffffff;
     font-size: 1.2rem;
 }
 
-.sidebar-menu a span{
+.sidebar-menu3 a span{
     font-size: 1.5rem;
     padding-right: 1rem;
 
 }
 
-.sidebar-menu a.active{
+.sidebar-menu3 a.active{
     background: white;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -52,17 +59,29 @@
     border-radius: 30px 0 0 30px;
 }
 
-.main-content{
-    margin-left: 27.5vw;
+.main-content3{
+    margin-left: 22vw;
 }
 
 header{
     display: flex;
+    height: 12vh;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
-.search-wrapper{
+header h1{
+    color: #222;
+}
+
+header lable span{
+    font-size: 1.7rem;
+    padding-right: 1rem;
+}
+
+.search-wrapper3{
     border: 1px solid #ccc;
     border-radius: 30px;
     height: 50px;
@@ -71,15 +90,31 @@ header{
     overflow-x: hidden;
 }
 
-.search-wrapper span{
+.search-wrapper3 span{
     display: inline-block;
     padding: 0.7rem 0 0 1rem;
     font-size: 1.5rem;
 }
 
-.search-wrapper input{
+.search-wrapper3 input{
     height: 100%;
     padding: .5rem;
     border: none;
     outline: none;
+}
+
+.user-wrapper3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-wrapper3 img{
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-wrapper3 small{
+    display: inline-block;
+    color: grey;
 }
