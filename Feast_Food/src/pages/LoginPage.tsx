@@ -1,7 +1,7 @@
 import "../css/LoginPage.css"
 // import 'ionicons/dist/ionicons/css/ionicons.min.css';
-
-
+import { IoMdMail } from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
 function LoginPage(){
     return (
         <div>
@@ -9,21 +9,23 @@ function LoginPage(){
 
      <div className={"wrapper"}>
          <div className={"form-box-login"}>
-             <h2>Login</h2>
-             <form action={"#"}>
+             <h1>Login</h1>
+             <form>
                  <div className={"input-box"}>
-                     <span className={"icon"}></span>
-                     <input type={"email"} />
-                     <label> email </label>
+                     <span className={"iconemail"}> <IoMdMail /></span>
+                     <div className={"Email"}>
+                     <input type={"email"} placeholder={"Email"}   />
+                     </div>
+
                  </div>
                  <div className={"input-box"}>
-                     <span className={"icon"}></span>
-                     <input type={"Password"}/>
-                     <label> Password</label>
+                     <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                     <div className={"Password"}>
+                     <input type={"password"} placeholder={"Password"}/>
+                     </div>
                  </div>
                   <div className={"Remember-forget"}>
-                      <label><input type={"Checkbox"}/>
-                          Remember me</label>
+                      <label><input type={"Checkbox"}/>Remember me</label>
                       <a href={"#"}> Forget Password</a>
                   </div>
                  <button type={"submit"} className={"btnlogin"}>Login</button>
@@ -34,13 +36,11 @@ function LoginPage(){
 
                  </div>
              </form>
-
-
          </div>
      </div>
 
-            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-            <script noModule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
         </div>
 
     )

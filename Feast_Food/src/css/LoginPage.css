@@ -7,62 +7,86 @@
 }
 
 .wrapper{
-position:relative;
-    width:  1500px;
-    height: 700px;
-    background: transparent;
-    border: 9px solid rgba(255,255,255,.5%);
-    /*border-radius: 200px;*/
-    backdrop-filter:  blur(7px);
-    box-shadow: 0 0 30px rgba(0,0,0,-5%);
+    width: 100vw;
+    height: 100vh;
+    background: url("src/images/pexels-ella-olsson-1640774.jpg");
+    background-size: cover;
+    position:relative;
     display:flex;
     align-items: center;
     justify-content: center;
-    background: url("src/images/img5.jpg");
-    margin: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /*background-repeat: no-repeat ;*/
-    /*background-size: cover;*/
-    /*backdrop-filter:  blur(7px);*/
+    
 }
 
 .form-box-login {
-    width:20% ;
-    padding: 40px;
-    backdrop-filter:  blur(4px);
-    background:FieldText;
+    width: 20%;
+    padding: 50px;
+    /*background:#b28210;*/
+    backdrop-filter:  blur(10px);
 
 
 
 }
-.form-box h2{
-    font-size:  9em;
-    color:  #162938;
+/*login ko tala ko line ko lagi*/
+.form-box-login h1{
+    position: relative;
+    font-size:  30px;
+    color: black;
     text-align: center;
+}
+/*login ko tala ko line ko edition*/
+.form-box-login h1::after{
+    content: '';
+    width: 4vw;
+    height: 0.5vh;
+    border-radius: 4px;
+    background: black;
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .input-box{
     position: relative;
-    width: 100%;
-    height: 50px;
+    width:14vw;
+    height: 9vh;
     border-bottom: 2px solid #162938;
     margin:  30px 0;
+    left: 2%;
 }
-.input-box label{
+
+.iconemail{
+    position: relative;
+    left: 90%;
+    top: 40%;
+}
+.iconpassword{
+    position: relative;
+    left: 90%;
+    top: 35%;
+}
+.Email{
+    color: black;
     position: absolute;
-    top:  50%;
-    left: 5px;
-    transform:  translateY(-50%);
-    font-size: 1em;
-    color: #162938;
-    font-weight: 500;
-    pointer-events: none;
+    right: 19%;
+    top: 40%;
+
+    /*left: 0%;*/
+}.Password{
+    color: black;
+    position: absolute;
+    right: 19%;
+     top: 40%;
+
+     /*left: 0%;*/
 }
-/*.input-box input:focus~label,*/
-/*.input-box input:valid~label{*/
-/*    top: -2px;*/
-/*}*/
+
+.input-box input:focus~label{
+    top:-5%;
+}
+.input-box input:valid~label{
+    top: -5%;
+}
 
 
 .input-box input{
@@ -71,5 +95,16 @@ position:relative;
     background:  transparent;
     border:  none;
     outline:  none;
+}
+.Remember-forget{
+    font-size:smaller;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 18px;
+    display: flex;
+    justify-content: space-between;
+}
+.Checkbox{
+
 }
 
