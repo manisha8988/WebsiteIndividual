@@ -45,7 +45,7 @@ function AdminDashboard(){
                     </div>
                 </header>
 
-                <main>
+                <main className={"main1"}>
                     <div className={"cards"}>
                         <div className={"card-single01"}>
                             <div>
