@@ -2,11 +2,16 @@ package com.example.feast.Service.Impl;
 
 import com.example.feast.Entity.Items;
 import com.example.feast.Pojo.ItemPojo;
+import com.example.feast.Repo.ItemRepo;
 import com.example.feast.Service.ItemService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
     private final ItemRepo itemRepo;
     @Override
