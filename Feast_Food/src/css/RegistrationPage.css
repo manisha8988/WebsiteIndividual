@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper0{
+    width: 100vw;
+    height: 100vh;
+    background: url("src/images/pexels-ella-olsson-1640774.jpg");
+    background-size: cover;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(300px);
+    /*overflow: hidden;*/
+}
+
+.form-box-registreation {
+    width: 20%;
+    padding: 50px;
+    /*background:#b28210;*/
+    backdrop-filter: blur(300px);
+    border-radius: 17px;
+    /*display: none;*/
+}
+
+.Login-register{
+    font-size: 1em;
+    color:#162938 ;
+    text-align: center;
+    font-weight: 500 ;
+    margin: 25px 0 10px;
+    
+}
+.Login-register a{
+    color: #162938;
+    text-decoration: none;
+}
+.Login-register p a:hover{
+    text-decoration: underline;
+}
