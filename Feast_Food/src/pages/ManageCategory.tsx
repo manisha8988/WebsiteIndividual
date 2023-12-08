@@ -48,6 +48,32 @@ function ManageCategory(){
                     <div className={"btn1"}>
                         <button type={"button"}><span><IoIosAddCircle /></span>Add Category</button>
                     </div>
+
+                    <div className={"table-container2"}>
+                        <div className={"card-header2"}>
+                            <h2>Categories</h2>
+                        </div>
+                        <div className={"card-body2"}>
+                            <table className={"table-bordered2"}>
+                                <thead>
+                                    <tr>
+                                        <th className={"id-box"}>Id</th>
+                                        <th className={"name-box"}>Name</th>
+                                        <th className={"status-box"}>Status</th>
+                                        <th className={"edit-box"}>Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Pizza</td>
+                                        <td>Visible</td>
+                                        <td>Edit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

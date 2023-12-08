@@ -2,11 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*font-family: 'Popping',sans-serif;*/
-    /*background:url("src/images/pexels-ella-olsson-1640774.jpg");*/
 }
 
 .wrapper{
+
     width: 100vw;
     height: 100vh;
     background: url("src/images/pexels-ella-olsson-1640774.jpg");
@@ -22,12 +21,9 @@
     width: 20%;
     padding: 50px;
     /*background:#b28210;*/
-    backdrop-filter:  blur(10px);
-
-
-
+    backdrop-filter: blur(10px);
 }
-/*login ko tala ko line ko lagi*/
+
 .form-box-login h1{
     position: relative;
     font-size:  30px;

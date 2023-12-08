@@ -153,3 +153,24 @@ button:hover{
 .btn1 span{
     margin-right: 10px;
 }
+
+.card-header2 h2{
+    margin: 1rem 0 -.5rem 1.6rem;
+    text-decoration: underline;
+}
+
+.id-box{
+    min-width: 8rem;
+    border: 1rem #000000;
+}
+
+.name-box{
+    min-width: 16rem;
+}
+
+.status-box{
+    min-width: 16rem;
+}
+.edit-box{
+    min-width: 16rem;
+}
