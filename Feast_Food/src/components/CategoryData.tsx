@@ -23,7 +23,8 @@ const CategoryData: React.FC<UserDataProps> = ({ users }) => {
                     <tr key={id}>
                         <td>{id}</td>
                         <td>{name}</td>
-                        <td><button className={"edit-btn2"}><CiEdit /></button><button className={"delete-btn2"}><MdDelete /></button></td>
+                        <td><button className={"edit-btn2"}><CiEdit /></button></td>
+                        <td><button className={"delete-btn2"}><MdDelete /></button></td>
                     </tr>
                 );
             })}

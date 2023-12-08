@@ -85,6 +85,7 @@
 .main-content3{
     margin-left: 22vw;
     display: flex;
+    background: #f1f5f9;
 }
 
 header{
@@ -216,3 +217,8 @@ header lable span{
     margin: -0.3rem 0.2rem -0.3rem 0.2rem;
 }
 
+.delete-btn3:hover{
+    background: #443f39;
+    color: #b64646;
+    box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
+}
