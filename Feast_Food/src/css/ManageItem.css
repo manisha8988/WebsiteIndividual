@@ -222,3 +222,75 @@ header lable span{
     color: #b64646;
     box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
 }
+
+/*css for add item modal*/
+.add-item-modal, .add-item-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+}
+.add-item-overlay {
+    background: rgba(49,49,49,0.8);
+    backdrop-filter: blur(20px);
+}
+.add-item-modal-content {
+    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    background: #dcdbdb; padding: 14px 28px; border-radius: 10px;       font-size: 1.1rem;
+    width: 47vw;   height: 75vh;   z-index: 102;  text-decoration: underline;
+}
+.close-add-item-btn {
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
+}  .close-add-item-btn:hover{ box-shadow: none; color: #831515 }
+
+.select-category{
+    position: absolute;   top: 5.6rem;  font-size: 1.7rem;
+}
+.select-category select{
+    width: 23vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
+}
+.select-category label,.select-category select{
+    display: block;
+}
+.item-name{
+    position: absolute;  top: 12rem;   font-size: 1.7rem;
+}
+.item-name input{
+    width: 23vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+}
+.item-name label,.item-name input{
+    display: block;
+}
+.item-id-number{
+    position: absolute;  top: 5.6rem;  right: 2rem; font-size: 1.7rem;
+}
+.item-id-number input{
+    width: 14vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+}
+.item-id-number label,.item-id-number input{
+    display: block;
+}
+.item-price{
+    position: absolute;  top: 12rem;  right: 2rem; font-size: 1.7rem;
+}
+.item-price input{
+    width: 14vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+}
+.item-price label,.item-price input{
+    display: block;
+}
+.item-image{
+    position: absolute; top:18.4rem;  font-size: 1.7rem;
+}
+.item-image span{
+    width: 42vw;   height: 10vh;  padding-left: 0.8rem;  border: 2px solid; border-color: #5b4511; border-radius: 7px;
+}
+.item-image label,.item-image span{
+    display: block;
+}
+
+
+.item-name-add-btn{
+    position: absolute; right: 2rem;  bottom: 1.5rem;
+}
+.item-name-add-btn button{
+    width: 10.3rem;  height: 3rem;
+}

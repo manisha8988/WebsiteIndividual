@@ -6,10 +6,11 @@ import {Link} from "react-router-dom";
 import { AiFillAccountBook} from "react-icons/ai";
 import { TiHome } from "react-icons/ti";
 import { FaBowlFood } from "react-icons/fa6";
-import { BiSolidCategoryAlt } from "react-icons/bi";
+import { BiSolidCategoryAlt} from "react-icons/bi";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import gsap from "gsap";
 
 
 interface User {
@@ -20,7 +21,7 @@ interface User {
 
 const API = "https://jsonplaceholder.typicode.com/users";
 
-const ManageCategory: React.FC = () => {
+const ManageCategory: React.FC = () =>  {
         const [users, setUsers] = useState<User[]>([]);
 
         const fetchUsers = async (url: string) => {
@@ -42,7 +43,7 @@ const ManageCategory: React.FC = () => {
 
     // Add category modal
     const [modal, setModal] = useState(false);
-    const toggleModal = () => {
+    const toggleCatgModal = () => {
         setModal(!modal);
     };
 
@@ -51,6 +52,18 @@ const ManageCategory: React.FC = () => {
     } else {
         document.body.classList.remove('active-modal');
     }
+
+
+    // GSAP cdn for animation
+    useEffect(() => {
+        if (modal) {
+            gsap.from(".add-category-modal", {
+                y: -50,
+                duration: 0.3,
+                opacity: 0,
+            });
+        }
+    }, [modal]);
 
 
     return(
@@ -94,7 +107,7 @@ const ManageCategory: React.FC = () => {
 
                     <main className={"main2"}>
                         <div className={"btn1"}>
-                            <button type={"button"} onClick={toggleModal}><span><IoIosAddCircle /></span>Add Category</button>
+                            <button type={"button"} onClick={toggleCatgModal}><span><IoIosAddCircle /></span>Add Category</button>
                         </div>
 
                         <div className={"table-container2"}>
@@ -122,14 +135,14 @@ const ManageCategory: React.FC = () => {
             </div>
 
             {modal && (
-                <div className="modal">
-                    <div onClick={toggleModal} className="overlay"></div>
-                    <div className="modal-content">
-                        <h2>Add Category</h2>
-                        <button className="close-modal-btn" onClick={toggleModal}>
+                <div className="add-category-modal">
+                    <div onClick={toggleCatgModal} className="add-category-overlay"></div>
+                    <div className="add-category-modal-content">
+                        <h2>#Add Category</h2>
+                        <button className="close-add-category-btn" onClick={toggleCatgModal}>
                             <FaRegWindowClose />
                         </button>
-                        <div className={"id-number"}>
+                        <div className={"category-id-number"}>
                             <label>ID</label>
                             <input type={"number"} placeholder={"Enter ID"}/>
                         </div>

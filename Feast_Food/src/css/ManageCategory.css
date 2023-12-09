@@ -234,42 +234,39 @@ button:hover{
     box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
 }
 
-/*css fro modal*/
+/*css fro add-category-modal*/
 body.active-modal {
     overflow-y: hidden;
 }
-.btn-modal {
-    padding: 10px 20px; display: block; margin: 100px auto 0; font-size: 18px;
-}
-.modal, .overlay {
+.add-category-modal, .add-category-overlay {
     width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(3px);
 }
-.overlay {
-    background: rgba(49,49,49,0.8);
-    /*filter: blur(20px);*/
-}
-.modal-content {
+/*.add-category-overlay {*/
+/*    background: rgba(49,49,49,0.8);*/
+/*}*/
+.add-category-modal-content {
     position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
-    background: #f1f1f1; padding: 14px 28px; border-radius: 10px;
+    background: #dcdbdb; padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
     width: 30vw;   height: 55vh;   z-index: 102;  text-decoration: underline;
 }
-.close-modal-btn {
+.close-add-category-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
     position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
-}  .close-modal-btn:hover{ box-shadow: none }
+}  .close-add-category-btn:hover{ box-shadow: none; color: #831515  }
 
-.id-number{
-    position: absolute;   top: 5.6rem;  font-size: 1.9rem;
+.category-id-number{
+    position: absolute;   top: 5.6rem;  font-size: 1.7rem;
 }
-.id-number input{
+.category-id-number input{
     width: 25vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
 }
-.id-number label,.id-number input{
+.category-id-number label,.category-id-number input{
     display: block;
 }
 .category-name{
     position: absolute;  top: 12rem;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
 }
 .category-name input{
     width: 25vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
