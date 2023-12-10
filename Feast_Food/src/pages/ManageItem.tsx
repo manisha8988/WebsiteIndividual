@@ -11,7 +11,6 @@ import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
 import gsap from "gsap";
-// import React from "react";
 
 
 interface User {

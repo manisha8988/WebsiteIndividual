@@ -42,12 +42,12 @@ const ManageCategory: React.FC = () =>  {
 
 
     // Add category modal
-    const [modal, setModal] = useState(false);
+    const [modal1, setModal] = useState(false);
     const toggleCatgModal = () => {
-        setModal(!modal);
+        setModal(!modal1);
     };
 
-    if (modal) {
+    if (modal1) {
         document.body.classList.add('active-modal');
     } else {
         document.body.classList.remove('active-modal');
@@ -56,18 +56,18 @@ const ManageCategory: React.FC = () =>  {
 
     // GSAP cdn for animation
     useEffect(() => {
-        if (modal) {
+        if (modal1) {
             gsap.from(".add-category-modal", {
                 y: -50,
                 duration: 0.3,
                 opacity: 0,
             });
         }
-    }, [modal]);
+    }, [modal1]);
 
 
     return(
-        <div>
+        <section>
             <div className={"manage-category-page"}>
                 <div className={"sidebar2"}>
                     <div className={"sidebar-brand2"}>
@@ -134,7 +134,7 @@ const ManageCategory: React.FC = () =>  {
                 </div>
             </div>
 
-            {modal && (
+            {modal1 && (
                 <div className="add-category-modal">
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
@@ -156,9 +156,7 @@ const ManageCategory: React.FC = () =>  {
                     </div>
                 </div>
             )}
-
-        </div>
-
+        </section>
     );
 };
 

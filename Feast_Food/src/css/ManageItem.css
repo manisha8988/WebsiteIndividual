@@ -229,7 +229,7 @@ header lable span{
 }
 .add-item-overlay {
     background: rgba(49,49,49,0.8);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
 }
 .add-item-modal-content {
     position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
