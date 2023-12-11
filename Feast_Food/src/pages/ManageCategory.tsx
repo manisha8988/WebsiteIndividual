@@ -76,9 +76,9 @@ const ManageCategory: React.FC = () =>  {
 
                     <div className={"sidebar-menu2"}>
                         <ul>
-                            <Link to={"/"}><li><a href={""}><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
-                            <li><a href={""} className={"active"}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li>
-                            <Link to={"/ManageItem"}><li><a href={""} ><span><FaBowlFood /></span> Manage Items</a></li></Link>
+                            <Link to={"/"}><li><a><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
+                            <li><a className={"active"}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li>
+                            <Link to={"/ManageItem"}><li><a ><span><FaBowlFood /></span> Manage Items</a></li></Link>
                         </ul>
                     </div>
 
@@ -138,7 +138,7 @@ const ManageCategory: React.FC = () =>  {
                 <div className="add-category-modal">
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
-                        <h2>#Add Category</h2>
+                        <h2>#Addn Category</h2>
                         <button className="close-add-category-btn" onClick={toggleCatgModal}>
                             <FaRegWindowClose />
                         </button>

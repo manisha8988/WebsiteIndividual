@@ -10,11 +10,12 @@
 .manage-category-page{
     background: #f1f5f9;
 }
-.manage-category-page#blur.active{
-    filter: blur(2px);
-    pointer-events: none;
-    user-select: none;
-}
+
+/*.manage-category-page#blur.active{*/
+/*    filter: blur(2px);*/
+/*    pointer-events: none;*/
+/*    user-select: none;*/
+/*}*/
 
 .sidebar2{
     width: 22vw;
