@@ -1,4 +1,4 @@
-package com.example.feast1.Entity;
+package com.example.feast.Entity;
 
 import jakarta.persistence.*;
 

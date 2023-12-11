@@ -6,10 +6,11 @@ import {Link} from "react-router-dom";
 import { AiFillAccountBook} from "react-icons/ai";
 import { TiHome } from "react-icons/ti";
 import { FaBowlFood } from "react-icons/fa6";
-import { BiSolidCategoryAlt } from "react-icons/bi";
+import { BiSolidCategoryAlt} from "react-icons/bi";
 import { IoIosAddCircle } from "react-icons/io";
-import { FaSearch } from "react-icons/fa";
+import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import gsap from "gsap";
 
 
 interface User {
@@ -20,7 +21,7 @@ interface User {
 
 const API = "https://jsonplaceholder.typicode.com/users";
 
-const ManageCategory: React.FC = () => {
+const ManageCategory: React.FC = () =>  {
         const [users, setUsers] = useState<User[]>([]);
 
         const fetchUsers = async (url: string) => {
@@ -39,21 +40,35 @@ const ManageCategory: React.FC = () => {
             fetchUsers(API);
         }, []);
 
-    function toggle() {
-        const blur = document.getElementById('blur');
-        if (blur) {
-            blur.classList.toggle('active');
-        }
 
-        const popup = document.getElementById('popup');
-        if (popup) {
-            popup.classList.toggle('active');
-        }
+    // Add category modal
+    const [modal1, setModal] = useState(false);
+    const toggleCatgModal = () => {
+        setModal(!modal1);
+    };
+
+    if (modal1) {
+        document.body.classList.add('active-modal');
+    } else {
+        document.body.classList.remove('active-modal');
     }
 
+
+    // GSAP cdn for animation
+    useEffect(() => {
+        if (modal1) {
+            gsap.from(".add-category-modal", {
+                y: -50,
+                duration: 0.3,
+                opacity: 0,
+            });
+        }
+    }, [modal1]);
+
+
     return(
-        <div>
-            <div className={"manage-category-page"} id={"blur"}>
+        <section>
+            <div className={"manage-category-page"}>
                 <div className={"sidebar2"}>
                     <div className={"sidebar-brand2"}>
                         <h1> <span><TiHome /></span>Feast</h1>
@@ -61,9 +76,9 @@ const ManageCategory: React.FC = () => {
 
                     <div className={"sidebar-menu2"}>
                         <ul>
-                            <Link to={"/"}><li><a href={""}><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
-                            <li><a href={""} className={"active"}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li>
-                            <Link to={"/ManageItem"}><li><a href={""} ><span><FaBowlFood /></span> Manage Items</a></li></Link>
+                            <Link to={"/"}><li><a><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
+                            <li><a className={"active"}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li>
+                            <Link to={"/ManageItem"}><li><a ><span><FaBowlFood /></span> Manage Items</a></li></Link>
                         </ul>
                     </div>
 
@@ -92,7 +107,7 @@ const ManageCategory: React.FC = () => {
 
                     <main className={"main2"}>
                         <div className={"btn1"}>
-                            <button type={"button"} onClick={toggle}><span><IoIosAddCircle /></span>Add Category</button>
+                            <button type={"button"} onClick={toggleCatgModal}><span><IoIosAddCircle /></span>Add Category</button>
                         </div>
 
                         <div className={"table-container2"}>
@@ -105,7 +120,8 @@ const ManageCategory: React.FC = () => {
                                     <tr>
                                         <th className={"id-box2"}>Id</th>
                                         <th className={"name-box2"}>Name</th>
-                                        <th className={"action-box22"}>Action</th>
+                                        <th className={"edit-box2"}>Edit</th>
+                                        <th className={"delete-box2"}>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -118,13 +134,29 @@ const ManageCategory: React.FC = () => {
                 </div>
             </div>
 
-            <div id={"popup"}>
-                <h2>Lorem Ipsum is simply dummy text</h2>
-                <p>of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <a href={"#"} onClick={toggle}>Close</a>
-            </div>
-        </div>
-
+            {modal1 && (
+                <div className="add-category-modal">
+                    <div onClick={toggleCatgModal} className="add-category-overlay"></div>
+                    <div className="add-category-modal-content">
+                        <h2>#Addn Category</h2>
+                        <button className="close-add-category-btn" onClick={toggleCatgModal}>
+                            <FaRegWindowClose />
+                        </button>
+                        <div className={"category-id-number"}>
+                            <label>ID</label>
+                            <input type={"number"} placeholder={"Enter ID"}/>
+                        </div>
+                        <div className={"category-name"}>
+                            <label>Category Name</label>
+                            <input type={"text"} placeholder={"Enter Category Name"}/>
+                        </div>
+                        <div className={"category-name-add-btn"}>
+                            <button>Add</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </section>
     );
 };
 
