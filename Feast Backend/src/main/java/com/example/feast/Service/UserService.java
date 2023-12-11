@@ -1,4 +1,4 @@
-package com.example.feast1.Service;
+package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Repository.UserRepository;

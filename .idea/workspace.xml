@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2001cac8-c70b-4a04-a478-465f4ab5ecf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/FeastApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,26 +41,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/rezar/Documents/GitHub/Feast&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/rezar/Documents/GitHub/Feast",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.FeastApplication">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
@@ -119,7 +118,7 @@
       <workItem from="1702264193475" duration="858000" />
       <workItem from="1702267601971" duration="1017000" />
       <workItem from="1702302303652" duration="853000" />
-      <workItem from="1702303240024" duration="2923000" />
+      <workItem from="1702303240024" duration="3232000" />
     </task>
     <servers />
   </component>
