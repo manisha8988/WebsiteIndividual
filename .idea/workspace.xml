@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2001cac8-c70b-4a04-a478-465f4ab5ecf6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/FeastApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feast Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +66,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="HTTP Request.generated-requests | #1">
+  <component name="RunManager" selected="Spring Boot.FeastApplication">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
@@ -71,8 +79,22 @@
     <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="FeastApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Feast" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.feast.FeastApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.feast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.FeastApplication" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.All in generated-requests" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
@@ -96,7 +118,8 @@
       <workItem from="1702217537836" duration="387000" />
       <workItem from="1702264193475" duration="858000" />
       <workItem from="1702267601971" duration="1017000" />
-      <workItem from="1702302303652" duration="773000" />
+      <workItem from="1702302303652" duration="853000" />
+      <workItem from="1702303240024" duration="2923000" />
     </task>
     <servers />
   </component>

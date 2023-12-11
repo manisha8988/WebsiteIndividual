@@ -1,6 +1,6 @@
-package com.example.feast1.Controller;
+package com.example.feast.Controller;
 
-import com.example.feast1.Entity.User;
+import com.example.feast.Entity.User;
 import com.example.feast1.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

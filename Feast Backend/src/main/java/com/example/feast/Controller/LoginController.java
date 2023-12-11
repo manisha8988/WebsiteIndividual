@@ -1,4 +1,4 @@
-package LoginAdmin;
+package com.example.feast.Controller;
 
 import Entity.Login;
 import org.springframework.web.bind.annotation.PostMapping;
