@@ -4,6 +4,7 @@ import ManageCategory from "./pages/ManageCategory.tsx";
 import ManageItem from "./pages/ManageItem.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
 
 
 function App(){
@@ -15,6 +16,7 @@ function App(){
                 {path:"/manageitem",element:<ManageItem/>},
                 {path:"/LoginPage",element:<LoginPage/>},
                 {path:"/RegistrationPage",element:<RegistrationPage/>},
+                {path:"/ForgotPassword",element:<ForgotPassword/>}
 
             ])} />
         </>
