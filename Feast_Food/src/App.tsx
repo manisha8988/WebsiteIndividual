@@ -5,6 +5,7 @@ import ManageItem from "./pages/ManageItem.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
 import HomePage from "./pages/homePage.tsx";
+import UserProfileView from "./pages/UserProfileView.tsx";
 
 
 function App(){
@@ -17,6 +18,7 @@ function App(){
                 {path:"/LoginPage",element:<LoginPage/>},
                 {path:"/RegistrationPage",element:<RegistrationPage/>},
                 {path:"/",element:<HomePage/>},
+                {path:"/userprofileview",element:<UserProfileView/>},
             ])} />
         </>
     )
