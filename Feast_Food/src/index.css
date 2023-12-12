@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Bebas Neue', 'Alex Brush', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Bebas Neue', 'Alex Brush',Afacad, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.87);
@@ -14,10 +14,13 @@
     font-family: 'Bebas Neue';
     src: url("public/BebasNeue-Regular.ttf") format('truetype');
 }
-
 @font-face {
     font-family: Alex Brush;
     src: url("public/AlexBrush-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: Afacad;
+    src: url("../public/Afacad-VariableFont_wght.ttf") format('truetype');
 }
 
 table {
