@@ -3,6 +3,7 @@ import "../css/LoginPage.css"
 import { IoMdMail } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaWindowClose } from "react-icons/fa";
+import {Link} from "react-router-dom";
 // import { FaUser } from "react-icons/fa";
 
 
@@ -38,9 +39,8 @@ function LoginPage(){
                              {/*</div>*/}
                              <div className={"Login-register"}>
                                  <p>Don't have an account?
-                                 <a href={"#"} className={"register-link"}>Register</a>
+                                 <Link to={"/RegistrationPage"}><a href={"#"} className={"register-link"}>Register</a></Link>
                                  </p>
-
                              </div>
                          </form>
                      </div>

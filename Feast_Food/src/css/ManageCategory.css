@@ -6,12 +6,23 @@
     text-decoration: none;
 }
 
+
+.manage-category-page{
+    background: #f1f5f9;
+}
+
+/*.manage-category-page#blur.active{*/
+/*    filter: blur(2px);*/
+/*    pointer-events: none;*/
+/*    user-select: none;*/
+/*}*/
+
 .sidebar2{
     width: 22vw;
+    height: 98.6vh;
     position: fixed;
-    left: 4px;
+    left: 0.2rem;
     top: 5px;
-    height: 100%;
     background-color: #f3ad16;
     z-index: 100;
     border-radius: 10px;
@@ -52,24 +63,53 @@
 }
 
 .sidebar-menu2 a.active{
-    background: white;
+    background: #f1f5f9;
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: #f3ad16;
     border-radius: 30px 0 0 30px;
 }
 
+.sidebar-btn2{
+    padding: 0 0 0 1rem;
+}
+.sidebar-btn2 button{
+    width: 19vw;
+    background: #f1f5f9;
+    color: #f3ad16;
+    box-shadow: 10px 10px 10px -1px rgb(112, 80, 52);
+    position: absolute;
+    bottom: 3vh;
+    border-radius: 11px;
+}
+
+.sidebar-btn2 button:hover{
+    background: #443f39;
+    color: #f3ad16;
+    box-shadow: 10px 10px 10px -1px rgb(100, 89, 80);
+}
+
+.sidebar-btn2 span{
+    padding: 1.5rem 0.4rem 0 0 ;
+}
+
 .main-content2{
     margin-left: 22vw;
+    display: flex;
+    background: #f1f5f9;
 }
 
 header{
     display: flex;
+    width: 76.2vw;
     height: 12vh;
     justify-content: space-between;
     padding: 1rem 1.5rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    background-color: white;
+    margin-left: 0.5rem;
     z-index: 100;
+    position: fixed;
 }
 
 header h1{
@@ -79,6 +119,13 @@ header h1{
 header lable span{
     font-size: 1.7rem;
     padding-right: 1rem;
+}
+
+.main2{
+    margin-top: 12vh;
+    width: 77vw;
+    background: #f1f5f9;
+    padding-top: 1.5rem;
 }
 
 .search-wrapper2{
@@ -124,8 +171,9 @@ header lable span{
     height: 9vh;
     width: 100%;
     display: flex;
-    margin-top: -1rem;
     justify-content: right;
+    padding-right: 1.5rem;
+    border-radius: 12px;
 }
 
 button{
@@ -133,20 +181,19 @@ button{
     font-family: "Bebas Neue";
     font-weight: 500;
     padding: 5px 0 0 0 ;
-    /*margin: 30px;*/
     width: 15vw;
     height: 8vh;
     background: #f3ad16;
     cursor: pointer;
     border: none;
-    border-radius: 50px;
     color: #ffffff;
     box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);
+    border-radius: 12px;
 }
 
 button:hover{
-    background: #b28210;
-    color: white;
+    background: #443f39;
+    color: #f3ad16;
     box-shadow: 10px 10px 10px -1px rgba(238, 212, 164);
 }
 
@@ -155,22 +202,83 @@ button:hover{
 }
 
 .card-header2 h2{
-    margin: 1rem 0 -.5rem 1.6rem;
+    margin: -2rem 0 -.5rem 2.2rem;
     text-decoration: underline;
 }
 
-.id-box{
+.id-box2{
     min-width: 8rem;
     border: 1rem #000000;
 }
 
-.name-box{
-    min-width: 16rem;
+.name-box2{
+    min-width: 20rem;
 }
 
-.status-box{
-    min-width: 16rem;
+.edit-box2{
+    min-width: 12rem;
+}.delete-box2{
+    min-width: 12rem;
 }
-.edit-box{
-    min-width: 16rem;
+
+.edit-btn2, .delete-btn2{
+    padding: 6px 0 0 0 ;
+    width: 5vw;
+    height: 3vw;
+    border-radius: 10px;
+    margin: -1rem 1rem -1.2rem 2.3rem;
 }
+
+.delete-btn2:hover{
+    background: #443f39;
+    color: #b64646;
+    box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
+}
+
+/*css fro add-category-modal*/
+body.active-modal {
+    overflow-y: hidden;
+}
+.add-category-modal, .add-category-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(3px);
+}
+/*.add-category-overlay {*/
+/*    background: rgba(49,49,49,0.8);*/
+/*}*/
+.add-category-modal-content {
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    background: #dcdbdb; padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
+    width: 30vw;   height: 55vh;   z-index: 102;  text-decoration: underline;
+}
+.close-add-category-btn {
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
+}  .close-add-category-btn:hover{ box-shadow: none; color: #831515  }
+
+.category-id-number{
+    position: absolute;   top: 5.6rem;  font-size: 1.7rem;
+}
+.category-id-number input{
+    width: 25vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
+}
+.category-id-number label,.category-id-number input{
+    display: block;
+}
+.category-name{
+    position: absolute;  top: 12rem;
+    font-size: 1.7rem;
+}
+.category-name input{
+    width: 25vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+}
+.category-name label,.category-name input{
+    display: block;
+}
+.category-name-add-btn{
+    position: absolute; right: 2rem;  bottom: 1.5rem;
+}
+.category-name-add-btn button{
+    width: 7rem;  height: 3rem;
+}
+

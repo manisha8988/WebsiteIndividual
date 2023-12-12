@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::selection{
+    background: rgba(0, 0, 0, 0.72);
+    color: white;
+}
+.home-page{
+    background-color: rgba(0,0,0,.52);
+    background-image: url("../images/fresco-pizza-top.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.hp-first-div{
+
+}
+
+.nav-bar{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.93);
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: space-between;
+    height: 73px;
+    /*width: 100vw;*/
+}
+.feast-logo img{
+    margin: 0.5rem 0 0.5rem 1.2rem;
+}
+.home-options ul{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+    font-size: 1.25rem;
+    color: black;
+}
+.home-options a.active{
+    color: #f3ad16;
+}
+.home-options li{
+    color: black;
+}
+.home-options li:hover{
+    cursor: pointer;
+    color: #f3ad16;
+}
+.hp-sign-btn{
+    margin-right: 2rem;
+    display: flex;
+}
+.hp-sign-btn span{
+    color:black ;
+    font-size: 1.5rem;
+}
+.hp-sign-btn h3{
+    display: inline-block;
+    margin-left: 0.2rem;
+    color: black;
+    font-size: 1.3rem;
+}
+.hp-sign-btn:hover{
+    background-color: #f3ad16;
+}
+.feast-slogan{
+    display: flex;
+    position: absolute;
+    font-family: Alex Brush;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    top: 37%;
+    left: 26%;
+}   .feast-slogan h1{
+        font-weight: 800;
+        color: white;
+    }
+.hp-search-wrapper{
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: white;
+    height: 8vh;
+    width: 55vw;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    overflow-x: hidden;
+    top: 45%;
+    right: 21%;
+}
+.hp-search-wrapper span{
+    display: inline-block;
+    position: absolute;
+    right: 3%;
+    padding: 0.7rem 0 0 1rem;
+    font-size: 1.5rem;
+    width: 7%;
+    background-color: white;
+}  .hp-search-wrapper span:hover{
+       cursor: pointer;
+   }
+.hp-search-wrapper input{
+    height: 100%;
+    width: 100%;
+    padding: 0 2.5rem;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    font-family: "Afacad";
+    letter-spacing: 2px;
+
+}

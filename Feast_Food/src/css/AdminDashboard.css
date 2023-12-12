@@ -1,14 +1,13 @@
-@font-face {
-    font-family: 'Bebas Neue';
-    src: url("public/BebasNeue-Regular.ttf") format('truetype');
-}
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
+}
+
+.admin-dashboard-page{
+    background: #f1f5f9;
 }
 
 .sidebar{
@@ -59,15 +58,40 @@
 }
 
 .sidebar-menu a.active{
-    background: white;
+    background: #f1f5f9;
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: #f3ad16;
     border-radius: 30px 0 0 30px;
 }
 
+.sidebar-btn1{
+    padding: 0 0 0 1rem;
+}
+.sidebar-btn1 button{
+    width: 19vw;
+    background: #f1f5f9;
+    color: #f3ad16;
+    box-shadow: 10px 10px 10px -1px rgb(112, 80, 52);
+    position: absolute;
+    bottom: 3vh;
+    border-radius: 11px;
+}
+
+.sidebar-btn1 button:hover{
+    background: #443f39;
+    color: #f3ad16;
+    box-shadow: 10px 10px 10px -1px rgb(100, 89, 80);
+}
+
+.sidebar-btn1 span{
+    padding: 1.5rem 0.4rem 0 0 ;
+}
+
 .main-content{
     margin-left: 22vw;
+    display: flex;
+    background: #f1f5f9;
 }
 
 header{
@@ -127,8 +151,9 @@ header lable span{
     color: grey;
 }
 
-main{
-    margin-top: 2px;
+.main1{
+    margin-top: 12vh;
+    width: 77vw;
     padding: 2rem 1.5rem;
     background: #f1f5f9;
     min-height: 87vh;
