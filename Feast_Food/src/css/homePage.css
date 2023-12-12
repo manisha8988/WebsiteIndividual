@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 *::selection{
-    background: black;
+    background: rgba(0, 0, 0, 0.72);
     color: white;
 }
 .home-page{
