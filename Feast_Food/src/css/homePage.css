@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 *::selection{
-    background: black;
+    background: rgba(0, 0, 0, 0.72);
     color: white;
 }
 .home-page{
@@ -78,8 +78,8 @@
     top: 37%;
     left: 26%;
 }   .feast-slogan h1{
-    font-weight: 800;
-    color: white;
+        font-weight: 800;
+        color: white;
     }
 .hp-search-wrapper{
     border: 1px solid #ccc;
@@ -103,7 +103,7 @@
     width: 7%;
     background-color: white;
 }  .hp-search-wrapper span:hover{
-    cursor: pointer;
+       cursor: pointer;
    }
 .hp-search-wrapper input{
     height: 100%;
@@ -112,7 +112,6 @@
     border: none;
     outline: none;
     font-size: 1.3rem;
-    font-family: "Bebas Neue";
+    font-family: "Afacad";
     letter-spacing: 2px;
 }
-
