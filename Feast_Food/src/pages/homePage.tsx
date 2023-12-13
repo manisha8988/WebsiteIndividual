@@ -20,7 +20,7 @@ const HomePage = () => {
                             <ul>
                                 <li><a className={"active"}>Home</a></li>
                                 <Link to={"/Ourmenu"}><li><a>Our Menu</a></li></Link>
-                                <li><a>Reservation</a></li>
+                                <Link to={"/reservationpage"}><li><a>Reservation</a></li></Link>
                             </ul>
                         </div>
                         <div className={"hp-sign-btn"}>

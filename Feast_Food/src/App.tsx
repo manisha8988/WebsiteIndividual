@@ -8,6 +8,7 @@ import ForgotPassword from "./pages/ForgotPassword.tsx";
 import HomePage from "./pages/homePage.tsx";
 import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
+import ReservationPage from "./pages/reservationPage.tsx";
 
 
 function App(){
@@ -22,6 +23,7 @@ function App(){
                 {path:"/ForgotPassword",element:<ForgotPassword/>},
                 {path:"/",element:<HomePage/>},
                 {path:"/ourmenu",element:<OurMenu/>},
+                {path:"/reservationpage",element:<ReservationPage/>},
                 {path:"/userprofileview",element:<UserProfileView/>},
             ])} />
         </>

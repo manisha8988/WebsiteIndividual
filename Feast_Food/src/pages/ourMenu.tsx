@@ -49,7 +49,7 @@ const Resturant: React.FC<RestaurantProps> = () => {
                         <ul>
                             <Link to={"/"}><li><a>Home</a></li></Link>
                             <li><a className={"active"}>Our Menu</a></li>
-                            <li><a>Reservation</a></li>
+                            <Link to={"/ReservationPage"}><li><a>Reservation</a></li></Link>
                         </ul>
                     </div>
                     <div className={"hp-sign-btn"}>
