@@ -1,6 +1,7 @@
 import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
 import "../css/reservationPage.css"
+import toggleLoginModal from "./homePage.tsx"
 
 
 const ReservationPage = () =>{
@@ -18,7 +19,7 @@ const ReservationPage = () =>{
                     </ul>
                 </div>
                 <div className={"hp-sign-btn"}>
-                    <h3>Sign in</h3>
+                    <h3 onClick={toggleLoginModal}>Sign in</h3>
                 </div>
             </div>
         </>
