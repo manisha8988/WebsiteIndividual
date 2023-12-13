@@ -1,43 +1,27 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-.wrapper0{
-    width: 100vw;
-    height: 100vh;
-    background: url("src/images/pexels-ella-olsson-1640773.jpg");
-    background-size: cover;
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(300px);
-    /*overflow: hidden;*/
+/*css fro add-category-modal*/
+body.active-register-modal {
+    overflow-y: hidden;
 }
+.register-modal, .register-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(3px);
+}
+.register-modal-content {
+    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    background: #dcdbdb;
+    padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
+    width: 30vw;   height: 55vh;   z-index: 102;  text-decoration: underline;
+}
+.close-register-btn {
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
+}  .close-register-btn:hover{ box-shadow: none; color: #831515  }
 
-.form-box-registreation {
-    width: 20%;
-    padding: 50px;
-    /*background:#b28210;*/
-    backdrop-filter: blur(300px);
-    border-radius: 17px;
-    /*display: none;*/
+.login-text{
+    position: absolute;
+    bottom: 2%;  right: 2%;
 }
-
-.Login-register{
-    font-size: 1em;
-    color:#162938 ;
-    text-align: center;
-    font-weight: 500 ;
-    margin: 25px 0 10px;
-    
-}
-.Login-register a{
-    color: #162938;
-    text-decoration: none;
-}
-.Login-register p a:hover{
-    text-decoration: underline;
+.login-text:hover{
+    cursor: pointer;
 }
