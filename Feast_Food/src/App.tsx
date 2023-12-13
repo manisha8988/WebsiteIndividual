@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
 import HomePage from "./pages/homePage.tsx";
+import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
 
 
@@ -21,6 +22,7 @@ function App(){
                 {path:"/ForgotPassword",element:<ForgotPassword/>},
                 {path:"/",element:<HomePage/>},
                 {path:"/ourmenu",element:<OurMenu/>},
+                {path:"/userprofileview",element:<UserProfileView/>},
             ])} />
         </>
     )
