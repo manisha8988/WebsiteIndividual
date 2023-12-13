@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2001cac8-c70b-4a04-a478-465f4ab5ecf6" name="Changes" comment="" />
+    <list default="true" id="2001cac8-c70b-4a04-a478-465f4ab5ecf6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Feast Backend/src/main/java/com/example/feast/Service/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,15 +40,25 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Rijan",
     "last_opened_file_path": "C:/Users/rezar/Documents/GitHub/Feast/Feast Backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "C:\\Users\\rijan\\IdeaProjects\\Feast\\Feast_Food\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="RestAPIRunner" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Feast" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.feast.RestAPIRunner.RestAPIRunner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
