@@ -6,7 +6,6 @@ import LoginPage from "./pages/LoginPage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
 import HomePage from "./pages/homePage.tsx";
-import ourMenu from "./pages/ourMenu.tsx";
 import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
 
