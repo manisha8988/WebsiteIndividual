@@ -105,7 +105,7 @@
 }  .hp-search-wrapper span:hover{
        cursor: pointer;
    }
-.hp-search-wrapper input{
+.hp-search-wrapper input {
     height: 100%;
     width: 100%;
     padding: 0 2.5rem;
@@ -114,5 +114,4 @@
     font-size: 1.3rem;
     font-family: "Afacad";
     letter-spacing: 2px;
-
 }

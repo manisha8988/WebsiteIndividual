@@ -1,6 +1,6 @@
-package com.example.feast1.Repository;
+package com.example.feast.Repository;
 
-import com.example.feast1.Entity.User;
+import com.example.feast.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

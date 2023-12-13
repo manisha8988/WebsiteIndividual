@@ -1,7 +1,7 @@
-package com.example.feast1.Service;
+package com.example.feast.Service;
 
-import com.example.feast1.Entity.User;
-import com.example.feast1.Repository.UserRepository;
+import com.example.feast.Entity.User;
+import com.example.feast.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
