@@ -39,7 +39,7 @@ function UserProfileView(){
                 </div>
                 <div className={"login_button"}>
                     <button >
-                        Login.
+                        Login
                     </button>
                 </div>
             </form>
