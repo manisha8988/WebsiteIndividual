@@ -1,7 +1,7 @@
 package com.example.feast.Controller;
 
 import com.example.feast.Entity.User;
-import com.example.feast.Service.UserService;
+import com.example.feast1.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
