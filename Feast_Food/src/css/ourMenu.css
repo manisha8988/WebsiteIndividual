@@ -221,10 +221,6 @@
     color: black;
     font-size: 1.3rem;
 }
-.hp-sign-btn:hover{
-    background-color: #f3ad16;
-}
-
 .menu-page-div{
     background-image: url("../images/bg-image3.jpeg");
     background-attachment: fixed;

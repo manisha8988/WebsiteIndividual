@@ -53,8 +53,11 @@
     color: #f3ad16;
 }
 .hp-sign-btn{
-    margin-right: 2rem;
+    /*margin-right: 0.1rem;*/
     display: flex;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    border: 1.3px solid rgba(255, 255, 255, 0);
 }
 .hp-sign-btn span{
     color:black ;
@@ -67,7 +70,8 @@
     font-size: 1.3rem;
 }
 .hp-sign-btn:hover{
-    background-color: #f3ad16;
+    /*background-color: #f3ad16;*/
+    border: 1.3px solid black;
 }
 .feast-slogan{
     display: flex;
