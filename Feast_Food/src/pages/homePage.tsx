@@ -43,6 +43,10 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className={"hp-second-div"}>
+                    second div
+                </div>
             </div>
         </>
     )
