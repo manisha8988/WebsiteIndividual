@@ -1,7 +1,7 @@
 import "../css/homePage.css"
 import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png"
 import {FaSearch} from "react-icons/fa";
-import { MdOutlinePeople } from "react-icons/md";
+// import { MdOutlinePeople } from "react-icons/md";
 import {Link} from "react-router-dom";
 
 
@@ -20,13 +20,11 @@ const HomePage = () => {
                             <ul>
                                 <li><a className={"active"}>Home</a></li>
                                 <Link to={"/Ourmenu"}><li><a>Our Menu</a></li></Link>
-                                <li><a>Contact</a></li>
-                                {/*<li><a>History</a></li>*/}
+                                <li><a>Reservation</a></li>
                             </ul>
                         </div>
                         <div className={"hp-sign-btn"}>
                             <Link to={"/LoginPage"}>
-                                <span><MdOutlinePeople /></span>
                                 <h3>Sign in</h3>
                             </Link>
                         </div>
