@@ -4,7 +4,7 @@ import Menu from "./menuPage/menuApi.tsx";
 import MenuCard from "./menuPage/menuCard.tsx";
 import Navbar from "./menuPage/menuNavbar.tsx";
 import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png"
-import { MdOutlinePeople } from "react-icons/md";
+// import { MdOutlinePeople } from "react-icons/md";
 import {Link} from "react-router-dom";
 
 const uniqueList: string[] = [
@@ -49,13 +49,11 @@ const Resturant: React.FC<RestaurantProps> = () => {
                         <ul>
                             <Link to={"/"}><li><a>Home</a></li></Link>
                             <li><a className={"active"}>Our Menu</a></li>
-                            <li><a>Contact</a></li>
-                            {/*<li><a>History</a></li>*/}
+                            <Link to={"/ReservationPage"}><li><a>Reservation</a></li></Link>
                         </ul>
                     </div>
                     <div className={"hp-sign-btn"}>
                         <Link to={"/LoginPage"}>
-                            <span><MdOutlinePeople /></span>
                             <h3>Sign in</h3>
                         </Link>
                     </div>

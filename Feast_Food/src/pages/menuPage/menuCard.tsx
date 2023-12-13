@@ -24,7 +24,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ menuData }) => {
                                 <h2 className="menu-card-title"> {curElem.name} </h2>
                                 <h4 className="menu-card-price subtle">{curElem.price}</h4>
                             </div>
-                            <span className="menu-card-tag subtle">Order Now</span>
+                            <span className="menu-card-tag subtle">Add to Cart</span>
                         </div>
                     </div>
                 ))}

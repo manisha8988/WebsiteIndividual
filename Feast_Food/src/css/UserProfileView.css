@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.user_profile_main{
+    margin-top: 4em;
+    width: 20%;
+    padding: 50px;
+    border-radius: 17px;
+    display:flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: row;
+    position: absolute;
+    right: 2%;
+    background-color: darkgrey;
+}
+.my_profile{
+    font-family: "Times New Roman";
+    font-weight: bold;
+    font-size: 1em;
+}
+.cross-icon{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+.cross-icon button{
+    width: 2vw;
+    height: 2vw;
+    background-color: transparent;
+    box-shadow: none;
+    color: #000000;
+}
+.cross-icon button:hover{
+    color: black;
+    box-shadow: none;
+}
+.order_history button{
+    font-family: "Times New Roman";
+    width: 8vw;
+    height: 2vw;
+    padding-bottom: 4rem;
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+.user_icon span{
+    align-items: center;
+    justify-content: center;
+    padding-left: 4.5vw;
+
+}
+.name .name-box{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.name .email-box{
+    margin-bottom: 1em;
+}
+my_profile h1{
+    align-content: center;
+}
