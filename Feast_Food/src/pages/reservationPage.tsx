@@ -18,9 +18,7 @@ const ReservationPage = () =>{
                     </ul>
                 </div>
                 <div className={"hp-sign-btn"}>
-                    <Link to={"/LoginPage"}>
-                        <h3>Sign in</h3>
-                    </Link>
+                    <h3>Sign in</h3>
                 </div>
             </div>
         </>
