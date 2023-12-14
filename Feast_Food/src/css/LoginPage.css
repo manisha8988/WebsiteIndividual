@@ -1,165 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*css fro add-category-modal*/
+body.active-login-modal {
+    overflow-y: hidden;
 }
-
-.wrapper{
+.login-modal, .login-overlay {
     width: 100vw;
     height: 100vh;
-    background: url("src/images/pexels-ella-olsson-1640773.jpg");
-    background-size: cover;
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(300px);
-    /*overflow: hidden;*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 101;
+    /*backdrop-filter: blur(3px);*/
 }
-
-.wrapper .Icon-close{
-    position:absolute ;
-    top: 15%;
-    /*right: %;*/
-    display: flex;
-    justify-content:  center;
-    align-items: center;
+.login-modal-content{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #dcdbdb;
+    /*backdrop-filter: blur(100px);*/
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 27vw;
+    height: 65vh;
+    z-index: 102;
+    text-decoration: underline;
 }
-
-.form-box-login {
-    width: 30vw;
-    padding: 50px;
-    /*background:#b28210;*/
-    backdrop-filter: blur(300px);
-    border-radius: 17px;
-    /*display: none;*/
-}
-
-.form-box-login h1{
-    position: relative;
-    font-size:  30px;
-    color: black;
+.login-modal-content h2{
+    font-size: 2rem;
+    color: #162938;
     text-align: center;
 }
-/*login ko tala ko line ko edition*/
-.form-box-login h1::after{
-    content: '';
-    width: 4vw;
-    height: 0.5vh;
-    border-radius: 4px;
-    background: black;
+.input-box .username, .password{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid#162938;
+    margin: 30px 0;
+}
+.input-box label{
     position: absolute;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #162938;
+    pointer-events: none;
 }
-.input-box{
-    position: relative;
-    /*width:14vw;*/
-    height: 9vh;
-    border-bottom: 2px solid #162938;
-    margin:  30px 0;
-    left: 2%;
-}
-
-.iconemail{
-    position: relative;
-    left: 90%;
-    top: 40%;
-}
-.iconpassword{
-    position: relative;
-    left: 90%;
-    top: 35%;
-}.iconuser{
-    position: relative;
-    left: 90%;
-    top: 35%;
-}
-
-
-.Email{
-    color: black;
-    position: absolute;
-    right: 19%;
-    top: 40%;
-
-    /*left: 0%;*/
-}.Password{
-    color: black;
-    position: absolute;
-    right: 19%;
-     top: 40%;
-
-     /*left: 0%;*/
-}
-
-.input-box input:focus~label{
-    top:-5%;
-}
+.input-box input:focus~label,
 .input-box input:valid~label{
-    top: -5%;
+    top: -5px;
 }
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.input-box .iconmail, .iconpassword{
+    position: absolute;
+    right: 30px;
+    font-size: 1.2rem;
+    color: #162938;
+    line-height: 57px;
 
-
-.input-box input{
-    width:100% ;
-    height:100% ;
-    background:  transparent;
-    border:  none;
-    outline:  none;
 }
 .Remember-forget{
-    font-size:smaller;
-    color: #162938;
-    font-weight: 500;
-    margin: -15px 0 18px;
-    display: flex;
-    justify-content: space-between;
-}
-.Remember-forget label input{
-    accent-color: #162938;
-    margin-right: 3px;
-}
-.Remember-forget a{
-    color: #162938;
-    text-decoration: none;
-}
-.Remember-forget a:hover{
-    text-decoration: underline;
-}
-.Checkbox{
 
 }
-.btn-login1{
-    font-size: 1rem;
-    font-family: "Bebas Neue";
-    font-weight: 500;
-    padding: 2px 9px 0 13px  ;
-    width: 13vw;
-    height: 6vh;
-    cursor: pointer;
-    border: none;
-    background: #a6d786;
-}
 
-.btn-login1:hover{
-
+.close-login-btn {
+    width: 3vw;
+    height: 3vw;
+    background: none;
     box-shadow: none;
-    box-shadow: 10px 10px 10px -1px rgba(54, 75, 58, 0.16);
+    color: #222222;
+    border-radius: 9px;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
 }
+.close-login-btn:hover{
+    box-shadow: none;
+    color: #831515  }
 
-.Login-register{
-    font-size: 1em;
-    color:#162938 ;
-    text-align: center;
-    font-weight: 500 ;
-    margin: 25px 0 10px;;
+.register-text{
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
 }
-.Login-register a{
-    color: #162938;
-    text-decoration: none;
-}
-.Login-register p a:hover{
-    text-decoration: underline;
+.register-text:hover{
+    cursor: pointer;
 }

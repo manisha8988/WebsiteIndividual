@@ -225,7 +225,6 @@
     background-image: url("../images/bg-image3.jpeg");
     background-attachment: fixed;
     background-size: cover;
-
 }
 
 .menu-contents{
@@ -242,6 +241,7 @@
 .check-out-container h2{
     font-family: "Alex Brush";
     font-size: 3vw;
+    color: #f3ad16;
 }
 .check-out-container h1{
     font-family: "Bebas Neue";
