@@ -4,23 +4,97 @@ body.active-login-modal {
     overflow-y: hidden;
 }
 .login-modal, .login-overlay {
-    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
-    backdrop-filter: blur(3px);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 101;
+    /*backdrop-filter: blur(3px);*/
 }
-.login-modal-content {
-    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+.login-modal-content{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
     background: #dcdbdb;
-    padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 30vw;   height: 55vh;   z-index: 102;  text-decoration: underline;
+    /*backdrop-filter: blur(100px);*/
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 27vw;
+    height: 65vh;
+    z-index: 102;
+    text-decoration: underline;
 }
+.login-modal-content h2{
+    font-size: 2rem;
+    color: #162938;
+    text-align: center;
+}
+.input-box .username, .password{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid#162938;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #162938;
+    pointer-events: none;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.input-box .iconmail, .iconpassword{
+    position: absolute;
+    right: 30px;
+    font-size: 1.2rem;
+    color: #162938;
+    line-height: 57px;
+
+}
+.Remember-forget{
+
+}
+
 .close-login-btn {
-    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
-    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
-}  .close-login-btn:hover{ box-shadow: none; color: #831515  }
+    width: 3vw;
+    height: 3vw;
+    background: none;
+    box-shadow: none;
+    color: #222222;
+    border-radius: 9px;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
+}
+.close-login-btn:hover{
+    box-shadow: none;
+    color: #831515  }
 
 .register-text{
     position: absolute;
-    bottom: 2%;  right: 2%;
+    bottom: 2%;
+    right: 2%;
 }
 .register-text:hover{
     cursor: pointer;

@@ -5,6 +5,7 @@ import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {IoMdMail} from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
 import gsap from "gsap";
 import "../css/LoginPage.css"
 import "../css/RegistrationPage.css"
@@ -36,8 +37,8 @@ const HomePage = () => {
             if (modalClass) {
                 gsap.from(`.${modalClass}`, {
                     duration: 0.3,
-                    opacity: 0,
-                    onComplete: () => {
+                        opacity: 0,
+                        onComplete: () => {
                         // Callback when the animation is complete
                         if (login_popup) {
                             document.body.classList.add('active-login-modal');
@@ -100,15 +101,26 @@ const HomePage = () => {
                         </button>
 
                         <div className={"input-box"}>
-                            <span className={"iconemail"}> <IoMdMail /></span>
-                            <div className={"Email"}>
-                                <input type={"email"} placeholder={"Email"}   />
+                            <span className={"iconmail"}> <IoMdMail /></span>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Username"}   />
                             </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <div className={"password"}>
+                                    <input type={"password"} placeholder={"Password"}/></div>
+
+                        </div>
+                        <div className={"Remember-forget"}>
+                            <label><input type={"checkbox"}/> Remember Me</label>
+                            <a href={"#"}>Forget Password</a>
+                        </div>
+                        <button type={"submit"} className={"btn-login10"} >Login</button>
+                        <div className={"register-text"}>
+                            <p> Don't have an account?</p>
+                            <a href={"#"} onClick={toggleRegisterModal}>Register</a>
                         </div>
 
-                        <div className={"register-text"}>
-                            <h4 onClick={toggleRegisterModal}>Register</h4>
-                        </div>
+
 
                     </div>
                 </div>
@@ -124,10 +136,19 @@ const HomePage = () => {
                         </button>
 
                         <div className={"input-box"}>
-                            <span className={"iconemail"}> <IoMdMail /></span>
-                            <div className={"Email"}>
-                                <input type={"email"} placeholder={"Email"}   />
+                            <span className={"iconmail"}> <IoMdMail /></span>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Username"}   />
                             </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                            <div className={"password"}>
+                                <input type={"password"} placeholder={"Password"}/>
+                            </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                            <div className={"password"}>
+                                <input type={"password"} placeholder={"feri password lekh"}/>
+                            </div>
+
                         </div>
 
                         <div className={"login-text"}>
