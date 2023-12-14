@@ -1,11 +1,59 @@
 import "../css/homePage.css"
 import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png"
-import {FaSearch} from "react-icons/fa";
-import { MdOutlinePeople } from "react-icons/md";
+import {FaRegWindowClose, FaSearch} from "react-icons/fa";
+// import { MdOutlinePeople } from "react-icons/md";
 import {Link} from "react-router-dom";
-
+import {useEffect, useState} from "react";
+import {IoMdMail} from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
+import gsap from "gsap";
+import "../css/LoginPage.css"
+import "../css/RegistrationPage.css"
 
 const HomePage = () => {
+
+    // Login modal
+    const [login_popup, setLModal] = useState(false);
+    const toggleLoginModal = () => {
+        setLModal(!login_popup);
+        setRPopup(false); // Close the registration modal
+    };
+
+    // Registration modal
+    const [register_popup, setRPopup] = useState(false);
+    const toggleRegisterModal = () => {
+        setRPopup(!register_popup);
+        setLModal(false); // Close the login modal
+    };
+
+    if (login_popup || register_popup) {
+        document.body.classList.add('active-modal');
+    } else {
+        document.body.classList.remove('active-modal');
+    }
+
+    useEffect(() => {
+        const modalAnimation = (modalClass: string | null) => {
+            if (modalClass) {
+                gsap.from(`.${modalClass}`, {
+                    duration: 0.3,
+                        opacity: 0,
+                        onComplete: () => {
+                        // Callback when the animation is complete
+                        if (login_popup) {
+                            document.body.classList.add('active-login-modal');
+                        } else if (register_popup) {
+                            document.body.classList.add('active-register-modal');
+                        }
+                    },
+                });
+            }
+        };
+
+        modalAnimation(login_popup ? "login-modal" : (register_popup ? "register-modal" : null));
+
+    }, [login_popup, register_popup]);
+
 
 
     return(
@@ -20,15 +68,11 @@ const HomePage = () => {
                             <ul>
                                 <li><a className={"active"}>Home</a></li>
                                 <Link to={"/Ourmenu"}><li><a>Our Menu</a></li></Link>
-                                <li><a>Contact</a></li>
-                                {/*<li><a>History</a></li>*/}
+                                <Link to={"/reservationpage"}><li><a>Reservation</a></li></Link>
                             </ul>
                         </div>
                         <div className={"hp-sign-btn"}>
-                            <Link to={"/LoginPage"}>
-                                <span><MdOutlinePeople /></span>
-                                <h3>Sign in</h3>
-                            </Link>
+                            <h3 onClick={toggleLoginModal}>Sign in</h3>
                         </div>
                     </div>
                     <div className={"hp-main-container"}>
@@ -36,9 +80,7 @@ const HomePage = () => {
                             <h1>Savor the flavor Straight to your door.</h1>
                         </div>
                         <div className={"hp-search-wrapper"}>
-
                             <input type={"search"} placeholder={"Search Your Food Here..."}/>
-
                             <span><FaSearch/></span>
                         </div>
                     </div>
@@ -48,6 +90,74 @@ const HomePage = () => {
                     second div
                 </div>
             </div>
+
+            {login_popup && (
+                <div className="login-modal">
+                    <div onClick={toggleLoginModal} className="login-overlay"></div>
+                    <div className="login-modal-content">
+                        <h2>Login</h2>
+                        <button className="close-login-btn" onClick={toggleLoginModal}>
+                            <FaRegWindowClose />
+                        </button>
+
+                        <div className={"input-box"}>
+                            <span className={"iconmail"}> <IoMdMail /></span>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Username"}   />
+                            </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <div className={"password"}>
+                                    <input type={"password"} placeholder={"Password"}/></div>
+
+                        </div>
+                        <div className={"Remember-forget"}>
+                            <label><input type={"checkbox"}/> Remember Me</label>
+                            <a href={"#"}>Forget Password</a>
+                        </div>
+                        <button type={"submit"} className={"btn-login10"} >Login</button>
+                        <div className={"register-text"}>
+                            <p> Don't have an account?</p>
+                            <a href={"#"} onClick={toggleRegisterModal}>Register</a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            )}
+
+            {register_popup && (
+                <div className="register-modal">
+                    <div onClick={toggleRegisterModal} className="register-overlay"></div>
+                    <div className="register-modal-content">
+                        <h2>Register</h2>
+                        <button className="close-register-btn" onClick={toggleRegisterModal}>
+                            <FaRegWindowClose />
+                        </button>
+
+                        <div className={"input-box"}>
+                            <span className={"iconmail"}> <IoMdMail /></span>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Username"}   />
+                            </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                            <div className={"password"}>
+                                <input type={"password"} placeholder={"Password"}/>
+                            </div>
+                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                            <div className={"password"}>
+                                <input type={"password"} placeholder={"feri password lekh"}/>
+                            </div>
+
+                        </div>
+
+                        <div className={"login-text"}>
+                            <h4 onClick={toggleLoginModal}>Login</h4>
+                        </div>
+
+                    </div>
+                </div>
+            )}
         </>
     )
 }

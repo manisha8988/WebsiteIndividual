@@ -68,8 +68,11 @@ body, html {
     color: #f3ad16;
 }
 .hp-sign-btn{
-    margin-right: 2rem;
+    /*margin-right: 0.1rem;*/
     display: flex;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    border: 1.3px solid rgba(255, 255, 255, 0);
 }
 .hp-sign-btn span{
     color:black ;
@@ -82,7 +85,8 @@ body, html {
     font-size: 1.3rem;
 }
 .hp-sign-btn:hover{
-    background-color: #f3ad16;
+    color: #f3ad16;
+    border: 1.3px solid black;
 }
 .feast-slogan{
     display: flex;
@@ -120,7 +124,7 @@ body, html {
 }  .hp-search-wrapper span:hover{
        cursor: pointer;
    }
-.hp-search-wrapper input {
+.hp-search-wrapper input{
     height: 100%;
     width: 100%;
     padding: 0 2.5rem;
