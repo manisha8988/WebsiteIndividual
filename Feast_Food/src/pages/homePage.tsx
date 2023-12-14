@@ -9,6 +9,8 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import gsap from "gsap";
 import "../css/LoginPage.css"
 import "../css/RegistrationPage.css"
+import "../css/UserProfileView.css"
+
 
 const HomePage = () => {
 

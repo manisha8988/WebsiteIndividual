@@ -52,11 +52,45 @@
     color: black;
     font-size: 1.3rem;
 }
-.dropdown button{
-    background-color: transparent;
-    color: black;
-    box-shadow: none;
-    left: 40%;
+.select-day{
+    font-family: Bebas Neue;
+    font-size: 20px;
+    position: relative;
+    width:32vw;
+    height: 3vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #162938;
+    margin:  30px 0;
+    content: '';
+    top: 24%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+    background: transparent;
+    color:  rgb(133, 133, 133);
+}
+.select-hour{
+    font-family: Bebas Neue;
+    font-size: 20px;
+    position: relative;
+    width:32vw;
+    height: 3vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #162938;
+    margin:  30px 0;
+    content: '';
+    top: 24%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+    background: transparent;
+    color:  rgb(133, 133, 133);
 }
 .reservation h2{
     display: flex;
@@ -81,19 +115,20 @@
 .info-reservation{
     display: flex;
     flex-direction: column;
-    left: 45%;
+    left: 37%;
+    position: absolute;
+    top: 30%;
 }
-.info-reservation .name_input{
-
+.info-reservation .name_input, .phno_input, .no_of_people_input{
     font-family: Bebas Neue;
     font-size: 20px;
     position: relative;
-    width:30vw;
-    height: 5vh;
+    width:32vw;
+    height: 3vh;
     border-top: none;
     border-right: none;
     border-left: none;
-    border-bottom: 2px solid #162938;
+    border-bottom: 1px solid #162938;
     margin:  30px 0;
     content: '';
     top: 24%;
@@ -101,43 +136,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding-left: 10px;
-}
-.info-reservation .phno_input{
-
-    font-family: Bebas Neue;
-    padding-left: 10px;
-    font-size: 20px;
-    position: relative;
-    width:30vw;
-    height: 5vh;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 2px solid #162938;
-    margin:  30px 0;
-    content: '';
-    top: 24%;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.info-reservation .no_of_people_input{
-    font-family: Bebas Neue;
-    padding-left: 10px;
-    font-size: 20px;
-    position: relative;
-    width:30vw;
-    height: 5vh;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 2px solid #162938;
-    margin:  30px 0;
-    content: '';
-    top: 15%;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
+    background: transparent;
 }
 .reserv-container{
     position: absolute;

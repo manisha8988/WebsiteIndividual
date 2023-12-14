@@ -1,8 +1,8 @@
-import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
+import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
-import "../css/reservationPage.css";
+import "../../css/reservationPage.css";
 import Dropdown from "./dropDown.tsx";
-
+import Hour from "./hour.tsx";
 
 
 const ReservationPage = () =>{
@@ -31,13 +31,15 @@ const ReservationPage = () =>{
                 <div className={"reservation"}>
                     <h2>Reservations</h2>
                     <h1>Book a table</h1>
+                    <div className={"info-reservation"}>
+                        <input type={"text"} className={"name_input"} placeholder={"Name"}/>
+                        <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
+                        <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
+                        <Dropdown/>
+                        <Hour/>
+                    </div>
                 </div>
-                <div className={"info-reservation"}>
-                    <input type={"text"} className={"name_input"} placeholder={"Name"}/>
-                    <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
-                    <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
-                    <Dropdown/>
-                </div>
+
             </div>
 
         {/*</div>*/}

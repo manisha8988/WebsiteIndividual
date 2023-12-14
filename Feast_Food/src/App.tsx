@@ -6,7 +6,9 @@ import ForgotPassword from "./pages/ForgotPassword.tsx";
 import HomePage from "./pages/homePage.tsx";
 import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
-import ReservationPage from "./pages/reservationPage.tsx";
+import ReservationPage from "./pages/reservation/reservationPage.tsx";
+import Payment from "./pages/payment.tsx";
+import Homedelivery from "./pages/homedelivery.tsx";
 
 
 function App(){
@@ -21,6 +23,8 @@ function App(){
                 {path:"/ourmenu",element:<OurMenu/>},
                 {path:"/reservationpage",element:<ReservationPage/>},
                 {path:"/userprofileview",element:<UserProfileView/>},
+                {path:"/payment",element:<Payment/>},
+                {path:"/homedelivery",element:<Homedelivery/>},
             ])} />
         </>
     )
