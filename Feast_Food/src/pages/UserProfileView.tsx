@@ -11,7 +11,6 @@ function UserProfileView(){
                     <span>
                         <RxCross2 />
                     </span>
-
                 </button>
             </div>
             <div className={"my_profile"}>
@@ -22,8 +21,8 @@ function UserProfileView(){
                     <span >
                         <IoPersonCircleOutline size={100} />
                     </span>
-
                 </div>
+
                 <div className={"name"}>
                     <p className={"name-box"}>
                         Name :
@@ -32,11 +31,13 @@ function UserProfileView(){
                         Email :
                     </p>
                 </div>
+
                 <div className={"order_history"}>
                     <button >
                         Order History
                     </button>
                 </div>
+
                 <div className={"login_button"}>
                     <button >
                         Login
