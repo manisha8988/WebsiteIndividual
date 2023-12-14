@@ -1,7 +1,7 @@
 import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {FaRegWindowClose} from "react-icons/fa";
+import {FaCartArrowDown, FaRegWindowClose} from "react-icons/fa";
 import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
@@ -62,7 +62,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         <>
             <div className={"nav-bar"}>
                 <div className={"feast-logo"}>
-                    <img src={logo} width={"55rem"} />
+                    <img src={logo} width={"54rem"} />
                 </div>
                 <div className={"home-options"}>
                     <ul>
@@ -71,9 +71,14 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         <Link to={"/reservationpage"}><li className={activePage === "/reservationpage" ? "active" : ""}><a>Reservation</a></li></Link>
                     </ul>
                 </div>
-                <div className={"hp-sign-btn"}>
-                    <h3 onClick={toggleLoginModal}>Sign in</h3>
+
+                <div className={"hp-navright"}>
+                    <span className={"icon-cart"}><FaCartArrowDown /></span>
+                    <div className={"hp-sign-btn"}>
+                        <h3 onClick={toggleLoginModal}>Sign in</h3>
+                    </div>
                 </div>
+
             </div>
 
 

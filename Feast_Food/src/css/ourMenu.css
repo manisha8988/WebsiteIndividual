@@ -188,6 +188,7 @@
     background-image: url("../images/bg-image3.jpeg");
     background-attachment: fixed;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 .menu-contents{

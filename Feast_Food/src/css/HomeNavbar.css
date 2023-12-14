@@ -5,10 +5,12 @@
     align-items: center;
     justify-content: space-between;
     height: 73px;
+    overflow-x: hidden;
     /*width: 100vw;*/
 }
+
 .feast-logo img{
-    margin: 0.5rem 0 0.5rem 1.2rem;
+    margin: 0 0 0 1.2rem;
 }
 .home-options ul{
     display: flex;
@@ -30,24 +32,37 @@
     cursor: pointer;
     color: #f3ad16;
 }
+.hp-navright{
+    display: flex;
+    flex-direction: row;
+}
+.hp-navright span{
+    padding-top: 0.45rem;
+    width: 2rem;
+    /*background: #b72323;*/
+    font-size: 1.3rem;
+}
+.hp-navright span:hover{
+    cursor: pointer;
+    color: #f3ad16;
+}
 .hp-sign-btn{
     display: flex;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.3rem;
     border-radius: 6px;
     border: 1.3px solid rgba(255, 255, 255, 0);
+    margin-right: 1rem;
 }
-.hp-sign-btn span{
-    color:black ;
-    font-size: 1.5rem;
-}
+.hp-sign-btn:hover{
+     color: #f3ad16;
+     border: 1.3px solid black;
+     cursor: pointer;
+ }
 .hp-sign-btn h3{
     display: inline-block;
     margin-left: 0.2rem;
     color: black;
     font-size: 1.3rem;
-}
-.hp-sign-btn:hover{
+}.hp-sign-btn h3:hover{
     color: #f3ad16;
-    border: 1.3px solid black;
-    cursor: pointer;
-}
+ }
