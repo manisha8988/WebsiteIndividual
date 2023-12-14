@@ -26,6 +26,7 @@ function AdminDashboard(){
                             <li><a href={""} className={"active"}><span> <AiFillAccountBook /></span>Dashboard</a></li>
                             <Link to={"/ManageCategory"}><li><a href={""}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li></Link>
                             <Link to={"/ManageItem"}><li><a href={""}><span><FaBowlFood /></span>Manage Items</a></li></Link>
+
                         </ul>
                     </div>
 

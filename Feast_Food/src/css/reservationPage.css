@@ -1,3 +1,12 @@
+.reservation{
+    background-image: url("src/images/reserv_bg.jpg");
+    background-color: rgba(0,0,0,.52);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
 .reserv-nav-bar{
     display: flex;
     background-color: rgba(255, 255, 255, 0.54);
@@ -42,4 +51,95 @@
     margin-left: 0.2rem;
     color: black;
     font-size: 1.3rem;
+}
+.dropdown button{
+    background-color: transparent;
+    color: black;
+    box-shadow: none;
+    left: 40%;
+}
+.reservation h2{
+    display: flex;
+    color: #a97959;
+    position: absolute;
+    font-family: Alex Brush;
+    font-size: 3vw;
+    font-weight: 900;
+    letter-spacing: 1px;
+    top: 8%;
+    left: 45%;
+}
+.reservation h1{
+    display: flex;
+    position: absolute;
+    font-family: Bebas Neue;
+    font-size: 4rem;
+    letter-spacing: 6px;
+    top: 15%;
+    left: 40%;
+}
+.info-reservation{
+    display: flex;
+    flex-direction: column;
+    left: 45%;
+}
+.info-reservation .name_input{
+
+    font-family: Bebas Neue;
+    font-size: 20px;
+    position: relative;
+    width:30vw;
+    height: 5vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #162938;
+    margin:  30px 0;
+    content: '';
+    top: 24%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+}
+.info-reservation .phno_input{
+
+    font-family: Bebas Neue;
+    padding-left: 10px;
+    font-size: 20px;
+    position: relative;
+    width:30vw;
+    height: 5vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #162938;
+    margin:  30px 0;
+    content: '';
+    top: 24%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.info-reservation .no_of_people_input{
+    font-family: Bebas Neue;
+    padding-left: 10px;
+    font-size: 20px;
+    position: relative;
+    width:30vw;
+    height: 5vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #162938;
+    margin:  30px 0;
+    content: '';
+    top: 15%;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.reserv-container{
+    position: absolute;
+
 }
