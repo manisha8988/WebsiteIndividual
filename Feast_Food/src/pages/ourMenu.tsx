@@ -3,9 +3,8 @@ import "../css/ourMenu.css";
 import Menu from "./menuPage/menuApi.tsx";
 import MenuCard from "./menuPage/menuCard.tsx";
 import Navbar from "./menuPage/menuNavbar.tsx";
-import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png"
-// import { MdOutlinePeople } from "react-icons/md";
-import {Link} from "react-router-dom";
+import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
+import {useLocation} from "react-router-dom";
 
 const uniqueList: string[] = [
     ...new Set(
@@ -16,11 +15,15 @@ const uniqueList: string[] = [
     "All",
 ];
 
-console.log(uniqueList);
+// console.log(uniqueList);
 
 interface RestaurantProps {}
 
-const Resturant: React.FC<RestaurantProps> = () => {
+const OurMenu: React.FC<RestaurantProps> = () => {
+
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
     const [menuData, setMenuData] = useState(Menu);
     const [menuList] = useState<string[]>(uniqueList);
 
@@ -41,22 +44,7 @@ const Resturant: React.FC<RestaurantProps> = () => {
     return (
         <>
             <div className={"menu-page-div"}>
-                <div className={"menu-nav-bar"}>
-                    <div className={"feast-logo"}>
-                        <img src={logo} width={"55rem"} />
-                    </div>
-                    <div className={"home-options"}>
-                        <ul>
-                            <Link to={"/"}><li><a>Home</a></li></Link>
-                            <li><a className={"active"}>Our Menu</a></li>
-                            <Link to={"/ReservationPage"}><li><a>Reservation</a></li></Link>
-                        </ul>
-                    </div>
-                    <div className={"hp-sign-btn"}>
-                        <h3>Sign in</h3>
-                    </div>
-                </div>
-
+                <HomeNavbar activePage={currentLocation} />
                 <div className={"check-out-container"}>
                     <h2>Check out our</h2>
                     <h1>MENU</h1>
@@ -72,4 +60,4 @@ const Resturant: React.FC<RestaurantProps> = () => {
     );
 };
 
-export default Resturant;
+export default OurMenu;
