@@ -4,8 +4,10 @@ import ManageCategory from "./pages/ManageCategory.tsx";
 import ManageItem from "./pages/ManageItem.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
-import ForgotPassword from "./pages/ForgotPassword.tsx";
 import HomePage from "./pages/homePage.tsx";
+import ForgotPass1 from "./pages/ForgotPass1.tsx";
+import ForgotPass2 from "./pages/ForgotPass2.tsx";
+import ForgotPass3 from "./pages/ForgotPass3.tsx";
 
 
 function App(){
@@ -17,7 +19,9 @@ function App(){
                 {path:"/manageitem",element:<ManageItem/>},
                 {path:"/LoginPage",element:<LoginPage/>},
                 {path:"/RegistrationPage",element:<RegistrationPage/>},
-                {path:"/ForgotPassword",element:<ForgotPassword/>},
+                {path:"/forgot_pass1",element:<ForgotPass1/>},
+                {path:"/forgot_pass2",element:<ForgotPass2/>},
+                {path:"/forgot_pass3",element:<ForgotPass3/>},
                 {path:"/",element:<HomePage/>},
             ])} />
         </>
