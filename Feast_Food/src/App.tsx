@@ -20,7 +20,7 @@ function App(){
                 {path:"/manageitem",element:<ManageItem/>},
                 {path:"/ForgotPassword",element:<ForgotPassword/>},
                 {path:"/",element:<HomePage/>},
-                {path:"/ourmenu",element:<OurMenu/>},
+                {path:"/OurMenu",element:<OurMenu/>},
                 {path:"/reservationpage",element:<ReservationPage/>},
                 {path:"/userprofileview",element:<UserProfileView/>},
                 {path:"/payment",element:<Payment/>},

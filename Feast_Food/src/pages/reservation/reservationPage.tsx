@@ -1,32 +1,20 @@
-import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
-import {Link} from "react-router-dom";
 import "../../css/reservationPage.css";
 import Dropdown from "./dropDown.tsx";
 import Hour from "./hour.tsx";
+import "../../css/reservationPage.css";
+import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx"
+import {useLocation} from "react-router-dom";
 
 
 const ReservationPage = () =>{
 
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
     return(
         <>
             {/*<div className={"reservation"} >*/}
-            <div className={"reserv-nav-bar"}>
-                <div className={"feast-logo"}>
-                    <img src={logo} width={"55rem"} />
-                </div>
-                <div className={"reserv-options"}>
-                    <ul>
-                        <Link to={"/"}><li><a>Home</a></li></Link>
-                        <Link to={"/Ourmenu"}><li><a>Our Menu</a></li></Link>
-                        <li><a className={"active"}>Reservation</a></li>
-                    </ul>
-                </div>
-                <div className={"hp-sign-btn"}>
-                    <Link to={"/LoginPage"}>
-                        <h3>Sign in</h3>
-                    </Link>
-                </div>
-            </div>
+            <HomeNavbar activePage={currentLocation}/>
             <div className={"reserv-container"}>
                 <div className={"reservation"}>
                     <h2>Reservations</h2>
@@ -42,8 +30,8 @@ const ReservationPage = () =>{
 
             </div>
 
-        {/*</div>*/}
-            </>
+            {/*</div>*/}
+        </>
     )
 
 }
