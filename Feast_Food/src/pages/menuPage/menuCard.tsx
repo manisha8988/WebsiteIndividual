@@ -6,7 +6,6 @@ interface MenuCardProps {
         name: string;
         category: string;
         image: string;
-        description: string;
         price: string;
     }[];
 }
@@ -22,9 +21,11 @@ const MenuCard: React.FC<MenuCardProps> = ({ menuData }) => {
                                 <span className="menu-card-author subtle"> {curElem.category}</span>
                                 <img src={curElem.image} alt="images" className="menu-card-media" />
                                 <h2 className="menu-card-title"> {curElem.name} </h2>
-                                <h4 className="menu-card-price subtle">{curElem.price}</h4>
+                                <div className={"price-addtocart-div"}>
+                                    <h4 className="menu-card-price subtle">{curElem.price}</h4>
+                                    <span><button className="add-to-card-btn subtle">Add to Cart</button></span>
+                                </div>
                             </div>
-                            <span className="menu-card-tag subtle">Add to Cart</span>
                         </div>
                     </div>
                 ))}

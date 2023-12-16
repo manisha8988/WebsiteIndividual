@@ -1,7 +1,7 @@
 const Menu = [
     {
         id: 1,
-        image: "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://images.pexels.com/photos/406152/pexels-photo-406152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         name: "House Salad",
         category: "salad",
         price: "Rs 200",

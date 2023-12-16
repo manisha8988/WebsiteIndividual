@@ -9,6 +9,7 @@ const Navbar: React.FC<NavbarProps> = ({ filterItem, menuList }) => {
     return (
         <>
             <nav className="menu-navbar">
+                <h2>Categories</h2>
                 <div className="menu-btn-group">
                     {menuList.map((curElem) => (
                         <button
