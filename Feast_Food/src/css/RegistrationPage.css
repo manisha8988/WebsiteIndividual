@@ -10,7 +10,7 @@ body.active-register-modal {
     position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 30vw;   height: 55vh;   z-index: 102;  text-decoration: underline;
+    width: 30vw;   height: 75vh;   z-index: 102;  text-decoration: underline;
 }
 .close-register-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;

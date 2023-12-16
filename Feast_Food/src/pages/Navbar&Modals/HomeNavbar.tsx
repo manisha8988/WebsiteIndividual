@@ -1,7 +1,7 @@
 import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {FaCartArrowDown, FaRegWindowClose} from "react-icons/fa";
+import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
 import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
@@ -99,20 +99,16 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
                                 <input type={"password"} placeholder={"Password"}/></div>
-
                         </div>
                         <div className={"Remember-forget"}>
-                            <label><input type={"checkbox"}/> Remember Me</label>
-                            <a href={"#"}>Forget Password</a>
+                            <label><input type={"checkbox"}/>Remember me</label>
+                            <a href={"#"} >Forget passsword</a>
                         </div>
                         <button type={"submit"} className={"btn-login10"} >Login</button>
                         <div className={"register-text"}>
-                            <p> Don't have an account?</p>
-                            <a href={"#"} onClick={toggleRegisterModal}>Register</a>
+                            <p> Don't have an account?
+                                <a href={"#"} onClick={toggleRegisterModal}>Register</a></p>
                         </div>
-
-
-
                     </div>
                 </div>
             )}
@@ -126,10 +122,14 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <FaRegWindowClose />
                         </button>
 
-                        <div className={"input-box"}>
-                            <span className={"iconmail"}> <IoMdMail /></span>
+                        <div className={"reg-input-box"}>
+                            <span className={"iconmail"}> <FaUser /></span>
                             <div className={"username"}>
-                                <input type={"email"} placeholder={"Username"}   />
+                                <input type={"name"} placeholder={"Name"}/>
+                            </div>
+                            <span className={"iconmail"}><IoMdMail /> </span>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Email"}/>
                             </div>
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
@@ -137,17 +137,26 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </div>
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
-                                <input type={"password"} placeholder={"feri password lekh"}/>
+                                <input type={"password"} placeholder={"Confirm Password"}/>
                             </div>
                         </div>
+                        <div className={"security-question"}>
+                            <div className={"header10"}>Security Question</div>
+                            <div className={"answer"}>
+                                <input type={"answer"} placeholder={"Your first school name?"}/>
+                            </div>
+                            {/*<option value={"0"}> Your first school name? </option>*/}
 
-                        <div className={"login-text"}>
-                            <h4 onClick={toggleLoginModal}>Login</h4>
+                            {/*<select className={"Questions"}>*/}
+                            {/*</select>*/}
                         </div>
+
+                        <button type={"submit"} className={"btn-signup"} onClick={toggleLoginModal} >Sign Up</button>
 
                     </div>
                 </div>
             )}
+
         </>
     )
 }
