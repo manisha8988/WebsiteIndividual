@@ -123,12 +123,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         </button>
 
                         <div className={"reg-input-box"}>
-                            <span className={"iconmail"}> <FaUser /></span>
+                            <span className={"iconname"}> <FaUser /></span>
                             <div className={"username"}>
                                 <input type={"name"} placeholder={"Name"}/>
                             </div>
                             <span className={"iconmail"}><IoMdMail /> </span>
-                            <div className={"username"}>
+                            <div className={"useremail"}>
                                 <input type={"email"} placeholder={"Email"}/>
                             </div>
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
@@ -145,13 +145,10 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <div className={"answer"}>
                                 <input type={"answer"} placeholder={"Your first school name?"}/>
                             </div>
-                            {/*<option value={"0"}> Your first school name? </option>*/}
 
-                            {/*<select className={"Questions"}>*/}
-                            {/*</select>*/}
                         </div>
 
-                        <button type={"submit"} className={"btn-signup"} onClick={toggleLoginModal} >Sign Up</button>
+                        <button type={"submit"} className={"btn-signup10"} onClick={toggleLoginModal} >Sign Up</button>
 
                     </div>
                 </div>
