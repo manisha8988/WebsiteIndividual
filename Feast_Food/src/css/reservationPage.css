@@ -13,45 +13,25 @@
     background-repeat: no-repeat;
 }
 
-.select-day{
+.select-hour, .select-day{
     font-family: Bebas Neue;
     font-size: 20px;
     position: relative;
     width:32vw;
-    height: 3vh;
+    height: 4vh;
     border-top: none;
     border-right: none;
     border-left: none;
     border-bottom: 1px solid #162938;
-    margin:  30px 0;
-    content: '';
+    margin:  26px 0;
     top: 24%;
     bottom: 7px;
     left: 50%;
     transform: translateX(-50%);
-    padding-left: 10px;
+    padding-left: 8px;
     background: transparent;
     color:  rgb(133, 133, 133);
-}
-.select-hour {
-    font-family: Bebas Neue;
-    font-size: 20px;
-    position: relative;
-    width: 32vw;
-    height: 3vh;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #162938;
-    margin: 30px 0;
-    content: '';
-    top: 24%;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-left: 10px;
-    background: transparent;
-    color: rgb(133, 133, 133);
+    padding-bottom: 4px;
 }
 .dropdown button{
     background-color: transparent;
@@ -92,13 +72,12 @@
     font-size: 20px;
     position: relative;
     width:32vw;
-    height: 3vh;
+    height: 4vh;
     border-top: none;
     border-right: none;
     border-left: none;
     border-bottom: 1px solid #162938;
     margin:  30px 0;
-    content: '';
     top: 24%;
     bottom: 7px;
     left: 50%;
