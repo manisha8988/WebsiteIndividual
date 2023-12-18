@@ -6,8 +6,6 @@ import lombok.Setter;
 
 import java.util.Date;
 
-import static org.springframework.data.jpa.domain.AbstractAuditable_.createdDate;
-
 
 @Entity
 @Table(name="orders")
