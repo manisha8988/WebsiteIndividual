@@ -73,7 +73,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <span className={"icon-cart"}><FaCartArrowDown /></span>
+                    <Link to={"/Cart"}><li className={activePage === "/Cart" ? "active" : ""}><span  className={"icon-cart"}><FaCartArrowDown /></span></li></Link>
                     <div className={"hp-sign-btn"}>
                         <h3 onClick={toggleLoginModal}>Sign in</h3>
                     </div>
