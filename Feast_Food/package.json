@@ -25,6 +25,7 @@
     "react-select": "^5.8.0"
   },
   "devDependencies": {
+    "@ionic/react": "^7.6.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jquery": "^3.5.29",

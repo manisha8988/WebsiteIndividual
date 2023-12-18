@@ -1,4 +1,4 @@
-import '../css/ForgotPass2.css'
+import '../../css/ForgotPass2.css'
 import {Link} from "react-router-dom";
 import {FaArrowLeft, FaQuestionCircle, FaRegWindowClose} from 'react-icons/fa';
 function ForgotPass2(){
