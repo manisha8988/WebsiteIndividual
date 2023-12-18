@@ -11,11 +11,6 @@ body, html {
     overflow-x: hidden;
 }
 
-/* Add styles for the active page title */
-.home-options ul li.active a {
-    color: #f3ad16; /* Specify the color for the active page title */
-}
-
 .home-page{
     background-image: url("../images/fresco-pizza-top.jpg");
     width: 100vw;

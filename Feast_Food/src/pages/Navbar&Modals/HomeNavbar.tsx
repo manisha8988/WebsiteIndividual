@@ -62,13 +62,14 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         <>
             <div className={"nav-bar"}>
                 <div className={"feast-logo"}>
-                    <img src={logo} width={"54rem"} />
+                    <img src={logo} width={"40px"} />
                 </div>
                 <div className={"home-options"}>
                     <ul>
                         <Link to={"/"}><li className={activePage === "/" ? "active" : ""}><a>Home</a></li></Link>
                         <Link to={"/OurMenu"}><li className={activePage === "/OurMenu" ? "active" : ""}><a>Our Menu</a></li></Link>
-                        <Link to={"/reservationpage"}><li className={activePage === "/reservationpage" ? "active" : ""}><a>Reservation</a></li></Link>
+                        <Link to={"/ReservationPage"}><li className={activePage === "/ReservationPage" ? "active" : ""}><a>Reservation</a></li></Link>
+                        <Link to={"/ContactPage"}><li className={activePage === "/ContactPage" ? "active" : ""}><a>Contact</a></li></Link>
                     </ul>
                 </div>
 

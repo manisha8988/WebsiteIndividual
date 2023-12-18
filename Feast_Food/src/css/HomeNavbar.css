@@ -1,10 +1,16 @@
+
+/* Add styles for the active page title */
+.home-options ul li.active a {
+    color: #f3ad16; /* Specify the color for the active page title */
+}
+
 .nav-bar{
     display: flex;
     background-color: rgba(255, 255, 255, 0.93);
     box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
     align-items: center;
     justify-content: space-between;
-    height: 73px;
+    height: 60px;
     overflow-x: hidden;
     /*width: 100vw;*/
 }
@@ -19,7 +25,7 @@
     flex-direction: row;
     padding-left: 3rem;
     padding-top: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: black;
 }
 .home-options:active{
@@ -40,7 +46,7 @@
     padding-top: 0.45rem;
     width: 2rem;
     /*background: #b72323;*/
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 .hp-navright span:hover{
     cursor: pointer;
@@ -62,7 +68,7 @@
     display: inline-block;
     margin-left: 0.2rem;
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }.hp-sign-btn h3:hover{
     color: #f3ad16;
  }
