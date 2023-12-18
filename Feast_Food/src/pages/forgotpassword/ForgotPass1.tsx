@@ -1,4 +1,4 @@
-import '../css/ForgotPass1.css'
+import '../../css/ForgotPass1.css'
 import { IonIcon } from '@ionic/react';
 import { mailOutline } from 'ionicons/icons';
 import {Link} from "react-router-dom";

@@ -1,4 +1,4 @@
-import '../css/ForgotPass3.css'
+import '../../css/ForgotPass3.css'
 import {FaArrowLeft, FaRegWindowClose} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {RiLockPasswordFill} from "react-icons/ri";
