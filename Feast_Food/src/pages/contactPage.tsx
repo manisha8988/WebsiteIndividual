@@ -34,7 +34,7 @@ const ContactPage = () =>{
                         </span>
                         <span className={"email-phone-content"}>
                             <h4>Location</h4>
-                            <h6>104 Doyers St. 8 Arlington Dr. 599 NW Bay Blvd.</h6>
+                            <h6>Kathmandu, Nepal</h6>
                         </span>
                     </div>
 
