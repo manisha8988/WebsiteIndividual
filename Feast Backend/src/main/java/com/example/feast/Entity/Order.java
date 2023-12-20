@@ -28,7 +28,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate = new Date(System.currentTimeMillis());
 
-    @Column(name="sales_quantity", nullable=false)
-    private Integer salesQuantity;
+    @Column(name="quantity", nullable=false)
+    private Integer quantity;
 }
 

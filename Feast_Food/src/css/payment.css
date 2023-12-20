@@ -17,9 +17,17 @@
     background-color: darkgrey;
 }
 .cross-icon {
+    width: 3vw;
+    height: 3vw;
+    background: none;
+    box-shadow: none;
+    color: #222222;
+    border-radius: 9px;
     position: absolute;
-    top: 2%;
-    right: 2%;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
 }
 .payment-method{
     display: flex;

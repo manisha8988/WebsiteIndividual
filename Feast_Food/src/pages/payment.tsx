@@ -1,6 +1,7 @@
-import {RxCross2} from "react-icons/rx";
+
 import Homedelivery from "./homedelivery.tsx";
 import "../css/payment.css"
+import {FaRegWindowClose} from "react-icons/fa";
 
 function Payment() {
     return(
@@ -8,7 +9,7 @@ function Payment() {
             <div className={"cross-icon"}>
                 <button>
                     <span>
-                        <RxCross2 />
+                        <FaRegWindowClose />
                     </span>
                 </button>
             </div>
