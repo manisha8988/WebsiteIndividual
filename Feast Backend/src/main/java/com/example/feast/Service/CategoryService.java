@@ -16,8 +16,5 @@ public interface CategoryService {
 
     void deleteById(Integer id);
 
-
-
-
-    }
+}
 

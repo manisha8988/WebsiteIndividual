@@ -1,36 +1,19 @@
-import "../css/homePage.css"
-import logo from "../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png"
+import "../css/homePage.css";
+import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
+import {useLocation} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
-import { MdOutlinePeople } from "react-icons/md";
-import {Link} from "react-router-dom";
-
+import RecommendationPage from "./imgSliderBar/recommendationPage.tsx";
 
 const HomePage = () => {
 
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
 
     return(
         <>
             <div className={"home-page"}>
                 <div className={"hp-first-div"}>
-                    <div className={"nav-bar"}>
-                        <div className={"feast-logo"}>
-                            <img src={logo} width={"55rem"} />
-                        </div>
-                        <div className={"home-options"}>
-                            <ul>
-                                <li><a className={"active"}>Home</a></li>
-                                <Link to={"/Ourmenu"}><li><a>Our Menu</a></li></Link>
-                                <li><a>Contact</a></li>
-                                {/*<li><a>History</a></li>*/}
-                            </ul>
-                        </div>
-                        <div className={"hp-sign-btn"}>
-                            <Link to={"/LoginPage"}>
-                                <span><MdOutlinePeople /></span>
-                                <h3>Sign in</h3>
-                            </Link>
-                        </div>
-                    </div>
+                    <HomeNavbar activePage={currentLocation} />
                     <div className={"hp-main-container"}>
                         <div className={"feast-slogan"}>
                             <h1>Savor the flavor Straight to your door.</h1>
@@ -40,6 +23,10 @@ const HomePage = () => {
                             <span><FaSearch/></span>
                         </div>
                     </div>
+                </div>
+
+                <div className={"hp-second-div"}>
+                    <RecommendationPage/>
                 </div>
             </div>
         </>

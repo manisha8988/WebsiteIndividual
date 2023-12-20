@@ -1,37 +1,37 @@
 package com.example.feast.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="users")
+@Table (name="users")
+@Getter
+@Setter
+
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "users_seq_gen", strategy = GenerationType.SEQUENCE)
     private long id;
+
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
 
-    public long getId() {
-        return id;
-    }
+    @Column(nullable = false)
+    private String email;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Column(nullable = false)
+    private String address;
 
-    public String getUsername() {
-        return username;
-    }
+    @Column(nullable = false)
+    private String phone_number;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//
+//    , uniqueConstraints = {
+//        @UniqueConstraint(name = "UNIQUE_user_email", columnNames = "email")
+//    }
 }
