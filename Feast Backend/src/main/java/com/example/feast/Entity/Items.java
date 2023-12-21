@@ -2,25 +2,26 @@ package com.example.feast.Entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@Builder
+@AllArgsConstructor
 @Entity
 @Table(name="items")
 @NoArgsConstructor
 public class Items {
     @Id
-    @SequenceGenerator(name = "items_seq_gen", sequenceName = "items_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "items_seq_gen", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Integer id;
 
     @Column(name="item_name",nullable = false)
     private String itemName;
 
-    @Column(name = "item_category",nullable = false)
+    @Column(name = "item_category")
     private String itemCategory;
 
     @Column(name = "item_image",nullable = false)
@@ -31,4 +32,8 @@ public class Items {
 
     @Column(name = "item_status",nullable = false)
     private String itemStatus;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="category_id", referencedColumnName = "id")
+    private Category categories;
 }

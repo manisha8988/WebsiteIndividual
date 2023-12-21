@@ -1,43 +1,111 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*css fro registration-modal*/
+body.active-register-modal {
+    overflow-y: hidden;
 }
-
-.wrapper0{
+.register-modal, .register-overlay {
     width: 100vw;
     height: 100vh;
-    background: url("src/images/pexels-ella-olsson-1640773.jpg");
-    background-size: cover;
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(300px);
-    /*overflow: hidden;*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 101;
+    backdrop-filter: blur(3px);
 }
-
-.form-box-registreation {
-    width: 20%;
-    padding: 50px;
-    /*background:#b28210;*/
-    backdrop-filter: blur(300px);
-    border-radius: 17px;
-    /*display: none;*/
+.register-modal-content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #dcdbdb;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 30vw;
+    height: 75vh;
+    z-index: 102;
 }
-
-.Login-register{
-    font-size: 1em;
-    color:#162938 ;
-    text-align: center;
-    font-weight: 500 ;
-    margin: 25px 0 10px;
-    
-}
-.Login-register a{
+.register-modal-content h2{
+    font-size: 2rem;
     color: #162938;
-    text-decoration: none;
-}
-.Login-register p a:hover{
+    text-align: center;
     text-decoration: underline;
 }
+
+.close-register-btn {
+    width: 3vw;
+    height: 3vw;
+    background: none;
+    box-shadow: none;
+    color: #222222;
+    border-radius: 9px;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
+}
+.close-register-btn:hover{
+    box-shadow: none;
+    color: #831515
+}
+.reg-input-box .username, .useremail, .password {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    border-bottom: 2px solid#162938;
+    margin: 45px 0;
+}
+.reg-input-box input {
+    width: 20vw;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.reg-input-box .iconname, .iconmail, .iconpassword{
+    position: absolute;
+    right: 30px;
+    font-size: 1.2rem;
+    color: #162938;
+    line-height: 1px;
+}
+.security-question .answer{
+    position: relative;
+    width: 100%;
+    height: 22px;
+    border-bottom: 2px solid#162938;
+    margin: 15px 0
+
+}
+.security-question input{
+    width: 20vw;
+    height: 100%;
+    /*margin: -1px 0;*/
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.btn-signup10{
+    width: 16vw;
+    height: 7vh;
+    background: #f3ad16;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 15px 50px;
+}
+/*.login-text{*/
+/*    position: absolute;*/
+/*    bottom: 2%;*/
+/*    right: 2%;*/
+/*}*/
+/*.login-text:hover{*/
+/*    cursor: pointer;*/
+/*}*/

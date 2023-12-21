@@ -76,7 +76,7 @@ const ManageCategory: React.FC = () =>  {
 
                     <div className={"sidebar-menu2"}>
                         <ul>
-                            <Link to={"/"}><li><a><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
+                            <Link to={"/admindashboard"}><li><a><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
                             <li><a className={"active"}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li>
                             <Link to={"/ManageItem"}><li><a ><span><FaBowlFood /></span> Manage Items</a></li></Link>
                         </ul>
