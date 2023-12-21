@@ -17,22 +17,22 @@ function Payment() {
             <div className={"payment-method"}>
                 <h1>Payment</h1>
                 <div className={"esewa"}>
-                <img src={"src/images/esewa.jpeg"}/>
+                    <img src={"src/images/esewa.jpeg"} width={60}/>
                     <p>Esewa</p>
                 </div>
 
                 <div className={"phonepay"}>
-                    <img src={"src/images/phonepay.jpeg"}/>
+                    <img src={"src/images/phonepay.jpeg"}width={50}/>
                     <p>Phonepay</p>
                 </div>
 
                 <div className={"cod"}>
-                    <img src={"src/images/cod.jpeg"}/>
+                    <img src={"src/images/cod.jpeg"}width={45}/>
                     <p>Cash on Delivery</p>
                 </div>
             </div>
 
-            <div className={"delivery-options"}>
+            <div className={"delivery-method"}>
                 <p><u>Delivery</u></p>
                 <div className={"self-pickup-button"}>
                     <button >
@@ -41,6 +41,7 @@ function Payment() {
                 </div>
 
                 <Homedelivery/>
+
                 <div className={"confirm-order-button"}>
                     <button >
                         Confirm Order

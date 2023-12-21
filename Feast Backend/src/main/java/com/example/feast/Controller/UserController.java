@@ -17,7 +17,6 @@ public class UserController {
     public final UserService userService;
 
     public UserController(UserService userService) {
-
         this.userService = userService;
     }
 
@@ -28,12 +27,9 @@ public class UserController {
             return new ResponseEntity<>(users, HttpStatus.CREATED);
 
         } catch (Exception e) {
-
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
-
-
 
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
