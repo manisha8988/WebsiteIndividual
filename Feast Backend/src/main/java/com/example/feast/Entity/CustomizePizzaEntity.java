@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 @Entity
 public class CustomizePizzaEntity {
     @Id
@@ -12,31 +11,75 @@ public class CustomizePizzaEntity {
     private Long id;
     private String name;
     private double basePrice = 800; // Updated base price to 800 Rs
+    private boolean addExtraCheese;
+    private boolean addExtraMeat;
+    private boolean addExtraMozzarella;
+    private boolean addExtraBasil;
+    private boolean addExtraVeggies;
 
     // Getters, Setters, Constructors
 
-    // Method to calculate total price with customizations
-    public double calculateTotalPrice(boolean addExtraCheese, boolean addExtraMeat, boolean addExtraMozzarella,
-                                      boolean addExtraBasil, boolean addExtraVeggies) {
-        double totalPrice = this.basePrice;
-
-        if (addExtraCheese) {
-            totalPrice += 60; // Add extra cheese price: 60 Rs
-        }
-        if (addExtraMeat) {
-            totalPrice += 200; // Add extra meat price: 200 Rs
-        }
-        if (addExtraMozzarella) {
-            totalPrice += 35; // Add extra mozzarella price: 35 Rs
-        }
-        if (addExtraBasil) {
-            totalPrice += 30; // Add extra basil price: 30 Rs
-        }
-        if (addExtraVeggies) {
-            totalPrice += 100; // Add extra veggies price: 100 Rs
-        }
-
-        return totalPrice;
+    public Long getId() {
+        return id;
     }
-    // Other entity properties, getters, setters, constructors as needed
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public boolean isAddExtraCheese() {
+        return addExtraCheese;
+    }
+
+    public void setAddExtraCheese(boolean addExtraCheese) {
+        this.addExtraCheese = addExtraCheese;
+    }
+
+    public boolean isAddExtraMeat() {
+        return addExtraMeat;
+    }
+
+    public void setAddExtraMeat(boolean addExtraMeat) {
+        this.addExtraMeat = addExtraMeat;
+    }
+
+    public boolean isAddExtraMozzarella() {
+        return addExtraMozzarella;
+    }
+
+    public void setAddExtraMozzarella(boolean addExtraMozzarella) {
+        this.addExtraMozzarella = addExtraMozzarella;
+    }
+
+    public boolean isAddExtraBasil() {
+        return addExtraBasil;
+    }
+
+    public void setAddExtraBasil(boolean addExtraBasil) {
+        this.addExtraBasil = addExtraBasil;
+    }
+
+    public boolean isAddExtraVeggies() {
+        return addExtraVeggies;
+    }
+
+    public void setAddExtraVeggies(boolean addExtraVeggies) {
+        this.addExtraVeggies = addExtraVeggies;
+    }
 }
