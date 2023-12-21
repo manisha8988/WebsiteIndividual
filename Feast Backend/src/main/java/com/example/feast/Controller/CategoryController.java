@@ -16,8 +16,8 @@ import java.util.Optional;
 @RequestMapping("category")
 @RequiredArgsConstructor
 public class CategoryController {
-    private final CategoryService CategoryService;
-    private final CategoryServiceImpl categoryService;
+    private final CategoryService categoryService;
+//    private final CategoryServiceImpl categoryService;
 
     @PostMapping("save")
     public String saveUser(@Valid @RequestBody CategoryPojo categoryPojo){
@@ -27,17 +27,17 @@ public class CategoryController {
 
     @GetMapping("/findAll")
     public List<Category> getAll(){
-        return this.CategoryService.findAll();
+        return this.categoryService.findAll();
     }
 
     @GetMapping("/findById/{id}")
     public Optional<Category> getById(@PathVariable("id") Integer id){
-        return this.CategoryService.findById(id);
+        return this.categoryService.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable("id") Integer id){
-        this.CategoryService.deleteById(id);
+        this.categoryService.deleteById(id);
     }
 
 }
