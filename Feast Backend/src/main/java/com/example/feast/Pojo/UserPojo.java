@@ -1,6 +1,7 @@
 package com.example.feast.Pojo;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -18,17 +19,18 @@ public class UserPojo {
     @NotBlank (message="Username is Required!")
     private String username;
 
-    @Column(nullable = false)
+    @NotBlank (message="Password is Required!")
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Email is required")
     private String email;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Address is required")
     private String address;
 
-    @Column(nullable = false)
-    @Size(min = 9, message = "Phone must be at least 9 digits")
+    @NotBlank(message = "Phone is required")
+    @Size(min = 10, max = 15, message = "Phone number must be between 10 and 15 digits")
     private String phone_number;
 
 

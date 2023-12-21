@@ -21,11 +21,6 @@
     font-weight: bold;
     font-size: 1em;
 }
-.cross-icon{
-    position: absolute;
-    top: 2%;
-    right: 2%;
-}
 .cross-icon button{
     width: 3vw;
     height: 3vw;
@@ -40,9 +35,10 @@
     margin-bottom: -20px;
 }
 .cross-icon button:hover{
-    color: black;
     box-shadow: none;
+    color: #831515
 }
+
 .order_history button{
     font-family: "Times New Roman";
     width: 8vw;

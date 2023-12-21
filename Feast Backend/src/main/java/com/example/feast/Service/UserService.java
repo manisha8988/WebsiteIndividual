@@ -2,10 +2,12 @@ package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Pojo.UserPojo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public interface UserService {
 
     String save(UserPojo UserPojo);

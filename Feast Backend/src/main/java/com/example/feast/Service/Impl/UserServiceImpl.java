@@ -2,12 +2,16 @@ package com.example.feast.Service.Impl;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Pojo.UserPojo;
+import com.example.feast.Repo.UserRepo;
 import com.example.feast.Service.UserService;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
+    private final UserRepo userRepo;
     @Override
     public String save(UserPojo UserPojo) {
         return null;
@@ -15,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override
@@ -24,8 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(Long id) {
-
+    public void deleteById(Long id){
+        userRepo.deleteById(id);
     }
 
     @Override
@@ -38,8 +42,6 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public void createUser(User users) {
+
 
     }
-}
