@@ -16,5 +16,5 @@ public interface ItemService {
 
     void deleteById(Integer id);
 
-
+    String update(Integer id, ItemPojo itempojo);
 }
