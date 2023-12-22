@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
         item.setItemCategory(itemPojo.getItemCategory());
         item.setItemImage(itemPojo.getItemImage());
         item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemStatus(itemPojo.getItemStatus());
+        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
 
         itemRepo.save(item);
 
@@ -44,6 +44,5 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void deleteById(Integer id) {
         itemRepo.deleteById(id);
-
     }
 }

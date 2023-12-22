@@ -2,7 +2,7 @@ import "../css/homePage.css";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
 import {useLocation} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
-import RecommendationPage from "./imgSliderBar/recommendationPage.tsx";
+// import RecommendationPage from "./imgSliderBar/recommendationPage.tsx";
 
 const HomePage = () => {
 
@@ -26,7 +26,7 @@ const HomePage = () => {
                 </div>
 
                 <div className={"hp-second-div"}>
-                    <RecommendationPage/>
+                    {/*<RecommendationPage/>*/}
                 </div>
             </div>
         </>
