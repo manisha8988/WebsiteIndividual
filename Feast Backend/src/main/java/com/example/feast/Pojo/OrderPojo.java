@@ -18,8 +18,9 @@ public class OrderPojo {
     private Items item;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate = new Date(System.currentTimeMillis());
+    private Date createdDate;
 
     @Column(name="quantity", nullable=false)
     private Integer quantity;
+
 }
