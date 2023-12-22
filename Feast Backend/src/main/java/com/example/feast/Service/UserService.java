@@ -1,23 +1,37 @@
 package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
-import com.example.feast.Pojo.UserPojo;
-
-import java.util.List;
+import com.example.feast.Repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Optional;
 
-public interface UserService {
 
-    String save(UserPojo UserPojo);
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+    @Autowired
+    public UserService(UserRepository userRepository){
+        this.userRepository=userRepository;
+    }
+    public User createUser(User user){
+        return userRepository.save(user);
+    }
 
-    List<User> getAll();
+    public User loginUser(String username, String password) {
+        System.out.println("login ::" + username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
 
-    Optional<User> getByEmail(String email);
+        if (optionalUser.isPresent()) {
+            User user=optionalUser.get();
 
-    void deleteById(Long id);
+            if (password.equals(user.getPassword())) {
+                System.out.println("Login successful !!!::" + user.getUsername());
+                return user;
+            }
+        }
 
-    Optional<User> getById(Long id);
-    
-    // Other custom service methods, if any
+        System.out.println("incorrect passsword or username");
+        throw new IllegalArgumentException("Invalid password or username");
+    }
 }
-
