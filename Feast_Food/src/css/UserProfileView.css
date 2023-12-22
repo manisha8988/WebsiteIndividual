@@ -21,22 +21,24 @@
     font-weight: bold;
     font-size: 1em;
 }
-.cross-icon{
-    position: absolute;
-    top: 2%;
-    right: 2%;
-}
 .cross-icon button{
-    width: 2vw;
-    height: 2vw;
-    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+    background: none;
     box-shadow: none;
-    color: #000000;
+    color: #222222;
+    border-radius: 9px;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
 }
 .cross-icon button:hover{
-    color: black;
     box-shadow: none;
+    color: #831515
 }
+
 .order_history button{
     font-family: "Times New Roman";
     width: 8vw;

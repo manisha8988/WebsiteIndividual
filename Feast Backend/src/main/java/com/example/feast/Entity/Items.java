@@ -31,7 +31,7 @@ public class Items {
     private Integer itemPrice;
 
     @Column(name = "item_status",nullable = false)
-    private Boolean itemStatus;
+    private String itemStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id", referencedColumnName = "id")

@@ -1,4 +1,4 @@
-package com.example.feast.Repository;
+package com.example.feast.Repo;
 
 import com.example.feast.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

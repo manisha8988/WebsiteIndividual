@@ -1,7 +1,7 @@
 package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
-import com.example.feast.Repository.UserRepository;
+import com.example.feast.Repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -22,12 +22,11 @@ public class UserService {
         System.out.println("login ::" + username);
         Optional<User> optionalUser = userRepository.findByUsername(username);
 
-
         if (optionalUser.isPresent()) {
             User user=optionalUser.get();
 
             if (password.equals(user.getPassword())) {
-                System.out.println("Login successful" + user.getUsername());
+                System.out.println("Login successful !!!::" + user.getUsername());
                 return user;
             }
         }

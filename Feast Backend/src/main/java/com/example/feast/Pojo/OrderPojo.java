@@ -1,20 +1,12 @@
-package com.example.feast.Entity;
+package com.example.feast.Pojo;
 
+import com.example.feast.Entity.Items;
+import com.example.feast.Entity.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 
-
-@Entity
-@Table(name="orders")
-@Getter
-@Setter
-public class Order {
-    @Id
-    @SequenceGenerator(name = "orders_seq_gen", sequenceName = "orders_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "orders_seq_gen", strategy = GenerationType.SEQUENCE)
+public class OrderPojo {
     private Long id;
 
     @ManyToOne
@@ -31,4 +23,3 @@ public class Order {
     @Column(name="quantity", nullable=false)
     private Integer quantity;
 }
-
