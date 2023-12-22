@@ -76,10 +76,7 @@
             <artifactId>spring-beans</artifactId>
             <version>6.1.1</version>
         </dependency>
-
-=======
->>>>>>> 22af7e07fff7c1035b5f1e0bfd6a25b53143e3f4
-
+        
     </dependencies>
 
     <build>
