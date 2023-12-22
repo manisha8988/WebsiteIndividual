@@ -70,13 +70,12 @@
             <artifactId>spring-web</artifactId>
             <version>6.1.1</version>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>6.1.1</version>
         </dependency>
-        
+
     </dependencies>
 
     <build>
