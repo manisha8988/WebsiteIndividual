@@ -17,10 +17,7 @@ public interface UserService {
     void deleteById(Long id);
 
     Optional<User> getById(Long id);
-
-    String update(Long id, UserPojo UserPojo);
-
-
+    
     // Other custom service methods, if any
 }
 
