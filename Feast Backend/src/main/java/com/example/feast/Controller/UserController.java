@@ -33,24 +33,21 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
-     try{
-         System.out.println(loginUsers.getUsername());
-         System.out.println(loginUsers.getPassword());
+        try{
+            System.out.println(loginUsers.getUsername());
+            System.out.println(loginUsers.getPassword());
 
-         userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
+            userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
 
 
-         return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
 
-     }catch (Exception e){
-         System.out.println("dont match");
+        }catch (Exception e){
+            System.out.println("dont match");
 
-         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
-     }
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+        }
 
     }
 
 }
-
-
-
