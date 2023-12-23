@@ -33,18 +33,17 @@ public abstract class ItemServiceImpl implements ItemService {
             itemRepo.save(item);
             System.out.println("Saved Successfully");
         }
-<<<<<<< HEAD
+
 
         item.setItemName(itemPojo.getItemName());
         item.setItemCategory(itemPojo.getItemCategory());
         item.setItemImage(itemPojo.getItemImage());
         item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
+        item.setItemStatus(itemPojo.getItemStatus());
 
         itemRepo.save(item);
 
-=======
->>>>>>> 22af7e07fff7c1035b5f1e0bfd6a25b53143e3f4
+
     }
 
     @Override
