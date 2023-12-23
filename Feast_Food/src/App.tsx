@@ -15,9 +15,9 @@ function App(){
     return(
         <>
             <RouterProvider router={createBrowserRouter([
-                {path:"/admindashboard",element:<AdminDashboard/>},
-                {path:"/managecategory",element:<ManageCategory/>},
-                {path:"/manageitem",element:<ManageItem/>},
+                {path:"/AdminDashboard",element:<AdminDashboard/>},
+                {path:"ManageCategory",element:<ManageCategory/>},
+                {path:"/ManageItem",element:<ManageItem/>},
                 {path:"/",element:<HomePage/>},
                 {path:"/OurMenu",element:<OurMenu/>},
                 {path:"/ReservationPage",element:<ReservationPage/>},

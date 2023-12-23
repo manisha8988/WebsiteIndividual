@@ -4,6 +4,9 @@
     font-weight: 400;
     color: rgba(0, 0, 0, 0.87);
 
+    --clr-light: #0e0a0a; /* Define a CSS variable */
+    --clr-primary: #f3ad16; /* Define another CSS variable */
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

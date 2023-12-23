@@ -1,16 +1,11 @@
 import "../css/ManageItem.css"
 import React, { useEffect, useState } from "react";
 import ItemData from "../components/ItemData.tsx";
-import {Link} from "react-router-dom";
-
-import { AiFillAccountBook} from "react-icons/ai";
-import { TiHome } from "react-icons/ti";
-import { FaBowlFood } from "react-icons/fa6";
-import { BiSolidCategoryAlt } from "react-icons/bi";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
-import { IoMdLogOut } from "react-icons/io";
 import gsap from "gsap";
+import AdminSidebar from "./adminSidebar.tsx";
+import {useLocation} from "react-router-dom";
 
 
 interface User {
@@ -64,74 +59,65 @@ const ManageCategory: React.FC = () => {
         }
     }, [modal]);
 
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
     return(
         <div>
             <div className={"add-item-page"}>
-                <div className={"sidebar3"}>
-                    <div className={"sidebar-brand3"}>
-                        <h1> <span><TiHome /></span>Feast</h1>
-                    </div>
-
-                    <div className={"sidebar-menu3"}>
-                        <ul>
-                            <Link to={"/admindashboard"}><li><a href={""}><span> <AiFillAccountBook /> </span>Dashboard</a></li></Link>
-                            <Link to={"/ManageCategory"}><li><a href={""}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li></Link>
-                            <li><a href={""}  className={"active"}><span><FaBowlFood /></span> Manage Items</a></li>
-                        </ul>
-                    </div>
-
-                    <div className={"sidebar-btn3"}>
-                        <button type={"button"}><span><IoMdLogOut /></span>Log Out</button>
-                    </div>
+                <div className={"itempage-left"} >
+                    <AdminSidebar activePage={currentLocation} />
                 </div>
 
-                <div className={"main-content3"}>
-                    <header>
-                        <h1>Manage Items</h1>
+                <div className={"itempage-right"}>
+                    <header className={"itempage-header"}>
+                        <h1>Manage Item</h1>
 
-                        <div className={"search-wrapper3"}>
+                        <div className={"search-wrapper"}>
                             <span><FaSearch /></span>
                             <input type={"search"} placeholder={"Search Item"}/>
                         </div>
 
-                        <div className={"user-wrapper3"}>
+                        <div className={"user-wrapper"}>
                             <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
                             <div>
-                                <h4 className={"admin-name"}>Nirajan Mahato</h4>
-                                <small>Super Admin</small>
+                                <h4>Nirajan Mahato</h4>
+                                <small>Super admin</small>
                             </div>
                         </div>
                     </header>
 
-                    <main className={"main3"}>
-                        <div className={"btn3"}>
-                            <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle /></span>Add Items</button>
-                        </div>
+                    <div className={"item-main-content"}>
+                        <div className={"i-main-content"}>
+                            <div className={"btn3"}>
+                                <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle /></span>Add Items</button>
+                            </div>
 
-                        <div className={"table-container3"}>
-                            <div className={"card-header3"}>
-                                <h2>Items</h2>
-                            </div>
-                            <div className={"card-body3"}>
-                                <table className={"table-bordered3"}>
-                                    <thead>
-                                    <tr>
-                                        <th className={"id-box3"}>Id</th>
-                                        <th className={"name-box3"}>Name</th>
-                                        <th className={"category-box"}>Category</th>
-                                        <th className={"image-box3"}>Image</th>
-                                        <th className={"price-box3"}>Price</th>
-                                        <th className={"action-box3"}>Action</th>
-                                        <th className={"status-box3"}>Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <ItemData users={users} />
-                                    </tbody>
-                                </table>
+                            <div className={"table-container3"}>
+                                <div className={"card-header3"}>
+                                    <h2>Items</h2>
+                                </div>
+                                <div className={"card-body3"}>
+                                    <table className={"table-bordered3"}>
+                                        <thead>
+                                        <tr>
+                                            <th className={"id-box3"}>Id</th>
+                                            <th className={"name-box3"}>Name</th>
+                                            <th className={"category-box"}>Category</th>
+                                            <th className={"image-box3"}>Image</th>
+                                            <th className={"price-box3"}>Price</th>
+                                            <th className={"action-box3"}>Action</th>
+                                            <th className={"status-box3"}>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <ItemData users={users} />
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </main>
+                    </div>
                 </div>
             </div>
 

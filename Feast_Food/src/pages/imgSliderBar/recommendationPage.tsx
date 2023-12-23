@@ -68,4 +68,4 @@ const RecommendationPage: React.FC = () => {
     );
 };
 
-export default RecommendationPage;
+export default RecommendationPage

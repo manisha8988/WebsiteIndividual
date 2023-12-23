@@ -1,6 +1,6 @@
 import "../css/UserProfileView.css"
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { RxCross2 } from "react-icons/rx";
+import {FaRegWindowClose} from "react-icons/fa";
 
 
 function UserProfileView(){
@@ -9,7 +9,7 @@ function UserProfileView(){
             <div className={"cross-icon"}>
                 <button>
                     <span>
-                        <RxCross2 />
+                        <FaRegWindowClose/>
                     </span>
                 </button>
             </div>
