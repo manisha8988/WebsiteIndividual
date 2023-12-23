@@ -1,42 +1,22 @@
 import "../css/AdminDashboard.css"
-import {Link} from "react-router-dom";
-
-import { AiFillAccountBook} from "react-icons/ai";
-import { TiHome } from "react-icons/ti";
-import { FaBowlFood } from "react-icons/fa6";
-import { BiSolidCategoryAlt } from "react-icons/bi";
-// import { FaBars } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
-import { FaUsers } from "react-icons/fa";
-import { FaClipboard } from "react-icons/fa6";
-import {IoMdLogOut} from "react-icons/io";
-// import React from "react";
+import { FaSearch  } from "react-icons/fa";
+import AdminSidebar from "./adminSidebar.tsx";
+import {useLocation} from "react-router-dom";
 
 function AdminDashboard(){
+
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
     return(
-        <div>
+        <>
             <div className={"admin-dashboard-page"}>
-                <div className={"sidebar"}>
-                    <div className={"sidebar-brand"}>
-                        <h1> <span><TiHome /></span>Feast</h1>
-                    </div>
-
-                    <div className={"sidebar-menu"}>
-                        <ul>
-                            <li><a href={""} className={"active"}><span> <AiFillAccountBook /></span>Dashboard</a></li>
-                            <Link to={"/ManageCategory"}><li><a href={""}><span><BiSolidCategoryAlt /></span> Manage Categories</a></li></Link>
-                            <Link to={"/ManageItem"}><li><a href={""}><span><FaBowlFood /></span>Manage Items</a></li></Link>
-
-                        </ul>
-                    </div>
-
-                    <div className={"sidebar-btn1"}>
-                        <button type={"button"}><span><IoMdLogOut /></span>Log Out</button>
-                    </div>
+                <div className={"dashboard-left"} >
+                    <AdminSidebar activePage={currentLocation} />
                 </div>
 
-                <div className={"main-content"}>
-                    <header>
+                <div className={"dashboard-right"}>
+                    <header className={"dashboard-header"}>
                         <h1>Dashboard</h1>
 
                         <div className={"search-wrapper"}>
@@ -53,30 +33,15 @@ function AdminDashboard(){
                         </div>
                     </header>
 
-                    <main className={"main1"}>
-                        <div className={"cards"}>
-                            <div className={"card-single01"}>
-                                <div>
-                                    <h1>54</h1>
-                                </div >
-                                <div  className={"card-nameicon"}>
-                                    <span><FaUsers /></span>
-                                    <span>Customers</span>
-                                </div>
-                            </div>
-
-                            <div className={"card-single02"}>
-                                <div>
-                                    <h1>79</h1>
-                                    <span>Projects</span>
-                                </div>
-                                <div><FaClipboard /></div>
-                            </div>
+                    <div className={"dashboard-main-content"}>
+                        <div className={"d-main-content"}>
+                            dfdf
                         </div>
-                    </main>
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </>
 
     )
 }

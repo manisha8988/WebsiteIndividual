@@ -7,107 +7,34 @@
 }
 
 .admin-dashboard-page{
-    background: #f1f5f9;
+    background: #edf3fa;
+    display: flex;
 }
 
-.sidebar{
-    width: 22vw;
-    height: 99%;
+.dashboard-right{
+    height: 120vh;
+    width: 79vw;
+    position: relative;
+    margin-left: 19.7vw;
+}
+
+.dashboard-header{
+    display: flex;
     position: fixed;
-    left: 4px;
-    top: 5px;
-    background: #f3ad16;
-    z-index: 100;
-    border-radius: 10px;
-}
-
-.sidebar-brand{
-    height: 90px;
-    padding: 1rem 0 1rem 2rem;
-    color: white;
-    letter-spacing: 2px;
-}
-
-.sidebar-brand span{
-    display: inline-block;
-    padding-right: 1rem;
-}
-
-
-.sidebar-menu{
-    margin-top: 1rem;
-}
-
-.sidebar-menu li{
-    width:22vw;
-    margin-bottom: 1.3rem;
-    padding-left: 2rem;
-    letter-spacing: 1px;
-}
-.sidebar-menu a{
-    padding-left: 1rem;
-    display: block;
-    color: #ffffff;
-    font-size: 1.2rem;
-}
-
-.sidebar-menu a span{
-    font-size: 1.5rem;
-    padding-right: 1rem;
-}
-
-.sidebar-menu a.active{
-    background: #f1f5f9;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: #f3ad16;
-    border-radius: 30px 0 0 30px;
-}
-
-.sidebar-btn1{
-    padding: 0 0 0 1rem;
-}
-.sidebar-btn1 button{
-    width: 19vw;
-    background: #f1f5f9;
-    color: #f3ad16;
-    box-shadow: 10px 10px 10px -1px rgb(112, 80, 52);
-    position: absolute;
-    bottom: 3vh;
-    border-radius: 11px;
-}
-
-.sidebar-btn1 button:hover{
-    background: #443f39;
-    color: #f3ad16;
-    box-shadow: 10px 10px 10px -1px rgb(100, 89, 80);
-}
-
-.sidebar-btn1 span{
-    padding: 1.5rem 0.4rem 0 0 ;
-}
-
-.main-content{
-    margin-left: 22vw;
-    display: flex;
-    background: #f1f5f9;
-}
-
-header{
-    display: flex;
     height: 12vh;
+    width: 79vw;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    z-index: 100;
+    background-color: white;
     border-radius: 14px;
+    box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
 }
 
-header h1{
+.dashboard-header h1{
     color: #222;
 }
 
-header lable span{
+.dashboard-header span{
     font-size: 1.7rem;
     padding-right: 1rem;
 }
@@ -150,33 +77,8 @@ header lable span{
     color: grey;
 }
 
-.main1{
-    margin-top: 12vh;
-    width: 77vw;
-    padding: 2rem 1.5rem;
-    background: #f1f5f9;
-    min-height: 87vh;
+.d-main-content{
+    margin-top: 13vh;
+    padding: 5px 10px;
+
 }
-.cards{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2rem;
-}
-
-.card-single01{
-    display: flex;
-    justify-content: space-between;
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 4px;
-  }
-
-/*.card-single02{*/
-/*    margin: 0 1rem 0 2rem;*/
-/*    align-items: center;*/
-/*  }*/
-
-/*.card-nameicon{*/
-/*    display: flex;*/
-/*}*/
-
