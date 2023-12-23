@@ -25,10 +25,15 @@ public class Order {
     @JoinColumn(name="item_id")
     private Items item;
 
+    @Column(name="quantity", nullable=false)
+    private Integer quantity;
+
+    @Column(name="total_price", nullable = false)
+    private Integer totalPrice;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate = new Date(System.currentTimeMillis());
 
-    @Column(name="quantity", nullable=false)
-    private Integer quantity;
+
 }
 

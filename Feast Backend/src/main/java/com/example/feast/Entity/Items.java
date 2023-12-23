@@ -27,11 +27,11 @@ public class Items {
     @Column(name = "item_image",nullable = false)
     private String itemImage;
 
-    @Column(name = "item_price",nullable = false)
-    private Integer itemPrice;
+    @Column(name = "item_unit_price",nullable = false)
+    private Integer itemUnitPrice;
 
     @Column(name = "item_status",nullable = false)
-    private String itemStatus;
+    private Boolean itemStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id", referencedColumnName = "id")

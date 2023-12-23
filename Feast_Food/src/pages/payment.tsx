@@ -22,12 +22,12 @@ function Payment() {
                 </div>
 
                 <div className={"phonepay"}>
-                    <img src={"src/images/phonepay.jpeg"}width={50}/>
+                    <img src={"src/images/phonepay.jpeg"}width={60}/>
                     <p>Phonepay</p>
                 </div>
 
                 <div className={"cod"}>
-                    <img src={"src/images/cod.jpeg"}width={45}/>
+                    <img src={"src/images/cod.jpeg"}width={60}/>
                     <p>Cash on Delivery</p>
                 </div>
             </div>

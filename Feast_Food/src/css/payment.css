@@ -6,13 +6,14 @@
 .payment-main{
     margin-top: 4em;
     width: 20em;
+    height: 25em;
     padding-left: 10px;
     border-radius: 17px;
     display:flex;
     align-items: center;
     justify-content: left;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     background-color: darkgrey;
 }
 .cross-icon button {
@@ -32,17 +33,18 @@
     box-shadow: none;
     color: #831515
 }
-.payment-method{
-    display: flex;
-    flex-direction:column ;
-    justify-content: left;
-}
+/*.payment-method{*/
+/*    display: flex;*/
+/*    flex-direction:column ;*/
+/*    justify-content: left;*/
+/*}*/
 .payment-method h1{
     font-family: Times New Roman;
     font-weight: bold;
     font-size: 2em;
 }
 .esewa, .phonepay, .cod{
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -65,4 +67,23 @@
 }
 .delivery-method{
 
+}
+.self-pickup-button button{
+    width: 10vw;
+    height: 3vw;
+    color: white;
+    margin: 0.5em;
+    background-color: #f8d186;
+    box-shadow: none;
+}
+.confirm-order-button button{
+    width: 10vw;
+    height: 3vw;
+    color: white;
+    margin: 0.5em;
+    background-color: #f8d186;
+    box-shadow: none;
+}
+.homedelivery{
+    margin-left: 3em;
 }
