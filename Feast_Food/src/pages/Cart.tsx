@@ -29,7 +29,7 @@ const Cart: React.FC<CartProps> = ({ cart, setCart, handleChange }) => {
     const handleRemove = (id: number): void => {
         const arr: CartItem[] = cart.filter((item) => item.id !== id);
         setCart(arr);
-        handlePrice(); // Uncomment this line if you want to update the price when removing an item
+        handlePrice();
     };
 
     useEffect(() => {
