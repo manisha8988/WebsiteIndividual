@@ -27,6 +27,7 @@ const HomePage = () => {
                 </div>
 
                 <div className={"hp-second-div"}>
+
                     <div className={"recommended-text"}>
                         {/*<h3>Recommended for you</h3>*/}
                     </div>
@@ -34,6 +35,8 @@ const HomePage = () => {
                     <div className={"view-more-btn"}>
                         <Link to={"/OurMenu"}><button>View More</button></Link>
                     </div>
+                    {/*<RecommendationPage/>*/}
+
                 </div>
             </div>
         </>
