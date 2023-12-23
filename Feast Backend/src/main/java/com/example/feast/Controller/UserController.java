@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 @RestController
 @RequestMapping("register")
 
@@ -18,7 +17,6 @@ public class UserController {
     public final UserService userService;
 
     public UserController(UserService userService) {
-
         this.userService = userService;
     }
 
@@ -29,33 +27,27 @@ public class UserController {
             return new ResponseEntity<>(users, HttpStatus.CREATED);
 
         } catch (Exception e) {
-
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
-
-
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
-     try{
-         System.out.println(loginUsers.getUsername());
-         System.out.println(loginUsers.getPassword());
+        try{
+            System.out.println(loginUsers.getUsername());
+            System.out.println(loginUsers.getPassword());
 
-         userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
+            userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
 
 
-         return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
 
-     }catch (Exception e){
-         System.out.println("dont match");
+        }catch (Exception e){
+            System.out.println("dont match");
 
-         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
-     }
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+        }
 
     }
 
 }
-
-
-

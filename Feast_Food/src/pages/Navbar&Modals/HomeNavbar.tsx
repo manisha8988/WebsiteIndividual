@@ -93,7 +93,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         </button>
 
                         <div className={"input-box"}>
-                            <span className={"iconmail"}> <IoMdMail /></span>
+                            <span className={"iconmail"}> <FaUser /></span>
                             <div className={"username"}>
                                 <input type={"email"} placeholder={"Username"}   />
                             </div>
