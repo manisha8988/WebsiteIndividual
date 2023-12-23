@@ -26,7 +26,7 @@ public class ItemPojo {
     private String itemImage;
 
     @NotNull
-    private Integer itemPrice;
+    private Integer itemUnitPrice;
 
     @NotEmpty
     private String itemStatus;
