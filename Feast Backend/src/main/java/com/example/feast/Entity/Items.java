@@ -27,8 +27,8 @@ public class Items {
     @Column(name = "item_image",nullable = false)
     private String itemImage;
 
-    @Column(name = "item_unit_price",nullable = false)
-    private Integer itemUnitPrice;
+    @Column(name = "itemprice",nullable = false)
+    private Integer itemPrice;
 
     @Column(name = "item_status",nullable = false)
     private Boolean itemStatus;
