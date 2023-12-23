@@ -1,30 +1,36 @@
 import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CategoryData from "../components/CategoryData.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import axios from "axios";
+import {useMutation} from "@tanstack/react-query";
 
 
-interface User {
+interface Category {
     id: number;
     name: string;
-    email: string;
 }
 
-const API = "https://jsonplaceholder.typicode.com/users";
+// const API = "https://jsonplaceholder.typicode.com/users";
+const API = "http://localhost:8088/category/findAll";
 
 const ManageCategory: React.FC = () =>  {
-    const [users, setUsers] = useState<User[]>([]);
+
+    const [categorys, setCategorys] = useState<Category[]>([]);
 
     const fetchUsers = async (url: string) => {
         try {
             const res = await fetch(url);
-            const data: User[] = await res.json();
+            const data: Category[] = await res.json();
             if (data.length > 0) {
-                setUsers(data);
+                setCategorys(data);
             }
         } catch (e) {
             console.error(e);
@@ -62,6 +68,36 @@ const ManageCategory: React.FC = () =>  {
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+
+
+    //hitting server on port 8081
+    const{register,handleSubmit,formState}=useForm();
+
+    const{errors} = formState;
+
+    const useApiCall = useMutation({
+        mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
+        mutationFn:(payload:any)=>{
+            console.log(payload)
+            return axios.post("http://localhost:8088/category/save",payload)
+        }
+    })
+
+    const onSubmit=(value:any)=>{
+        useApiCall.mutate(value)
+    }
+
+    //Toast
+    const notify = () =>toast.success('Category Inserted Succesfully', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+    });
 
 
     return(
@@ -110,7 +146,7 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData users={users} />
+                                        <CategoryData categorys={categorys} />
                                         </tbody>
                                     </table>
                                 </div>
@@ -121,26 +157,34 @@ const ManageCategory: React.FC = () =>  {
                 </div>
             </div>
 
+
+
             {modal1 && (
-                <div className="add-category-modal">
+                <div className="add-category-modal" >
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
-                        <h2>#Addn Category</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <h2>#Add Category</h2>
                         <button className="close-add-category-btn" onClick={toggleCatgModal}>
                             <FaRegWindowClose />
                         </button>
+
                         <div className={"category-id-number"}>
                             <label>ID</label>
                             <input type={"number"} placeholder={"Enter ID"}/>
                         </div>
                         <div className={"category-name"}>
                             <label>Category Name</label>
-                            <input type={"text"} placeholder={"Enter Category Name"}/>
+                            <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>
+                            <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
                         </div>
                         <div className={"category-name-add-btn"}>
-                            <button>Add</button>
+                            <button type={"submit"} onClick={notify}>Add</button>
                         </div>
+                        </form>
                     </div>
+
+                    <ToastContainer />
                 </div>
             )}
         </section>

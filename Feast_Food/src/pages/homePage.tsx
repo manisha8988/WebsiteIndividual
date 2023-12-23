@@ -35,8 +35,6 @@ const HomePage = () => {
                     <div className={"view-more-btn"}>
                         <Link to={"/OurMenu"}><button>View More</button></Link>
                     </div>
-                    {/*<RecommendationPage/>*/}
-
                 </div>
             </div>
         </>
