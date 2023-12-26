@@ -1,20 +1,68 @@
-
-.home-options ul li.active a {
-    color: #f3ad16; /* Specify the color for the active page title */
-}
-
-.reservation{
+.reservation-page{
     background-image: url("src/images/reserv_bg.jpg");
     background-color: rgba(0,0,0,.52);
     width: 100vw;
-    height: 100vh;
+    height: 140vh;
+    overflow-x: hidden;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+.reserv-container{
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+}
+.reserv-text{
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.reserv-text h2{
+    font-family: "Alex Brush";
+    font-size: 3vw;
+    color: #a97959;
+    margin: 30px;
+    text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);
+}
+.reserv-text h1{
+    font-family: "Bebas Neue";
+    font-size: 6.5vw;
+    letter-spacing: 9px;
+    margin-top: -4rem;
+    text-shadow: 3px 3px 5px rgba(52, 52, 51, 0.57);
+}
+
+.info-reservation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-reservation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.name_input, .phno_input, .no_of_people_input{
+    font-family: Bebas Neue;
+    font-size: 20px;
+    width:32vw;
+    height: 4vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #162938;
+    margin:  30px 0;
+    padding-left: 10px;
+    background: transparent;
+}
 
 .select-hour, .select-day{
-    font-family: Bebas Neue;
+    font-family: "Bebas Neue";
     font-size: 20px;
     position: relative;
     width:32vw;
@@ -24,64 +72,21 @@
     border-left: none;
     border-bottom: 1px solid #162938;
     margin:  26px 0;
-    top: 24%;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-left: 8px;
+    padding-left: 6px;
     background: transparent;
-    color:  rgb(133, 133, 133);
-    padding-bottom: 4px;
+    color:  rgb(133, 133, 133)
 }
 .dropdown button{
     background-color: transparent;
     color: black;
     box-shadow: none;
-    left: 40%;
+}
 
+.info-reservation button{
+    margin-top: 20px;
+    background-color: #8d6c24;
 }
-.reservation h2{
-    display: flex;
-    color: #a97959;
-    position: absolute;
-    font-family: Alex Brush;
-    font-size: 3vw;
-    font-weight: 900;
-    letter-spacing: 1px;
-    top: 8%;
-    left: 45%;
-}
-.reservation h1{
-    display: flex;
-    position: absolute;
-    font-family: Bebas Neue;
-    font-size: 4rem;
-    letter-spacing: 6px;
-    top: 15%;
-    left: 40%;
-}
-.info-reservation{
-    display: flex;
-    flex-direction: column;
-    left: 37%;
-    position: absolute;
-    top: 30%;
-}
-.info-reservation .name_input, .phno_input, .no_of_people_input{
-    font-family: Bebas Neue;
-    font-size: 20px;
-    position: relative;
-    width:32vw;
-    height: 4vh;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #162938;
-    margin:  30px 0;
-    top: 24%;
-    bottom: 7px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-left: 10px;
-    background: transparent;
+.info-reservation button:hover{
+    color: black;
+    box-shadow: none;
 }

@@ -11,7 +11,6 @@ import java.util.Optional;
 public interface CategoryService {
     void saveCategory(CategoryPojo categoryPojo);
 
-
     List<Category> findAll();
 
     Optional<Category> findById(Integer id);

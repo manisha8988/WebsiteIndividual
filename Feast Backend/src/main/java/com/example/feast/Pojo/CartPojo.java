@@ -30,6 +30,7 @@ public class CartPojo {
 //
     @NotNull
     private Integer total_pricee;
+
     @NotNull
     private Integer quantity;
 }
