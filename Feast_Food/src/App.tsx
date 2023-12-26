@@ -26,7 +26,7 @@ function App(){
                     {path:"/ReservationPage",element:<ReservationPage/>},
                     {path:"/ContactPage",element:<ContactPage/>},
                     {path:"/userprofileview",element:<UserProfileView/>},
-                    {path:"/payment",element:<Payment/>},
+                    {path:"/Payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
                 ])} />
             </QueryClientProvider>
