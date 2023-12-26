@@ -1,5 +1,6 @@
 .manage-category-page{
     background: #f1f5f9;
+    padding-bottom: 2rem;
 }
 
 .category-header{
@@ -18,6 +19,7 @@
     width: 79vw;
     position: relative;
     margin-left: 19.7vw;
+    margin-bottom: 20rem;
 }
 
 .search-wrapper2{
@@ -93,7 +95,7 @@ button:hover{
     margin-right: 4px;
     color: white;
 }
-.btn1:hover span{
+.btn1 button:hover span{
     color: #f3ad16;
 }
 

@@ -2,10 +2,12 @@ package com.example.feast.Service;
 
 import com.example.feast.Entity.Items;
 import com.example.feast.Pojo.ItemPojo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public interface ItemService {
     void saveItem(ItemPojo itemPojo);
 
