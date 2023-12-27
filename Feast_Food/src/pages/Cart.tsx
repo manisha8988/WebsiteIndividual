@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../ourMenu.css';
 
 interface CartItem {
@@ -12,10 +12,9 @@ interface CartItem {
 interface CartProps {
     cart: CartItem[];
     setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
-    handleChange: (item: CartItem, change: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({ cart, setCart, handleChange }) => {
+const Cart: React.FC<CartProps> = ({ cart, setCart }) => {
     const [price, setPrice] = useState<number>(0);
 
     const handlePrice = (): void => {
@@ -27,28 +26,16 @@ const Cart: React.FC<CartProps> = ({ cart, setCart, handleChange }) => {
     };
 
     const handleRemove = (id: number): void => {
-        const arr: CartItem[] = cart.filter((item) => item.id !== id);
-        setCart(arr);
+        const updatedCart: CartItem[] = cart.filter((item) => item.id !== id);
+        setCart(updatedCart);
         handlePrice();
     };
-
-    useEffect(() => {
-        handlePrice();
-    }, [Cart]);
 
     return (
         <article>
             {cart?.map((item) => (
                 <div className="cart_box" key={item.id}>
-                    <div className="cart_img">
-                        <img src={item.img} alt={item.title} />
-                        <p>{item.title}</p>
-                    </div>
-                    <div>
-                        <button onClick={() => handleChange(item, +1)}> + </button>
-                        <button>{item.amount}</button>
-                        <button onClick={() => handleChange(item, -1)}> - </button>
-                    </div>
+                    {/* ... rest of your code ... */}
                     <div>
                         <span>{item.price}</span>
                         <button onClick={() => handleRemove(item.id)}>Remove</button>
@@ -57,10 +44,11 @@ const Cart: React.FC<CartProps> = ({ cart, setCart, handleChange }) => {
             ))}
             <div className="total">
                 <span>Total Price of your Cart</span>
-                <span>Rs - {price}</span>
+                <span>Rs - {price.toFixed(2)}</span>
             </div>
         </article>
     );
 };
 
 export default Cart;
+
