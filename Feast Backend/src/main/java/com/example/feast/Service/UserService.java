@@ -1,17 +1,18 @@
 package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
-import com.example.feast.Repo.UserRepository;
+import com.example.feast.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
+    private final UserRepo userRepository;
     @Autowired
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepo userRepository){
         this.userRepository=userRepository;
     }
     public User createUser(User user){
@@ -21,6 +22,7 @@ public class UserService {
     public User loginUser(String username, String password) {
         System.out.println("login ::" + username);
         Optional<User> optionalUser = userRepository.findByUsername(username);
+
 
         if (optionalUser.isPresent()) {
             User user=optionalUser.get();

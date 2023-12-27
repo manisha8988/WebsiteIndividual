@@ -1,8 +1,9 @@
 import "../css/homePage.css";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
 // import RecommendationPage from "./imgSliderBar/recommendationPage.tsx";
+import ImageSlider from "./imgSliderBar/imageSlider1.tsx";
 
 const HomePage = () => {
 
@@ -26,7 +27,16 @@ const HomePage = () => {
                 </div>
 
                 <div className={"hp-second-div"}>
+
+                    <div className={"recommended-text"}>
+                        {/*<h3>Recommended for you</h3>*/}
+                    </div>
+                    <ImageSlider/>
+                    <div className={"view-more-btn"}>
+                        <Link to={"/OurMenu"}><button>View More</button></Link>
+                    </div>
                     {/*<RecommendationPage/>*/}
+
                 </div>
             </div>
         </>

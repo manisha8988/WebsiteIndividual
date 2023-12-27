@@ -1,120 +1,25 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-}
 
-.sidebar3{
-    width: 22vw;
-    height: 98.6vh;
+.itempage-header{
+    display: flex;
     position: fixed;
-    left: 0.2rem;
-    top: 5px;
-    background-color: #f3ad16;
-    z-index: 100;
-    border-radius: 10px;
-}
-.sidebar-brand3{
-    height: 90px;
-    padding: 1rem 0 1rem 2rem;
-    color: white;
-    letter-spacing: 2px;
-}
-.sidebar-brand3 span{
-    display: inline-block;
-    padding-right: 1rem;
-}
-
-.sidebar-menu3{
-    margin-top: 1rem;
-}
-
-.sidebar-menu3 li{
-    width: 22vw;
-    margin-bottom: 1.3rem;
-    padding-left: 2rem;
-    letter-spacing: 1px;
-}
-
-.sidebar-menu3 a{
-    padding-left: 1rem;
-    display: block;
-    color: #ffffff;
-    font-size: 1.2rem;
-}
-
-.sidebar-menu3 a span{
-    font-size: 1.5rem;
-    padding-right: 1rem;
-
-}
-
-.sidebar-menu3 a.active{
-    background: #f1f5f9;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: #f3ad16;
-    border-radius: 30px 0 0 30px;
-}
-
-.sidebar-btn3{
-    padding: 0 0 0 1rem;
-}
-.sidebar-btn3 button{
-    width: 19vw;
-    background: #f1f5f9;
-    color: #f3ad16;
-    box-shadow: 10px 10px 10px -1px rgb(112, 80, 52);
-    position: absolute;
-    bottom: 3vh;
-    border-radius: 11px;
-}
-
-.sidebar-btn3 button:hover{
-    background: #443f39;
-    color: #f3ad16;
-    box-shadow: 10px 10px 10px -1px rgb(100, 89, 80);
-}
-
-.sidebar-btn3 span{
-    padding: 1.5rem 0.4rem 0 0 ;
-}
-
-.main-content3{
-    margin-left: 22vw;
-    display: flex;
-    background: #f1f5f9;
-}
-
-header{
-    display: flex;
-    width: 76.2vw;
     height: 12vh;
+    width: 79vw;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     background-color: white;
-    margin-left: 0.5rem;
-    z-index: 100;
-    position: fixed;
+    border-radius: 14px;
+    box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
 }
 
-header h1{
-    color: #222;
+.itempage-right{
+    width: 79vw;
+    position: relative;
+    margin-left: 19.7vw;
 }
 
-header lable span{
-    font-size: 1.7rem;
-    padding-right: 1rem;
-}
-
-.main3{
-    margin-top: 12vh;
+.item-main-content{
     width: 77vw;
-    background: #f1f5f9;
-    padding-top: 1.5rem;
+    padding-top: 15vh;
 }
 
 .search-wrapper3{
