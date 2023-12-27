@@ -30,8 +30,8 @@ public abstract class ItemServiceImpl implements ItemService {
             item.setItemName(itemPojo.getItemName());
             item.setItemCategory(itemPojo.getItemCategory());
             item.setItemImage(itemPojo.getItemImage());
-            item.setItemPrice(itemPojo.getItemPrice());
-            item.setItemStatus((itemPojo.getItemStatus()));
+            item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+            item.setItemStatus(Boolean.valueOf((itemPojo.getItemStatus())));
             itemRepo.save(item);
             System.out.println("Saved Successfully");
         }
@@ -41,10 +41,10 @@ public abstract class ItemServiceImpl implements ItemService {
         item.setItemName(itemPojo.getItemName());
         item.setItemCategory(itemPojo.getItemCategory());
         item.setItemImage(itemPojo.getItemImage());
-        item.setItemPrice(itemPojo.getItemPrice());
 
-
-        item.setItemStatus(itemPojo.getItemStatus());
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
 
         itemRepo.save(item);
 
@@ -68,7 +68,7 @@ public abstract class ItemServiceImpl implements ItemService {
     @Override
     public String update(Integer id, ItemPojo itempojo){
         Items item = itemRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("user not found with ID : "+ id));
-        item.setItemPrice(itempojo.getItemPrice());
+        item.setItemUnitPrice(itempojo.getItemUnitPrice());
         return "Update successfully";
     }
 
