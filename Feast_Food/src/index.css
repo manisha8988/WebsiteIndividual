@@ -15,15 +15,27 @@
 
 @font-face {
     font-family: 'Bebas Neue';
-    src: url("public/BebasNeue-Regular.ttf") format('truetype');
+    src: url("../public/Fonts/BebasNeue-Regular.ttf") format('truetype');
 }
 @font-face {
     font-family: Alex Brush;
-    src: url("public/AlexBrush-Regular.ttf") format('truetype');
+    src: url("../public/Fonts/AlexBrush-Regular.ttf") format('truetype');
 }
 @font-face {
     font-family: Afacad;
-    src: url("../public/Afacad-VariableFont_wght.ttf") format('truetype');
+    src: url("../public/Fonts/Afacad-VariableFont_wght.ttf") format('truetype');
+}
+@font-face {
+    font-family: Gilroy Light;
+    src: url("../public/Fonts/Gilroy-Light.ttf") format('truetype');
+}
+@font-face {
+    font-family: Gilroy Regular;
+    src: url("../public/Fonts/Gilroy-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: Gilroy Medium;
+    src: url("../public/Fonts/Gilroy-Medium.ttf") format('truetype');
 }
 
 table {
@@ -53,4 +65,12 @@ th,td {
 td {
     font-size: 1rem;
     background-color: white;
+}
+
+h6{
+    font-size: 1rem;
+    font-family: Afacad;
+    font-weight: 200;
+    letter-spacing: -0.7px;
+    color: rgba(70, 1, 1, 0.63);
 }

@@ -26,7 +26,6 @@ public class CategoryServiceImpl implements CategoryService {
             category=categoryRepo.findById(categoryPojo.getId()).get();
         }
 
-
         categoryRepo.save(category); // insert query
     }
 

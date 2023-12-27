@@ -7,25 +7,30 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
 @Getter
 @Setter
 
-public class OrderPojo {
+
+public class CartPojo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="item_id")
     private Items item;
 
+//    @OneToOne
+//    @JoinColumn(name="item_unit_price")
+//    private Items item;
+//
     @NotNull
-    private Date createdDate;
+    private Integer total_pricee;
 
     @NotNull
     private Integer quantity;
-
 }

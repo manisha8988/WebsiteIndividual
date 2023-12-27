@@ -18,16 +18,16 @@ function Payment() {
                 <h1>Payment</h1>
                 <div className={"esewa"}>
                     <img src={"src/images/esewa.jpeg"} width={60}/>
-                    <p>Esewa</p>
+                    <h3>Esewa</h3>
                 </div>
 
                 <div className={"phonepay"}>
-                    <img src={"src/images/phonepay.jpeg"}width={50}/>
+                    <img src={"src/images/phonepay.jpeg"}width={60}/>
                     <p>Phonepay</p>
                 </div>
 
                 <div className={"cod"}>
-                    <img src={"src/images/cod.jpeg"}width={45}/>
+                    <img src={"src/images/cod.jpeg"}width={60}/>
                     <p>Cash on Delivery</p>
                 </div>
             </div>

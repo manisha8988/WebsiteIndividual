@@ -1,15 +1,17 @@
 package com.example.feast.Service.Impl;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import com.example.feast.Entity.Items;
 import com.example.feast.Pojo.ItemPojo;
 import com.example.feast.Repo.ItemRepo;
 import com.example.feast.Service.ItemService;
+
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,21 +30,25 @@ public abstract class ItemServiceImpl implements ItemService {
             item.setItemName(itemPojo.getItemName());
             item.setItemCategory(itemPojo.getItemCategory());
             item.setItemImage(itemPojo.getItemImage());
+
             item.setItemPrice(itemPojo.getItemPrice());
-            item.setItemStatus((itemPojo.getItemStatus()));
+            item.setItemPrice(itemPojo.getItemPrice());
+            item.setItemStatus(Boolean.valueOf((itemPojo.getItemStatus())));
             itemRepo.save(item);
             System.out.println("Saved Successfully");
         }
+
 
 
         item.setItemName(itemPojo.getItemName());
         item.setItemCategory(itemPojo.getItemCategory());
         item.setItemImage(itemPojo.getItemImage());
         item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemStatus(itemPojo.getItemStatus());
 
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
         itemRepo.save(item);
-
 
     }
 

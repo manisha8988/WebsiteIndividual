@@ -15,9 +15,10 @@ import java.util.Optional;
 public class ItemController {
     private final ItemService itemService;
 
-    @PostMapping("/save")
+
+    @PostMapping("save")
     public String saveItem(@Valid @RequestBody ItemPojo itemPojo) {
-        System.out.println(itemPojo);
+//        System.out.println(itemPojo);
         itemService.saveItem(itemPojo);
         return "data successfully created";
     }
@@ -31,6 +32,7 @@ public class ItemController {
     public void deleteItemById(@PathVariable("id") Integer id) {
         itemService.deleteById(id);
     }
+
     @PutMapping("/update/{id}")
     public  String update(@PathVariable("id") Integer id){
         return this.itemService.update(id, new ItemPojo());

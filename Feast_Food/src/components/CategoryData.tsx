@@ -3,21 +3,20 @@ import {CiEdit} from "react-icons/ci";
 import {MdDelete} from "react-icons/md";
 
 
-interface User {
+interface Category {
     id: number;
     name: string;
-    email: string;
 }
 
-interface UserDataProps {
-    users: User[];
+interface CategoryDataProps {
+    categorys: Category[];
 }
 
-const CategoryData: React.FC<UserDataProps> = ({ users }) => {
+const CategoryData: React.FC<CategoryDataProps> = ({ categorys }) => {
     return (
         <>
-            {users.map((curUser) => {
-                const { id, name } = curUser;
+            {categorys.map((curCategory) => {
+                const { id,name } = curCategory;
 
                 return (
                     <tr key={id}>
