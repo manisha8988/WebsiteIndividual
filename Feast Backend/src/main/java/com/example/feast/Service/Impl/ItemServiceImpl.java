@@ -30,6 +30,8 @@ public abstract class ItemServiceImpl implements ItemService {
             item.setItemName(itemPojo.getItemName());
             item.setItemCategory(itemPojo.getItemCategory());
             item.setItemImage(itemPojo.getItemImage());
+
+            item.setItemPrice(itemPojo.getItemPrice());
             item.setItemPrice(itemPojo.getItemPrice());
             item.setItemStatus(Boolean.valueOf((itemPojo.getItemStatus())));
             itemRepo.save(item);
@@ -42,6 +44,10 @@ public abstract class ItemServiceImpl implements ItemService {
         item.setItemCategory(itemPojo.getItemCategory());
         item.setItemImage(itemPojo.getItemImage());
         item.setItemPrice(itemPojo.getItemPrice());
+
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemUnitPrice(itemPojo.getItemUnitPrice());
+        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
         itemRepo.save(item);
 
     }
