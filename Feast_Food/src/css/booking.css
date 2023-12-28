@@ -1,0 +1,54 @@
+.bookingpage-header{
+    display: flex;
+    position: fixed;
+    height: 12vh;
+    width: 79vw;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
+}
+
+.bookingpage-right{
+    width: 79vw;
+    position: relative;
+    margin-left: 19.7vw;
+}
+
+.booking-main-content{
+    width: 77vw;
+    padding-top: 15vh;
+}
+
+.card-header10 h2{
+    margin: 1rem 2rem;
+    text-decoration: underline;
+}
+.bookingtable-bordered3 th{
+    font-size: 1rem;
+    padding: 1.2rem 0;
+}
+
+.table-bordered3 td{
+    font-size: 1rem;
+    padding: 1rem;
+}
+.name-box10{
+    min-width: 8rem;
+}
+.number-box10{
+    min-width: 8rem;
+}
+.person-box10{
+    min-width: 7rem;
+}
+.date-box10{
+    min-width: 6rem;
+}
+.hour-box10{
+    min-width: 8rem;
+}
+.purpose-box10{
+    min-width: 20rem;
+}
