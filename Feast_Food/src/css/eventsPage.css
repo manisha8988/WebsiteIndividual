@@ -1,0 +1,143 @@
+
+.events-page-div{
+    background: #faf7f2;
+    width: 100%;
+    height: 180vh;
+    overflow-x: hidden;
+}
+
+.events-main-container{
+    display: flex;
+    margin-top: 9vh;
+    flex-direction: column;
+}
+.events-text-div{
+    display: flex;
+    justify-content: center;
+    color: #443f3f;
+    font-family: "Gilroy Bold";
+    font-size: 1.5rem;
+    margin: 1rem 0 0 2.3rem;
+}
+.events-text-div b{
+    color: #f3ad16;
+}
+.anniversary-div{
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+.anniversary-img{
+    margin: 30px;
+    align-items: center;
+    position: relative;
+}
+.anniversary-img img{
+    width: 22vw;
+    box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+}
+.anniversary-info{
+    padding: 20px;
+}
+.anniversary-info button{
+    margin-top: 5vh;
+    width: 14vw;
+    height: 7.5vh;
+}
+
+.anniversary-div h1{
+    font-size: 2rem;
+    display: inline-block;
+    color: #25053a;
+    font-family: "Gilroy Medium";
+}
+.anniversary-div p{
+    padding: 20px 30px 0 0;
+    font-family: Oswald-Light;
+    letter-spacing: 0.7px;
+    /*word-spacing: 1px;*/
+}
+
+
+.birthday-div{
+    display: flex;
+    margin-top: 6rem;
+    align-items: center;
+}
+.birthday-img{
+    align-items: center;
+    position: relative;
+    margin-right: 20px;
+}
+.birthday-img img{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 10px;
+    width: 24vw;
+}
+.birthday-info{
+    width: 74vw;
+    justify-content: center;
+    padding: 0 40px 0 40px;
+}
+.birthday-info h1{
+    font-size: 2rem;
+    padding-bottom: 20px;
+    display: inline-block;
+    color: #25053a;
+    font-family: "Gilroy Medium";
+}
+.birthday-info button{
+     margin-top: 5vh;
+     width: 14vw;
+     height: 7.5vh;
+ }
+.birthday-info p{
+    /*padding: 20px 30px 0 30px;*/
+    font-family: Oswald-Light;
+    letter-spacing: 0.7px;
+}
+
+.img-overlay{
+    width: 100%;
+    height: 99%;
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+    background: linear-gradient(rgba(0,0,0,0.5), #bd9b51);
+    opacity: 0;
+    transition: 0.5s ;
+}
+.book-btn h2{
+    color: white;
+    position: absolute;
+    left: 42%;
+    font-size: 1.3rem;
+}
+.book-btn{
+    width: 100%;
+    height: 10%;
+    border-radius: 0 0 10px 10px ;
+    background-color: #543d0b;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%);
+    transition: 0.5s;
+    opacity: 0;
+    cursor: pointer;
+}
+.birthday-img:hover .book-btn, .anniversary-img:hover .book-btn{
+    bottom: 1%;
+    opacity: 1;
+}
+.birthday-img:hover .img-overlay, .anniversary-img:hover .img-overlay{
+    opacity: 1;
+}
+
+

@@ -69,6 +69,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         <Link to={"/"}><li className={activePage === "/" ? "active" : ""}><a>Home</a></li></Link>
                         <Link to={"/OurMenu"}><li className={activePage === "/OurMenu" ? "active" : ""}><a>Our Menu</a></li></Link>
                         <Link to={"/ReservationPage"}><li className={activePage === "/ReservationPage" ? "active" : ""}><a>Reservation</a></li></Link>
+                        <Link to={"/EventsPage"}><li className={activePage === "/EventsPage" ? "active" : ""}><a>Events</a></li></Link>
                         <Link to={"/ContactPage"}><li className={activePage === "/ContactPage" ? "active" : ""}><a>Contact</a></li></Link>
                     </ul>
                 </div>

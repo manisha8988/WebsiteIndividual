@@ -3,7 +3,7 @@
 .contact-page-div{
     background: #faf7f2;
     width: 100%;
-    height: 225vh;
+    height: 215vh;
     overflow-x: hidden;
 }
 
@@ -11,14 +11,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 .get-container h2{
-    font-family: "Alex Brush";
+    font-family: "Gilroy Bold";
     font-size: 2.7rem;
-    text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);
-    color: #936608;
+    /*text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);*/
+    color: #443f3f;
+}
+.get-container b{
+    color: #f3ad16;
 }
 .contact-main-content{
     /*background: #888888;*/
@@ -33,8 +36,8 @@
     flex-direction: column;
     padding: 50px 60px;
     margin: 20px 40px;
-    width: 45vw;
-    height: 70vh;
+    width: 42vw;
+    height: 68vh;
     box-shadow: 5px 5px 10px -1px rgba(10,99,169,0.16);
 }
 
