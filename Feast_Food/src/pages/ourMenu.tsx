@@ -54,7 +54,6 @@ const OurMenu: React.FC<RestaurantProps> = () => {
                     <Navbar filterItem={filterItem} menuList={menuList} />
                     <MenuCard menuData={menuData} />
                 </div>
-
             </div>
         </>
     );

@@ -1,11 +1,15 @@
 package com.example.feast.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name="events")
+@Getter
+@Setter
 
 public class Event {
 
@@ -22,13 +26,13 @@ public class Event {
     private User user;
 
     @Column(name="event_description")
-    private String event_description;
+    private String eventDescription;
 
     @Column(name="event_price", nullable=false)
-    private Integer event_price;
+    private Integer eventPrice;
 
     @Column(name="event_date_time", nullable=false)
-    private Date event_date_time;
+    private Date eventDateTime;
 
 
 }

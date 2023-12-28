@@ -14,7 +14,7 @@ const ContactPage = () =>{
                 <HomeNavbar activePage={currentLocation} />
 
                 <div className={"get-container"}>
-                    <h2>Get in touch</h2>
+                    <h2>Get <b>in</b> touch<b>.</b></h2>
                 </div>
 
                 <div className={"contact-main-content"}>
