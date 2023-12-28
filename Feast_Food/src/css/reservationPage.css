@@ -14,7 +14,6 @@
     overflow-x: hidden;
 }
 .reserv-text{
-    margin: 30px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +23,8 @@
     font-family: "Alex Brush";
     font-size: 3vw;
     color: #a97959;
-    margin: 30px;
+    margin-top: 2vh;
+    margin-bottom: 4.2vh;
     text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);
 }
 .reserv-text h1{

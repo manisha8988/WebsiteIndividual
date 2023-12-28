@@ -15,10 +15,13 @@
     margin-bottom: 40px;
 }
 .get-container h2{
-    font-family: "Alex Brush";
+    font-family: "Gilroy Bold";
     font-size: 2.7rem;
-    text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);
-    color: #936608;
+    /*text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);*/
+    color: #443f3f;
+}
+.get-container b{
+    color: #f3ad16;
 }
 .contact-main-content{
     /*background: #888888;*/
