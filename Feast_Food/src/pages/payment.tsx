@@ -18,7 +18,7 @@ function Payment() {
                 <h1>Payment</h1>
                 <div className={"esewa"}>
                     <img src={"src/images/esewa.jpeg"} width={60}/>
-                    <p>Esewa</p>
+                    <h3>Esewa</h3>
                 </div>
 
                 <div className={"phonepay"}>

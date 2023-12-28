@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Items {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
     private  Integer id;
 
     @Column(name="item_name",nullable = false)
@@ -27,8 +28,8 @@ public class Items {
     @Column(name = "item_image",nullable = false)
     private String itemImage;
 
-    @Column(name = "item_unit_price",nullable = false)
-    private Integer itemUnitPrice;
+    @Column(name = "itemprice",nullable = false)
+    private Integer itemPrice;
 
     @Column(name = "item_status",nullable = false)
     private Boolean itemStatus;

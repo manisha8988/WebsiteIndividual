@@ -20,7 +20,7 @@ const HomePage = () => {
                             <h1>Savor the flavor Straight to your door.</h1>
                         </div>
                         <div className={"hp-search-wrapper"}>
-                            <input type={"search"} placeholder={"Search Your Food Here..."}/>
+                            <input type={"search"} placeholder={"Search your food here..."}/>
                             <span><FaSearch/></span>
                         </div>
                     </div>

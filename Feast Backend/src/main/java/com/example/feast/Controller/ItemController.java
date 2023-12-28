@@ -32,6 +32,7 @@ public class ItemController {
     public void deleteItemById(@PathVariable("id") Integer id) {
         itemService.deleteById(id);
     }
+
     @PutMapping("/update/{id}")
     public  String update(@PathVariable("id") Integer id){
         return this.itemService.update(id, new ItemPojo());

@@ -13,24 +13,21 @@ const ReservationPage = () =>{
 
     return(
         <>
-            {/*<div className={"reservation"} >*/}
-            <HomeNavbar activePage={currentLocation}/>
-            <div className={"reserv-container"}>
-                <div className={"reservation"}>
+            <div className={"reservation-page"} >
+                <HomeNavbar activePage={currentLocation}/>
+                <div className={"reserv-text"}>
                     <h2>Reservations</h2>
                     <h1>Book a table</h1>
-                    <div className={"info-reservation"}>
-                        <input type={"text"} className={"name_input"} placeholder={"Name"}/>
-                        <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
-                        <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
-                        <Dropdown/>
-                        <Hour/>
-                    </div>
                 </div>
-
+                <div className={"info-reservation"}>
+                    <input type={"text"} className={"name_input"} placeholder={"Name"}/>
+                    <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
+                    <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
+                    <Dropdown/>
+                    <Hour/>
+                    <button>Book A Table</button>
+                </div>
             </div>
-
-            {/*</div>*/}
         </>
     )
 
