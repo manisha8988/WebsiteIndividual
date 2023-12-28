@@ -10,9 +10,8 @@ import Payment from "./pages/payment.tsx";
 import Homedelivery from "./pages/homedelivery.tsx";
 import ContactPage from "./pages/contactPage.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import EventsPage from "./pages/eventsPages/eventsPage.tsx";
-import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";
-import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
+import Booking from "./pages/booking.tsx";
+// import React from "react";
 
 const queryClient = new QueryClient();
 
@@ -24,15 +23,13 @@ function App(){
                     {path:"/AdminDashboard",element:<AdminDashboard/>},
                     {path:"ManageCategory",element:<ManageCategory/>},
                     {path:"/ManageItem",element:<ManageItem/>},
+                    {path:"/Booking",element:<Booking/>},
                     {path:"/",element:<HomePage/>},
                     {path:"/OurMenu",element:<OurMenu/>},
                     {path:"/ReservationPage",element:<ReservationPage/>},
-                    {path:"/EventsPage",element:<EventsPage/>},
-                    {path:"/AnniversaryPage",element:<AnniversaryPage/>},
-                    {path:"/BirthdayPage",element:<BirthdayPage/>},
                     {path:"/ContactPage",element:<ContactPage/>},
                     {path:"/userprofileview",element:<UserProfileView/>},
-                    {path:"/Payment",element:<Payment/>},
+                    {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
                 ])} />
             </QueryClientProvider>
