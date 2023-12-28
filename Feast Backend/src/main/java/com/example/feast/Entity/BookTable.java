@@ -1,5 +1,5 @@
 package com.example.feast.Entity;
-import com.example.feast.Entity.BookTable;
+
 import lombok.Getter;
 
 import javax.persistence.Entity;

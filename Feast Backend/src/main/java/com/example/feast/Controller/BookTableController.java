@@ -21,6 +21,7 @@ public class BookTableController {
         this.bookTableRepository = bookTableRepository;
     }
 
+
     @GetMapping
     public List<BookTable> getAllBookTables() {
         return bookTableRepository.findAll();
