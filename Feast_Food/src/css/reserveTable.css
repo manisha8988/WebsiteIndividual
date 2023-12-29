@@ -17,10 +17,10 @@
     flex-wrap: wrap;
     min-width: 600px;
     background-color:#FFFAF6;
-    margin-left: 25%;
+    margin-left: 25.5%;
     margin-right: 15%;
-    margin-top:20px;
-    height: 93%;
+    margin-top:0;
+    height: 99%;
     width: 50%;
 }
 
@@ -37,7 +37,7 @@
     text-transform: initial;
     font-size: 3vw;
     color: #a97959;
-    margin-top: 10px;
+    margin-top: 27px;
     text-shadow: 3px 3px 5px rgba(128, 38, 0, 0.73);
 }
 .reserv-text h1{
@@ -97,7 +97,7 @@ h6{
 }
 
 .book-button{
-    margin-top: 6px;
+    margin-top: 10px;
     text-align: center;
     align-items: center;
     align-content: center;
