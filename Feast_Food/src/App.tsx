@@ -11,6 +11,8 @@ import Homedelivery from "./pages/homedelivery.tsx";
 import ContactPage from "./pages/contactPage.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import Booking from "./pages/booking.tsx";
+import Cart from "./pages/Cart.tsx";
+
 // import React from "react";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,7 @@ function App(){
                     {path:"/userprofileview",element:<UserProfileView/>},
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
+                    {path: "/cart", element: <Cart/>}
                 ])} />
             </QueryClientProvider>
         </>

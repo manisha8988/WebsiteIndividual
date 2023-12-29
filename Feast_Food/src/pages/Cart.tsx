@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../ourMenu.css';
+import  '../css/ourMenu.css'
 
 interface CartItem {
     id: number;
@@ -45,6 +45,12 @@ const Cart: React.FC<CartProps> = ({ cart, setCart }) => {
             <div className="total">
                 <span>Total Price of your Cart</span>
                 <span>Rs - {price.toFixed(2)}</span>
+            </div>
+
+            <div>
+                <button>
+                    Save
+                </button>
             </div>
         </article>
     );
