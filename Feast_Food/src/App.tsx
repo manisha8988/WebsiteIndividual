@@ -14,6 +14,7 @@ import Booking from "./pages/booking.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";
 import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
+import Reservation from "./pages/reservation/reserveTable.tsx";
 // import React from "react";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ function App(){
                     {path:"/userprofileview",element:<UserProfileView/>},
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
+                    {path:"reservation",element:<Reservation/>}
                 ])} />
             </QueryClientProvider>
         </>
