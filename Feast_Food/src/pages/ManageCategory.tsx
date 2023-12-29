@@ -13,34 +13,7 @@ import axios from "axios";
 import {useMutation} from "@tanstack/react-query";
 
 
-interface Category {
-    id: number;
-    name: string;
-}
-
-// const API = "https://jsonplaceholder.typicode.com/users";
-const API = "http://localhost:8088/category/findAll";
-
 const ManageCategory: React.FC = () =>  {
-
-    const [categorys, setCategorys] = useState<Category[]>([]);
-
-    const fetchUsers = async (url: string) => {
-        try {
-            const res = await fetch(url);
-            const data: Category[] = await res.json();
-            if (data.length > 0) {
-                setCategorys(data);
-            }
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
-    useEffect(() => {
-        fetchUsers(API);
-    }, []);
-
 
     // Add category modal
     const [modal1, setModal] = useState(false);
@@ -86,6 +59,7 @@ const ManageCategory: React.FC = () =>  {
     const onSubmit=(value:any)=>{
         useApiCall.mutate(value)
     }
+
 
     //Toast
     const notify = () =>toast.success('Category Inserted Succesfully', {
@@ -146,7 +120,7 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData categorys={categorys} />
+                                        <CategoryData />
                                         </tbody>
                                     </table>
                                 </div>

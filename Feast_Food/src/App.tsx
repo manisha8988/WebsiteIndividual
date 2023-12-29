@@ -24,10 +24,10 @@ function App(){
             <QueryClientProvider client={queryClient}>
                 <RouterProvider router={createBrowserRouter([
                     {path:"/AdminDashboard",element:<AdminDashboard/>},
-                    {path:"ManageCategory",element:<ManageCategory/>},
-                    {path:"EventsPage",element:<EventsPage/>},
-                    {path:"AnniversaryPage",element:<AnniversaryPage/>},
-                    {path:"BirthdayPage",element:<BirthdayPage/>},
+                    {path:"/ManageCategory",element:<ManageCategory/>},
+                    {path:"/EventsPage",element:<EventsPage/>},
+                    {path:"/AnniversaryPage",element:<AnniversaryPage/>},
+                    {path:"/BirthdayPage",element:<BirthdayPage/>},
                     {path:"/ManageItem",element:<ManageItem/>},
                     {path:"/Booking",element:<Booking/>},
                     {path:"/",element:<HomePage/>},
