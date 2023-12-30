@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import  '../css/ourMenu.css'
+import payment from "./payment.tsx";
 
 interface CartItem {
     id: number;
@@ -49,7 +50,7 @@ const Cart: React.FC<CartProps> = ({ cart, setCart }) => {
 
             <div>
                 <button>
-                    Save
+                    Check-Out
                 </button>
             </div>
         </article>
