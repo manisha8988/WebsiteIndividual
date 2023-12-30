@@ -12,6 +12,7 @@ import ContactPage from "./pages/contactPage.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import Booking from "./pages/booking.tsx";
 import Cart from "./pages/Cart.tsx";
+import Reservation from "./pages/reservation/tableBooking.tsx";
 
 // import React from "react";
 
@@ -33,7 +34,9 @@ function App(){
                     {path:"/userprofileview",element:<UserProfileView/>},
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
-                    {path: "/cart", element: <Cart/>}
+                    {path: "/cart", element: <Cart/>},{
+                    {path:"/reservation",element:<Reservation/>}
+                    }
                 ])} />
             </QueryClientProvider>
         </>
