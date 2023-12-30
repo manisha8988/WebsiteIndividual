@@ -1,5 +1,5 @@
 .reserve-table{
-    background-image: url("src/images/Table1.jpeg");
+    background-image: url("src/images/reserv_bg.jpg");
     background-color: rgba(0,0,0,.52);
     width: 100vw;
     height: 140vh;
@@ -17,10 +17,10 @@
     flex-wrap: wrap;
     min-width: 600px;
     background-color:#FFFAF6;
-    margin-left: 25%;
+    margin-left: 25.5%;
     margin-right: 15%;
-    margin-top:30px;
-    height: 88%;
+    margin-top:0px;
+    height: 98%;
     width: 50%;
 }
 

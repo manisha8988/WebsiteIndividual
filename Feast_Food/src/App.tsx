@@ -34,9 +34,8 @@ function App(){
                     {path:"/userprofileview",element:<UserProfileView/>},
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
-                    {path: "/cart", element: <Cart/>},{
-                    {path:"/reservation",element:<Reservation/>}
-                    }
+                    {path: "/cart", element: <Cart/>},
+                    {path: "/reservation", element: <Reservation/>}
                 ])} />
             </QueryClientProvider>
         </>

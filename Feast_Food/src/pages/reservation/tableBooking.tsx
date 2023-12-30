@@ -1,13 +1,17 @@
-import "../../css/reservationTable.css";
+import "../../css/tableBooking.css";
 import {Link} from "react-router-dom";
+import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx"
+import {useLocation} from "react-router-dom";
 
 
 function Reservation(){
 
-
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
 
     return(
         <>
+            <HomeNavbar activePage={currentLocation}/>
             <div className={"reserve-table"}>
                 <div className={"wrapper10"}>
                     <div className={"reserv-text"}>
