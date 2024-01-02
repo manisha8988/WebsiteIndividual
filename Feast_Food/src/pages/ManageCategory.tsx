@@ -15,6 +15,8 @@ import {useMutation} from "@tanstack/react-query";
 
 const ManageCategory: React.FC = () =>  {
 
+    const[search, setSearch] = useState('');
+
     // Add category modal
     const [modal1, setModal] = useState(false);
     const toggleCatgModal = () => {
@@ -87,7 +89,7 @@ const ManageCategory: React.FC = () =>  {
 
                         <div className={"search-wrapper2"}>
                             <span><FaSearch /></span>
-                            <input type={"search"} placeholder={"Search Category"}/>
+                            <input type={"search"} placeholder={"Search Category"} value={search} onChange={(e)=> setSearch(e.target.value)}/>
                         </div>
 
                         <div className={"user-wrapper2"}>
@@ -120,7 +122,7 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData />
+                                        <CategoryData search={search} />
                                         </tbody>
                                     </table>
                                 </div>

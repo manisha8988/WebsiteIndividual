@@ -3,7 +3,11 @@ import {MdDelete} from "react-icons/md";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
 
-const CategoryData = () => {
+interface CategoryDataProps {
+    search: string;
+}
+
+const CategoryData: React.FC<CategoryDataProps> = ({ search }) => {
 
 
     // Fetching data from API
@@ -14,10 +18,16 @@ const CategoryData = () => {
         }
     })
 
+    //Searching data
+
+    const filteredData = data?.data.filter((category) =>
+        category.name.toLowerCase().includes(search.toLowerCase())
+    );
+
     return (
         <>
             {
-                data?.data.map((i)=>{
+                filteredData?.map((i) =>{
                     return(
                         <tr key={i?.id}>
                             <td>{i?.id}</td>

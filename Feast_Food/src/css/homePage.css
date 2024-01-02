@@ -26,8 +26,8 @@ body, html {
 }
 .hp-second-div{
     width: 100vw;
-    height: 100vh;
     background: #faf7f2;
+    padding-bottom: 5vh;
 }
 .recommended-text{
     display: flex;
@@ -90,9 +90,16 @@ body, html {
     letter-spacing: 2px;
 }
 
+.home-search-div{
+    padding-left: 6vw;
+    display: flex;
+    justify-content: center;
+    /*background-color: #312e2e;*/
+}
 .view-more-btn{
     display: flex;
     justify-content: center;
     margin-top: 2vh;
 }
+
 
