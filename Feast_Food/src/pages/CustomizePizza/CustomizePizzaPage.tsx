@@ -1,5 +1,5 @@
-import '../css/CustomizePizza.css'
 import {FaRegWindowClose} from "react-icons/fa";
+import '../../css/CustomizePizza.css'
 
 function CustomizePizzaPage(){
 
