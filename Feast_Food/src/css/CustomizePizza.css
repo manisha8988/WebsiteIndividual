@@ -1,0 +1,102 @@
+.menu {
+    max-width: 600px;
+    min-width: 10px;
+    width: 500px;
+    height: 500px;
+    margin-top: 100px;
+    position: absolute;
+    margin-left: 35%;
+    background: #dcdbdb;
+    border-radius: 17px;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.line-top{
+    border:1px solid black;
+    margin-top: 18px;
+    margin-bottom: 14px;
+}
+
+.line-bottom{
+    margin-top: 18px;
+    border:1px solid black;
+}
+
+.menu-heading {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 28px;
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tick{
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.item-left {
+    flex: 1;
+    margin-left: 6px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:19px;
+}
+
+.item-right {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 9px;
+    padding-top: 10px;
+    gap:19px;
+}
+
+.sub-heading-left,.sub-heading-right{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.item {
+    margin-bottom: 8px;
+}
+
+.item-price {
+    margin-bottom: 8px;
+}
+
+.customize-button {
+    position: absolute;
+    width: 23vh;
+    height: 43px;
+    margin-left: 130px;
+    margin-top: 30px;
+    background: #f3ad16;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #281e07;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.close-button{
+    position: absolute;
+    margin-left: 470px;
+    margin-top: 10px;
+    background-color: #dcdbdb;
+    border: none;
+}
