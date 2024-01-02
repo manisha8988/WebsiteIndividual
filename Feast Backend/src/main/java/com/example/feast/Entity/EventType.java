@@ -20,12 +20,12 @@ public class EventType {
     @Column(name="anniversary")
     private String anniversary;
 
-    @Column(name=" affordable")
-    private String affordable;
-
-    @Column(name="economical")
-    private String economical;
-
-    @Column(name="premium")
-    private String premium;
+//    @Column(name=" affordable")
+//    private String affordable;
+//
+//    @Column(name="economical")
+//    private String economical;
+//
+//    @Column(name="premium")
+//    private String premium;
 }

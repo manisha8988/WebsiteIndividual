@@ -1,8 +1,7 @@
 package com.example.feast.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -10,19 +9,22 @@ import java.util.Date;
 @Table(name="events")
 @Getter
 @Setter
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Event {
 
     @Id
     @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
     private Long id;
-    @OneToOne
-    @JoinColumn(name="event_type")
-    private Event event_type;
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+    @OneToOne( fetch = FetchType.LAZY) // yha ma confuse xu birthday ra anniversary sngai rakhna pauxa ke nai
+    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday" , referencedColumnName = "anniversary")
+    private Event eventType;
+
+    @OneToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id" ,  referencedColumnName = "id")
     private User user;
 
     @Column(name="event_description")
@@ -34,5 +36,7 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
+    @Enumerated(EnumType.STRING)
+    private EventEnum status;
 
 }
