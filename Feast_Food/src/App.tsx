@@ -15,6 +15,7 @@ import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";
 import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
 import Reservation from "./pages/reservation/reserveTable.tsx";
+import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
 // import Cart from "./pages/Cart.tsx";
 
 const queryClient = new QueryClient();
@@ -40,7 +41,9 @@ function App(){
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
                     {path:"reservation",element:<Reservation/>},
+                    {path:"customizepizza",element:<CustomizePizzaPage/>},
                     // {path: "/cart", element: <Cart/>},
+
                 ])} />
             </QueryClientProvider>
         </>
