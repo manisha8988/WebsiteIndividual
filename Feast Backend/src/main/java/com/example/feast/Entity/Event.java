@@ -19,8 +19,8 @@ public class Event {
     @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne( fetch = FetchType.LAZY) // yha ma confuse xu birthday ra anniversary sngai rakhna pauxa ke nai
-    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday" , referencedColumnName = "anniversary")
+    @OneToOne( fetch = FetchType.LAZY) // yha ma confuse xu birthday ra anniversary sngai rakhna pauxa ke nai  , referencedColumnName = "anniversary"
+    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday"  )
     private Event eventType;
 
     @OneToOne( fetch = FetchType.LAZY)
@@ -36,7 +36,7 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
-    @Enumerated(EnumType.STRING)
-    private EventEnum status;
+//    @Enumerated(EnumType.STRING)
+//    private EventEnum status;
 
 }
