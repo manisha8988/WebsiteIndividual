@@ -2,7 +2,6 @@ package com.example.feast.Service.Impl;
 import com.example.feast.Entity.*;
 import com.example.feast.Pojo.EventPojo;
 import com.example.feast.Repo.EventRepo;
-import com.example.feast.Repo.EventTypeRepo;
 import com.example.feast.Repo.UserRepo;
 import com.example.feast.Service.EventService;
 import com.example.feast.mapper.EventMapper;
@@ -40,9 +39,7 @@ public class EventServiceImpl implements EventService {
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();
         }
-
         eventRepo.save(event); // insert query
-
     }
     @Override
     public List<Event> getALl() {
