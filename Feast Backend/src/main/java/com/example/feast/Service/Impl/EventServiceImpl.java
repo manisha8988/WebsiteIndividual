@@ -61,6 +61,10 @@ public class EventServiceImpl implements EventService {
 //    }
 
 
+    public EventServiceImpl(EventRepo eventRepo) {
+        this.eventRepo = eventRepo;
+    }
+
     @Override
     public void saveEvent(EventPojo eventPojo) {
 

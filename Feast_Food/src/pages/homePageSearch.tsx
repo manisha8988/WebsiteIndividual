@@ -1,20 +1,27 @@
-import React from "react";
 
-interface MenuCardProps {
+interface HomePageSearchProps {
     menuData: {
         id: number;
+        image: string;
         name: string;
         category: string;
-        image: string;
         price: string;
+        description: string;
     }[];
+    search: string;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ menuData }) => {
-    return (
+const HomePageSearch: React.FC<HomePageSearchProps> = ({ menuData, search }) => {
+
+    const filteredMenuData = search? menuData.filter((Menu) =>
+        Menu.name.toLowerCase().includes(search.toLowerCase())
+    )
+        : [];
+
+    return(
         <>
-            <section className="menu-card--cointainer">
-                {menuData.map((curElem) => (
+            <section className={"menu-card--cointainer"}>
+                {filteredMenuData?.map((curElem)=>(
                     <div className="menu-card-container" key={curElem.id}>
                         <div className="menu-card">
                             <div className="menu-card-body">
@@ -33,7 +40,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ menuData }) => {
                 ))}
             </section>
         </>
-    );
-};
+    )
+}
 
-export default MenuCard;
+export default HomePageSearch;

@@ -14,7 +14,8 @@ import Booking from "./pages/booking.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";
 import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
-// import React from "react";
+import Reservation from "./pages/reservation/reserveTable.tsx";
+// import Cart from "./pages/Cart.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,10 +25,11 @@ function App(){
             <QueryClientProvider client={queryClient}>
                 <RouterProvider router={createBrowserRouter([
                     {path:"/AdminDashboard",element:<AdminDashboard/>},
+                    {path:"/ManageCategory",element:<ManageCategory/>},
+                    {path:"/EventsPage",element:<EventsPage/>},
+                    {path:"/AnniversaryPage",element:<AnniversaryPage/>},
+                    {path:"/BirthdayPage",element:<BirthdayPage/>},
                     {path:"ManageCategory",element:<ManageCategory/>},
-                    {path:"EventsPage",element:<EventsPage/>},
-                    {path:"AnniversaryPage",element:<AnniversaryPage/>},
-                    {path:"BirthdayPage",element:<BirthdayPage/>},
                     {path:"/ManageItem",element:<ManageItem/>},
                     {path:"/Booking",element:<Booking/>},
                     {path:"/",element:<HomePage/>},
@@ -37,6 +39,8 @@ function App(){
                     {path:"/userprofileview",element:<UserProfileView/>},
                     {path:"/payment",element:<Payment/>},
                     {path:"/homedelivery",element:<Homedelivery/>},
+                    {path:"reservation",element:<Reservation/>},
+                    // {path: "/cart", element: <Cart/>},
                 ])} />
             </QueryClientProvider>
         </>
