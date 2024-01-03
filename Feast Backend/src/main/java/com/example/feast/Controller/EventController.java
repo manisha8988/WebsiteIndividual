@@ -17,8 +17,8 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping(value="/save")
-    public String saveEventBooking(@Valid @RequestBody EventPojo eventPojo){
-        eventService.saveEventBooking(eventPojo);
+    public String saveEvent(@Valid @RequestBody EventPojo eventPojo){
+        eventService.saveEvent(eventPojo);
         return "Saved";
     }
 

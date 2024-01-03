@@ -20,7 +20,7 @@ public class Event {
     private Long id;
 
     @OneToOne( fetch = FetchType.LAZY) // yha ma confuse xu birthday ra anniversary sngai rakhna pauxa ke nai
-    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday" , referencedColumnName = "anniversary")
+    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday" )
     private Event eventType;
 
     @OneToOne( fetch = FetchType.LAZY)
@@ -37,6 +37,6 @@ public class Event {
     private Date eventDateTime;
 
     @Enumerated(EnumType.STRING)
-    private EventEnum status;
+    private String status;
 
 }

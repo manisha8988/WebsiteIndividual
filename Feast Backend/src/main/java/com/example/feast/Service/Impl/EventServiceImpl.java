@@ -1,7 +1,5 @@
 package com.example.feast.Service.Impl;
 import com.example.feast.Entity.Event;
-import com.example.feast.Entity.EventType;
-import com.example.feast.Entity.User;
 import com.example.feast.Pojo.EventPojo;
 import com.example.feast.Repo.EventRepo;
 import com.example.feast.Repo.EventTypeRepo;
@@ -10,31 +8,29 @@ import com.example.feast.Service.EventService;
 import com.sun.jdi.request.EventRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 
-public class EventServiceImpl implements EventService {
+public abstract class EventServiceImpl implements EventService{
 
     private final EventRepo eventRepo;
     private UserRepo userRepo;
-    private final EventTypeRepo eventTypeRepo;
+    private  final  EventTypeRepo eventTypeRepo;
+
+//    private final EventTypeRepo eventTypeRepo;
+
 //    private final BookingMapper bookingMapper;
-
-
 //    public EventServiceImpl(EventRepo eventRepo, EventTypeRepo eventTypeRepo, UserRepo userRepository, BookingMapper bookingMapper) {
 //        this.eventRepo = eventRepo;
 //        this.eventTypeRepo = eventTypeRepo;
 //        this.userRepo = userRepo;
 //        this.bookingMapper = bookingMapper;
 //    }
-
 
 //    @Override
 //    public Integer saveEvent(EventRequest eventRequest) {
@@ -61,10 +57,6 @@ public class EventServiceImpl implements EventService {
 //    }
 
 
-    public EventServiceImpl(EventRepo eventRepo) {
-        this.eventRepo = eventRepo;
-    }
-
     @Override
     public void saveEvent(EventPojo eventPojo) {
 
@@ -80,6 +72,12 @@ public class EventServiceImpl implements EventService {
         return null;
     }
 
+    @Override
+    public Integer updateEvent(EventRequest eventRequest) {
+        return null;
+    }
+
+
 //    @Override
 //    public List<EventEnum> getEventEnums() {
 //        return null;
@@ -90,10 +88,6 @@ public class EventServiceImpl implements EventService {
 //        return null;
 //    }
 
-    @Override
-    public Integer updateEvent(EventRequest eventRequest) {
-        return null;
-    }
 
 //    @Override
 //    public List<EventEnum> getEventEnums() {
