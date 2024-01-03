@@ -36,6 +36,7 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
+//    private enum EventEnum;
     @Enumerated(EnumType.STRING)
     private EventEnum status;
 

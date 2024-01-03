@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import  '../css/ourMenu.css'
-import payment from "./payment.tsx";
 
 interface CartItem {
     id: number;
@@ -36,9 +35,11 @@ const Cart: React.FC<CartProps> = ({ cart, setCart }) => {
         <article>
             {cart?.map((item) => (
                 <div className="cart_box" key={item.id}>
-                    {/* ... rest of your code ... */}
+                    <img src={item.img} alt={item.title} />
                     <div>
-                        <span>{item.price}</span>
+                        <h3>{item.title}</h3>
+                        <p>Quantity: {item.amount}</p>
+                        <p>Price: Rs - {item.price.toFixed(2)}</p>
                         <button onClick={() => handleRemove(item.id)}>Remove</button>
                     </div>
                 </div>
@@ -58,4 +59,3 @@ const Cart: React.FC<CartProps> = ({ cart, setCart }) => {
 };
 
 export default Cart;
-
