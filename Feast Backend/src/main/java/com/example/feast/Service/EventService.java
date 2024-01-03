@@ -9,13 +9,6 @@ import java.util.List;
 public interface EventService {
     void saveEvent(EventPojo eventPojo);
 
-    List<Event> getEvent();
+    List<Event> getALl();
 
-    Integer cancelEvent(Long id);
-
-    List<EventEnum> getEventEnums();
-
-    List<EventProjection> getEventById(Long id);
-
-    Integer updateEvent(EventRequest eventRequest);
 }

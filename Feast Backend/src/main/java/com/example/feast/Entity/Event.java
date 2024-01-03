@@ -13,15 +13,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
+ // id 1 ma birthday id 2 ma anniversary
 
     @Id
-    @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "event_seq_gen", sequenceName = "event_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "event_seq_gen", strategy = GenerationType.SEQUENCE)
     private Long id;
-
-    @OneToOne( fetch = FetchType.LAZY) // yha ma confuse xu birthday ra anniversary sngai rakhna pauxa ke nai
-    @JoinColumn(name="event_type" ,  referencedColumnName = "birthday" , referencedColumnName = "anniversary")
-    private Event eventType;
 
     @OneToOne( fetch = FetchType.LAZY)
     @JoinColumn(name="user_id" ,  referencedColumnName = "id")
@@ -36,8 +33,13 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
+<<<<<<< HEAD
 //    private enum EventEnum;
     @Enumerated(EnumType.STRING)
     private EventEnum status;
+=======
+//    @Enumerated(EnumType.STRING)
+//    private EventEnum status;
+>>>>>>> f40c2840be059361590df45d3f5f8a311a54a1cc
 
 }

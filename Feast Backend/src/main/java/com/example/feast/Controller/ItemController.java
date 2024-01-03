@@ -22,7 +22,6 @@ public class ItemController {
         itemService.saveItem(itemPojo);
         return "data successfully created";
     }
-
     @GetMapping("/get-by-id/{id}")
     public Optional<Items> findById(@PathVariable("id") Integer id) {
         return itemService.findById(id);

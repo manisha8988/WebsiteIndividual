@@ -10,6 +10,7 @@ import {useLocation} from "react-router-dom";
 // import {FaSearch} from "react-icons/fa";
 
 
+
 // interface User {
 //     id: number;
 //     name: string;
@@ -110,7 +111,7 @@ const Booking: React.FC = () => {
                                     <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Manisha Shah</td>
+                                        <td> Shah</td>
                                         <td>98*********</td>
                                         <td>100</td>
                                         <td>2023/12/29</td>
@@ -119,7 +120,7 @@ const Booking: React.FC = () => {
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Saru Mahajan</td>
+                                        <td> Mahajan</td>
                                         <td>98*********</td>
                                         <td>2</td>
                                         <td>2023/12/29</td>
@@ -128,12 +129,12 @@ const Booking: React.FC = () => {
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Nirajan Mahato</td>
+                                        <td>Mahato</td>
                                         <td>98*********</td>
                                         <td>2</td>
                                         <td>2023/12/29</td>
                                         <td>5</td>
-                                        <td>date</td>
+                                        <td>birthday</td>
                                     </tr>
                                     </tbody>
                                 </table>

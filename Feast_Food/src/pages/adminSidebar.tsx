@@ -5,6 +5,8 @@ import {TiHome} from "react-icons/ti";
 import {IoMdLogOut} from "react-icons/io";
 import {FaBowlFood} from "react-icons/fa6";
 import {Link} from "react-router-dom"
+import React from "react";
+import {TbBrandBooking} from "react-icons/tb";
 
 
 interface AdminSidebarProps {
@@ -43,7 +45,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                         </Link>
                         <Link to={"/booking"}>
                             <li className={`sidebar-list-item ${activePage === "/booking" ? "active" : ""}`}>
-                                <span><FaBowlFood style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
                                 <a>Booking</a>
                             </li>
                         </Link>
