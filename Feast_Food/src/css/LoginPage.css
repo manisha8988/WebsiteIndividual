@@ -12,7 +12,7 @@ body.active-login-modal {
     bottom: 0;
     position: fixed;
     z-index: 101;
-    /*backdrop-filter: blur(3px);*/
+    backdrop-filter: blur(3px);
 }
 .login-modal-content{
     position: absolute;
