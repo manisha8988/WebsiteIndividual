@@ -31,6 +31,10 @@ public class ItemPojo {
     @NotEmpty
     private String itemStatus;
 
+<<<<<<< HEAD
     @NotEmpty
+=======
+    @NotNull
+>>>>>>> 6320447f635d56de4ed4e70b4b3d313d150cdc1b
     private Integer itemQuantity;
 }

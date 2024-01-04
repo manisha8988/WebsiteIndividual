@@ -16,33 +16,35 @@ import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";
 import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
 import Reservation from "./pages/reservation/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
+import Cart from "./pages/Cart.tsx";
+import { SetStateAction } from "react";
 // import Cart from "./pages/Cart.tsx";
 
 const queryClient = new QueryClient();
 
-function App(){
-    return(
+function App() {
+    return (
         <>
             <QueryClientProvider client={queryClient}>
                 <RouterProvider router={createBrowserRouter([
-                    {path:"/AdminDashboard",element:<AdminDashboard/>},
-                    {path:"/ManageCategory",element:<ManageCategory/>},
-                    {path:"/EventsPage",element:<EventsPage/>},
-                    {path:"/AnniversaryPage",element:<AnniversaryPage/>},
-                    {path:"/BirthdayPage",element:<BirthdayPage/>},
-                    {path:"ManageCategory",element:<ManageCategory/>},
-                    {path:"/ManageItem",element:<ManageItem/>},
-                    {path:"/Booking",element:<Booking/>},
-                    {path:"/",element:<HomePage/>},
-                    {path:"/OurMenu",element:<OurMenu/>},
-                    {path:"/ReservationPage",element:<ReservationPage/>},
-                    {path:"/ContactPage",element:<ContactPage/>},
-                    {path:"/userprofileview",element:<UserProfileView/>},
-                    {path:"/payment",element:<Payment/>},
-                    {path:"/homedelivery",element:<Homedelivery/>},
-                    {path:"reservation",element:<Reservation/>},
-                    {path:"customizepizza",element:<CustomizePizzaPage/>},
-                    // {path: "/cart", element: <Cart/>},
+                    {path: "/AdminDashboard", element: <AdminDashboard/>},
+                    {path: "/ManageCategory", element: <ManageCategory/>},
+                    {path: "/EventsPage", element: <EventsPage/>},
+                    {path: "/AnniversaryPage", element: <AnniversaryPage/>},
+                    {path: "/BirthdayPage", element: <BirthdayPage/>},
+                    {path: "ManageCategory", element: <ManageCategory/>},
+                    {path: "/ManageItem", element: <ManageItem/>},
+                    {path: "/Booking", element: <Booking/>},
+                    {path: "/", element: <HomePage/>},
+                    {path: "/OurMenu", element: <OurMenu/>},
+                    {path: "/ReservationPage", element: <ReservationPage/>},
+                    {path: "/ContactPage", element: <ContactPage/>},
+                    {path: "/userprofileview", element: <UserProfileView/>},
+                    {path: "/payment", element: <Payment/>},
+                    {path: "/homedelivery", element: <Homedelivery/>},
+                    {path: "reservation", element: <Reservation/>},
+                    {path: "customizepizza", element: <CustomizePizzaPage/>},
+                    {path: "cart", element: <Cart />}
 
                 ])} />
             </QueryClientProvider>
