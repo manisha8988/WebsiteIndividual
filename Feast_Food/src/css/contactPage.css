@@ -58,6 +58,7 @@
 }
 .email-phone-content h5{
     color: #f3ad16;
+    font-size: 1.1vw;
 }
 .email-phone-content h6{
     font-size: 0.8rem;
@@ -74,6 +75,9 @@
 .day-content h4{
     color: #817373;
     padding-bottom: 15px;
+}
+.day-content h5{
+    font-size: 1.1vw;
 }
 
 .feast-map{

@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Bebas Neue', 'Alex Brush',Afacad, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Gilroy Regular, 'Bebas Neue', 'Alex Brush',Afacad, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.87);
@@ -69,7 +69,9 @@ th,td {
     line-height: 0.2;
     border-radius: 0.6rem;
 }
-
+th{
+    font-family: "Gilroy SemiBold";
+}
 td {
     font-size: 1rem;
     background-color: white;

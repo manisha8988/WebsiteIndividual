@@ -14,8 +14,7 @@ const AnniversaryPage = () => {
                     <div className={"anniversary-cards"}>
                         <h2>Premium</h2>
                         <p>
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
+                            Description
                         </p>
                         <div className={"cards-price-btn"}>
                             <h3>Rs. 2499</h3>
@@ -25,8 +24,7 @@ const AnniversaryPage = () => {
                     <div className={"anniversary-cards"}>
                         <h2>Affordable</h2>
                         <p>
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
+                            Description
                         </p>
                         <div className={"cards-price-btn"}>
                             <h3>Rs. 1799</h3>
@@ -36,8 +34,7 @@ const AnniversaryPage = () => {
                     <div className={"anniversary-cards"}>
                         <h2>Economical</h2>
                         <p>
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
-                            Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem Lorem lorem lorem lorem lorem
+                            Description
                         </p>
                         <div className={"cards-price-btn"}>
                             <h3>Rs. 1199</h3>

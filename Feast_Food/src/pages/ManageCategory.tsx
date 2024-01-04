@@ -95,7 +95,7 @@ const ManageCategory: React.FC = () =>  {
                         <div className={"user-wrapper2"}>
                             <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
                             <div>
-                                <h4>Nirajan Mahato</h4>
+                                <h4>Admin</h4>
                                 <small>Super admin</small>
                             </div>
                         </div>
