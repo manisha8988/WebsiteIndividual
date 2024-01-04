@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface EventService {
     void saveEvent(EventPojo eventPojo);
-
     List<Event> getALl();
 
 }

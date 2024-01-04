@@ -27,7 +27,6 @@ public class EventServiceImpl implements EventService {
         this.userRepo = userRepo;
         this.eventMapper = eventMapper;
     }
-
     @Override
     public void saveEvent(EventPojo eventPojo) {
         Event event=new Event();
