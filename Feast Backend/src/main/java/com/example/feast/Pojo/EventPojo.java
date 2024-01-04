@@ -24,6 +24,12 @@ public class EventPojo {
     private User user;
 
     @NotNull
+    private String eventImage;
+
+    @NotNull
+    private String eventStatus;
+
+    @NotNull
     private String eventDescription;
 
     @NotNull

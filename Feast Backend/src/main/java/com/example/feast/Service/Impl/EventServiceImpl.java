@@ -19,13 +19,11 @@ public class EventServiceImpl implements EventService {
 
     private final EventRepo eventRepo;
     private UserRepo userRepo;
-    private final EventTypeRepo eventTypeRepo;
     private final EventMapper eventMapper;
 
 
-    public EventServiceImpl(EventRepo eventRepo, EventTypeRepo eventTypeRepo, UserRepo userRepo, EventMapper eventMapper) {
+    public EventServiceImpl(EventRepo eventRepo, UserRepo userRepo, EventMapper eventMapper) {
         this.eventRepo = eventRepo;
-        this.eventTypeRepo = eventTypeRepo;
         this.userRepo = userRepo;
         this.eventMapper = eventMapper;
     }

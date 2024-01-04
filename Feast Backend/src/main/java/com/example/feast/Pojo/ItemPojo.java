@@ -30,4 +30,7 @@ public class ItemPojo {
 
     @NotEmpty
     private String itemStatus;
+
+    @NotEmpty
+    private Integer itemQuantity;
 }
