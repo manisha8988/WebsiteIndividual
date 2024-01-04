@@ -43,7 +43,13 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                                 <a>Manage items</a>
                             </li>
                         </Link>
-                        
+                        <Link to={"/booking"}>
+                            <li className={`sidebar-list-item ${activePage === "/booking" ? "active" : ""}`}>
+                                <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><FaBowlFood style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
+                                <a>Booking</a>
+                            </li>
+                        </Link>
 
                     </ul>
                 </div>
