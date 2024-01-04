@@ -25,27 +25,28 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                     <ul className={"sidebar-list"}>
                         <Link to={"/AdminDashboard"}>
                             <li className={`sidebar-list-item ${activePage === "/AdminDashboard" ? "active" : ""}`}>
-                                <span><MdSpaceDashboard style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><MdSpaceDashboard style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Dashboard</a>
                             </li>
                         </Link>
 
                         <Link to={"/ManageCategory"}>
                             <li className={`sidebar-list-item ${activePage === "/ManageCategory" ? "active" : ""}`}>
-                                <span><BiSolidCategoryAlt style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><BiSolidCategoryAlt style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Manage Category</a>
                             </li>
                         </Link>
 
                         <Link to={"/ManageItem"}>
                             <li className={`sidebar-list-item ${activePage === "/ManageItem" ? "active" : ""}`}>
-                                <span><FaBowlFood style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><FaBowlFood style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Manage items</a>
                             </li>
                         </Link>
                         <Link to={"/booking"}>
                             <li className={`sidebar-list-item ${activePage === "/booking" ? "active" : ""}`}>
                                 <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <span><FaBowlFood style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Booking</a>
                             </li>
                         </Link>

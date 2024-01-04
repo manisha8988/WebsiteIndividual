@@ -10,7 +10,7 @@ import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
-import {useMutation} from "@tanstack/react-query";
+import {useMutation, useQuery} from "@tanstack/react-query";
 
 
 const ManageCategory: React.FC = () =>  {
@@ -46,15 +46,23 @@ const ManageCategory: React.FC = () =>  {
 
 
     //hitting server on port 8081
-    const{register,handleSubmit,formState}=useForm();
+    const{register,handleSubmit,formState,reset}=useForm();
 
     const{errors} = formState;
+
+    const{refetch} = useQuery({
+        queryKey:["GETDATA"],
+    })
 
     const useApiCall = useMutation({
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
             return axios.post("http://localhost:8088/category/save",payload)
+        },onSuccess: () => {
+            refetch();
+            notify();
+            reset();
         }
     })
 
@@ -66,7 +74,7 @@ const ManageCategory: React.FC = () =>  {
     //Toast
     const notify = () =>toast.success('Category Inserted Succesfully', {
         position: "top-center",
-        autoClose: 1000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -95,7 +103,7 @@ const ManageCategory: React.FC = () =>  {
                         <div className={"user-wrapper2"}>
                             <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
                             <div>
-                                <h4>Nirajan Mahato</h4>
+                                <h4>Admin</h4>
                                 <small>Super admin</small>
                             </div>
                         </div>
@@ -115,8 +123,8 @@ const ManageCategory: React.FC = () =>  {
                                     <table className={"table-bordered2"}>
                                         <thead>
                                         <tr>
-                                            <th className={"id-box2"}>Id</th>
-                                            <th className={"name-box2"}>Name</th>
+                                            <th className={"id-box2"}>ID</th>
+                                            <th className={"name-box2"}>Category Name</th>
                                             <th className={"edit-box2"}>Edit</th>
                                             <th className={"delete-box2"}>Delete</th>
                                         </tr>
@@ -155,7 +163,7 @@ const ManageCategory: React.FC = () =>  {
                             <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
                         </div>
                         <div className={"category-name-add-btn"}>
-                            <button type={"submit"} onClick={notify}>Add</button>
+                            <button type={"submit"}>Add</button>
                         </div>
                         </form>
                     </div>

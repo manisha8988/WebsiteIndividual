@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-/**,*/
-/**:before,*/
-/**:after {*/
-/*    box-sizing: inherit;*/
-/*}*/
 
 .subtle {
     color: #5d5a5a;
@@ -54,7 +49,7 @@
 }
 .menu-card:hover{
     background-color: rgba(229, 228, 225, 0.34);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
 }
 .menu-card-body {
     display: inline-block;
@@ -82,7 +77,7 @@
 
 .menu-card-price {
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 22px;
     margin: 10px 0;
     display: inline-block;
@@ -91,12 +86,11 @@
 .price-addtocart-div button{
     width: 8vw;
     height: 3.8vw;
-    border-radius: 0;
     margin-top: -0.4rem;
     position: absolute;
     right: 0;
     background-color: rgba(232, 232, 232, 0.55);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border-radius: 3px;
 }
 .price-addtocart-div button:hover {
@@ -133,7 +127,7 @@
 /* ---------- Button styles ------------------ */
 
 .menu-navbar {
-    padding-top: 50px;
+    padding: 50px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -164,12 +158,12 @@
 
 .menu-btn-group button{
     color: black;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 .menu-btn-group button:hover{
     background-color: white;
     /*box-shadow: 5px 5px 10px -1px rgba(10,99,169,0.16);*/
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
 }
 
 .menu-btn-group__item {
@@ -179,7 +173,7 @@
     cursor: pointer;
     margin: 0;
     font-size: 17px;
-    box-shadow: inset 0px 0px 0px -15px #f3ad16;
+    box-shadow: inset 0 0 0 -15px #f3ad16;
     transition: all 300ms ease-out;
     text-transform: capitalize;
     border-radius: 6px;
@@ -198,7 +192,7 @@
 .menu-btn-group__item:hover,
 .menu-btn-group__item:focus {
     color: #f3ad16;
-    box-shadow: inset 0px -20px 0px -15px #f3ad16;
+    box-shadow: inset 0 -20px 0 -15px #f3ad16;
 }
 .menu-btn-group__item:focus {
     outline: none;

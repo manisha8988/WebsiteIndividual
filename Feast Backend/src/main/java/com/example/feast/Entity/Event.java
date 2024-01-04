@@ -49,4 +49,9 @@ public class Event {
 //    @Enumerated(EnumType.STRING)
 //    private EventEnum status;
 
+
+
+//    @Enumerated(EnumType.STRING)
+//    private EventEnum status;
+
 }
