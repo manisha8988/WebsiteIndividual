@@ -43,20 +43,14 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
-<<<<<<< HEAD
 //    @Column(name="event_type")
 //    private String eventType;
 
 
-=======
-<<<<<<< HEAD
 //    private enum EventEnum;
     @Enumerated(EnumType.STRING)
     private EventEnum status;
-=======
->>>>>>> 6320447f635d56de4ed4e70b4b3d313d150cdc1b
+
 //    @Enumerated(EnumType.STRING)
 //    private EventEnum status;
->>>>>>> f40c2840be059361590df45d3f5f8a311a54a1cc
-
 }
