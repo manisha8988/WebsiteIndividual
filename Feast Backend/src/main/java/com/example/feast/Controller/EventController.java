@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //package com.example.feast.Controller;
 //
 //import com.example.feast.Pojo.EventPojo;
@@ -24,7 +23,7 @@
 //    }
 //
 //}
-=======
+
 package com.example.feast.Controller;
 
 import com.example.feast.Pojo.EventPojo;
@@ -50,4 +49,3 @@ public class EventController {
     }
 
 }
->>>>>>> f40c2840be059361590df45d3f5f8a311a54a1cc

@@ -48,26 +48,26 @@
 
 table {
     margin: 1rem auto;
-    border-radius: 0.6rem;
+    border-radius: 7px;
     border: 3rem hidden #000000;
     box-shadow: 0 0 0 1px black;
     overflow: hidden;
     max-width: 80rem;
-    background-color: #222222;
+    background-color: #000000B7;
 }
 
 thead {
     font-size: 1.2rem;
-    background-color: #312e2e;
-    color: #fff;
+    background-color: #d2d2d2;
+    color: #2c2100;
 }
 
 th,td {
-    border: 1px solid #312e2e;
+    border: 1px solid #000000B7;
     min-width: 5rem;
     padding: 1.5rem;
     line-height: 0.2;
-    border-radius: 0.6rem;
+    border-radius: 5px;
 }
 th{
     font-family: "Gilroy SemiBold";
