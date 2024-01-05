@@ -7,7 +7,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useMutation, useQuery} from "@tanstack/react-query";
@@ -30,6 +30,7 @@ const ManageCategory: React.FC = () =>  {
     }
 
 
+
     // GSAP cdn for animation
     useEffect(() => {
         if (modal1) {
@@ -45,11 +46,7 @@ const ManageCategory: React.FC = () =>  {
     const currentLocation = location.pathname;
 
 
-    //hitting server on port 8081
-    const{register,handleSubmit,formState,reset}=useForm();
-
-    const{errors} = formState;
-
+    //
     const{refetch} = useQuery({
         queryKey:["GETDATA"],
     })
@@ -70,11 +67,30 @@ const ManageCategory: React.FC = () =>  {
         useApiCall.mutate(value)
     }
 
+    //To update
+    const{pk_id} = useParams();
+    console.log(pk_id);
+
+    const{data:getByIdApi}=useQuery({
+        queryKey:["GET_BY_ID_CATEGORY_API"],
+        queryFn(){
+            return axios.get("http://localhost:8088/category/findById"+pk_id)
+        },enabled:!!pk_id
+    })
+
+    //hitting server on port 8081
+    const{register,
+        handleSubmit,
+        formState
+        ,reset}=useForm({values:getByIdApi?.data});
+
+    const{errors} = formState;
+
 
     //Toast
-    const notify = () =>toast.success('Category Inserted Succesfully', {
+    const notify = () =>toast.success('Category Inserted Successfully', {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 1200,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -130,7 +146,7 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData search={search} />
+                                        <CategoryData search={search}/>
                                         </tbody>
                                     </table>
                                 </div>
@@ -170,7 +186,7 @@ const ManageCategory: React.FC = () =>  {
 
                     <ToastContainer />
                 </div>
-            )}
+             )}
         </section>
     );
 };

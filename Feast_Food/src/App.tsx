@@ -30,6 +30,7 @@ function App() {
                     {path: "/AnniversaryPage", element: <AnniversaryPage/>},
                     {path: "/BirthdayPage", element: <BirthdayPage/>},
                     {path: "/ManageCategory", element: <ManageCategory/>},
+                    {path: "/edit/:pk_id", element: <ManageCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},

@@ -2,13 +2,15 @@ import {CiEdit} from "react-icons/ci";
 import {MdDelete} from "react-icons/md";
 import {useQuery, useMutation} from "@tanstack/react-query";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 interface CategoryDataProps {
     search: string;
 }
 
-const CategoryData: React.FC<CategoryDataProps> = ({ search }) => {
+const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
 
+    const navigate = useNavigate();
 
     // Fetching data from API
     const{data,refetch} = useQuery({
@@ -42,7 +44,9 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search }) => {
                         <tr key={i?.id}>
                             <td>{i?.id}</td>
                             <td>{i?.name}</td>
-                            <td><button className={"edit-btn2"}><CiEdit /></button></td>
+                            <td><button className={"edit-btn2"} onClick={()=>{
+                                navigate("/edit/"+i?.id);
+                            }}><CiEdit /></button></td>
                             <td><button className={"delete-btn2"} onClick={()=>{
                                 deleteByIdApi.mutate(i?.id);
                             }}><MdDelete /></button></td>
