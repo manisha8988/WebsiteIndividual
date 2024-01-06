@@ -58,6 +58,9 @@
 }
 
 .sidebar-list-item {
+    display: flex;
+    align-items: center;
+    height: 8vh;
     margin-left: -15px;
     padding: 18px 20px 12px 20px;
     font-size: 18px;
@@ -96,7 +99,7 @@
 .sidebar-btn button{
     font-size: 1.3rem;
     width: 15.5vw;
-    height: 7vh;
+    height: 7.2vh;
     border-radius: 7px;
     border-color: transparent;
     background-color: #f3ad16;
