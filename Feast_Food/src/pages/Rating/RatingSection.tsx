@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import '../css/RatingSection.css';
+import "../../css/RatingSection.css";
 
 const RatingSection: React.FC = () => {
     const [rating, setRating] = useState<number>(0);
