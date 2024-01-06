@@ -17,6 +17,7 @@ import Reservation from "./pages/reservation/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
 import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
+import EditCategory from "./pages/editCategory.tsx";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +32,7 @@ function App() {
                     {path: "/AnniversaryPage", element: <AnniversaryPage/>},
                     {path: "/BirthdayPage", element: <BirthdayPage/>},
                     {path: "/ManageCategory", element: <ManageCategory/>},
-                    {path: "/edit/:pk_id", element: <ManageCategory/>},
+                    {path: "/edit/:pk_id", element: <EditCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},

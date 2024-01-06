@@ -17,6 +17,9 @@ const ManageCategory: React.FC = () =>  {
 
     const[search, setSearch] = useState('');
 
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
     // Add category modal
     const [modal1, setModal] = useState(false);
     const toggleCatgModal = () => {
@@ -42,9 +45,6 @@ const ManageCategory: React.FC = () =>  {
         }
     }, [modal1]);
 
-    const location = useLocation(); // Use useLocation to get the current location
-    const currentLocation = location.pathname;
-
 
     //
     const{refetch} = useQuery({
@@ -57,9 +57,9 @@ const ManageCategory: React.FC = () =>  {
             console.log(payload)
             return axios.post("http://localhost:8088/category/save",payload)
         },onSuccess: () => {
-            refetch();
             notify();
             reset();
+            refetch();
         }
     })
 
@@ -67,22 +67,12 @@ const ManageCategory: React.FC = () =>  {
         useApiCall.mutate(value)
     }
 
-    //To update
-    const{pk_id} = useParams();
-    console.log(pk_id);
-
-    const{data:getByIdApi}=useQuery({
-        queryKey:["GET_BY_ID_CATEGORY_API"],
-        queryFn(){
-            return axios.get("http://localhost:8088/category/findById"+pk_id)
-        },enabled:!!pk_id
-    })
 
     //hitting server on port 8081
     const{register,
         handleSubmit,
         formState
-        ,reset}=useForm({values:getByIdApi?.data});
+        ,reset}=useForm();
 
     const{errors} = formState;
 
@@ -90,7 +80,7 @@ const ManageCategory: React.FC = () =>  {
     //Toast
     const notify = () =>toast.success('Category Inserted Successfully', {
         position: "top-center",
-        autoClose: 1200,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -165,7 +155,10 @@ const ManageCategory: React.FC = () =>  {
                     <div className="add-category-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
                         <h2>#Add Category</h2>
-                        <button className="close-add-category-btn" onClick={toggleCatgModal}>
+                        <button className="close-add-category-btn"  onClick={() => {
+                            toggleCatgModal();
+                            reset(); // Reset the form
+                        }}>
                             <FaRegWindowClose />
                         </button>
 
