@@ -33,13 +33,13 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
-<<<<<<< HEAD
+
 //    private enum EventEnum;
     @Enumerated(EnumType.STRING)
     private EventEnum status;
-=======
+
 //    @Enumerated(EnumType.STRING)
 //    private EventEnum status;
->>>>>>> f40c2840be059361590df45d3f5f8a311a54a1cc
+//    f40c2840be059361590df45d3f5f8a311a54a1cc
 
 }
