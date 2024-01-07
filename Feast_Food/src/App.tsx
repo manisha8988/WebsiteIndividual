@@ -1,4 +1,5 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import AdminDashboard from "./pages/AdminDashboard.tsx";
 import ManageCategory from "./pages/ManageCategory.tsx";
 import ManageItem from "./pages/ManageItem.tsx";
@@ -8,7 +9,6 @@ import OurMenu from "./pages/ourMenu.tsx";
 import ReservationPage from "./pages/reservation/reservationPage.tsx";
 import Payment from "./pages/payment.tsx";
 import ContactPage from "./pages/contactPage.tsx";
-import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import Booking from "./pages/booking.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import AnniversaryPage from "./pages/eventsPages/anniversaryPage.tsx";

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 public interface CategoryService {
-    void saveCategory(CategoryPojo categoryPojo);
+  void saveCategory(CategoryPojo categoryPojo);
 
     List<Category> findAll();
 

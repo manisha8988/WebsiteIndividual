@@ -19,10 +19,10 @@ public class CategoryController {
     private final CategoryService categoryService;
 //    private final CategoryServiceImpl categoryService;
 
-    @PostMapping("save")
-    public String saveUser(@Valid @RequestBody CategoryPojo categoryPojo){
+    @PostMapping(value = "save")
+    public String saveCategory(@Valid @RequestBody CategoryPojo categoryPojo){
         categoryService.saveCategory(categoryPojo);
-        return "in this section";
+        return "Saved successfully";
     }
 
     @GetMapping("/findAll")

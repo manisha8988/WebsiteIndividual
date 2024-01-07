@@ -36,10 +36,7 @@ public class UserController {
         try{
             System.out.println(loginUsers.getUsername());
             System.out.println(loginUsers.getPassword());
-
             userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
-
-
             return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
 
         }catch (Exception e){
