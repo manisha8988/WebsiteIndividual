@@ -20,6 +20,9 @@ public class EventPojo {
     private User user;
 
     @NotNull
+    private String eventName;
+
+    @NotNull
     private String eventImage;
 
     @NotNull
@@ -34,7 +37,5 @@ public class EventPojo {
     @NotNull
     private Date eventDateTime;
 
-    @NotNull
-    private Event event_type;
 
 }

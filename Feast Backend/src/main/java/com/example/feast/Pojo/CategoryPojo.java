@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 @NoArgsConstructor
 public class CategoryPojo {
 
-    @NotNull
     private Integer id;
 
     @NotNull
