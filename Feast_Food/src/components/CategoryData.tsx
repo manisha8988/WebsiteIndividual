@@ -3,7 +3,6 @@ import {MdDelete} from "react-icons/md";
 import {useQuery, useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import { toast } from "react-toastify";
 
 interface CategoryDataProps {
     search: string;
