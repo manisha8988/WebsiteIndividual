@@ -20,6 +20,11 @@ import EditCategory from "./pages/editCategory.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
 import HomeDelivery from "./pages/homedelivery.tsx";
 import Homedelivery from "./pages/homedelivery.tsx";
+import HomeDelivery from "./pages/homedelivery.tsx";
+import RatingSection from "./pages/Rating/RatingSection.tsx";
+import EditCategory from "./pages/editCategory.tsx";
+import Homedelivery from "./pages/homedelivery.tsx";
+
 
 const queryClient = new QueryClient();
 

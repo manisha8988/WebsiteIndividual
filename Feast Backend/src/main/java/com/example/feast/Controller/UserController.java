@@ -4,10 +4,7 @@ import com.example.feast.Entity.User;
 import com.example.feast.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -29,14 +26,15 @@ public class UserController {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
+
+
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
         try{
             System.out.println(loginUsers.getUsername());
             System.out.println(loginUsers.getPassword());
-            userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
             return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
 
         }catch (Exception e){
