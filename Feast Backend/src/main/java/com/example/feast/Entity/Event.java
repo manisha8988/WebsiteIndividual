@@ -25,7 +25,7 @@ public class Event {
     private String eventName;
 
     @OneToOne( fetch = FetchType.EAGER) // sab detials chaiyo  vane eager auta matra chaiyo vane lazy
-    @JoinColumn(name="user_id" ,  referencedColumnName = "id" )
+    @JoinColumn(name="user_id")
     private User user;
 
     @Column(name="event_image")
@@ -43,15 +43,5 @@ public class Event {
     @Column(name="event_date_time", nullable=false)
     private Date eventDateTime;
 
-//    @Column(name="event_type")
-//    private String eventType;
-
-//    @Enumerated(EnumType.STRING)
-//    private EventEnum status;
-
-
-
-//    @Enumerated(EnumType.STRING)
-//    private EventEnum status;
 
 }

@@ -1,6 +1,4 @@
 package com.example.feast.Pojo;
-
-import com.example.feast.Entity.Event;
 import com.example.feast.Entity.User;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
