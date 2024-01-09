@@ -35,8 +35,8 @@ public class Event {
 
 
 //    private enum EventEnum;
-    @Enumerated(EnumType.STRING)
-    private EventEnum status;
+//    @Enumerated(EnumType.STRING)
+//    private EventEnum status;
 
 //    @Enumerated(EnumType.STRING)
 //    private EventEnum status;
