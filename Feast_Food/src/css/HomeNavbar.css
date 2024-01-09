@@ -75,3 +75,51 @@
 }.hp-sign-btn h3:hover{
     color: #f3ad16;
  }
+
+.nav-mobile{
+    display: none;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+}
+
+@media (max-width: 480px) {
+    .nav-mobile{
+        display: flex;
+    }
+    .nav-bar{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .feast-logo{
+        position: absolute;
+        top: 0.2rem;
+        left: 0;
+    }
+    .feast-logo img{
+        width: 30px;
+    }
+    .home-options{
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    .hp-sign-btn,.icon-cart{
+        display: none;
+        margin-top: 10%;
+    }
+    .home-options.openNav{
+        display: flex;
+    }
+    .home-options ul{
+        flex-direction: column;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+        gap: 1rem;
+    }
+    .home-options ul.openNav{
+        display: flex;
+    }
+}

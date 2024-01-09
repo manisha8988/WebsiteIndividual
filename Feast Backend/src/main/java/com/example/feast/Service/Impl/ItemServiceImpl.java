@@ -15,18 +15,19 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public abstract class ItemServiceImpl implements ItemService {
-    private final ItemRepo itemRepo;
+public class ItemServiceImpl implements ItemService {
 
+    private final ItemRepo itemRepo;
 
     @Override
     public void saveItem(ItemPojo itemPojo) {
 //        Items item;
-        Items item = new Items();
+        Items item;
         if (itemPojo.getId() != null) {
             item = itemRepo.findById(itemPojo.getId()).orElseThrow(() -> new EntityNotFoundException("SystemUser not found with ID: " + itemPojo.getId()));
         } else {
             item = new Items();
+        }
             item.setItemName(itemPojo.getItemName());
             item.setItemCategory(itemPojo.getItemCategory());
             item.setItemImage(itemPojo.getItemImage());
@@ -35,19 +36,6 @@ public abstract class ItemServiceImpl implements ItemService {
             item.setItemStatus(Boolean.valueOf((itemPojo.getItemStatus())));
             itemRepo.save(item);
             System.out.println("Saved Successfully");
-        }
-
-
-
-        item.setItemName(itemPojo.getItemName());
-        item.setItemCategory(itemPojo.getItemCategory());
-        item.setItemImage(itemPojo.getItemImage());
-        item.setItemPrice(itemPojo.getItemPrice());
-
-        item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemStatus(Boolean.valueOf(itemPojo.getItemStatus()));
-        itemRepo.save(item);
 
     }
 

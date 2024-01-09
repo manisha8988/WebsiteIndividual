@@ -16,12 +16,14 @@ public class EventPojo {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name="event_type")
-    private Event event_type;
-
-    @OneToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    @NotNull
+    private String eventImage;
+
+    @NotNull
+    private String eventStatus;
 
     @NotNull
     private String eventDescription;
@@ -31,4 +33,8 @@ public class EventPojo {
 
     @NotNull
     private Date eventDateTime;
+
+    @NotNull
+    private Event event_type;
+
 }

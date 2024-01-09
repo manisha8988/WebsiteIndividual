@@ -1,5 +1,4 @@
 package com.example.feast.Controller;
-
 import com.example.feast.Pojo.EventPojo;
 import com.example.feast.Service.EventService;
 import jakarta.validation.Valid;
@@ -8,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 
 @RestController
@@ -24,4 +22,3 @@ public class EventController {
     }
 
 }
-

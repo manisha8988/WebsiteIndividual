@@ -1,20 +1,19 @@
 package com.example.feast.Entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
+@Table(name="book_table")
 public class BookTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;    private int capacity;
+    private int number;
+    private int capacity;
     @Getter
     private boolean reserved;
 
@@ -44,7 +43,7 @@ public class BookTable {
     }
 
     public void setReserved(boolean reserved) {
-        this.reserved = reserved;
+        // Implementation
     }
-}
 
+}

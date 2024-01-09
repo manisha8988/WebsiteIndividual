@@ -1,6 +1,7 @@
 .manage-category-page{
     background: #f1f5f9;
     padding-bottom: 2rem;
+    min-height: 100vh;
 }
 
 .category-header{
@@ -86,6 +87,7 @@ button{
     color: #ffffff;
     box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);
     border-radius: 12px;
+    transition: all ease 0.2s;
 }
 
 button:hover{
@@ -150,9 +152,6 @@ body.active-modal {
     width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
     backdrop-filter: blur(3px);
 }
-/*.add-category-overlay {*/
-/*    background: rgba(49,49,49,0.8);*/
-/*}*/
 .add-category-modal-content {
     position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
@@ -179,6 +178,7 @@ body.active-modal {
 }
 .category-name input{
     width: 25vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+    font-family: "Gilroy Medium";
 }
 .category-name label,.category-name input{
     display: block;

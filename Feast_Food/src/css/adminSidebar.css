@@ -15,7 +15,7 @@
 
 .sidebar-list-item.active{
     background-color: #b9b09c;
-    margin-left: 5px;
+    margin-left: -2px;
     margin-bottom: 2px;
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     /*box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;*/
@@ -58,24 +58,29 @@
 }
 
 .sidebar-list-item {
-    margin-left: -8px;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    margin-left: -15px;
     padding: 18px 20px 12px 20px;
     font-size: 18px;
     border: 2px solid rgba(255, 255, 255, 0);
     border-radius: 9px;
+    transition: all ease 0.2s;
 }
 .sidebar-list-item span{
-    margin-right: 15px;
+    margin-right: 5px;
 }
 .sidebar-list-item a,span{
-    font-size: 18px;
+    font-family: "Gilroy Medium";
+    font-size: 15px;
     color: #444444;
 }
 
 .sidebar-list-item:hover {
     background-color: var(--clr-primary);
     color: var(--clr-light);
-    margin-left: 8px;
+    margin-left: -2px;
     margin-bottom: 2px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -92,8 +97,9 @@
     color: white;
 }
 .sidebar-btn button{
+    font-size: 1.3rem;
     width: 15.5vw;
-    height: 7vh;
+    height: 7.2vh;
     border-radius: 7px;
     border-color: transparent;
     background-color: #f3ad16;
