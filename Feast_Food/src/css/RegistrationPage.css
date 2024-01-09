@@ -24,7 +24,7 @@ body.active-register-modal {
     border-radius: 10px;
     font-size: 1.1rem;
     width: 30vw;
-    height: 75vh;
+    height: 87vh;
     z-index: 102;
 }
 .register-modal-content h2{
@@ -49,15 +49,39 @@ body.active-register-modal {
 }
 .close-register-btn:hover{
     box-shadow: none;
-    color: #831515
+    color:  #f3ad16
 }
-.reg-input-box .username, .useremail, .password {
+.reg-input-box  .useremail, .useremail, .password {
     position: relative;
     width: 100%;
-    height: 22px;
+    height: 25px;
     border-bottom: 2px solid#162938;
     margin: 45px 0;
 }
+.reg-input-box .username{
+    width: 100%;
+    height: 25px;
+    border-bottom: 2px solid#162938;
+    margin: 45px 0;
+    justify-content: space-between;
+}
+
+/*.reg-input-box {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+
+
+.reg-input-box .username input {
+    width: 183px; /* Adjust the width as needed */
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
 .reg-input-box input {
     width: 20vw;
     height: 100%;
@@ -65,7 +89,7 @@ body.active-register-modal {
     border: none;
     outline: none;
 }
-.reg-input-box .iconname, .iconmail, .iconpassword{
+.reg-input-box .iconname, .iconmail, .iconuser, .iconpassword{
     position: absolute;
     right: 30px;
     font-size: 1.2rem;

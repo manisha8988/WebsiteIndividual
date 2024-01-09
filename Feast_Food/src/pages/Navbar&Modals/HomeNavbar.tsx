@@ -1,6 +1,6 @@
 import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
 import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
@@ -9,6 +9,7 @@ import "../../css/LoginPage.css"
 import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
 import {RxHamburgerMenu} from "react-icons/rx";
+import {FaRegUser} from "react-icons/fa6";
 
 interface HomeNavbarProps {
     activePage: string;
@@ -130,11 +131,16 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         </button>
 
                         <div className={"reg-input-box"}>
-                            <span className={"iconname"}> <FaUser /></span>
+                            {/*<span className={"iconname"}> <FaUser /></span>*/}
                             <div className={"username"}>
-                                <input type={"name"} placeholder={"Name"}/>
+                                <input type={"fname"} placeholder={"First Name"}/>
+                                <input type={"lname"} placeholder={"Last Name"}/>
                             </div>
-                            <span className={"iconmail"}><IoMdMail /> </span>
+                            <span className={"iconuser"}><FaUser /> </span>
+                            <div className={"username"}>
+                                <input type={"username"} placeholder={"Username"}/>
+                            </div>
+                            <span className={"iconmail"}> <IoMdMail /></span>
                             <div className={"useremail"}>
                                 <input type={"email"} placeholder={"Email"}/>
                             </div>
