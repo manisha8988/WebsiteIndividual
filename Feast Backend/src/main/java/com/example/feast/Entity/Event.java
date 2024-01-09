@@ -24,8 +24,8 @@ public class Event {
     @Column(name = "event_name", unique = true)
     private String eventName;
 
-    @OneToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id" ,  referencedColumnName = "id")
+    @OneToOne( fetch = FetchType.EAGER) // sab detials chaiyo  vane eager auta matra chaiyo vane lazy
+    @JoinColumn(name="user_id" ,  referencedColumnName = "id" )
     private User user;
 
     @Column(name="event_image")

@@ -4,6 +4,7 @@ import com.example.feast.Entity.Category;
 import com.example.feast.Pojo.CategoryPojo;
 import com.example.feast.Repo.CategoryRepo;
 import com.example.feast.Service.CategoryService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,17 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepo categoryRepo;
     @Override
     public void saveCategory(CategoryPojo categoryPojo){
-        Category category=new Category();
+        Category category;
 
-        category.setName(categoryPojo.getName());
-
-        if(categoryPojo.getId()!=null){
-            category=categoryRepo.findById(categoryPojo.getId()).get();
+        if(categoryPojo.getId()!=null) {
+            category = categoryRepo.findById(categoryPojo.getId())
+            .orElseThrow(() -> new EntityNotFoundException("Category not found with ID: " + categoryPojo.getId()));
+        }
+        else{
+            category = new Category();
         }
 
+        category.setName(categoryPojo.getName());
         categoryRepo.save(category); // insert query
     }
 

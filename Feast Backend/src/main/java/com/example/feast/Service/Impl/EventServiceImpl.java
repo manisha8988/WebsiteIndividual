@@ -4,29 +4,22 @@ import com.example.feast.Pojo.EventPojo;
 import com.example.feast.Repo.EventRepo;
 import com.example.feast.Repo.UserRepo;
 import com.example.feast.Service.EventService;
-import com.example.feast.mapper.EventMapper;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-
 public class EventServiceImpl implements EventService {
 
     private final EventRepo eventRepo;
-    private UserRepo userRepo;
-    private final EventMapper eventMapper;
+    private final UserRepo userRepo;
 
 
-    public EventServiceImpl(EventRepo eventRepo, UserRepo userRepo, EventMapper eventMapper) {
-        this.eventRepo = eventRepo;
-        this.userRepo = userRepo;
-        this.eventMapper = eventMapper;
-    }
     @Override
     public void saveEvent(EventPojo eventPojo) {
         Event event=new Event();
@@ -43,5 +36,9 @@ public class EventServiceImpl implements EventService {
         return this.eventRepo.findAll();
     }
 
+    @Override
+    public Optional<Event> getById(Long id) {
+        return Optional.empty();
+    }
 }
 
