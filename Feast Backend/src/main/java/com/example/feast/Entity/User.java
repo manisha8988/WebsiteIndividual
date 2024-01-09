@@ -10,8 +10,8 @@ public class User {
     private long id;
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+    private String Name;
+//    private String lastName;
     private String phoneNumber;
     private String address;
 
@@ -39,21 +39,21 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return Name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
