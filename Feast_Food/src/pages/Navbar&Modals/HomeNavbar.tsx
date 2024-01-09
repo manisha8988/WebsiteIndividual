@@ -9,7 +9,7 @@ import "../../css/LoginPage.css"
 import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
 import {RxHamburgerMenu} from "react-icons/rx";
-import {FaRegUser} from "react-icons/fa6";
+
 
 interface HomeNavbarProps {
     activePage: string;
@@ -54,7 +54,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 });
             }
         };
-
         modalAnimation(login_popup ? "login-modal" : (register_popup ? "register-modal" : null));
 
     }, [login_popup, register_popup]);
