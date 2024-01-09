@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
- // id 1 ma birthday id 2 ma anniversary
+    // id 1 ma birthday id 2 ma anniversary
     // yha hmlai payment ne chainxa
 
     @Id

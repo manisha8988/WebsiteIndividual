@@ -1,8 +1,10 @@
-import axios from "axios"; // Import axios for making HTTP requests
-import Homedelivery from "./homedelivery.tsx";
-import "../css/payment.css";
-import { FaRegWindowClose } from "react-icons/fa";
+import axios from "axios";
+import {useEffect, useState} from "react";
+import { useLocation } from "react-router-dom";
 import KhaltiCheckout from "khalti-checkout-web";
+import HomeNavbar from "./Navbar&Modals/HomeNavbar";
+import "../css/payment.css";
+
 
 const myKey = {
     publicTestKey: "test_public_key_402c2b0e98364222bb1c1ab02369cefd",
@@ -28,7 +30,7 @@ const config = {
                 )
                 .then((response) => {
                     console.log(response.data);
-                    alert("Thank you for your generosity"); // Corrected typo
+                    alert("Thank you for your generosity");
                 })
                 .catch((error) => {
                     console.log(error);
@@ -50,11 +52,13 @@ const config = {
     ],
 };
 
-function Payment() {
-    const checkout = new KhaltiCheckout(config);
+const Payment = () => {
+    const location = useLocation();
+    const currentLocation = location.pathname;
 
+    const checkout = new KhaltiCheckout(config);
     const buttonStyles = {
-        backgroundColor: "purple",
+        backgroundColor: "#f3ad16",
         padding: "10px",
         color: "white",
         cursor: "pointer",
@@ -62,59 +66,98 @@ function Payment() {
         border: "1px solid white",
     };
 
+    //delivery dropdown logic
+
+
+
+    // payment dropdown logic
+    const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
+
+    const handleConfirmOrder = () => {
+        if (selectedPaymentOption === "Pay Via Khalti") {
+            checkout.show({ amount: 1000 });
+        } else if (selectedPaymentOption === "Cash on delivery") {
+            alert("Order placed successfully!");
+            // Add any additional logic for cash on delivery
+        } else {
+            alert("Please select a valid payment option");
+        }
+    };
+
+
     return (
         <>
+            <div className={"payment-container"}>
+                <HomeNavbar activePage={currentLocation} />
+                <div className={"payment-text-div"}><h1> Payment<b>Page</b></h1></div>
+                <div className="half-hr" />
 
-            <div className={"payment-main"}>
-                <div className={"cross-icon"}>
-                    <button>
-            <span>
-              <FaRegWindowClose />
-            </span>
-                    </button>
-                </div>
+                <div className={"delivery-mode-container"}>
+                    <div className={"delivery-method"}>
+                        <div className={"delivery-text"}> <h2> Delivery Section</h2></div>
+                        <div className={"dropdown-delivery"}>
+                            <select className={"select-delivery-option"}>
+                                <option>Select Delivery Mode</option>
+                                <option>Self PickUp</option>
+                                <option>Home Delivery</option>
+                            </select>
+                        </div>
 
-                <div className={"payment-method"}>
-                    <h1>Payment</h1>
-                    <div className={"esewa"}>
-                        <img src={"src/images/esewa.jpeg"} alt="Esewa" width={60} />
-                        <h3>Esewa</h3>
                     </div>
 
-                    <div className={"phonepay"}>
-                        <img src={"src/images/phonepay.jpeg"} alt="Phonepay" width={60} />
-                        <p>Phonepay</p>
+                    <div className={"receipt-container"}>
+                        <div className={"receipt-container-text"}> <h2> Receipt</h2> </div>
+                        <div className={"receipt-text"}>
+                            <h4> Subtotal: Rs 1375</h4>
+                            <h4>Delivery-Fee: Rs 75 </h4>
+                            <h5>------------------------------------------------------------------------------------------------------</h5>
+                            <h4>Total Amount: Rs 1450</h4>
+
+                        </div>
+
                     </div>
 
-                    <div className={"cod"}>
-                        <img src={"src/images/cod.jpeg"} alt="Cash on Delivery" width={60} />
-                        <p>Cash on Delivery</p>
-                    </div>
-                </div>
+                    {/*<div className={"payment-mode-container"}>*/}
+                    {/*    <div className={"payment-text"}> <h2> Pay Via</h2></div>*/}
+                    {/*    <div className={"dropdown-payment"}>*/}
+                    {/*        <select className={"select-payment-option"}>*/}
+                    {/*            <option>Select Delivery Option </option>*/}
+                    {/*            <option>Cash on delivery</option>*/}
+                    {/*            <option>Pay Via Khalti </option>*/}
+                    {/*        </select>*/}
+                    {/*    </div>*/}
 
-                <div className={"delivery-method"}>
-                    <p>
-                        <u>Delivery</u>
-                    </p>
-                    <div className={"self-pickup-button"}>
-                        <button>Self Pickup</button>
-                    </div>
+                    {/*</div>*/}
 
-                    <Homedelivery />
-
-                    <div className={"confirm-order-button"}>
-                        <button>Confirm Order</button>
-                    </div>
                     <div>
-                        <button onClick={() => checkout.show({ amount: 1000 })} style={buttonStyles}>
-                            Pay Via Khalti
-                        </button>
+                        <div className={"payment-mode-container"}>
+                            <div className={"payment-text"}>
+                                <h2> Pay Via</h2>
+                            </div>
+                            <div className={"dropdown-payment"}>
+                                <select
+                                    className={"select-payment-option"}
+                                    onChange={(e) => setSelectedPaymentOption(e.target.value)}
+                                >
+                                    <option>Select Delivery Option</option>
+                                    <option>Cash on delivery</option>
+                                    <option>Pay Via Khalti</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className={"confirm-order"}>
+                            <button onClick={handleConfirmOrder} style={buttonStyles}>
+                                Confirm Order
+                            </button>
+                        </div>
                     </div>
 
                 </div>
+                <hr/>
             </div>
         </>
     );
-}
+};
 
 export default Payment;
