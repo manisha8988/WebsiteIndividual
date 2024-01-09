@@ -7,7 +7,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useMutation, useQuery} from "@tanstack/react-query";
@@ -16,6 +16,9 @@ import {useMutation, useQuery} from "@tanstack/react-query";
 const ManageCategory: React.FC = () =>  {
 
     const[search, setSearch] = useState('');
+
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
 
     // Add category modal
     const [modal1, setModal] = useState(false);
@@ -30,6 +33,7 @@ const ManageCategory: React.FC = () =>  {
     }
 
 
+
     // GSAP cdn for animation
     useEffect(() => {
         if (modal1) {
@@ -41,15 +45,8 @@ const ManageCategory: React.FC = () =>  {
         }
     }, [modal1]);
 
-    const location = useLocation(); // Use useLocation to get the current location
-    const currentLocation = location.pathname;
 
-
-    //hitting server on port 8081
-    const{register,handleSubmit,formState,reset}=useForm();
-
-    const{errors} = formState;
-
+    //
     const{refetch} = useQuery({
         queryKey:["GETDATA"],
     })
@@ -60,9 +57,9 @@ const ManageCategory: React.FC = () =>  {
             console.log(payload)
             return axios.post("http://localhost:8088/category/save",payload)
         },onSuccess: () => {
-            refetch();
             notify();
             reset();
+            refetch();
         }
     })
 
@@ -71,10 +68,19 @@ const ManageCategory: React.FC = () =>  {
     }
 
 
+    //hitting server on port 8081
+    const{register,
+        handleSubmit,
+        formState
+        ,reset}=useForm();
+
+    const{errors} = formState;
+
+
     //Toast
-    const notify = () =>toast.success('Category Inserted Succesfully', {
+    const notify = () =>toast.success('Category Inserted Successfully', {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -130,7 +136,7 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData search={search} />
+                                        <CategoryData search={search}/>
                                         </tbody>
                                     </table>
                                 </div>
@@ -149,7 +155,10 @@ const ManageCategory: React.FC = () =>  {
                     <div className="add-category-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
                         <h2>#Add Category</h2>
-                        <button className="close-add-category-btn" onClick={toggleCatgModal}>
+                        <button className="close-add-category-btn"  onClick={() => {
+                            toggleCatgModal();
+                            reset(); // Reset the form
+                        }}>
                             <FaRegWindowClose />
                         </button>
 
@@ -170,7 +179,7 @@ const ManageCategory: React.FC = () =>  {
 
                     <ToastContainer />
                 </div>
-            )}
+             )}
         </section>
     );
 };
