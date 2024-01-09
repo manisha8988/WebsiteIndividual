@@ -19,6 +19,7 @@ const uniqueList: string[] = [
 
 interface RestaurantProps {}
 
+
 const OurMenu: React.FC<RestaurantProps> = () => {
 
     const location = useLocation(); // Use useLocation to get the current location

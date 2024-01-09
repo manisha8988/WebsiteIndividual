@@ -58,7 +58,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
     }, [login_popup, register_popup]);
 
-    const [navMenuOpen, setNavMenuOpen] = useState(false);
 
     return(
         <>
@@ -67,7 +66,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     <img src={logo} width={"40px"} />
                 </div>
                 <div className={"home-options"}>
-                    <ul className={navMenuOpen ? "openNav" : ""}>
+                    <ul>
                         <Link to={"/"}><li className={activePage === "/" ? "active" : ""}><a>Home</a></li></Link>
                         <Link to={"/OurMenu"}><li className={activePage === "/OurMenu" ? "active" : ""}><a>Our Menu</a></li></Link>
                         <Link to={"/Reservation"}><li className={activePage === "/Reservation" ? "active" : ""}><a>Reservation</a></li></Link>
@@ -83,9 +82,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     </div>
                 </div>
 
-                <div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>
-                    <span style={{fontSize:"1.7rem"}}><RxHamburgerMenu /></span>
-                </div>
+                {/*<div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>*/}
+                {/*    <span style={{fontSize:"1.7rem"}}><RxHamburgerMenu /></span>*/}
+                {/*</div>*/}
 
             </div>
 

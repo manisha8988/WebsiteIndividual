@@ -24,7 +24,13 @@ public class EventServiceImpl implements EventService {
     public void saveEvent(EventPojo eventPojo) {
         Event event=new Event();
 
-//        event.setName(eventPojo.getName());
+        event.setEventName(eventPojo.getEventName());
+        event.setEventImage(eventPojo.getEventImage());
+        event.setEventStatus(eventPojo.getEventStatus());
+        event.setEventDateTime(eventPojo.getEventDateTime());
+        event.setEventDescription(eventPojo.getEventDescription());
+        event.setEventPrice(eventPojo.getEventPrice());
+
 
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();

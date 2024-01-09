@@ -7,7 +7,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useMutation, useQuery} from "@tanstack/react-query";

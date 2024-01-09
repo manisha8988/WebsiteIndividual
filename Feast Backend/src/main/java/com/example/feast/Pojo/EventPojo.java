@@ -1,6 +1,4 @@
 package com.example.feast.Pojo;
-
-import com.example.feast.Entity.Event;
 import com.example.feast.Entity.User;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
@@ -20,6 +18,9 @@ public class EventPojo {
     private User user;
 
     @NotNull
+    private String eventName;
+
+    @NotNull
     private String eventImage;
 
     @NotNull
@@ -34,7 +35,5 @@ public class EventPojo {
     @NotNull
     private Date eventDateTime;
 
-    @NotNull
-    private Event event_type;
 
 }

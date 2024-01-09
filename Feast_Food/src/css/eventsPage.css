@@ -141,3 +141,78 @@
 }
 
 
+.anniversary-modal, .anniversary-modal-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(3px);
+}
+.anniversary-modal-content {
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    background: #dcdbdb;
+    padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
+    width: 40vw;   height: 65vh;   z-index: 109;
+}
+.close-anniversary-modal-btn {
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
+}  .close-anniversary-modal-btn:hover{ box-shadow: none; color: #831515  }
+
+.anniversary-name{
+
+}
+.anniversary-name,.anniversary-email,.anniversary-date,.anniversary-guests{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+.anniversary-input{
+    height: 5.5vh;
+}
+.anniversary-date-guests{
+    display: flex;
+    padding: 0 5px 0 0 ;
+    justify-content: space-between;
+}
+
+
+.birthday-modal, .birthday-modal-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(3px);
+}
+
+.birthday-modal-content {
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    background: #dcdbdb;
+    padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
+    width: 40vw;   height: 65vh;   z-index: 109;
+}
+
+.close-birthday-modal-btn {
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
+}
+
+.close-birthday-modal-btn:hover {
+    box-shadow: none;
+    color: #831515;
+}
+
+.birthday-name,
+.birthday-email,
+.birthday-date,
+.birthday-guests {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.birthday-input {
+    height: 5.5vh;
+}
+
+.birthday-date-guests {
+    display: flex;
+    padding: 0 5px 0 0;
+    justify-content: space-between;
+}
