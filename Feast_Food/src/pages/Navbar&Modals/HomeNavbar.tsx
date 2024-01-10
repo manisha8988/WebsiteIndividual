@@ -73,7 +73,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         mutationKey:["POST_USER_CREATE"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8081/register/register",payload)
+            return axios.post("http://localhost:8080/register/register",payload)
         },
         onSuccess: () => {
 

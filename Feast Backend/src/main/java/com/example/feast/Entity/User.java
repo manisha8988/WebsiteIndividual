@@ -11,9 +11,11 @@ public class User {
     private String username;
     private String password;
     private String confirm_password;
-    private String FirstName;
 
-    private String LastName;
+    private String first_name;
+    private String last_name;
+
+
 
 
     public long getId() {
@@ -48,21 +50,19 @@ public class User {
         this.confirm_password = confirm_password;
     }
 
-    public String getFirstName() {
-        return FirstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return LastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
-
-
 }
