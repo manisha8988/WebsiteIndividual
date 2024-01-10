@@ -24,7 +24,7 @@ public class Event {
     @Column(name = "event_name", unique = true)
     private String eventName;
 
-    @OneToOne( fetch = FetchType.EAGER) // sab detials chaiyo  vane eager auta matra chaiyo vane lazy
+    @OneToOne ( fetch = FetchType.EAGER) // sab detials chaiyo  vane eager auta matra chaiyo vane lazyevents
     @JoinColumn(name="user_id")
     private User user;
 
