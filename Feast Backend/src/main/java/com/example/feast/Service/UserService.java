@@ -23,7 +23,6 @@ public class UserService {
         System.out.println("login ::" + username);
         Optional<User> optionalUser = userRepository.findByUsername(username);
 
-
         if (optionalUser.isPresent()) {
             User user=optionalUser.get();
 
