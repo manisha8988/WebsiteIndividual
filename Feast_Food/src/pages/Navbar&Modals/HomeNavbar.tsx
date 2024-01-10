@@ -8,7 +8,10 @@ import gsap from "gsap";
 import "../../css/LoginPage.css"
 import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
-import {RxHamburgerMenu} from "react-icons/rx";
+import {useForm} from "react-hook-form";
+import {useMutation} from "@tanstack/react-query";
+import axios from "axios";
+// import {RxHamburgerMenu} from "react-icons/rx";
 
 
 interface HomeNavbarProps {
@@ -58,6 +61,30 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
     }, [login_popup, register_popup]);
 
+
+    //Register ko backend connection
+    const {register,
+        handleSubmit,
+        reset}=useForm();
+
+    // const {errors}=formState;
+
+    const useApiCall=useMutation({
+        mutationKey:["POST_USER_CREATE"],
+        mutationFn:(payload:any)=>{
+            console.log(payload)
+            return axios.post("http://localhost:8081/register/register",payload)
+        },
+        onSuccess: () => {
+
+            reset();
+        },
+
+    })
+
+    const onSubmit=(value:any)=>{
+        useApiCall.mutate(value)
+    }
 
     return(
         <>
@@ -124,44 +151,42 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 <div className="register-modal">
                     <div onClick={toggleRegisterModal} className="register-overlay"></div>
                     <div className="register-modal-content">
-                        <h2>Register</h2>
-                        <button className="close-register-btn" onClick={toggleRegisterModal}>
-                            <FaRegWindowClose />
-                        </button>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <h2>Register</h2>
+                            <button className="close-register-btn" onClick={toggleRegisterModal}>
+                                <FaRegWindowClose />
+                            </button>
 
-                        <div className={"reg-input-box"}>
-                            {/*<span className={"iconname"}> <FaUser /></span>*/}
-                            <div className={"username"}>
-                                <input type={"fname"} placeholder={"First Name"}/>
-                                <input type={"lname"} placeholder={"Last Name"}/>
+                            <div className={"reg-input-box"}>
+                                {/*<span className={"iconname"}> <FaUser /></span>*/}
+                                <div className={"username"}>
+                                    <input type={"fname"} placeholder={"First Name"} {...register("first_name",{
+                                        required:"full name is required"
+                                    })}/>
+                                    <input type={"lname"} placeholder={"Last Name"} {...register("last_name")}/>
+                                </div>
+                                <span className={"iconuser"}><FaUser /> </span>
+                                <div className={"username"}>
+                                    <input type={"username"} placeholder={"Username"}  {...register("username")}/>
+                                </div>
+                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <div className={"password"}>
+                                    <input type={"password"} placeholder={"Password"} {...register("password")}/>
+                                </div>
+                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <div className={"password"}>
+                                    <input type={"password"} placeholder={"Confirm Password"} {...register("confirm_password")}/>
+                                </div>
                             </div>
-                            <span className={"iconuser"}><FaUser /> </span>
-                            <div className={"username"}>
-                                <input type={"username"} placeholder={"Username"}/>
-                            </div>
-                            <span className={"iconmail"}> <IoMdMail /></span>
-                            <div className={"useremail"}>
-                                <input type={"email"} placeholder={"Email"}/>
-                            </div>
-                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
-                            <div className={"password"}>
-                                <input type={"password"} placeholder={"Password"}/>
-                            </div>
-                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
-                            <div className={"password"}>
-                                <input type={"password"} placeholder={"Confirm Password"}/>
-                            </div>
-                        </div>
-                        <div className={"security-question"}>
-                            <div className={"header10"}>Security Question</div>
-                            <div className={"answer"}>
-                                <input type={"answer"} placeholder={"Your first school name?"}/>
-                            </div>
+                            <div className={"security-question"}>
+                                <div className={"header10"}>Security Question</div>
+                                <div className={"answer"}>
+                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question")}/>
+                                </div>
 
-                        </div>
-
-                        <button type={"submit"} className={"btn-signup10"} onClick={toggleLoginModal} >Sign Up</button>
-
+                            </div>
+                            <button type={"submit"} className={"btn-signup10"} >Sign Up</button>
+                        </form>
                     </div>
                 </div>
             )}

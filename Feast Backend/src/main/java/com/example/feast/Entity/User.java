@@ -10,10 +10,11 @@ public class User {
     private long id;
     private String username;
     private String password;
+    private String confirm_password;
     private String FirstName;
-    private String lastName;
-    private String phoneNumber;
-    private String address;
+
+    private String LastName;
+
 
     public long getId() {
         return id;
@@ -39,6 +40,14 @@ public class User {
         this.password = password;
     }
 
+    public String getConfirm_password() {
+        return confirm_password;
+    }
+
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
+
     public String getFirstName() {
         return FirstName;
     }
@@ -48,32 +57,12 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
     }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-
-
 
 
 }
