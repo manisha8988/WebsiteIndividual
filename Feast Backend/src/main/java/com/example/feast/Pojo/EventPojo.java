@@ -1,6 +1,8 @@
 package com.example.feast.Pojo;
 import com.example.feast.Entity.User;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
