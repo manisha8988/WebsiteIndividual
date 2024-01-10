@@ -2,7 +2,7 @@ import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
-import {IoMdMail} from "react-icons/io";
+// import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
 import "../../css/LoginPage.css"

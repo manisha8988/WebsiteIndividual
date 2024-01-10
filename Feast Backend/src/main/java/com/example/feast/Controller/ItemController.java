@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("item")
+@RequestMapping("/item")
 @RequiredArgsConstructor
 public class ItemController {
 
     private final ItemService itemService;
 
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public String saveItem(@Valid @RequestBody ItemPojo itemPojo) {
-//        System.out.println(itemPojo);
+        System.out.println(itemPojo);
         itemService.saveItem(itemPojo);
         return "data successfully created";
     }

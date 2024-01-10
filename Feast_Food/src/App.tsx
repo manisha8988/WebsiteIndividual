@@ -22,6 +22,7 @@ import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
 
 
+
 const queryClient = new QueryClient();
 
 function App() {
