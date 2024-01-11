@@ -21,8 +21,8 @@ public class Items {
     @Column(name="item_name",nullable = false)
     private String itemName;
 
-    @Column(name = "item_category")
-    private String itemCategory;
+//    @Column(name = "item_category")
+//    private String itemCategory;
 
     @Column(name = "item_image",nullable = false)
     private String itemImage;
@@ -37,6 +37,6 @@ public class Items {
     private Boolean itemStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id", referencedColumnName = "id")
+    @JoinColumn(name="category_id")//, referencedColumnName = "id"
     private Category categories;
 }

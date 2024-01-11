@@ -16,7 +16,7 @@ public class Category {
 
     @Id
     @SequenceGenerator(name = "category_seq_gen", sequenceName = "category_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "event_seq_gen", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "category_seq_gen", strategy = GenerationType.SEQUENCE)
     @Column(name="id" , nullable = false)
     private Integer id;
 

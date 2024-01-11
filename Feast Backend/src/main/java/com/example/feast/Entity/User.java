@@ -2,68 +2,21 @@ package com.example.feast.Entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String username;
+    private String password;
+    private String confirm_password;
 
-    @Column(name="first_name",nullable = false)
     private String first_name;
-
-    @Column(name="last_name",nullable = false)
     private String last_name;
 
-    @Column(name="username",nullable = false,unique = true)
-    private String username;
-
-    @Column(name="password",nullable = false)
-    private String password;
-
-    private String confirmPassword;
 
 
-    @Column(name="phone_number",nullable = false)
-    private String phone_number;
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    private String Name;
-//    private String lastName;
-    private String phoneNumber;
-    private String address;
 
     public long getId() {
         return id;
@@ -89,42 +42,27 @@ public class User {
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public String getConfirm_password() {
+        return confirm_password;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-    public String getName() {
-        return Name;
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public String getFirst_name() {
+        return first_name;
     }
 
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 }
