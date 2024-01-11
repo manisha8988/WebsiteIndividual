@@ -21,7 +21,6 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
     })
 
     //Searching data
-
     const filteredData = data?.data.filter((category) =>
         category.name.toLowerCase().includes(search.toLowerCase())
     );
