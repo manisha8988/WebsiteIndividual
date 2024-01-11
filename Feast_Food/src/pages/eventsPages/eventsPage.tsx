@@ -103,34 +103,34 @@ const EventsPage = () =>{
             </div>
 
             {modalType && (
-                <div className={`${modalType}-modal`}>
-                    <div onClick={() => toggleModal(null)} className={`${modalType}-modal-overlay`}></div>
-                    <div className={`${modalType}-modal-content`}>
+                <div className={`event-modal ${modalType}-modal`}>
+                    <div onClick={() => toggleModal(null)} className={`event-modal-overlay ${modalType}-modal-overlay`}></div>
+                    <div className={`event-modal-content ${modalType}-modal-content`}>
                         <h2>{modalType === 'anniversary' ? 'Wedding Anniversary' : 'Birthday'}</h2>
-                        <button className={`close-${modalType}-modal-btn`} onClick={() => toggleModal(null)}>
+                        <button className={`close-modal-btn`} onClick={() => toggleModal(null)}>
                             <FaRegWindowClose />
                         </button>
 
-                        <div className={"anniversary-name"}>
+                        <div className={"event-modal-name"}>
                             <label>Name:</label>
-                            <input type={"text"} placeholder={"Enter your name"} className={"anniversary-input"}/>
+                            <input type={"text"}  className={"event-modal-input"}/>
                         </div>
-                        <div className={"anniversary-email"}>
-                            <label>Email:</label>
-                            <input type={"text"} placeholder={"Enter your email"} className={"anniversary-input"}/>
+                        <div className={"event-modal-email"}>
+                            <label>Contact:</label>
+                            <input type={"number"} className={"event-modal-input"}/>
                         </div>
-                        <div className={"anniversary-date-guests"}>
-                            <div className={"anniversary-date"}>
+                        <div className={"event-modal-date-guests"}>
+                            <div className={"event-modal-date"}>
                                 <label>Date:</label>
-                                <input type={"date"} placeholder={"Enter the date"} className={"anniversary-input"}/>
+                                <input type={"date"} className={"event-modal-input-date"}/>
                             </div>
-                            <div className={"anniversary-guests"}>
+                            <div className={"event-modal-guests"}>
                                 <label>Number of Guests: </label>
-                                <input type={"number"} placeholder={"Enter the number of guests"} className={"anniversary-input"}/>
+                                <input type={"number"} className={"event-modal-input-guests"}/>
                             </div>
                         </div>
 
-                        <div className={"anniversary-book-btn"}>
+                        <div className={"event-modal-book-btn"}>
                             <button type={"submit"}>Book</button>
                         </div>
                     </div>

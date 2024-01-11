@@ -16,14 +16,9 @@ import BirthdayPage from "./pages/eventsPages/birthdayPage.tsx";
 import Reservation from "./pages/reservation/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
 import Cart from "./pages/cart/Cart.tsx";
+import Homedelivery from "./pages/homedelivery.tsx";
 import EditCategory from "./pages/editCategory.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
-import HomeDelivery from "./pages/homedelivery.tsx";
-import Homedelivery from "./pages/homedelivery.tsx";
-import HomeDelivery from "./pages/homedelivery.tsx";
-import RatingSection from "./pages/Rating/RatingSection.tsx";
-import EditCategory from "./pages/editCategory.tsx";
-import Homedelivery from "./pages/homedelivery.tsx";
 
 
 const queryClient = new QueryClient();
@@ -51,10 +46,7 @@ function App() {
                     {path: "/homedelivery", element: <Homedelivery/>},
                     {path: "/reservation", element: <Reservation/>},
                     {path: "/customizepizza", element: <CustomizePizzaPage/>},
-                    {path: "/cart", element: <Cart/>},
-                    {path: "/HomeDelivery", element: <HomeDelivery/>},
-                    {path: "/Reservation", element: <Reservation/>},
-                    {path: "/CustomizePizza", element: <CustomizePizzaPage/>},
+                    {path: "/Cart", element: <Cart/>},
                     {path:"/Rate",element:<RatingSection/>}
                 ])} />
             </QueryClientProvider>

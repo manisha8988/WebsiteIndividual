@@ -33,8 +33,4 @@ public class EventPojo {
 
     @NotNull
     private Date eventDateTime;
-
-    @NotNull
-    private Event event_type;
-
 }
