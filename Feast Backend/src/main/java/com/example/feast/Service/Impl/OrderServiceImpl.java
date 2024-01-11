@@ -40,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
 
         order.setQuantity(orderPojo.getQuantity());
 
-        return orderRepo.save(order).getUser().getUsername();
+        return orderRepo.save(order).getUser().getEmail();
     }
 
     @Override

@@ -185,10 +185,10 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconuser"}><FaUser /> </span>
                                 <div className={"username"}>
-                                    <input type={"username"} placeholder={"Username"}  {...register("username",
-                                        {required:"Username is required!!"})}/>
-                                    {errors.username && (
-                                        <p className="error-message">{errors?.username?.message}
+                                    <input type={"email"} placeholder={"Email"}  {...register("email",
+                                        {required:"Email is required!!"})}/>
+                                    {errors.email && (
+                                        <p className="error-message">{errors?.email?.message}
                                         </p>
                                     )}
                                 </div>

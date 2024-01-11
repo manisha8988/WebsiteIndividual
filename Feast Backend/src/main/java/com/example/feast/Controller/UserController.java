@@ -5,7 +5,6 @@ import com.example.feast.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +34,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
         try{
-            User loggedInUser = userService.loginUser(loginUsers.getUsername(), loginUsers.getPassword());
+            User loggedInUser = userService.loginUser(loginUsers.getEmail(), loginUsers.getPassword());
             return new ResponseEntity<>(loggedInUser, HttpStatus.OK);
 
         }catch (Exception e){

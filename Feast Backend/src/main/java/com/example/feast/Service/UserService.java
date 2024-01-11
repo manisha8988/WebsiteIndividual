@@ -21,21 +21,21 @@ public class UserService {
     }
 
 
-    public User loginUser(String username, String password) {
-        System.out.println("login ::" + username);
-        Optional<User> optionalUser = userRepository.findByUsername(username);
+    public User loginUser(String email, String password) {
+        System.out.println("login ::" + email);
+        Optional<User> optionalUser = userRepository.findByEmail(email);
 
         if (optionalUser.isPresent()) {
             User user=optionalUser.get();
 
             if (password.equals(user.getPassword())) {
-                System.out.println("Login successful !!!::" + user.getUsername());
+                System.out.println("Login successful !!!::" + user.getEmail());
                 return user;
             }
         }
 
-        System.out.println("incorrect passsword or username");
-        throw new IllegalArgumentException("Invalid password or username");
+        System.out.println("incorrect passsword or email");
+        throw new IllegalArgumentException("Invalid password or email");
     }
 
     public List<User> getAllData() {
