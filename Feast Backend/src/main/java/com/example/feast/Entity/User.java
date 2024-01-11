@@ -16,8 +16,6 @@ public class User {
     private String last_name;
 
 
-
-
     public long getId() {
         return id;
     }

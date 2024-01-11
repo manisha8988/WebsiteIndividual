@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("register")
+@CrossOrigin(origins = "http://localhost:4004")
 
 public class UserController {
     public final UserService userService;
@@ -26,8 +27,6 @@ public class UserController {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
-
-
     }
 
     @GetMapping("/login")
