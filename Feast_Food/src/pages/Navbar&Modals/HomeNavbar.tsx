@@ -11,6 +11,7 @@ import "../../css/HomeNavbar.css"
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import axios, {options} from "axios";
+import {MdEmail} from "react-icons/md";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -86,6 +87,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
+    const [password, setpassword] = useState("");
+    const [visible, setvisible]  = useState(false);
+
+
+
+
     return(
         <>
             <div className={"nav-bar"}>
@@ -137,6 +144,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
                                 <input type={"password"} placeholder={"Password"}/></div>
+                            {/*<img src={"src/images/eye_icon.png"}></img>*/}
                         </div>
                         <div className={"Remember-forget"}>
                             <label><input type={"checkbox"}/>Remember me</label>
@@ -162,11 +170,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </button>
 
                             <div className={"reg-input-box"}>
-                                {/*<span className={"iconname"}> <FaUser /></span>*/}
-
                                 <div className={"username"}>
-                                    <input type={"fname"} placeholder={"First Name"} {...register("first_name",{
-                                        required:"first name is required!!"
+                                    <input type={"fname"} placeholder={"Name"} {...register("first_name",{
+                                        required:"Name is required!!"
                                     })}
                                     />
                                     {errors.first_name && (
@@ -174,19 +180,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         </p>
                                     )}
 
-                                    <input type={"lname"} placeholder={"Last Name"} {...register("last_name",
-                                        {required:"last name is required!!"
-                                    })}
-                                    />
-                                    {errors.last_name && (
-                                        <p className="error-message">{errors?.last_name?.message}
-                                        </p>
-                                    )}
+
                                 </div>
-                                <span className={"iconuser"}><FaUser /> </span>
+                                <span className={"iconuser"}><MdEmail /> </span>
                                 <div className={"username"}>
-                                    <input type={"username"} placeholder={"Username"}  {...register("username",
-                                        {required:"Username is required!!"})}/>
+                                    <input type={"username"} placeholder={"Email"}  {...register("username",
+                                        {required:"Email is required!!"})}/>
                                     {errors.username && (
                                         <p className="error-message">{errors?.username?.message}
                                         </p>
@@ -194,19 +193,19 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={"password"} placeholder={"Password"} {...register("password",
+                                    <input type={visible ? "text" : "password"} placeholder={"Password"} id={"password"} onChange={(e) => setpassword(e.target.value)}  {...register("password",
                                         {required:"Password is required!!"})}/>
+
                                     {errors.password && (
                                         <p className="error-message">{errors?.password?.message}
                                         </p>
                                     )}
+                                    <img src={"src/images/eye_icon.png" }  onClick={() => setvisible(!visible)}></img>
+
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input
-                                        type={"password"}
-                                        placeholder={"Confirm Password"}
-                                        {...register("confirm_password", {
+                                    <input type={visible ? "text" : "password"} placeholder={"Confirm Password"}   onChange={(e) =>setpassword(e.target.value)}  {...register("confirm_password", {
                                             required: "Confirm Password is required",
                                             validate: {
                                                 matchesPassword: (value) =>
@@ -214,10 +213,14 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                             },
                                         })}
                                     />
+
+
                                     {errors.confirm_password && (
                                         <p className="error-message">{errors?.confirm_password?.message}
                                         </p>
                                     )}
+                                    <img src={"src/images/eye_icon.png"} onClick={() => setvisible(!visible)}></img>
+
                                 </div>
                             </div>
                             <div className={"security-question"}>
@@ -242,4 +245,4 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     )
 }
 
-export default HomeNavbar;
+export default HomeNavbar
