@@ -30,13 +30,13 @@ public class Items {
     @Column(name = "item_price",nullable = false)
     private Integer itemPrice;
 
-    @Column(name = "item_quantity",nullable = false)
-    private Integer itemQuantity;
+//    @Column(name = "item_quantity",nullable = false)
+//    private Integer itemQuantity;
 
     @Column(name = "item_status",nullable = false)
     private Boolean itemStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id")//, referencedColumnName = "id"
+    @JoinColumn(name="category_name")//, referencedColumnName = "id"
     private Category categories;
 }

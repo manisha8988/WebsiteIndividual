@@ -14,7 +14,7 @@ public class CategoryPojo {
 
     private Integer id;
 
-    @NotNull
+//    @NotNull
     private String name;
 
 
