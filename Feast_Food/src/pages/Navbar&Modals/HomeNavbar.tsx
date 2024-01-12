@@ -10,7 +10,8 @@ import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
-import axios from "axios";
+import axios, {options} from "axios";
+import {MdEmail} from "react-icons/md";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -65,7 +66,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     //Register ko backend connection
     const {register,
         handleSubmit,
-        reset}=useForm();
+        reset, formState: { errors },watch}=useForm();
 
     // const {errors}=formState;
 
@@ -86,6 +87,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
+    const [password, setpassword] = useState("");
+    const [visible, setvisible]  = useState(false);
+
+
+
+
     return(
         <>
             <div className={"nav-bar"}>
@@ -103,7 +110,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <span  className={"icon-cart"}><FaCartArrowDown /></span>
+                    <Link to={"/Cart"}>
+                        <span className={`icon-cart ${activePage === "/Cart" ? "active" : ""}`}>
+                            <FaCartArrowDown style={{fontSize:"18px",marginBottom:"-7px",marginRight:"7px"}}/>
+                        </span>
+                    </Link>
                     <div className={"hp-sign-btn"}>
                         <h3 onClick={toggleLoginModal}>Sign in</h3>
                     </div>
@@ -133,6 +144,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
                                 <input type={"password"} placeholder={"Password"}/></div>
+                            {/*<img src={"src/images/eye_icon.png"}></img>*/}
                         </div>
                         <div className={"Remember-forget"}>
                             <label><input type={"checkbox"}/>Remember me</label>
@@ -158,30 +170,68 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </button>
 
                             <div className={"reg-input-box"}>
-                                {/*<span className={"iconname"}> <FaUser /></span>*/}
                                 <div className={"username"}>
-                                    <input type={"fname"} placeholder={"First Name"} {...register("first_name",{
-                                        required:"full name is required"
-                                    })}/>
-                                    <input type={"lname"} placeholder={"Last Name"} {...register("last_name")}/>
+                                    <input type={"fname"} placeholder={"Name"} {...register("first_name",{
+                                        required:"Name is required!!"
+                                    })}
+                                    />
+                                    {errors.first_name && (
+                                        <p className="error-message">{errors?.first_name?.message}
+                                        </p>
+                                    )}
+
+
                                 </div>
-                                <span className={"iconuser"}><FaUser /> </span>
+                                <span className={"iconuser"}><MdEmail /> </span>
                                 <div className={"username"}>
-                                    <input type={"username"} placeholder={"Username"}  {...register("username")}/>
+                                    <input type={"username"} placeholder={"Email"}  {...register("username",
+                                        {required:"Email is required!!"})}/>
+                                    {errors.username && (
+                                        <p className="error-message">{errors?.username?.message}
+                                        </p>
+                                    )}
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={"password"} placeholder={"Password"} {...register("password")}/>
+                                    <input type={visible ? "text" : "password"} placeholder={"Password"} id={"password"} onChange={(e) => setpassword(e.target.value)}  {...register("password",
+                                        {required:"Password is required!!"})}/>
+
+                                    {errors.password && (
+                                        <p className="error-message">{errors?.password?.message}
+                                        </p>
+                                    )}
+                                    <img src={"src/images/eye_icon.png" }  onClick={() => setvisible(!visible)}></img>
+
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={"password"} placeholder={"Confirm Password"} {...register("confirm_password")}/>
+                                    <input type={visible ? "text" : "password"} placeholder={"Confirm Password"}   onChange={(e) =>setpassword(e.target.value)}  {...register("confirm_password", {
+                                            required: "Confirm Password is required",
+                                            validate: {
+                                                matchesPassword: (value) =>
+                                                    value === watch("password") || "Confirm Password does not match Password",
+                                            },
+                                        })}
+                                    />
+
+
+                                    {errors.confirm_password && (
+                                        <p className="error-message">{errors?.confirm_password?.message}
+                                        </p>
+                                    )}
+                                    <img src={"src/images/eye_icon.png"} onClick={() => setvisible(!visible)}></img>
+
                                 </div>
                             </div>
                             <div className={"security-question"}>
                                 <div className={"header10"}>Security Question</div>
                                 <div className={"answer"}>
-                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question")}/>
+                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question",
+                                        {required:"SecurityQuestion is required!!"})}/>
+                                    {errors.security_question && (
+                                        <p className="error-message">{errors?.security_question?.message}
+                                        </p>
+                                    )}
                                 </div>
 
                             </div>
@@ -195,4 +245,4 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     )
 }
 
-export default HomeNavbar;
+export default HomeNavbar

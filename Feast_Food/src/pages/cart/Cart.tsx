@@ -1,26 +1,25 @@
-// import React from 'react';
-
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/Cart.css"
 import {Link, useLocation} from "react-router-dom";
 
 
 const Cart = () => {
+
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+
     return (
         <div className={"cart-container"}>
             <HomeNavbar activePage={currentLocation} />
-            <div className={"cart-text-div"}><h1> Cart<b>Page</b></h1></div>
+            <div className={"cart-text-div"}><h1> Cart<b>Page</b>.</h1></div>
             <div className="half-hr" />
             <div className={"cart-main-container"}>
                 <div className={"cart-heading-grid"}>
-                    <p>Item</p>
-                    <p>Price</p>
-                    <p>Quantity</p>
-                    <p>Subtotal</p>
-                    <p>Remove</p>
-
+                    <h2>Item</h2>
+                    <h2>Price</h2>
+                    <h2>Quantity</h2>
+                    <h2>Subtotal</h2>
+                    <h2>Remove</h2>
                 </div>
 
                 <div className={"cart-items-container"}>
