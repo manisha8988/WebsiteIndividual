@@ -16,7 +16,7 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
     const{data,refetch} = useQuery({
         queryKey:["GETDATA"],
         queryFn(){
-            return axios.get("http://localhost:8088/category/findAll")
+            return axios.get("http://localhost:8080/category/findAll")
         }
     })
 
@@ -30,7 +30,7 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
         {
             mutationKey:["DELETE_BY_ID"],
             mutationFn(id:number){
-                return axios.delete("http://localhost:8088/category/delete/"+id);
+                return axios.delete("http://localhost:8080/category/delete/"+id);
             },onSuccess(){refetch()}
         }
     )
