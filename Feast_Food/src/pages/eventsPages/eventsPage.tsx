@@ -2,7 +2,7 @@ import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import {Link, useLocation} from "react-router-dom";
 import "../../css/eventsPage.css"
 import {FaRegWindowClose} from "react-icons/fa";
-import {ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import {useEffect, useState} from "react";
 import gsap from "gsap";
 import {useMutation} from "@tanstack/react-query";

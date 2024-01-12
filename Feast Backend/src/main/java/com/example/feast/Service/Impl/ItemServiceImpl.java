@@ -31,8 +31,10 @@ public class ItemServiceImpl implements ItemService {
             item.setItemName(itemPojo.getItemName());
             item.setItemImage(itemPojo.getItemImage());
             item.setItemPrice(itemPojo.getItemPrice());
-            item.setItemQuantity(itemPojo.getItemQuantity());
+//            item.setItemQuantity(itemPojo.getItemQuantity());
             item.setItemStatus(itemPojo.getItemStatus());
+            item.setCategories(itemPojo.getCategories());
+
             itemRepo.save(item);
             System.out.println("Saved Successfully");
 

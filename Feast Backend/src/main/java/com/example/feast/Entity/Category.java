@@ -14,14 +14,19 @@ import lombok.*;
 
 public class Category {
 
+
+//    @Id
+//    @SequenceGenerator(name = "category_seq_gen", sequenceName = "category_id_seq", allocationSize = 1)
+//    @GeneratedValue(generator = "category_seq_gen", strategy = GenerationType.SEQUENCE)
+//    @Column(name="id" , nullable = false)
+//    private Integer id;
+
+//    @Id
+//    @Column(name="name" , nullable=false)
+//    private String name;
+
     @Id
-    @SequenceGenerator(name = "category_seq_gen", sequenceName = "category_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "category_seq_gen", strategy = GenerationType.SEQUENCE)
-    @Column(name="id" , nullable = false)
-    private Integer id;
-
-    @Column(name="name" , nullable=false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
-
 
 }

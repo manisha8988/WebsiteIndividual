@@ -1,7 +1,7 @@
 import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import CategoryData from "../components/CategoryData.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
@@ -55,7 +55,7 @@ const ManageCategory: React.FC = () =>  {
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8088/category/save",payload)
+            return axios.post("http://localhost:8080/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
