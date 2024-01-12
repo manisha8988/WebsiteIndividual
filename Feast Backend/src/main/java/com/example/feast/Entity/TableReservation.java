@@ -1,74 +1,36 @@
-//package com.example.feast.Entity;
-//
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.Table;
-//
-//@Entity
-//@Table(name="ReservedTable")
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Setter
-//@Getter
-//public class TableReservation {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-//
-//    private String name;
-//
-//    private int phone;
-//
-//    private int no_Person;
-//
-//    private String day; //  value (sunday to saturday)
-//
-//
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
-//        this.id = id;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public int getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(String Phone) {
-//        this.phone = phone;
-//    }
-//
-//    public int getNo_Person() {
-//        return no_Person;
-//    }
-//
-//    public void setNo_Person(int no_person) {
-//        this.no_Person = no_person;
-//    }
-//
-//    public String getDay() {
-//        return day;
-//    }
-//
-//    public void setDay(String day) {
-//        this.day = day;
-//    }
-//
-//}
+package com.example.feast.Entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Builder
+@Entity
+@Table(name="reservedTable")
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+public class TableReservation {
+
+    @Id
+    @SequenceGenerator(name = "ReservedTable_seq_gen", sequenceName = "ReservedTable _id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "ReservedTable_seq_gen", strategy = GenerationType.SEQUENCE)
+    private  Integer id;
+
+    @Column(name="name",nullable = false)
+    private String customer_Name;
+
+    @Column(name="phone",nullable = false)
+    private String phone;
+
+    @Column(name="number_person",nullable = false)
+    private int number_person;
+
+    @Column(name="day",nullable = false)
+    private String day;
+
+
+}

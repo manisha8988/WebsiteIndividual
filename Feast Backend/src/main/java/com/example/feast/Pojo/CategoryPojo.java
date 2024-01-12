@@ -16,4 +16,7 @@ public class CategoryPojo {
 
 //    @NotNull
     private String name;
+
+
+
 }

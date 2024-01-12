@@ -55,7 +55,7 @@ const ManageCategory: React.FC = () =>  {
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8080/category/save",payload)
+            return axios.post("http://localhost:8088/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();

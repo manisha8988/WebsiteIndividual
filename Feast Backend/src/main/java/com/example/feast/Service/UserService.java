@@ -5,7 +5,6 @@ import com.example.feast.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 
@@ -19,7 +18,6 @@ public class UserService {
     public User createUser(User user){
         return userRepository.save(user);
     }
-
 
     public User loginUser(String username, String password) {
         System.out.println("login ::" + username);
@@ -37,18 +35,4 @@ public class UserService {
         System.out.println("incorrect passsword or username");
         throw new IllegalArgumentException("Invalid password or username");
     }
-
-    public List<User> getAllData() {
-        return userRepository.findAll();
-    }
-
-    public Optional<User> getUserById(long id) {
-        return userRepository.findById(id);
-    }
-
-    public void deleteUserById(long id) {
-        userRepository.deleteById(id);
-    }
-
-
 }

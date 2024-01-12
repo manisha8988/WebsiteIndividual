@@ -20,7 +20,6 @@ import EditCategory from "./pages/editCategory.tsx";
 import Homedelivery from "./pages/homedelivery.tsx";
 import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
-import CustomerPage from "./pages/customerPage.tsx";
 
 
 
@@ -39,7 +38,6 @@ function App() {
                     {path: "/ManageCategory", element: <ManageCategory/>},
                     {path: "/edit/:pk_id", element: <EditCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
-                    {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},
