@@ -2,46 +2,46 @@ package com.example.feast.Controller;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Service.UserService;
+import com.example.feast.Pojo.UserPojo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
-
 
 @RestController
 @RequestMapping("register")
 @CrossOrigin(origins = "http://localhost:4004")
-
 public class UserController {
-    public final UserService userService;
+
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> createUsers(@RequestBody User users) {
+    public ResponseEntity<Object> createUsers(@RequestBody UserPojo userPojo) {
         try {
-            userService.createUser(users);
-            return new ResponseEntity<>(users, HttpStatus.CREATED);
-
+            userService.createUser(userPojo);
+            return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
-        try{
-            User loggedInUser = userService.loginUser(loginUsers.getEmail(), loginUsers.getPassword());
-            return new ResponseEntity<>(loggedInUser, HttpStatus.OK);
-
-        }catch (Exception e){
+    public ResponseEntity<Object> loginUsers(@RequestBody UserPojo loginPojo) {
+        try {
+            String loginMessage = userService.loginUser(loginPojo.getEmail(), loginPojo.getPassword());
+            return new ResponseEntity<>(loginMessage, HttpStatus.OK);
+        } catch (Exception e) {
             System.out.println("Authentication failed: " + e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
         }
     }
+
 
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getAllData() {
@@ -72,6 +72,4 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
 }

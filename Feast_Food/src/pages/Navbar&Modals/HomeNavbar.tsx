@@ -171,12 +171,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                             <div className={"reg-input-box"}>
                                 <div className={"username"}>
-                                    <input type={"fname"} placeholder={"Name"} {...register("first_name",{
-                                        required:"Name is required!!"
+                                    <input type={"text"} placeholder={"Name"} {...register("fullName",{
+                                        required:"FullName is required!!"
                                     })}
                                     />
-                                    {errors.first_name && (
-                                        <p className="error-message">{errors?.first_name?.message}
+                                    {errors.fullName && (
+                                        <p className="error-message">{errors?.fullName?.message}
                                         </p>
                                     )}
 
@@ -184,10 +184,10 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconuser"}><MdEmail /> </span>
                                 <div className={"username"}>
-                                    <input type={"username"} placeholder={"Email"}  {...register("username",
+                                    <input type={"email"} placeholder={"Email"}  {...register("email",
                                         {required:"Email is required!!"})}/>
-                                    {errors.username && (
-                                        <p className="error-message">{errors?.username?.message}
+                                    {errors.email && (
+                                        <p className="error-message">{errors?.email?.message}
                                         </p>
                                     )}
                                 </div>
@@ -205,7 +205,8 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={visible ? "text" : "password"} placeholder={"Confirm Password"}   onChange={(e) =>setpassword(e.target.value)}  {...register("confirm_password", {
+                                    <input type={visible ? "text" : "password"} placeholder={"Confirm Password"}   onChange={(e) =>setpassword(e.target.value)}
+                                           {...register("confirmPassword", {
                                             required: "Confirm Password is required",
                                             validate: {
                                                 matchesPassword: (value) =>
@@ -213,10 +214,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                             },
                                         })}
                                     />
-
-
-                                    {errors.confirm_password && (
-                                        <p className="error-message">{errors?.confirm_password?.message}
+                                    
+                                    {errors.confirmPassword && (
+                                        <p className="error-message">{errors?.confirmPassword?.message}
                                         </p>
                                     )}
                                     <img src={"src/images/eye_icon.png"} onClick={() => setvisible(!visible)}></img>
@@ -226,10 +226,10 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <div className={"security-question"}>
                                 <div className={"header10"}>Security Question</div>
                                 <div className={"answer"}>
-                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question",
+                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("securityQuestion",
                                         {required:"SecurityQuestion is required!!"})}/>
-                                    {errors.security_question && (
-                                        <p className="error-message">{errors?.security_question?.message}
+                                    {errors.securityQuestion && (
+                                        <p className="error-message">{errors?.securityQuestion?.message}
                                         </p>
                                     )}
                                 </div>
