@@ -87,8 +87,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
-    const [password, setpassword] = useState("");
-    const [visible, setvisible]  = useState(false);
 
 
 
@@ -144,7 +142,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <span className={"iconpassword"}><RiLockPasswordFill /></span>
                             <div className={"password"}>
                                 <input type={"password"} placeholder={"Password"}/></div>
-                            {/*<img src={"src/images/eye_icon.png"}></img>*/}
                         </div>
                         <div className={"Remember-forget"}>
                             <label><input type={"checkbox"}/>Remember me</label>
@@ -193,20 +190,22 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={visible ? "text" : "password"} placeholder={"Password"} id={"password"} onChange={(e) => setpassword(e.target.value)}  {...register("password",
+                                    <input type={"password"} placeholder={"Password"}   {...register("password",
                                         {required:"Password is required!!"})}/>
 
                                     {errors.password && (
                                         <p className="error-message">{errors?.password?.message}
                                         </p>
                                     )}
-                                    <img src={"src/images/eye_icon.png" }  onClick={() => setvisible(!visible)}></img>
 
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={visible ? "text" : "password"} placeholder={"Confirm Password"}   onChange={(e) =>setpassword(e.target.value)}
+
+                                    <input type={"password"} placeholder={"Confirm Password"}
                                            {...register("confirmPassword", {
+
+
                                             required: "Confirm Password is required",
                                             validate: {
                                                 matchesPassword: (value) =>
@@ -219,7 +218,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         <p className="error-message">{errors?.confirmPassword?.message}
                                         </p>
                                     )}
-                                    <img src={"src/images/eye_icon.png"} onClick={() => setvisible(!visible)}></img>
 
                                 </div>
                             </div>
