@@ -1,6 +1,7 @@
 package com.example.feast.Controller;
 
 
+import com.example.feast.Entity.Items;
 import com.example.feast.Entity.Order;
 import com.example.feast.Pojo.OrderPojo;
 import com.example.feast.Service.OrderService;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
@@ -31,6 +33,11 @@ public class OrderController {
     @GetMapping("/getAll")
     public List<Order> getALl() {
         return orderService.getALl();
+    }
+
+    @GetMapping("/getById/{id}")
+    public Optional<Order> getById(@PathVariable("id") Long id) {
+        return this.orderService.getById(id);
     }
 
 }

@@ -1,12 +1,16 @@
 package com.example.feast.Controller;
+import com.example.feast.Entity.Event;
+import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Order;
 import com.example.feast.Pojo.EventPojo;
+import com.example.feast.Pojo.ItemPojo;
 import com.example.feast.Service.EventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -21,4 +25,19 @@ public class EventController {
         return "Saved";
     }
 
+    @GetMapping("/getAll")
+    public List<Event> getALl() {
+        return eventService.getALl();
+    }
+
+    @GetMapping("/getById/{id}")
+    public Optional<Event> getById(@PathVariable("id") Long id) {
+        return this.eventService.getById(id);
+    }
+    @PutMapping("/update/{id}")
+    public  String update(@PathVariable("id") Integer id){
+        return this.eventService.update(Long.valueOf(id), new EventPojo());
+    }
 }
+
+
