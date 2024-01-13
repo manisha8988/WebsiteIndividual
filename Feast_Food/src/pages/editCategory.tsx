@@ -15,7 +15,7 @@ const EditCategory = () =>{
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8080/category/save",payload)
+            return axios.post("http://localhost:8088/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -33,7 +33,7 @@ const EditCategory = () =>{
     const{data:getByIdApi}=useQuery({
         queryKey:["GET_BY_ID_CATEGORY_API"],
         queryFn(){
-            return axios.get("http://localhost:8080/category/findById/"+pk_id)
+            return axios.get("http://localhost:8088/category/findById/"+pk_id)
         },enabled:!!pk_id
     })
 
