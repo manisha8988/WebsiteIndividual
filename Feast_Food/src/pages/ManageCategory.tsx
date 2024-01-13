@@ -53,7 +53,7 @@ const ManageCategory: React.FC = () =>  {
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8088/category/save",payload)
+            return axios.post("http://localhost:8080/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -78,7 +78,7 @@ const ManageCategory: React.FC = () =>  {
     const{data,refetch} = useQuery({
         queryKey:["GETDATA"],
         queryFn(){
-            return axios.get("http://localhost:8088/category/findAll")
+            return axios.get("http://localhost:8080/category/findAll")
         }
     })
 
@@ -92,7 +92,7 @@ const ManageCategory: React.FC = () =>  {
         {
             mutationKey:["DELETE_BY_ID"],
             mutationFn(id:number){
-                return axios.delete("http://localhost:8088/category/delete/"+id);
+                return axios.delete("http://localhost:8080/category/delete/"+id);
             },onSuccess(){refetch()}
         }
     )

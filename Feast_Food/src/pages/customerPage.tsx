@@ -27,10 +27,11 @@ const CustomerPage = () =>{
     // Filtered data based on the search input (name, email, or ID)
     const filteredData = data?.data.filter((customer) =>
         customer.id.toString().includes(search.toLowerCase()) || // Include ID
-        customer.first_name.toLowerCase().includes(search.toLowerCase()) ||
-        customer.last_name.toLowerCase().includes(search.toLowerCase()) ||
-        customer.username.toLowerCase().includes(search.toLowerCase())
+        customer.fullName.toLowerCase().includes(search.toLowerCase()) ||
+        customer.email.toLowerCase().includes(search.toLowerCase())
     );
+
+    console.log(filteredData)
 
     // Dynamically calculate the number of customers
     const userLength = filteredData ? filteredData.length : 0;
@@ -76,8 +77,8 @@ const CustomerPage = () =>{
                             {filteredData?.map((customer) => (
                                 <tr key={customer?.id}>
                                     <td>{customer?.id}</td>
-                                    <td>{`${customer?.first_name} ${customer?.last_name}`}</td>
-                                    <td>{customer?.username}</td>
+                                    <td>{customer?.fullName}</td>
+                                    <td>{customer?.email}</td>
                                     <td>
                                         <button
                                             className={"delete-btn2"}
