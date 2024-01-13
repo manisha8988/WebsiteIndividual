@@ -12,6 +12,9 @@ import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import axios, {options} from "axios";
 import {MdEmail} from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import {toast} from "react-toastify";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -77,6 +80,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
             return axios.post("http://localhost:8080/register/register",payload)
         },
         onSuccess: () => {
+            difftoast();
 
             reset();
         },
@@ -87,6 +91,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
+    const difftoast =() => {
+        toast.success("wow! you just register", {position: "top-center"})
+    }
 
 
 
@@ -233,7 +240,10 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
 
                             </div>
-                            <button type={"submit"} className={"btn-signup10"} >Sign Up</button>
+                            <button type={"submit"} className={"btn-signup10"}
+                                    // onClick={difftoast}
+                            >Sign Up</button>
+                            <ToastContainer/>
                         </form>
                     </div>
                 </div>
