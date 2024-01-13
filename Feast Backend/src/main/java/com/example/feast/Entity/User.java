@@ -1,27 +1,33 @@
 package com.example.feast.Entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id",nullable = false)
+    @Column(name="id", nullable = false)
     private long id;
 
-    @Column(name="email",nullable = false,unique = true)
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
-    @Column(name="password",nullable = false)
+    @Column(name="password", nullable = false)
     private String password;
 
-    @Column(name="confirm_password",nullable = false)
-    private String confirm_password;
+    @Column(name="confirm_password", nullable = false)
+    private String confirmPassword;
 
-    @Column(name="first_name",nullable = false)
-    private String first_name;
+    @Column(name="full_name", nullable = false)
+    private String fullName;
 
+<<<<<<< HEAD
     @Column(name="last_name",nullable = false)
     private String last_name;
 
@@ -85,3 +91,8 @@ public class User {
         this.events = events;
     }
 }
+=======
+    @Column(name="security_question", nullable = false)
+    private String securityQuestion;
+}
+>>>>>>> 1017ea7cd041f9c5f8f2b2e0bf764a0bc9066249

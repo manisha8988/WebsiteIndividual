@@ -3,7 +3,11 @@ import {Link, useLocation} from "react-router-dom";
 import "../../css/eventsPage.css"
 import {FaRegWindowClose} from "react-icons/fa";
 import {toast, ToastContainer} from "react-toastify";
+<<<<<<< HEAD
 import  {useEffect, useState} from "react";
+=======
+import {useEffect, useState} from "react";
+>>>>>>> 1017ea7cd041f9c5f8f2b2e0bf764a0bc9066249
 import gsap from "gsap";
 import {useMutation} from "@tanstack/react-query";
 import axios from "axios";

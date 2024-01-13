@@ -1,8 +1,6 @@
 package com.example.feast.Pojo;
 
-import com.example.feast.Entity.Category;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,28 +8,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemPojo {
+public class TableReservationPojo {
     private  Integer id;
 
     @NotEmpty
-    private String itemName;
-
-    @OneToOne
-    @JoinColumn(name="category_name")
-    private Category categories;
+    private String customer_Name;
 
     @NotEmpty
-    private String itemImage;
+    private String phone;
 
     @NotNull
-    private Integer itemPrice;
+    private Integer number_person;
 
     @NotEmpty
-    private Boolean itemStatus;
+    private String day;
+
 
 }

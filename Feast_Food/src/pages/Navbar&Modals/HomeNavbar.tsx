@@ -11,6 +11,10 @@ import "../../css/HomeNavbar.css"
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import axios, {options} from "axios";
+import {MdEmail} from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import {toast} from "react-toastify";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -76,6 +80,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
             return axios.post("http://localhost:8080/register/register",payload)
         },
         onSuccess: () => {
+            difftoast();
 
             reset();
         },
@@ -85,6 +90,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const onSubmit=(value:any)=>{
         useApiCall.mutate(value)
     }
+
+    const difftoast =() => {
+        toast.success("wow! you just register", {position: "top-center"})
+    }
+
+
+
 
     return(
         <>
@@ -162,28 +174,19 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </button>
 
                             <div className={"reg-input-box"}>
-                                {/*<span className={"iconname"}> <FaUser /></span>*/}
-
                                 <div className={"username"}>
-                                    <input type={"fname"} placeholder={"First Name"} {...register("first_name",{
-                                        required:"first name is required!!"
+                                    <input type={"text"} placeholder={"Name"} {...register("fullName",{
+                                        required:"FullName is required!!"
                                     })}
                                     />
-                                    {errors.first_name && (
-                                        <p className="error-message">{errors?.first_name?.message}
+                                    {errors.fullName && (
+                                        <p className="error-message">{errors?.fullName?.message}
                                         </p>
                                     )}
 
-                                    <input type={"lname"} placeholder={"Last Name"} {...register("last_name",
-                                        {required:"last name is required!!"
-                                    })}
-                                    />
-                                    {errors.last_name && (
-                                        <p className="error-message">{errors?.last_name?.message}
-                                        </p>
-                                    )}
+
                                 </div>
-                                <span className={"iconuser"}><FaUser /> </span>
+                                <span className={"iconuser"}><MdEmail /> </span>
                                 <div className={"username"}>
                                     <input type={"email"} placeholder={"Email"}  {...register("email",
                                         {required:"Email is required!!"})}/>
@@ -194,19 +197,22 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input type={"password"} placeholder={"Password"} {...register("password",
+                                    <input type={"password"} placeholder={"Password"}   {...register("password",
                                         {required:"Password is required!!"})}/>
+
                                     {errors.password && (
                                         <p className="error-message">{errors?.password?.message}
                                         </p>
                                     )}
+
                                 </div>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
-                                    <input
-                                        type={"password"}
-                                        placeholder={"Confirm Password"}
-                                        {...register("confirm_password", {
+
+                                    <input type={"password"} placeholder={"Confirm Password"}
+                                           {...register("confirmPassword", {
+
+
                                             required: "Confirm Password is required",
                                             validate: {
                                                 matchesPassword: (value) =>
@@ -214,25 +220,30 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                             },
                                         })}
                                     />
-                                    {errors.confirm_password && (
-                                        <p className="error-message">{errors?.confirm_password?.message}
+                                    
+                                    {errors.confirmPassword && (
+                                        <p className="error-message">{errors?.confirmPassword?.message}
                                         </p>
                                     )}
+
                                 </div>
                             </div>
                             <div className={"security-question"}>
                                 <div className={"header10"}>Security Question</div>
                                 <div className={"answer"}>
-                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question",
+                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("securityQuestion",
                                         {required:"SecurityQuestion is required!!"})}/>
-                                    {errors.security_question && (
-                                        <p className="error-message">{errors?.security_question?.message}
+                                    {errors.securityQuestion && (
+                                        <p className="error-message">{errors?.securityQuestion?.message}
                                         </p>
                                     )}
                                 </div>
 
                             </div>
-                            <button type={"submit"} className={"btn-signup10"} >Sign Up</button>
+                            <button type={"submit"} className={"btn-signup10"}
+                                    // onClick={difftoast}
+                            >Sign Up</button>
+                            <ToastContainer/>
                         </form>
                     </div>
                 </div>
@@ -242,4 +253,4 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     )
 }
 
-export default HomeNavbar;
+export default HomeNavbar

@@ -18,7 +18,7 @@ public class ItemController {
 
 
     @PostMapping("/save")
-    public String saveItem(@Valid @RequestBody ItemPojo itemPojo) {
+    public String saveItem( @RequestBody ItemPojo itemPojo) {
         System.out.println(itemPojo);
         itemService.saveItem(itemPojo);
         return "data successfully created";

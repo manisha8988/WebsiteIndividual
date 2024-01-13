@@ -19,23 +19,29 @@ const CustomerPage = () =>{
     const{data,refetch} = useQuery({
         queryKey:["GETCUSTOMERDATA"],
         queryFn(){
-            return axios.get("http://localhost:8080/register/login")
+            return axios.get("http://localhost:8080/register/getAll")
         }
     })
 
     //Searching data
-    const filteredData = data?.data.filter((category) =>
-        category.name.toLowerCase().includes(search.toLowerCase())
+    // Filtered data based on the search input (name, email, or ID)
+    const filteredData = data?.data.filter((customer) =>
+        customer.id.toString().includes(search.toLowerCase()) || // Include ID
+        customer.fullName.toLowerCase().includes(search.toLowerCase()) ||
+        customer.email.toLowerCase().includes(search.toLowerCase())
     );
 
     console.log(filteredData)
 
+    // Dynamically calculate the number of customers
+    const userLength = filteredData ? filteredData.length : 0;
+
     //Deleting data
-    const deleteByIdApi=useMutation(
+    const deleteUserByIdApi=useMutation(
         {
             mutationKey:["DELETE_CUSTOMER_BY_ID"],
             mutationFn(id:number){
-                return axios.delete("http://localhost:8080/user/delete/"+id);
+                return axios.delete("http://localhost:8080/register/deleteUserById/"+id);
             },onSuccess(){refetch()}
         }
     )
@@ -55,6 +61,9 @@ const CustomerPage = () =>{
                         </div>
                     </header>
                     <div className={"customer-page-main"}>
+                        <div className={"no-of-customer"}>
+                            <h2>No. of Customer: {userLength}</h2>
+                        </div>
                         <table className={"customer-table"}>
                             <thead>
                             <tr>
@@ -65,22 +74,24 @@ const CustomerPage = () =>{
                             </tr>
                             </thead>
                             <tbody>
-                            {
-                                filteredData?.map((i) =>{
-                                    return(
-                                        <tr key={i?.id}>
-                                            <td>{i?.id}</td>
-                                            <td>{i?.name}</td>
-                                            <td><button className={"delete-btn2"} onClick={() => {
-                                                // Display confirmation prompt before deletion
-                                                if (window.confirm("Are you sure you want to delete this category?")) {
-                                                    deleteByIdApi.mutate(i?.id);
-                                                }
-                                            }}><MdDelete /></button></td>
-                                        </tr>
-                                    )
-                                })
-                            }
+                            {filteredData?.map((customer) => (
+                                <tr key={customer?.id}>
+                                    <td>{customer?.id}</td>
+                                    <td>{customer?.fullName}</td>
+                                    <td>{customer?.email}</td>
+                                    <td>
+                                        <button
+                                            className={"delete-btn2"}
+                                            onClick={() => {
+                                                if (window.confirm(
+                                                        "Are you sure you want to delete this customer?"))
+                                                {deleteUserByIdApi.mutate(customer?.id);}
+                                            }}>
+                                            <MdDelete />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
                             </tbody>
                         </table>
                     </div>

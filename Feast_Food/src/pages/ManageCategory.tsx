@@ -2,20 +2,23 @@ import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CategoryData from "../components/CategoryData.tsx";
+// import CategoryData from "../components/CategoryData.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useMutation, useQuery} from "@tanstack/react-query";
+import {CiEdit} from "react-icons/ci";
+import {MdDelete} from "react-icons/md";
 
 
 const ManageCategory: React.FC = () =>  {
 
     const[search, setSearch] = useState('');
+    const navigate = useNavigate();
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
@@ -46,16 +49,11 @@ const ManageCategory: React.FC = () =>  {
     }, [modal1]);
 
 
-    //
-    const{refetch} = useQuery({
-        queryKey:["GETDATA"],
-    })
-
     const useApiCall = useMutation({
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8088/category/save",payload)
+            return axios.post("http://localhost:8080/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -75,6 +73,29 @@ const ManageCategory: React.FC = () =>  {
         ,reset}=useForm();
 
     const{errors} = formState;
+
+    // Fetching data from API
+    const{data,refetch} = useQuery({
+        queryKey:["GETDATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/category/findAll")
+        }
+    })
+
+    //Searching data
+    const filteredData = data?.data.filter((category) =>
+        category.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+    //Deleting data
+    const deleteByIdApi=useMutation(
+        {
+            mutationKey:["DELETE_BY_ID"],
+            mutationFn(id:number){
+                return axios.delete("http://localhost:8080/category/delete/"+id);
+            },onSuccess(){refetch()}
+        }
+    )
 
 
     //Toast
@@ -136,7 +157,26 @@ const ManageCategory: React.FC = () =>  {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <CategoryData search={search}/>
+                                        {
+                                            filteredData?.map((i) =>{
+                                                return(
+                                                    <tr key={i?.id}>
+                                                        <td>{i?.id}</td>
+                                                        <td>{i?.name}</td>
+                                                        <td><button className={"edit-btn2"} onClick={()=>{
+                                                            navigate("/edit/"+i?.id);
+                                                            console.log(i?.id)
+                                                        }}><CiEdit /></button></td>
+                                                        <td><button className={"delete-btn2"} onClick={() => {
+                                                            // Display confirmation prompt before deletion
+                                                            if (window.confirm("Are you sure you want to delete this category?")) {
+                                                                deleteByIdApi.mutate(i?.id);
+                                                            }
+                                                        }}><MdDelete /></button></td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
@@ -154,32 +194,33 @@ const ManageCategory: React.FC = () =>  {
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                        <h2>#Add Category</h2>
-                        <button className="close-add-category-btn"  onClick={() => {
-                            toggleCatgModal();
-                            reset(); // Reset the form
-                        }}>
-                            <FaRegWindowClose />
-                        </button>
+                            <h2>#Add Category</h2>
+                            <button className="close-add-category-btn"  onClick={() => {
+                                toggleCatgModal();
+                                reset(); // Reset the form
+                            }}>
+                                <FaRegWindowClose />
+                            </button>
 
-                        <div className={"category-id-number"}>
-                            <label>ID</label>
-                            <input type={"number"} placeholder={"Enter ID"}/>
-                        </div>
-                        <div className={"category-name"}>
-                            <label>Category Name</label>
-                            <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>
-                            <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
-                        </div>
-                        <div className={"category-name-add-btn"}>
-                            <button type={"submit"}>Add</button>
-                        </div>
+                            <div className={"category-id-number"}>
+                                <label>ID</label>
+                                <input type={"number"} placeholder={"Enter ID"}/>
+                            </div>
+                            <div className={"category-name"}>
+                                <label>Category Name</label>
+                                <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>
+                                <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
+                            </div>
+                            <div className={"category-name-add-btn"}>
+                                <button type={"submit"}>Add</button>
+                            </div>
                         </form>
                     </div>
 
                     <ToastContainer />
                 </div>
-             )}
+            )}
+
         </section>
     );
 };
