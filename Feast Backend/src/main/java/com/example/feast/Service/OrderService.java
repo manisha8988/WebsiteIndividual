@@ -14,8 +14,6 @@ public interface OrderService {
 
     List<Order> getALl();
 
-    void deleteBYId(Long id);
-
 
     Optional<Order> getById(Long id);
 

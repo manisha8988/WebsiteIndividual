@@ -40,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
 
         order.setQuantity(orderPojo.getQuantity());
 
-        return orderRepo.save(order).getUser().getUsername();
+        return orderRepo.save(order).getUser().getEmail();
     }
 
     @Override
@@ -48,10 +48,6 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 
-    @Override
-    public void deleteBYId(Long id) {
-
-    }
 
     @Override
     public Optional<Order> getById(Long id) {

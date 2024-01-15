@@ -1,12 +1,11 @@
 package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
-import com.example.feast.Repo.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.feast.Pojo.UserPojo;
 
 import java.util.Optional;
 
+<<<<<<< HEAD
 
 @Service
 public class UserService {
@@ -36,3 +35,12 @@ public class UserService {
         throw new IllegalArgumentException("Invalid password or username");
     }
 }
+=======
+public interface UserService {
+    User createUser(UserPojo userPojo);
+    List<User> getAllData();
+    Optional<User> getUserById(long id);
+    void deleteUserById(long id);
+    String loginUser(String email, String password);
+}
+>>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570

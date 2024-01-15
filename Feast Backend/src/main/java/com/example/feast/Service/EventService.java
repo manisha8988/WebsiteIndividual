@@ -12,4 +12,8 @@ public interface EventService {
     List<Event> getALl();
 
     Optional<Event> getById(Long id);
+
+    void deleteById(Long id);
+
+    String update(Long id, EventPojo eventPojo);
 }
