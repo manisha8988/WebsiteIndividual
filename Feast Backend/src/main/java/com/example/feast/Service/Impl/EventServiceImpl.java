@@ -23,7 +23,6 @@ public class EventServiceImpl implements EventService {
     @Override
     public void saveEvent(EventPojo eventPojo) {
         Event event=new Event();
-
         event.setEventName(eventPojo.getEventName());
         event.setEventPrice(eventPojo.getEventPrice());
         event.setEventStatus(eventPojo.getEventStatus());

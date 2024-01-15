@@ -7,6 +7,8 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
+import java.util.Set;
+
 @Entity
 @Table(name="events")
 @Getter
@@ -34,13 +36,27 @@ public class Event {
     private Integer contact;
 
     @Column(name="event_status")
-    private String eventStatus;
+    private Boolean eventStatus;
 
     @Column(name="event_price", nullable=false)
     private Integer eventPrice;
 
     @Column(name="event_date", nullable=false)
     private Date eventDate;
+
+    @Column(name = "event_name")
+    private String eventName;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "event_user",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> users;
+
+    @Column(name="event_date_time", nullable=false)
+    private Date eventDateTime;
 
     @Column(name="event_time", nullable = false)
     private LocalTime eventTime;
@@ -59,5 +75,13 @@ public class Event {
 //
 //    @Column(name="event_description")
 //    private String eventDescription; // description ma no. of people ne mention gardena kate jana lai pugxa vanera
+
+//    @Column(name="event_image")
+//    private String eventImage;
+//
+//    @Column(name="event_description")
+//    private String eventDescription; // description ma no. of people ne mention gardena kate jana lai pugxa vanera
+
+
 
 }

@@ -21,6 +21,7 @@ import Homedelivery from "./pages/homedelivery.tsx";
 import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
 import CustomerPage from "./pages/customerPage.tsx";
+import AdminEvent from "./pages/adminEvent.tsx";
 
 
 
@@ -40,6 +41,7 @@ function App() {
                     {path: "/edit/:pk_id", element: <EditCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
+                    {path: "/EventPage", element: <AdminEvent/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},

@@ -3,13 +3,9 @@ import {Link, useLocation} from "react-router-dom";
 import "../../css/eventsPage.css"
 import {FaRegWindowClose} from "react-icons/fa";
 import {toast, ToastContainer} from "react-toastify";
-<<<<<<< HEAD
 import  {useEffect, useState} from "react";
-=======
-import {useEffect, useState} from "react";
->>>>>>> 1017ea7cd041f9c5f8f2b2e0bf764a0bc9066249
 import gsap from "gsap";
-import {useMutation} from "@tanstack/react-query";
+import { useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 
@@ -18,31 +14,6 @@ const EventsPage = () =>{
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
-
-
-    // Add category modal
-    // const [anniversaryModal, setanniversaryModal] = useState(false);
-    // const toggleAnniversaryModal = () => {
-    //     setanniversaryModal(!anniversaryModal);
-    // };
-    //
-    // if (anniversaryModal) {
-    //     document.body.classList.add('active-modal');
-    // } else {
-    //     document.body.classList.remove('active-modal');
-    // }
-    //
-    // // GSAP cdn for animation
-    // useEffect(() => {
-    //     if (anniversaryModal) {
-    //         gsap.from(".anniversary-modal", {
-    //             y: -50,
-    //             duration: 0.4,
-    //             opacity: 0,
-    //         });
-    //     }
-    // }, [anniversaryModal]);
-
 
     const [modalType, setModalType] = useState<string | null>(null);
 
@@ -76,15 +47,6 @@ const EventsPage = () =>{
         theme: "light"
     });
 
-
-    //hitting server on port 8081
-    const{register,
-        handleSubmit,
-        formState
-        ,reset}=useForm();
-
-    const{errors} = formState;
-
     const useApiCall = useMutation({
         mutationKey:["POST_EVENT_DATA"],
         mutationFn:(payload:any)=>{
@@ -98,6 +60,14 @@ const EventsPage = () =>{
     const onSubmit=(value:any)=>{
         useApiCall.mutate(value)
     }
+
+    //hitting server on port 8081
+    const{register,
+        handleSubmit,
+        formState
+        ,reset}=useForm();
+
+    const{errors} = formState;
 
     return(
         <>
@@ -196,6 +166,7 @@ const EventsPage = () =>{
                             <button type={"submit"}>Book</button>
                         </div>
                         </form>
+
                     </div>
                     <ToastContainer/>
                 </div>
@@ -205,4 +176,4 @@ const EventsPage = () =>{
     )
 }
 
-export default EventsPage;
+export default EventsPage

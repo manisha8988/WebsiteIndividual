@@ -2,8 +2,13 @@
 //
 //import com.example.feast.Entity.BookTable;
 //import com.example.feast.Repo.BookTableRepository;
+
 //import com.example.feast.exception.TableAlreadyReservedException;
 //import com.example.feast.exception.TableNotFoundException;
+
+////import com.example.feast.exception.TableAlreadyReservedException;
+////import com.example.feast.exception.TableNotFoundException;
+
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;

@@ -3,10 +3,15 @@ package com.example.feast.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+import java.util.List;
+
+
 @Entity
 @Table(name="users")
 public class User {
@@ -27,9 +32,15 @@ public class User {
     @Column(name="full_name", nullable = false)
     private String fullName;
 
-<<<<<<< HEAD
     @Column(name="last_name",nullable = false)
     private String last_name;
+
+    private String confirm_password;
+    private String first_name;
+    private String last_name;
+
+    @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
+    private List<Event> events;
 
 
     public long getId() {
@@ -90,9 +101,14 @@ public class User {
     public void setEvents(Event events) {
         this.events = events;
     }
-}
-=======
     @Column(name="security_question", nullable = false)
     private String securityQuestion;
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 }
->>>>>>> 1017ea7cd041f9c5f8f2b2e0bf764a0bc9066249
+

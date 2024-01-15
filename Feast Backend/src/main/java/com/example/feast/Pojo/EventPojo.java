@@ -1,9 +1,6 @@
 package com.example.feast.Pojo;
 import com.example.feast.Entity.User;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,15 +8,23 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.Timer;
 
+import java.util.Set;
+
 @Getter
 @Setter
 public class EventPojo {
 
     private Long id;
 
+
     @OneToOne
     @JoinColumn(name="user_id" , referencedColumnName = "first_name")
     private User user;
+    @NotNull
+    private Integer eventPrice;
+
+    @NotNull
+    private Boolean eventStatus;
 
     @NotNull
     private Integer contact;
@@ -50,4 +55,19 @@ public class EventPojo {
 //    @NotNull
 //    private String eventDescription;
 
+    private Date eventDateTime;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "event_user",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> users;
+
+    //    @NotNull
+//    private String eventImage;
+//
+//    @NotNull
+//    private String eventDescription;
 }
