@@ -2,18 +2,15 @@ package com.example.feast.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-
 import java.util.List;
 
 
 @Entity
 @Table(name="users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
