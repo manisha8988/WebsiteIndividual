@@ -30,7 +30,7 @@
     color: black;
     font-family: "Gilroy Medium";
 }
-.home-options:active,.icon-cart.active{
+.home-options:active{
     color: #f3ad16;
 }
 .home-options li{
@@ -44,7 +44,13 @@
     display: flex;
     flex-direction: row;
 }
-.icon-cart:hover{
+.hp-navright span{
+    padding-top: 0.45rem;
+    width: 2rem;
+    /*background: #b72323;*/
+    font-size: 1.1rem;
+}
+.hp-navright span:hover{
     cursor: pointer;
     color: #f3ad16;
 }
@@ -56,7 +62,8 @@
     margin-right: 1rem;
 }
 .hp-sign-btn:hover{
-     border-color: black;
+     color: #f3ad16;
+     border: 1.3px solid black;
      cursor: pointer;
  }
 .hp-sign-btn h3{
@@ -65,6 +72,6 @@
     color: black;
     font-size: 1rem;
     font-family: "Gilroy Medium";
-}.hp-sign-btn:hover h3{
+}.hp-sign-btn h3:hover{
     color: #f3ad16;
  }

@@ -15,14 +15,11 @@ import lombok.NoArgsConstructor;
 public class Items {
     @Id
     @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.IDENTITY)
     private  Integer id;
 
     @Column(name="item_name",nullable = false)
     private String itemName;
-
-//    @Column(name = "item_category")
-//    private String itemCategory;
 
     @Column(name = "item_image",nullable = false)
     private String itemImage;
@@ -30,13 +27,10 @@ public class Items {
     @Column(name = "item_price",nullable = false)
     private Integer itemPrice;
 
-//    @Column(name = "item_quantity",nullable = false)
-//    private Integer itemQuantity;
-
     @Column(name = "item_status",nullable = false)
     private Boolean itemStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_name")//, referencedColumnName = "id"
+    @JoinColumn(name="category_Id")//, referencedColumnName = "id"
     private Category categories;
 }

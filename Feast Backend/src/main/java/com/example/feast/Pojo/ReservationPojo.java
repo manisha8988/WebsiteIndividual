@@ -1,8 +1,6 @@
 package com.example.feast.Pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,10 +8,20 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 @Setter
 
-public class CategoryPojo {
+public class ReservationPojo {
 
     private Integer id;
 
     @NotNull
     private String name;
+
+    @NotNull
+    private String phone;
+
+    @NotNull
+    private Integer persons;
+
+    @NotNull
+    private String date;
+
 }

@@ -3,6 +3,8 @@ package com.example.feast.Service.Impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.feast.Entity.Category;
+import com.example.feast.Repo.CategoryRepo;
 import org.springframework.stereotype.Service;
 
 import com.example.feast.Entity.Items;
@@ -18,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class ItemServiceImpl implements ItemService {
 
     private final ItemRepo itemRepo;
+    private final CategoryRepo categoryRepo;
 
     @Override
     public void saveItem(ItemPojo itemPojo) {
@@ -28,15 +31,16 @@ public class ItemServiceImpl implements ItemService {
         } else {
             item = new Items();
         }
-            item.setItemName(itemPojo.getItemName());
-            item.setItemImage(itemPojo.getItemImage());
-            item.setItemPrice(itemPojo.getItemPrice());
-//            item.setItemQuantity(itemPojo.getItemQuantity());
-            item.setItemStatus(itemPojo.getItemStatus());
-            item.setCategories(itemPojo.getCategories());
+        item.setItemName(itemPojo.getItemName());
+        item.setItemImage(itemPojo.getItemImage());
+        item.setItemPrice(itemPojo.getItemPrice());
+        item.setItemStatus(itemPojo.getItemStatus());
 
-            itemRepo.save(item);
-            System.out.println("Saved Successfully");
+        Category category=categoryRepo.findById(itemPojo.getCategoriesId()).orElseThrow( ()-> new EntityNotFoundException("Category not found with ID: " + itemPojo.getCategoriesId()));
+
+        item.setCategories((category));
+        itemRepo.save(item);
+        System.out.println("Saved Successfully");
 
     }
 

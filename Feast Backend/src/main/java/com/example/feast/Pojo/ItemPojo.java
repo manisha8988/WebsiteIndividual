@@ -22,8 +22,9 @@ public class ItemPojo {
     private String itemName;
 
     @OneToOne
-    @JoinColumn(name="category_name")
-    private Category categories;
+    @JoinColumn(name="category_id")
+//    private Category categories;
+    private Integer categoriesId;
 
     @NotEmpty
     private String itemImage;

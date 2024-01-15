@@ -7,18 +7,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="categories")
+@Table(name="reserve")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column(name="name" , nullable=false)
     private String name;
+
+    @Column(name="phone" , nullable=false)
+    private String phone;
+
+    @Column(name="persons" , nullable=false)
+    private Integer persons;
+
+    @Column(name="date" , nullable=false)
+    private String date;
 
 }

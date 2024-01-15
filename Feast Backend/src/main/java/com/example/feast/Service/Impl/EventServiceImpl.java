@@ -25,12 +25,13 @@ public class EventServiceImpl implements EventService {
         Event event=new Event();
 
         event.setEventName(eventPojo.getEventName());
-        event.setEventImage(eventPojo.getEventImage());
-        event.setEventStatus(eventPojo.getEventStatus());
-        event.setEventDateTime(eventPojo.getEventDateTime());
-        event.setEventDescription(eventPojo.getEventDescription());
         event.setEventPrice(eventPojo.getEventPrice());
-
+        event.setEventStatus(eventPojo.getEventStatus());
+        event.setEventDate(eventPojo.getEventDate());
+        event.setNoOfGuest(eventPojo.getNoOfGuest());
+        event.setContact(eventPojo.getContact());
+        event.setSpecialRequest(eventPojo.getSpecialRequest());
+        event.getEventTime();
 
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();
@@ -46,5 +47,19 @@ public class EventServiceImpl implements EventService {
     public Optional<Event> getById(Long id) {
         return Optional.empty();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        eventRepo.deleteById(Long.valueOf(id));
+    }
+
+    @Override
+    public String update(Long id, EventPojo eventPojo) {
+        return null;
+    }
 }
+
+
+
+
 
