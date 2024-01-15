@@ -15,12 +15,12 @@ public class UserPojo {
     @NotNull(message = "password is required")
     private String password;
 
-    @NotNull
+    @NotNull(message="confirm-password is required")
     private String confirmPassword;
 
-    @NotNull
+    @NotNull(message="fullname is required")
     private String fullName;
 
-    @NotNull
+    @NotNull(message="security question is required")
     private String securityQuestion;
 }
