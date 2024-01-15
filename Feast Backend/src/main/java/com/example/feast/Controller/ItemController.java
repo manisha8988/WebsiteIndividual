@@ -3,7 +3,6 @@ package com.example.feast.Controller;
 import com.example.feast.Entity.Items;
 import com.example.feast.Pojo.ItemPojo;
 import com.example.feast.Service.ItemService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +17,10 @@ public class ItemController {
 
 
     @PostMapping("/save")
-    public String saveItem( @RequestBody ItemPojo itemPojo) {
+    public String saveItem(@RequestBody ItemPojo itemPojo) {
         System.out.println(itemPojo);
         itemService.saveItem(itemPojo);
-        return "data successfully created";
+        return "Item successfully created";
     }
     @GetMapping("/get-by-id/{id}")
     public Optional<Items> findById(@PathVariable("id") Integer id) {
@@ -33,9 +32,9 @@ public class ItemController {
         itemService.deleteById(id);
     }
 
+
     @PutMapping("/update/{id}")
     public  String update(@PathVariable("id") Integer id){
         return this.itemService.update(id, new ItemPojo());
     }
 }
-

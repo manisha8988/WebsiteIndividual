@@ -3,8 +3,8 @@ package com.example.feast.Controller;
 import com.example.feast.Entity.Category;
 import com.example.feast.Pojo.CategoryPojo;
 import com.example.feast.Service.CategoryService;
-import com.example.feast.Service.Impl.CategoryServiceImpl;
-import jakarta.validation.Valid;
+//import com.example.feast.Service.Impl.CategoryServiceImpl;
+//import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +17,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
-//    private final CategoryServiceImpl categoryService;
 
-    @PostMapping(value = "save")
-    public String saveCategory(@Valid @RequestBody CategoryPojo categoryPojo){
+    @PostMapping("save")
+    public String saveUser(@RequestBody CategoryPojo categoryPojo){
         categoryService.saveCategory(categoryPojo);
-        return "Saved successfully";
+        return "Category successfully created";
     }
 
     @GetMapping("/findAll")
