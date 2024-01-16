@@ -2,6 +2,7 @@ package com.example.feast.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 
 @Getter
@@ -9,7 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-import java.util.List;
 
 
 @Entity
