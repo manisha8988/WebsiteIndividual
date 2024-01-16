@@ -1,4 +1,4 @@
-import "../../src/css/customerPage.css"
+import "../css/customerPage.css"
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";

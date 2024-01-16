@@ -7,6 +7,9 @@ import {FaBowlFood} from "react-icons/fa6";
 import {Link} from "react-router-dom"
 import React from "react";
 import {TbBrandBooking} from "react-icons/tb";
+import {FaUserCog} from "react-icons/fa";
+import {IoNewspaper} from "react-icons/io5";
+import {BsFillCalendar2EventFill} from "react-icons/bs";
 
 
 interface AdminSidebarProps {
@@ -29,9 +32,6 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                                 <a>Dashboard</a>
                             </li>
                         </Link>
-
-<<<<<<< HEAD
-=======
                         <Link to={"/CustomerPage"}>
                             <li className={`sidebar-list-item ${activePage === "/CustomerPage" ? "active" : ""}`}>
                                 <span><FaUserCog style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
@@ -60,7 +60,6 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                             </li>
                         </Link>
 
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
                         <Link to={"/ManageCategory"}>
                             <li className={`sidebar-list-item ${activePage === "/ManageCategory" ? "active" : ""}`}>
                                 <span><BiSolidCategoryAlt style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
