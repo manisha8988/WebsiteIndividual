@@ -44,43 +44,23 @@ public class Event {
     @Column(name="event_date", nullable=false)
     private Date eventDate;
 
-    @Column(name = "event_name")
-    private String eventName;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "event_user",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<User> users;
-
-    @Column(name="event_date_time", nullable=false)
-    private Date eventDateTime;
-
     @Column(name="event_time", nullable = false)
     private LocalTime eventTime;
 
-    @Column(name="no_of_guest", nullable = false)
+    @Column(name="noOfGuest" , nullable = false)
     private Integer noOfGuest;
 
-
-    @Column(name="special_request", nullable = false)
+    @Column(name="specialRequest")
     private String specialRequest;
 
 
-
-//    @Column(name="event_image")
-//    private String eventImage;
-//
-//    @Column(name="event_description")
-//    private String eventDescription; // description ma no. of people ne mention gardena kate jana lai pugxa vanera
-
-//    @Column(name="event_image")
-//    private String eventImage;
-//
-//    @Column(name="event_description")
-//    private String eventDescription; // description ma no. of people ne mention gardena kate jana lai pugxa vanera
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "event_user",
+//            joinColumns = @JoinColumn(name = "event_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private Set<User> users;
 
 
 

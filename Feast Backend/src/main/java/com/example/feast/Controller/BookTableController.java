@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.example.feast.Controller;
 
 import com.example.feast.Entity.BookTable;
@@ -111,4 +110,3 @@ public class BookTableController {
 //        }
 //    }
 //}
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
