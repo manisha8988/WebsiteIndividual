@@ -26,7 +26,7 @@ const CustomerPage = () =>{
     //Searching data
     // Filtered data based on the search input (name, email, or ID)
     const filteredData = data?.data.filter((customer) =>
-        customer.id.toString().includes(search.toLowerCase()) || // Include ID
+        customer.id.toString().includes(search.toLowerCase()) ||
         customer.fullName.toLowerCase().includes(search.toLowerCase()) ||
         customer.email.toLowerCase().includes(search.toLowerCase())
     );

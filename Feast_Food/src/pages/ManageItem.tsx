@@ -1,40 +1,20 @@
 import "../css/ManageItem.css"
 import React, { useEffect, useState } from "react";
-import ItemData from "../components/ItemData.tsx";
 import { IoIosAddCircle } from "react-icons/io";
 import {FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation} from "react-router-dom";
+import {useMutation, useQuery} from "@tanstack/react-query";
+import axios from "axios";
+import {CiEdit} from "react-icons/ci";
+import {MdDelete} from "react-icons/md";
+import {useForm} from "react-hook-form";
 
-
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
-
-const API = "https://jsonplaceholder.typicode.com/users";
 
 const ManageCategory: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([]);
 
-    const fetchUsers = async (url: string) => {
-        try {
-            const res = await fetch(url);
-            const data: User[] = await res.json();
-            if (data.length > 0) {
-                setUsers(data);
-            }
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
-    useEffect(() => {
-        fetchUsers(API);
-    }, []);
-
+    const[search,setSearch] = useState('');
 
     // Add Items modal
     const [modal, setModal] = useState(false);
@@ -62,6 +42,64 @@ const ManageCategory: React.FC = () => {
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
 
+
+    //hitting server on port 8080
+    const{register,
+        handleSubmit,
+        formState
+        ,reset}=useForm();
+
+    const useApiCall = useMutation({
+        mutationKey:["POST_ITEM_DATA"],
+        mutationFn:(payload:any)=>{
+            console.log(payload)
+            return axios.post("http://localhost:8080/product/save",payload)
+        },onSuccess: () => {
+            // notify();
+            reset();
+            refetch();
+        }
+    })
+
+    const onSubmit=(value:any)=>{
+        useApiCall.mutate(value)
+    }
+
+
+    // Fetching data from API
+    const{data,refetch} = useQuery({
+        queryKey:["GET_ITEM_DATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/product/findAll")
+        }
+    })
+
+    //Searching data
+    const filteredItemData = data?.data.filter((item) =>
+        item.productName.toLowerCase().includes(search.toLowerCase()) ||
+        item.id.toString().includes(search.toLowerCase()) ||
+        item.category?.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+    console.log(data?.data)
+
+    const { data: categories } = useQuery({
+        queryKey: ["GET_CATEGORIES"],
+        queryFn() {
+            return axios.get("http://localhost:8080/category/findAll"); // Replace with your actual API endpoint
+        },
+    });
+
+    //Deleting data
+    const deleteByIdApi=useMutation(
+        {
+            mutationKey:["DELETE_ITEM_BY_ID"],
+            mutationFn(id:number){
+                return axios.delete("http://localhost:8080/product/delete/"+id);
+            },onSuccess(){refetch()}
+        }
+    )
+
     return(
         <div>
             <div className={"add-item-page"}>
@@ -75,7 +113,7 @@ const ManageCategory: React.FC = () => {
 
                         <div className={"search-wrapper"}>
                             <span><FaSearch /></span>
-                            <input type={"search"} placeholder={"Search Item"}/>
+                            <input type={"search"} placeholder={"Search Item"} value={search} onChange={(e)=>setSearch(e.target.value)}/>
                         </div>
 
                         <div className={"user-wrapper"}>
@@ -103,15 +141,38 @@ const ManageCategory: React.FC = () => {
                                         <tr>
                                             <th className={"id-box3"}>Id</th>
                                             <th className={"name-box3"}>Name</th>
-                                            <th className={"category-box"}>Category</th>
+                                            <th className={"category-box3"}>Category</th>
                                             <th className={"image-box3"}>Image</th>
                                             <th className={"price-box3"}>Price</th>
                                             <th className={"action-box3"}>Action</th>
-                                            <th className={"status-box3"}>Status</th>
+                                            {/*<th className={"status-box3"}>Status</th>*/}
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <ItemData users={users} />
+                                        {
+                                            filteredItemData?.map((i) =>{
+                                                return(
+                                                    <tr key={i?.id}>
+                                                        <td>{i?.id}</td>
+                                                        <td>{i?.productName}</td>
+                                                        <td>{i?.category?.name}</td>
+                                                        <td>{i?.productImage}</td>
+                                                        <td>{i?.price}</td>
+                                                        <td><button className={"edit-btn3"}><CiEdit /></button>
+                                                            <button className={"delete-btn3"} onClick={() => {
+                                                                if (window.confirm("Are you sure you want to delete this category?")) {
+                                                                    deleteByIdApi.mutate(i?.id);
+                                                                }
+                                                            }}><MdDelete /></button></td>
+                                                        {/*<td>{i?.itemStatus ? (*/}
+                                                        {/*    <span style={{ color: 'green' }}>Available</span>*/}
+                                                        {/*) : (*/}
+                                                        {/*    <span style={{ color: 'red' }}>Inactive</span>*/}
+                                                        {/*)}</td>*/}
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
@@ -129,35 +190,37 @@ const ManageCategory: React.FC = () => {
                         <button className="close-add-item-btn" onClick={toggleItemModal}>
                             <FaRegWindowClose />
                         </button>
-                        <div className={"select-category"}>
-                            <label>Category</label>
-                            <select id={"category-option"} placeholder={""}>
-                                <option>Select a Category</option>
-                                <option>Salad</option>
-                                <option>Pizza</option>
-                                <option>Salad</option>
-                            </select>
-                        </div>
-                        <div className={"item-name"}>
-                            <label>Item Name</label>
-                            <input type={"text"} placeholder={"Enter item Name"}/>
-                        </div>
-                        <div className={"item-id-number"}>
-                            <label>ID</label>
-                            <input type={"number"} placeholder={"Enter ID"}/>
-                        </div>
-                        <div className={"item-price"}>
-                            <label>Price</label>
-                            <input type={"number"} placeholder={"Enter the Price"}/>
-                        </div>
-                        <div className={"item-image"}>
-                            <label>Image</label>
-                            <span><input type={"image"} placeholder={"Add image here"}/></span>
-                        </div>
 
-                        <div className={"item-name-add-btn"}>
-                            <button>Add</button>
-                        </div>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className={"select-category"}>
+                                <label>Category</label>
+                                <select id={"category-option"} placeholder={""} {...register("categoryId", { required: true })}>
+                                    <option>Select a Category</option>
+                                    {categories &&
+                                        categories.data.map((category) => (
+                                            <option key={category.id} value={category.id}>
+                                                {category.name}
+                                            </option>
+                                        ))}
+                                </select>
+                            </div>
+                            <div className={"item-name"}>
+                                <label>Item Name</label>
+                                <input type={"text"} placeholder={"Enter item Name"} {...register("productName")}/>
+                            </div>
+                            <div className={"item-price"}>
+                                <label>Price</label>
+                                <input type={"number"} placeholder={"Enter the Price"} {...register("price")}/>
+                            </div>
+                            <div className={"item-image"}>
+                                <label>Image</label>
+                                <span><input type={"text"} placeholder={"Add image here"} {...register("productImage")}/></span>
+                            </div>
+
+                            <div className={"item-name-add-btn"}>
+                                <button type={"submit"}>Add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}
