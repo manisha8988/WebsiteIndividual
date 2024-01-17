@@ -14,14 +14,13 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
+
     private long id;
     private String username;
     private String password;
     private String confirm_password;
-
     private String first_name;
-=======
+
     @Column(name="id", nullable = false)
     private long id;
 
@@ -38,7 +37,6 @@ public class User {
     private String fullName;
 
     @Column(name="last_name",nullable = false)
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     private String last_name;
 
     private String confirm_password;
