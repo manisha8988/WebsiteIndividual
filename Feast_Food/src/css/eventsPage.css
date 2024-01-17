@@ -197,14 +197,11 @@
     color: #831515;
 }
 
-<<<<<<< HEAD
 .birthday-name,
 .birthday-email,
 .birthday-date,
 .birthday-guests {
-=======
 .event-modal-name, .event-modal-email, .event-modal-date, .event-modal-time {
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     display: flex;
     flex-direction: column;
     font-size: 1.3rem;
@@ -213,11 +210,9 @@
 
 .birthday-input {
     height: 5.5vh;
-<<<<<<< HEAD
 }
 
 .birthday-date-guests {
-=======
     font-size: 0.9rem;
     padding-left: 2px;
 }
@@ -231,14 +226,10 @@
 }
 
 .event-modal-date-time {
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     display: flex;
     padding: 0 5px 0 0;
     justify-content: space-between;
 }
-<<<<<<< HEAD
-=======
-
 .event-modal-book-btn{
     position: absolute;
     bottom: 6%; right: 6%;
@@ -251,4 +242,3 @@
 .p{
     align-content: center;
 }
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570

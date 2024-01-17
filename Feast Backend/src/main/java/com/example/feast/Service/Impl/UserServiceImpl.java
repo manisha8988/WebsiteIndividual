@@ -1,11 +1,11 @@
-package com.example.feast.Service.Impl;
+package com.example.feast.Service;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Repo.UserRepo;
 import com.example.feast.Pojo.UserPojo;
-import com.example.feast.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
         user.setConfirmPassword(userPojo.getConfirmPassword());
         user.setFullName(userPojo.getFullName());
         user.setSecurityQuestion(userPojo.getSecurityQuestion());
-
         return userRepository.save(user);
     }
 
@@ -41,6 +40,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(long id) {
         userRepository.deleteById(id);
     }
+
 
     @Override
     public String loginUser(String email, String password) {

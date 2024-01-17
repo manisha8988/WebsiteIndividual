@@ -20,12 +20,8 @@ import EditCategory from "./pages/editCategory.tsx";
 import Homedelivery from "./pages/homedelivery.tsx";
 import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
-<<<<<<< HEAD
-=======
 import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
-
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
 
 
 const queryClient = new QueryClient();
@@ -43,11 +39,8 @@ function App() {
                     {path: "/ManageCategory", element: <ManageCategory/>},
                     {path: "/edit/:pk_id", element: <EditCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
-<<<<<<< HEAD
-=======
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/EventPage", element: <AdminEvent/>},
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},

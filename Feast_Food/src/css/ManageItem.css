@@ -90,7 +90,7 @@
 }
 
 .id-box3{
-    min-width: 2rem;
+    width: 1rem;
     border: 1rem #000000;
     padding: 1.2rem 0.1rem;
     margin: 0;
@@ -102,13 +102,13 @@
     min-width: 8rem;
 }
 .image-box3{
-    min-width: 7rem;
+    min-width: 8rem;
 }
 .price-box3{
-    min-width: 6rem;
+    min-width: 7rem;
 }
 .action-box3{
-    min-width: 8rem;
+    min-width: 9rem;
 }
 .status-box3{
     min-width: 6rem;
@@ -150,7 +150,7 @@
     position: absolute;   top: 5.6rem;  font-size: 1.7rem;
 }
 .select-category select{
-    width: 23vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
+    width: 42vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
 }
 .select-category label,.select-category select{
     display: block;
@@ -162,15 +162,6 @@
     width: 23vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
 }
 .item-name label,.item-name input{
-    display: block;
-}
-.item-id-number{
-    position: absolute;  top: 5.6rem;  right: 2rem; font-size: 1.7rem;
-}
-.item-id-number input{
-    width: 14vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
-}
-.item-id-number label,.item-id-number input{
     display: block;
 }
 .item-price{

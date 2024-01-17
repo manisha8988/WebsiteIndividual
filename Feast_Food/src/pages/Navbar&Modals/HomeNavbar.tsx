@@ -10,15 +10,10 @@ import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
-<<<<<<< HEAD
 import axios from "axios";
-=======
-import axios, {options} from "axios";
-import {MdEmail} from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import {toast} from "react-toastify";
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -71,9 +66,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
 
     //Register ko backend connection
-    const {register,
+    const {
+        register,
         handleSubmit,
-        reset}=useForm();
+        reset,
+        formState: { errors },
+        watch,
+    } = useForm();
 
     // const {errors}=formState;
 
@@ -85,7 +84,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         },
         onSuccess: () => {
             difftoast();
-
             reset();
         },
 
@@ -95,16 +93,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
-<<<<<<< HEAD
-=======
     const difftoast =() => {
         toast.success("wow! you just register", {position: "top-center"})
     }
 
 
-
-
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     return(
         <>
             <div className={"nav-bar"}>
@@ -179,12 +172,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <div className={"reg-input-box"}>
                                 {/*<span className={"iconname"}> <FaUser /></span>*/}
                                 <div className={"username"}>
-<<<<<<< HEAD
-                                    <input type={"fname"} placeholder={"First Name"} {...register("first_name",{
-                                        required:"full name is required"
-                                    })}/>
-                                    <input type={"lname"} placeholder={"Last Name"} {...register("last_name")}/>
-=======
                                     <input type={"text"} placeholder={"Name"} {...register("fullName",{
                                         required:"FullName is required!!"
                                     })}
@@ -193,23 +180,8 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         <p className="error-message">{errors?.fullName?.message}
                                         </p>
                                     )}
-
-
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
                                 </div>
-                                <span className={"iconuser"}><FaUser /> </span>
                                 <div className={"username"}>
-<<<<<<< HEAD
-                                    <input type={"username"} placeholder={"Username"}  {...register("username")}/>
-                                </div>
-                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
-                                <div className={"password"}>
-                                    <input type={"password"} placeholder={"Password"} {...register("password")}/>
-                                </div>
-                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
-                                <div className={"password"}>
-                                    <input type={"password"} placeholder={"Confirm Password"} {...register("confirm_password")}/>
-=======
                                     <input type={"email"} placeholder={"Email"}  {...register("email",
                                         {required:"Email is required!!"})}/>
                                     {errors.email && (
@@ -217,6 +189,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         </p>
                                     )}
                                 </div>
+                                <span className={"iconuser"}><FaUser /> </span>
                                 <span className={"iconpassword"}><RiLockPasswordFill /></span>
                                 <div className={"password"}>
                                     <input type={"password"} placeholder={"Password"}   {...register("password",
@@ -247,23 +220,17 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         <p className="error-message">{errors?.confirmPassword?.message}
                                         </p>
                                     )}
-
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
                                 </div>
                             </div>
                             <div className={"security-question"}>
                                 <div className={"header10"}>Security Question</div>
                                 <div className={"answer"}>
-<<<<<<< HEAD
-                                    <input type={"answer"} placeholder={"Your first school name?"}  {...register("security_question")}/>
-=======
                                     <input type={"answer"} placeholder={"Your first school name?"}  {...register("securityQuestion",
                                         {required:"SecurityQuestion is required!!"})}/>
                                     {errors.securityQuestion && (
                                         <p className="error-message">{errors?.securityQuestion?.message}
                                         </p>
                                     )}
->>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
                                 </div>
 
                             </div>

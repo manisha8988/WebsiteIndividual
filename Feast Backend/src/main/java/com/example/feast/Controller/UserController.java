@@ -6,6 +6,7 @@ import com.example.feast.Pojo.UserPojo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -28,18 +29,7 @@ public class UserController {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
-
-
     }
-    @GetMapping("/login")
-    public ResponseEntity<Object> loginUsers(@RequestBody User loginUsers){
-        try{
-            System.out.println(loginUsers.getUsername());
-            System.out.println(loginUsers.getPassword());
-            return new ResponseEntity<>(loginUsers, HttpStatus.CONFLICT);
-
-        }catch (Exception e){
-            System.out.println("dont match");
 
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody UserPojo loginPojo) {
@@ -52,7 +42,6 @@ public class UserController {
         }
     }
 
-}
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getAllData() {
         List<User> allUsers = userService.getAllData();
@@ -72,6 +61,7 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @DeleteMapping("/deleteUserById/{id}")
     public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
         try {
@@ -82,4 +72,3 @@ public class UserController {
         }
     }
 }
-
