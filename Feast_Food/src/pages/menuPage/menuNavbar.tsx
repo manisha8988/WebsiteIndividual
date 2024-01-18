@@ -1,5 +1,4 @@
 import React from "react";
-import {FaSearch} from "react-icons/fa";
 
 interface NavbarProps {
     filterItem: (category: string) => void;
@@ -7,13 +6,11 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ filterItem, menuList }) => {
+
+    // console.log(menuList)
     return (
         <>
             <nav className="menu-navbar">
-                {/*<div className={"search-wrapper"}>*/}
-                {/*    <input type={"search"} placeholder={"Search your food here..."} />*/}
-                {/*    <span><FaSearch/></span>*/}
-                {/*</div>*/}
                 <h2>Categories</h2>
                 <div className="menu-btn-group">
                     {menuList.map((curElem) => (

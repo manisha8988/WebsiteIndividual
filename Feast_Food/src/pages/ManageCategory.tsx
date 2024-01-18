@@ -157,7 +157,9 @@ const ManageCategory: React.FC = () =>  {
                                         </thead>
                                         <tbody>
                                         {
-                                            filteredData?.map((i) =>{
+                                            filteredData
+                                                ?.sort((a, b) => a.id - b.id)
+                                                .map((i) =>{
                                                 return(
                                                     <tr key={i?.id}>
                                                         <td>{i?.id}</td>
