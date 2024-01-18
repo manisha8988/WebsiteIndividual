@@ -122,6 +122,18 @@ const ManageCategory: React.FC = () => {
         }
     )
 
+    console.log(filteredItemData)
+
+    /////Edit Modal/////
+    const [editItemModal, setEditItemModal] = useState(false);
+
+    const toggleEditItemModal = () => {
+        setEditItemModal((prev) => !prev); // Toggle the editItemModal
+        if (!editItemModal) {
+            reset(); // Reset the form when opening the modal
+        }
+    };
+
     return(
         <div>
             <div className={"add-item-page"}>
@@ -184,17 +196,17 @@ const ManageCategory: React.FC = () => {
                                                             <img src={i?.productImage} width={"45px"}/>
                                                         </td>
                                                         <td>{i?.price}</td>
-                                                        <td><button className={"edit-btn3"}><CiEdit /></button>
+                                                        <td><button className={"edit-btn3"} onClick={() => {
+                                                            // Open the editItemModal with the values to edit
+                                                            toggleEditItemModal();
+                                                        }}>
+                                                            <CiEdit />
+                                                            </button>
                                                             <button className={"delete-btn3"} onClick={() => {
                                                                 if (window.confirm("Are you sure you want to delete this category?")) {
                                                                     deleteByIdApi.mutate(i?.id);
                                                                 }
                                                             }}><MdDelete /></button></td>
-                                                        {/*<td>{i?.itemStatus ? (*/}
-                                                        {/*    <span style={{ color: 'green' }}>Available</span>*/}
-                                                        {/*) : (*/}
-                                                        {/*    <span style={{ color: 'red' }}>Inactive</span>*/}
-                                                        {/*)}</td>*/}
                                                     </tr>
                                                 )
                                             })
@@ -250,6 +262,45 @@ const ManageCategory: React.FC = () => {
 
                             <div className={"item-name-add-btn"}>
                                 <button type={"submit"}>Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {editItemModal && (
+                <div className="add-item-modal">
+                    <div onClick={toggleItemModal} className="add-item-overlay"></div>
+                    <div className="add-item-modal-content">
+                        <h2>#Edit Item</h2>
+                        <button className="close-add-item-btn" onClick={toggleEditItemModal}>
+                            <FaRegWindowClose />
+                        </button>
+
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className={"select-category"}>
+                                <label>Category : {filteredItemData?.category?.name}</label>
+                            </div>
+                            <div className={"item-name"}>
+                                <label>Item Name</label>
+                                <input type={"text"} placeholder={"Enter item Name"} {...register("productName",{required:"Item Name is required!!"})}/>
+                                <h6 style={{paddingLeft:"3px"}}>{errors?.productName?.message}</h6>
+                            </div>
+                            <div className={"item-price"}>
+                                <label>Price</label>
+                                <input type={"number"} placeholder={"Enter the Price"} {...register("price",{required:"Price is required!!"})}/>
+                                <h6 style={{paddingLeft:"3px"}}>{errors?.price?.message}</h6>
+                            </div>
+                            <div className={"item-image"}>
+                                <label>Image</label>
+                                <span>
+                                    <input type={"file"} placeholder={"Add image here"} {...register("productImage",{required:"Item Image is required!!"})}/>
+                                     <h6 style={{paddingLeft:"3px"}}>{errors?.productImage?.message}</h6>
+                                </span>
+                            </div>
+
+                            <div className={"item-name-add-btn"}>
+                                <button type={"submit"} onClick={toggleEditItemModal}>Edit</button>
                             </div>
                         </form>
                     </div>
