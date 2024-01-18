@@ -235,7 +235,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                             </div>
                             <button type={"submit"} className={"btn-signup10"}
-                                    // onClick={difftoast}
+                                    onClick={difftoast}
                             >Sign Up</button>
                             <ToastContainer/>
                         </form>
