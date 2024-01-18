@@ -15,6 +15,8 @@
     width: 79vw;
     position: relative;
     margin-left: 19.7vw;
+    background-color: #f6f4ef;
+    min-height: 100vh;
 }
 
 .item-main-content{
@@ -133,13 +135,13 @@
     width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
 }
 .add-item-overlay {
-    background: rgba(49,49,49,0.8);
+    /*background: rgba(112, 112, 112, 0.8);*/
     backdrop-filter: blur(5px);
 }
 .add-item-modal-content {
-    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    position: absolute; top: 45%; left: 55%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb; padding: 14px 28px; border-radius: 10px;       font-size: 1.1rem;
-    width: 47vw;   height: 75vh;   z-index: 102;  text-decoration: underline;
+    width: 40vw;   height: 72vh;   z-index: 102;  text-decoration: underline;
 }
 .close-add-item-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
@@ -150,7 +152,7 @@
     position: absolute;   top: 5.6rem;  font-size: 1.7rem;
 }
 .select-category select{
-    width: 42vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
+    width: 35vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
 }
 .select-category label,.select-category select{
     display: block;
@@ -159,7 +161,7 @@
     position: absolute;  top: 12rem;   font-size: 1.7rem;
 }
 .item-name input{
-    width: 23vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+    width: 20vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
 }
 .item-name label,.item-name input{
     display: block;
@@ -168,7 +170,7 @@
     position: absolute;  top: 12rem;  right: 2rem; font-size: 1.7rem;
 }
 .item-price input{
-    width: 14vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
+    width: 13vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
 }
 .item-price label,.item-price input{
     display: block;
@@ -177,7 +179,14 @@
     position: absolute; top:18.4rem;  font-size: 1.7rem;
 }
 .item-image span{
-    width: 42vw;   height: 10vh;  padding-left: 0.8rem;  border: 2px solid; border-color: #5b4511; border-radius: 7px;
+    width: 35vw;   height: 6vh;  padding-left: 0.8rem;  border: 2px solid; border-color: #5b4511; border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item-image input{
+    font-size: 1.3vw;
+    font-family: "Gilroy Regular";
 }
 .item-image label,.item-image span{
     display: block;
