@@ -5,8 +5,6 @@ import axios from "axios";
 import {useForm} from "react-hook-form";
 import "../css/editCategory.css"
 import AdminSidebar from "./adminSidebar.tsx";
-import {useState} from "react";
-// import React from "react";
 
 
 const EditCategory = () =>{
@@ -65,38 +63,38 @@ const EditCategory = () =>{
 
 
     /////
-    //Updating category data
-    const [editCategoryId, setEditCategoryId] = useState(null);
-    const [categoryName, setCategoryName] = useState('');
-    // const [ setFilteredData] = useState(/* Your initial data here */);
-
-    const editCategory = (category) => {
-        setEditCategoryId(category.id);
-        setCategoryName(category.name);
-    };
-
-    // Function to handle category form submission
-    const handleEditCategory = () => {
-        useUpdateApiCall.mutate({id:editCategoryId,name:categoryName},{onSuccess(){
-                setAddCategoryFormVisible(false);
-            }})
-    };
-
-    const useUpdateApiCall=useMutation({
-        mutationKey:["update category"],
-        mutationFn:(payload)=>{
-            console.log(payload)
-            return axios.post("http://localhost:8082/category/update",payload,{
-                headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
-            })
-        }
-        ,onSuccess:()=>{
-            reset()
-            refetch()
-
-        },
-
-    })
+    // //Updating category data
+    // const [editCategoryId, setEditCategoryId] = useState(null);
+    // const [categoryName, setCategoryName] = useState('');
+    // // const [ setFilteredData] = useState(/* Your initial data here */);
+    //
+    // const editCategory = (category) => {
+    //     setEditCategoryId(category.id);
+    //     setCategoryName(category.name);
+    // };
+    //
+    // // Function to handle category form submission
+    // const handleEditCategory = () => {
+    //     useUpdateApiCall.mutate({id:editCategoryId,name:categoryName},{onSuccess(){
+    //             setAddCategoryFormVisible(false);
+    //         }})
+    // };
+    //
+    // const useUpdateApiCall=useMutation({
+    //     mutationKey:["update category"],
+    //     mutationFn:(payload)=>{
+    //         console.log(payload)
+    //         return axios.post("http://localhost:8082/category/update",payload,{
+    //             headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
+    //         })
+    //     }
+    //     ,onSuccess:()=>{
+    //         reset()
+    //         refetch()
+    //
+    //     },
+    //
+    // })
 
     return(
         <>
