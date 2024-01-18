@@ -76,7 +76,7 @@ const CustomerPage = () =>{
                             <tbody>
                             {filteredData?.map((customer) => (
                                 <tr key={customer?.id}>
-                                    <td>{customer?.id}</td>
+                                <td>{customer?.id}</td>
                                     <td>{customer?.fullName}</td>
                                     <td>{customer?.email}</td>
                                     <td>
