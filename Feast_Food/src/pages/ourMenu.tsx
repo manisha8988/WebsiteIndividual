@@ -1,55 +1,43 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../css/ourMenu.css";
+import Menu from "./menuPage/menuApi.tsx";
 import MenuCard from "./menuPage/menuCard.tsx";
 import Navbar from "./menuPage/menuNavbar.tsx";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
-import { useLocation } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import {useLocation} from "react-router-dom";
 
-interface MenuItem {
-    category: {
-        name: string;
-    };
-}
+const uniqueList: string[] = [
+    ...new Set(
+        Menu.map((curElem) => {
+            return curElem.category;
+        })
+    ),
+    "All",
+];
 
-const OurMenu: React.FC = () => {
-    const location = useLocation();
+// console.log(uniqueList);
+
+interface RestaurantProps {}
+
+
+const OurMenu: React.FC<RestaurantProps> = () => {
+
+    const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
 
-    const { data: Menu2 } = useQuery({
-        queryKey: ["GET_ITEM_DATA"],
-        queryFn() {
-            return axios.get<MenuItem[]>("http://localhost:8080/product/findAll");
-        },
-    });
+    const [menuData, setMenuData] = useState(Menu);
+    const [menuList] = useState<string[]>(uniqueList);
 
-    const [menuData, setMenuData] = useState<MenuItem[]>([]);
-    const [menuList, setMenuList] = useState<string[]>([]);
-
-    useEffect(() => {
-        if (Menu2?.data) {
-            setMenuData(Menu2.data);
-
-            const uniqueCategories = [
-                ...new Set(
-                    Menu2.data.map((curElem) => curElem?.category?.name || "Uncategorized")
-                ),
-                "All",
-            ];
-            setMenuList(uniqueCategories);
-        }
-    }, [Menu2?.data]);
 
     const filterItem = (category: string) => {
         if (category === "All") {
-            setMenuData(Menu2?.data || []);
+            setMenuData(Menu);
             return;
         }
 
-        const updatedList = Menu2?.data?.filter((curElem) => {
-            return curElem?.category?.name === category;
-        }) || [];
+        const updatedList = Menu.filter((curElem) => {
+            return curElem.category === category;
+        });
 
         setMenuData(updatedList);
     };

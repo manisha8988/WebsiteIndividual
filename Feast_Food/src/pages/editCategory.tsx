@@ -5,6 +5,7 @@ import axios from "axios";
 import {useForm} from "react-hook-form";
 import "../css/editCategory.css"
 import AdminSidebar from "./adminSidebar.tsx";
+// import React from "react";
 
 
 const EditCategory = () =>{
@@ -60,7 +61,6 @@ const EditCategory = () =>{
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
-
 
     return(
         <>

@@ -50,6 +50,15 @@
     /*background: #b72323;*/
     font-size: 1.1rem;
 }
+
+.hp-navright .logout-btn{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    color:black;
+    margin-left: -100px ;
+}
+
 .hp-navright span:hover{
     cursor: pointer;
     color: #f3ad16;
@@ -61,6 +70,8 @@
     border: 1.3px solid rgba(255, 255, 255, 0);
     margin-right: 1rem;
 }
+
+
 .hp-sign-btn:hover{
      color: #f3ad16;
      border: 1.3px solid black;

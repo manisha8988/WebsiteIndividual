@@ -146,15 +146,33 @@
     backdrop-filter: blur(3px);
 }
 .anniversary-modal-content {
-    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 40vw;   height: 70vh;   z-index: 109;
+    width: 40vw;   height: 65vh;   z-index: 109;
 }
 .close-anniversary-modal-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
     position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
 }  .close-anniversary-modal-btn:hover{ box-shadow: none; color: #831515  }
+
+.anniversary-name{
+
+}
+.anniversary-name,.anniversary-email,.anniversary-date,.anniversary-guests{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+.anniversary-input{
+    height: 5.5vh;
+}
+.anniversary-date-guests{
+    display: flex;
+    padding: 0 5px 0 0 ;
+    justify-content: space-between;
+}
 
 
 .birthday-modal, .birthday-modal-overlay {
@@ -163,10 +181,10 @@
 }
 
 .birthday-modal-content {
-    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 40vw;   height: 70vh;   z-index: 109;
+    width: 40vw;   height: 65vh;   z-index: 109;
 }
 
 .close-birthday-modal-btn {
@@ -178,41 +196,52 @@
     box-shadow: none;
     color: #831515;
 }
-.event-modal-name, .event-modal-contact, .event-modal-date, .event-modal-time,.event-modal-guests,.event-modal-request {
+
+<<<<<<< HEAD
+.birthday-name,
+.birthday-email,
+.birthday-date,
+.birthday-guests {
+=======
+.event-modal-name, .event-modal-email, .event-modal-date, .event-modal-time {
+>>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     display: flex;
     flex-direction: column;
     font-size: 1.3rem;
     margin-top: 10px;
 }
 
-.event-modal-name-input,.event-modal-contact-input,.event-modal-guests-input,.event-modal-request-input{
+.birthday-input {
     height: 5.5vh;
-}
-.event-modal-date-time-guests{
-    display: flex;
-    padding: 0 5px 0 0 ;
-    justify-content: space-between;
-    /*background-color: #5b4511;*/
+<<<<<<< HEAD
 }
 
-.event-modal-date-input{
-    height: 5.5vh;  width: 11vw; padding: 0 3px;
+.birthday-date-guests {
+=======
+    font-size: 0.9rem;
+    padding-left: 2px;
 }
-.event-modal-time-input{
-    height: 5.5vh;  width: 11vw; font-size: 0.9rem;
+
+.event-modal-input-date{
+    height: 5.5vh;  width: 13.5vw; padding: 0 3px;
+}
+.event-modal-input-time{
+    height: 5.5vh;  width: 14.5vw; font-size: 0.9rem;
     padding: 0 3px;
 }
-.event-modal-guests-input{
-    width: 11vw;
-}
+
 .event-modal-date-time {
+>>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570
     display: flex;
     padding: 0 5px 0 0;
     justify-content: space-between;
 }
+<<<<<<< HEAD
+=======
+
 .event-modal-book-btn{
     position: absolute;
-    bottom: 4%; right: 6%;
+    bottom: 6%; right: 6%;
 }
 
 .event-modal-book-btn button{
@@ -222,3 +251,4 @@
 .p{
     align-content: center;
 }
+>>>>>>> 11bfc64d8c646bcc5c1a90cd88702b86a354e570

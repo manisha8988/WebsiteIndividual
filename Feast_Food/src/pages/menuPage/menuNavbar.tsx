@@ -1,16 +1,19 @@
 import React from "react";
 
+
 interface NavbarProps {
     filterItem: (category: string) => void;
     menuList: string[];
 }
 
 const Navbar: React.FC<NavbarProps> = ({ filterItem, menuList }) => {
-
-    // console.log(menuList)
     return (
         <>
             <nav className="menu-navbar">
+                {/*<div className={"search-wrapper"}>*/}
+                {/*    <input type={"search"} placeholder={"Search your food here..."} />*/}
+                {/*    <span><FaSearch/></span>*/}
+                {/*</div>*/}
                 <h2>Categories</h2>
                 <div className="menu-btn-group">
                     {menuList.map((curElem) => (

@@ -1,5 +1,5 @@
 .manage-category-page{
-    background: #f6f4ef;
+    background: #f1f5f9;
     padding-bottom: 2rem;
     min-height: 100vh;
 }
@@ -76,12 +76,12 @@
 
 button{
     font-size: 1.3rem;
-    font-family: "Gilroy Regular";
+    font-family: "Bebas Neue";
     font-weight: 500;
     padding: 5px 0 0 0 ;
     width: 15vw;
     height: 8vh;
-    background: #735f18;
+    background: #f3ad16;
     cursor: pointer;
     border: none;
     color: #ffffff;
@@ -94,6 +94,15 @@ button:hover{
     background: #b9b09c;
     color: black;
     box-shadow: 6px 6px 10px -1px rgb(231, 223, 216);
+    box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);
+    border-radius: 12px;
+    transition: all ease 0.2s;
+}
+
+button:hover{
+    background: #443f39;
+    color: #f3ad16;
+    box-shadow: 10px 10px 10px -1px rgba(238, 212, 164);
 }
 
 .btn1 button{
@@ -139,7 +148,7 @@ button:hover{
 .delete-btn2:hover{
     background: #443f39;
     color: #b64646;
-    box-shadow: 10px 10px 10px -1px rgb(190, 154, 124);
+    box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
 }
 
 /*css fro add-category-modal*/
