@@ -76,24 +76,24 @@
 
 button{
     font-size: 1.3rem;
-    font-family: "Bebas Neue";
+    font-family: "Gilroy Regular";
     font-weight: 500;
     padding: 5px 0 0 0 ;
     width: 15vw;
     height: 8vh;
-    background: #f3ad16;
+    background: #735f18;
     cursor: pointer;
     border: none;
     color: #ffffff;
-    box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);
-    border-radius: 12px;
+    /*box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);*/
+    border-radius: 10px;
     transition: all ease 0.2s;
 }
 
 button:hover{
-    background: #443f39;
-    color: #f3ad16;
-    box-shadow: 10px 10px 10px -1px rgba(238, 212, 164);
+    background: #b9b09c;
+    color: black;
+    box-shadow: 10px 10px 10px -1px rgb(231, 223, 216);
 }
 
 .btn1 span{
@@ -141,7 +141,7 @@ button:hover{
 .delete-btn2:hover{
     background: #443f39;
     color: #b64646;
-    box-shadow: 10px 10px 10px -1px rgb(211, 164, 164);
+    box-shadow: 10px 10px 10px -1px rgb(190, 154, 124);
 }
 
 /*css fro add-category-modal*/

@@ -5,6 +5,7 @@ import axios from "axios";
 import AdminSidebar from "./adminSidebar.tsx";
 import {FaSearch} from "react-icons/fa";
 import {MdDelete} from "react-icons/md";
+import "../css/adminEvent.css"
 
 function AdminEvent(){
             const location = useLocation();
@@ -32,7 +33,7 @@ function AdminEvent(){
             const userLength = filteredData ? filteredData.length : 0;
 
             //Deleting data
-            const deleteUserByIdApi=useMutation(
+            const deleteEventByIdApi=useMutation(
         {
             mutationKey:["DELETE_EVENT_BY_ID"],
             mutationFn(id:number){
@@ -62,14 +63,14 @@ function AdminEvent(){
                 <table className={"event-table"}>
                     <thead>
                     <tr>
-                        <th className={"id-box3"}>ID</th>
-                        <th className={"name-box3"}>Name</th>
-                        <th className={"name-box2"}>Contact</th>
-                        <th className={"name-box2"}>No. of Guest</th>
-                        <th className={"name-box2"}>Date</th>
-                        <th className={"name-box2"}>Time</th>
-                        <th className={"name-box2"}>Special Request</th>
-                        <th className={"name-box2"}>Status</th>
+                        <th className={"id-box4"}>ID</th>
+                        <th className={"name-box4"}>Name</th>
+                        <th className={"contact-box4"}>Contact</th>
+                        <th className={"contact-box4"}>No. of Guest</th>
+                        <th className={"contact-box4"}>Date</th>
+                        <th className={"contact-box4"}>Time</th>
+                        <th className={"name-box4"}>Special Request</th>
+                        <th className={"contact-box4"}>Status</th>
                         <th className={"delete-box2"}>Action</th>
                     </tr>
                     </thead>

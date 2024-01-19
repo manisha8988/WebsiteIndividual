@@ -128,7 +128,7 @@ const ManageCategory: React.FC = () => {
                     <div className={"item-main-content"}>
                         <div className={"i-main-content"}>
                             <div className={"btn3"}>
-                                <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle /></span>Add Items</button>
+                                <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle  /></span>Add Items</button>
                             </div>
 
                             <div className={"table-container3"}>

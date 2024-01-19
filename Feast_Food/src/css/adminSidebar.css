@@ -9,7 +9,7 @@
     align-items: center;
     border-radius: 10px;
     margin: 4px;
-    background-color: #ffffff;
+    background-color: rgba(231, 223, 216, 0.49);
     z-index: 102;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .sidebar-list-item:hover {
-    background-color: var(--clr-primary);
+    background-color: #7a5b19;
     color: var(--clr-light);
     margin-left: -2px;
     margin-bottom: 2px;
@@ -102,11 +102,11 @@
     height: 7.2vh;
     border-radius: 7px;
     border-color: transparent;
-    background-color: #f3ad16;
-    box-shadow: 5px 10px 15px -1px rgb(157, 111, 12);
+    background-color: #7a5b19;
+    /*box-shadow: 5px 10px 15px -1px rgb(157, 111, 12);*/
     cursor: pointer;
 }
 .sidebar-btn button:hover span{
-    color: #f3ad16;
+    color: #b9b09c;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
