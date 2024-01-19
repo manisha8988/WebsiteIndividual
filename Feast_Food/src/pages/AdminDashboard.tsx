@@ -7,9 +7,6 @@ import {FaBowlFood} from "react-icons/fa6";
 import {GoHomeFill} from "react-icons/go";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
-import { FaSearch  } from "react-icons/fa";
-import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
 
 function AdminDashboard(){
 

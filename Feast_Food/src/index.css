@@ -11,7 +11,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
 
 @font-face {
     font-family: 'Bebas Neue';
@@ -49,25 +49,25 @@
 table {
     margin: 1rem auto;
     border-radius: 7px;
-    border: 3rem hidden #000000;
-    box-shadow: 0 0 0 1px black;
-    overflow: hidden;
+    border: 3rem hidden #be9a7c;
+/*box-shadow: 0 0 0 1px black;*/
+overflow: hidden;
     max-width: 80rem;
-    background-color: #000000B7;
+    background-color: rgb(227, 219, 206);
 }
 
 thead {
     font-size: 1.2rem;
-    background-color: #d2d2d2;
+    background-color: #e7dfd8;
     color: #2c2100;
 }
 
 th,td {
-    border: 1px solid #000000B7;
+/*border: 1px solid #000000B7;*/
     min-width: 5rem;
     padding: 1.5rem;
     line-height: 0.2;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 th{
     font-family: "Gilroy SemiBold";

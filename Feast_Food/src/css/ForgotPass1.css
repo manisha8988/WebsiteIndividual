@@ -19,20 +19,6 @@
     border: none;
 }
 
-h1{
-    text-decoration: underline;
-    margin-top: 40px;
-    font-family: "Bebas Neue";
-}
-
-p{
-    font-size: 1.1em;
-    color: #281e07;
-    font-weight: 800;
-    margin-top: 60px;
-    font-family: 'Bebas Neue';
-}
-
 .mail-icon{
     margin-left: -20px;
 }
