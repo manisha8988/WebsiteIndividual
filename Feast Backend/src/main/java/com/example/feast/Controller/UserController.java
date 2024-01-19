@@ -34,9 +34,8 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<Object> loginUsers(@RequestBody UserPojo loginPojo) {
         try {
-            User loggedUser = userService.loginUser(loginPojo.getEmail(), loginPojo.getPassword());
-
-            return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+            String loginMessage = userService.loginUser(loginPojo.getEmail(), loginPojo.getPassword());
+            return new ResponseEntity<>(loginMessage, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Authentication failed: " + e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
