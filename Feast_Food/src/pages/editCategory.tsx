@@ -15,7 +15,7 @@ const EditCategory = () =>{
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8088/category/save",payload)
+            return axios.post("http://localhost:8080/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -33,7 +33,7 @@ const EditCategory = () =>{
     const{data:getByIdApi}=useQuery({
         queryKey:["GET_BY_ID_CATEGORY_API"],
         queryFn(){
-            return axios.get("http://localhost:8088/category/findById/"+pk_id)
+            return axios.get("http://localhost:8080/category/findById/"+pk_id)
         },enabled:!!pk_id
     })
 
@@ -62,47 +62,13 @@ const EditCategory = () =>{
     const currentLocation = location.pathname;
 
 
-    /////
-    // //Updating category data
-    // const [editCategoryId, setEditCategoryId] = useState(null);
-    // const [categoryName, setCategoryName] = useState('');
-    // // const [ setFilteredData] = useState(/* Your initial data here */);
-    //
-    // const editCategory = (category) => {
-    //     setEditCategoryId(category.id);
-    //     setCategoryName(category.name);
-    // };
-    //
-    // // Function to handle category form submission
-    // const handleEditCategory = () => {
-    //     useUpdateApiCall.mutate({id:editCategoryId,name:categoryName},{onSuccess(){
-    //             setAddCategoryFormVisible(false);
-    //         }})
-    // };
-    //
-    // const useUpdateApiCall=useMutation({
-    //     mutationKey:["update category"],
-    //     mutationFn:(payload)=>{
-    //         console.log(payload)
-    //         return axios.post("http://localhost:8082/category/update",payload,{
-    //             headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
-    //         })
-    //     }
-    //     ,onSuccess:()=>{
-    //         reset()
-    //         refetch()
-    //
-    //     },
-    //
-    // })
-
     return(
         <>
             <AdminSidebar activePage={currentLocation} />
             <div className="edit-category-modal" >
                 <div className="edit-category-modal-content">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <h2>#Edit Category</h2>
+                        <h2>Edit Category</h2>
 
                         <div className={"category-id-number"}>
                             <label>ID: {pk_id}</label>

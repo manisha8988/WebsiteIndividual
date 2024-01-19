@@ -22,6 +22,7 @@ import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
 import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
+import EditItem from "./pages/editItem.tsx";
 
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ function App() {
                     {path: "/ManageCategory", element: <ManageCategory/>},
                     {path: "/edit/:pk_id", element: <EditCategory/>},
                     {path: "/ManageItem", element: <ManageItem/>},
+                    {path: "/editItem/:pk_id", element: <EditItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/EventPage", element: <AdminEvent/>},
                     {path: "/Booking", element: <Booking/>},

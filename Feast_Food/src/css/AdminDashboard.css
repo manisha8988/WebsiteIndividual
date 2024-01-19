@@ -24,7 +24,8 @@
     height: 12vh;
     width: 79vw;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    align-items: center;
+    padding: 1rem 3rem;
     background-color: white;
     border-radius: 14px;
     box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
@@ -83,6 +84,7 @@
 }
 .dashboard-cards-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 2rem;
     /*background-color: #f3ad16;*/
@@ -91,6 +93,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 9vh;
     width: 20vw;
     height: 25vh;
     padding: 15px 20px 20px 20px;

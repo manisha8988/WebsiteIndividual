@@ -1,10 +1,10 @@
 import "../css/ManageItem.css"
 import React, { useEffect, useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
-import {FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlusSquare, FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {CiEdit} from "react-icons/ci";
@@ -15,6 +15,7 @@ import {useForm} from "react-hook-form";
 const ManageCategory: React.FC = () => {
 
     const[search,setSearch] = useState('');
+    const navigate = useNavigate();
 
     // // Add Items modal
     // const [modal, setModal] = useState(false);
@@ -162,7 +163,7 @@ const ManageCategory: React.FC = () => {
                     <div className={"item-main-content"}>
                         <div className={"i-main-content"}>
                             <div className={"btn3"}>
-                                <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle  /></span>Add Items</button>
+                                <button type={"button"} onClick={toggleItemModal}><span><FaPlusSquare style={{fontSize:"1.8rem",marginBottom:"-1px",color:"white"}}/></span></button>
                             </div>
 
                             <div className={"table-container3"}>
@@ -193,12 +194,12 @@ const ManageCategory: React.FC = () => {
                                                         <td>{i?.productName}</td>
                                                         <td>{i?.category?.name}</td>
                                                         <td style={{display:"flex",justifyContent:"center"}}>
-                                                            <img src={i?.productImage} width={"45px"}/>
+                                                            <img src={'data:image/jpeg;base64,'+i?.productImage} width={"45px"}/>
                                                         </td>
                                                         <td>{i?.price}</td>
-                                                        <td><button className={"edit-btn3"} onClick={() => {
-                                                            // Open the editItemModal with the values to edit
-                                                            toggleEditItemModal();
+                                                        <td><button className={"edit-btn3"} onClick={()=>{
+                                                            navigate("/editItem/"+i?.id);
+                                                            // console.log(i?.id)
                                                         }}>
                                                             <CiEdit />
                                                             </button>
@@ -224,7 +225,7 @@ const ManageCategory: React.FC = () => {
                 <div className="add-item-modal">
                     <div onClick={toggleItemModal} className="add-item-overlay"></div>
                     <div className="add-item-modal-content">
-                        <h2>#Add Item</h2>
+                        <h2>Add Item</h2>
                         <button className="close-add-item-btn" onClick={toggleItemModal}>
                             <FaRegWindowClose />
                         </button>
@@ -262,45 +263,6 @@ const ManageCategory: React.FC = () => {
 
                             <div className={"item-name-add-btn"}>
                                 <button type={"submit"}>Add</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )}
-
-            {editItemModal && (
-                <div className="add-item-modal">
-                    <div onClick={toggleItemModal} className="add-item-overlay"></div>
-                    <div className="add-item-modal-content">
-                        <h2>#Edit Item</h2>
-                        <button className="close-add-item-btn" onClick={toggleEditItemModal}>
-                            <FaRegWindowClose />
-                        </button>
-
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className={"select-category"}>
-                                <label>Category : {filteredItemData?.category?.name}</label>
-                            </div>
-                            <div className={"item-name"}>
-                                <label>Item Name</label>
-                                <input type={"text"} placeholder={"Enter item Name"} {...register("productName",{required:"Item Name is required!!"})}/>
-                                <h6 style={{paddingLeft:"3px"}}>{errors?.productName?.message}</h6>
-                            </div>
-                            <div className={"item-price"}>
-                                <label>Price</label>
-                                <input type={"number"} placeholder={"Enter the Price"} {...register("price",{required:"Price is required!!"})}/>
-                                <h6 style={{paddingLeft:"3px"}}>{errors?.price?.message}</h6>
-                            </div>
-                            <div className={"item-image"}>
-                                <label>Image</label>
-                                <span>
-                                    <input type={"file"} placeholder={"Add image here"} {...register("productImage",{required:"Item Image is required!!"})}/>
-                                     <h6 style={{paddingLeft:"3px"}}>{errors?.productImage?.message}</h6>
-                                </span>
-                            </div>
-
-                            <div className={"item-name-add-btn"}>
-                                <button type={"submit"} onClick={toggleEditItemModal}>Edit</button>
                             </div>
                         </form>
                     </div>

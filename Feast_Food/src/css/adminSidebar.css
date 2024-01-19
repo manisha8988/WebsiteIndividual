@@ -103,10 +103,11 @@
     border-radius: 7px;
     border-color: transparent;
     background-color: #8d6c24;
-    box-shadow: 5px 10px 15px -1px rgb(96, 65, 1);
+    box-shadow: 2px 2px 10px -1px rgb(96, 65, 1);
     cursor: pointer;
 }
-.sidebar-btn button:hover span{
-    color: #8d6c24;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.sidebar-btn button:hover {
+    background-color: #6c4b4b;
+    color: #000000;
+    box-shadow: 5px 10px 15px -1px rgb(119, 85, 85);
 }
