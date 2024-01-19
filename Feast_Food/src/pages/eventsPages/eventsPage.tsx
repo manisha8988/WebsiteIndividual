@@ -123,65 +123,49 @@ const EventsPage = () =>{
                             <FaRegWindowClose />
                         </button>
 
-                        <div className={"anniversary-name"}>
-                            <label>Name:</label>
-                            <input type={"text"} placeholder={"Enter your name"} className={"anniversary-input"}/>
-                        </div>
-                        <div className={"anniversary-email"}>
-                            <label>Email:</label>
-                            <input type={"text"} placeholder={"Enter your email"} className={"anniversary-input"}/>
-                            <button className={`close-modal-btn`} onClick={() => toggleModal(null)}>
-                                <FaRegWindowClose/>
-                            </button>
-
-                            <form onSubmit={handleSubmit(onSubmit)}>
-
-                                <div className={"event-modal-name"}>
-                                    <label>Name:</label>
-                                    <input type={"text"} className={"event-modal-input"}{...register("user_id", {required: "Name is required!!"})}/>
-                                </div>
-                                <div className={"event-modal-email"}>
-                                    <label>Contact:</label>
-                                    <input type={"number"} className={"event-modal-input"}{...register("contact", {required: "Contact is required!!"})}/>
-                                    <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>
-                                </div>
-                                <div className={"anniversary-date-guests"}>
-                                    <div className={"anniversary-date"}>
-                                        <label>Date:</label>
-                                        <input type={"date"}
-                                               className={"event-modal-input-date"}{...register("eventDate", {required: "Date is required!!"})}/>
-                                        <h6 style={{paddingLeft: "3px"}}>{errors?.eventDate?.message}</h6>
-                                    </div>
-                                    <div className={"anniversary-guests"}>
-                                        <label>Number of Guests: </label>
-                                        <input type={"number"} placeholder={"Enter the number of guests"} className={"anniversary-input"}/>
-                                        <input type={"number"}
-                                               className={"event-modal-input-guests"}{...register("noOfGuest", {required: "Number of guest is required!!"})}/>
-                                        <h6 style={{paddingLeft: "3px"}}>{errors?.noOfGuest?.message}</h6>
-                                    </div>
-
-                                    <div className={"event-modal-guests"}>
-                                        <label>Arrival Time: </label>
-                                        <input type={"time"}
-                                               className={"event-modal-input-guests"}{...register("eventTime", {required: "Please provide the arrival time!!"})}/>
-                                        <h6 style={{paddingLeft: "3px"}}>{errors?.eventTime?.message}</h6>
-                                    </div>
-
-                                    <div className={"event-modal-guests"}>
-                                        <label>Special Request </label>
-                                        <input type={"text"} className={"event-modal-input-guests"}{...register("specialRequest")}/>
-                                    </div>
-                                </div>
-
-                                <div className={"anniversary-book-btn"}>
-                                    <button type={"submit"}>Book</button>
-                                </div>
-                            </form>
-
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className={"event-modal-name"}>
+                                <label>Name:</label>
+                                <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>
+                                <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>
                             </div>
+                            <div className={"event-modal-contact"}>
+                                <label>Contact:</label>
+                                <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>
+                                <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>
+                            </div>
+                            <div className={"event-modal-date-time-guests"}>
+                                <div className={"event-modal-date"}>
+                                    <label>Date:</label>
+                                    <input type={"date"}
+                                           className={"event-modal-date-input"}{...register("eventDate", {required: "Date is required!!"})}/>
+                                    <h6 style={{paddingLeft: "3px"}}>{errors?.eventDate?.message}</h6>
+                                </div>
+                                <div className={"event-modal-time"}>
+                                    <label>Arrival Time: </label>
+                                    <input type={"time"}
+                                           className={"event-modal-time-input"}{...register("eventTime", {required: "Please provide the arrival time!!"})}/>
+                                    <h6 style={{paddingLeft: "3px"}}>{errors?.eventTime?.message}</h6>
+                                </div>
+                                <div className={"event-modal-guests"}>
+                                    <label>No. of Guests: </label>
+                                    <input type={"number"}
+                                           className={"event-modal-guests-input"}{...register("noOfGuest", {required: "Number of guest is required!!"})}/>
+                                    <h6 style={{paddingLeft: "3px"}}>{errors?.noOfGuest?.message}</h6>
+                                </div>
+                            </div>
+                            <div className={"event-modal-request"}>
+                                <label>Special Request </label>
+                                <input type={"text"} className={"event-modal-request-input"}{...register("specialRequest")}/>
+                            </div>
+                            <div className={"event-modal-book-btn"}>
+                                <button type={"submit"}>Book</button>
+                            </div>
+                        </form>
+
+                    </div>
                         <ToastContainer/>
                     </div>
-                </div>
                     )}
                 </>
     )
