@@ -22,6 +22,7 @@ import HomeDelivery from "./pages/homedelivery.tsx";
 import RatingSection from "./pages/Rating/RatingSection.tsx";
 import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
+import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
 
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ function App() {
                     {path: "/EventPage", element: <AdminEvent/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
+                    {path:"/forgot_pass1",element:<ForgotPass1/>},
                     {path: "/OurMenu", element: <OurMenu/>},
                     {path: "/ReservationPage", element: <ReservationPage/>},
                     {path: "/ContactPage", element: <ContactPage/>},

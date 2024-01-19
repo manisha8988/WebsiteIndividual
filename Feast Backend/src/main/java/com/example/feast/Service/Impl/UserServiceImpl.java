@@ -1,8 +1,9 @@
-package com.example.feast.Service;
+package com.example.feast.Service.Impl;
 
 import com.example.feast.Entity.User;
 import com.example.feast.Repo.UserRepo;
 import com.example.feast.Pojo.UserPojo;
+import com.example.feast.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,14 +44,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String loginUser(String email, String password) {
+    public User loginUser(String email, String password) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
 
             if (password.equals(user.getPassword())) {
-                return "Login successful";
+                return user;
             }
         }
 
