@@ -115,15 +115,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <span  className={"icon-cart"}><FaCartArrowDown /></span>
+                    <Link to={"/cart"}><span  className={"icon-cart"}><FaCartArrowDown /></span></Link>
                     <div className={"hp-sign-btn"}>
                         <h3 onClick={toggleLoginModal}>Sign in</h3>
                     </div>
                 </div>
 
-                {/*<div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>*/}
-                {/*    <span style={{fontSize:"1.7rem"}}><RxHamburgerMenu /></span>*/}
-                {/*</div>*/}
+
 
             </div>
 
