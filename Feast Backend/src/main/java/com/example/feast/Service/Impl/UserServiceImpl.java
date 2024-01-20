@@ -43,14 +43,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String loginUser(String email, String password) {
+    public User loginUser(String email, String password) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
 
             if (password.equals(user.getPassword())) {
-                return "Login successful";
+                return user;
             }
         }
 
