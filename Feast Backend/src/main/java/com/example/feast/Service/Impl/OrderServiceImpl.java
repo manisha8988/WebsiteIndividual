@@ -1,6 +1,6 @@
 package com.example.feast.Service.Impl;
 
-import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Item;
 import com.example.feast.Entity.Order;
 import com.example.feast.Entity.User;
 import com.example.feast.Pojo.OrderPojo;
@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
         User user=userRepo.findById(orderPojo.getUser().getId()).get();
         order.setUser(user);
 
-        Items item=itemRepo.findById(orderPojo.getItem().getId()).get();
+        Item item=itemRepo.findById(orderPojo.getItem().getId()).get();
         order.setItem(item);
 
         order.setQuantity(orderPojo.getQuantity());

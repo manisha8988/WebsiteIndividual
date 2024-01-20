@@ -73,9 +73,10 @@
 }
 
 .btn3 button{
-    width: 6vw;
-    height: 7vh;
-    box-shadow: 5px 5px 10px -1px rgb(157, 137, 118);;
+    width: 4.5vw;
+    height: 4.3vw;
+    box-shadow: 5px 5px 10px -1px rgb(157, 137, 118);
+    border-radius: 50%;
 }
 
 .card-header3 h2{

@@ -15,7 +15,7 @@ const EditItem = ()=>{
         mutationKey:["POST_ITEM_MANAGEITEM"],
         mutationFn:(payload:any)=>{
             // console.log(payload)
-            return axios.post("http://localhost:8080/product/save",payload)
+            return axios.post("http://localhost:8080/item/save",payload)
         },onSuccess: () => {
             // notify();
             reset();
@@ -26,8 +26,8 @@ const EditItem = ()=>{
     const onSubmit=(value:any)=>{
         console.log(value);
         const fd= new FormData();
-        fd.append("productName",value?.productName)
-        fd.append("price",value?.price)
+        fd.append("productName",value?.itemName)
+        fd.append("price",value?.itemPrice)
         fd.append("categoryId",value?.categoryId)
         // fd.append("productImage",value?.productImage[0])
         useApiCall.mutate(fd)
@@ -39,7 +39,7 @@ const EditItem = ()=>{
     const{data:getItemByIdApi}=useQuery({
         queryKey:["GET_BY_ID_CATEGORY_API"],
         queryFn(){
-            return axios.get("http://localhost:8080/product/findById/"+pk_id)
+            return axios.get("http://localhost:8080/item/findById/"+pk_id)
         },enabled:!!pk_id
     })
 
@@ -67,13 +67,13 @@ const EditItem = ()=>{
                         </div>
                         <div className={"item-name"}>
                             <label>Item Name</label>
-                            <input type={"text"} placeholder={"Enter item Name"} {...register("productName",{required:"Item Name is required!!"})}/>
-                            <h6 style={{paddingLeft:"3px"}}>{errors?.productName?.message}</h6>
+                            <input type={"text"} placeholder={"Enter item Name"} {...register("itemName",{required:"Item Name is required!!"})}/>
+                            <h6 style={{paddingLeft:"3px"}}>{errors?.itemName?.message}</h6>
                         </div>
                         <div className={"item-price"}>
                             <label>Price</label>
-                            <input type={"number"} placeholder={"Enter the Price"} {...register("price",{required:"Price is required!!"})}/>
-                            <h6 style={{paddingLeft:"3px"}}>{errors?.price?.message}</h6>
+                            <input type={"number"} placeholder={"Enter the Price"} {...register("itemPrice",{required:"Price is required!!"})}/>
+                            <h6 style={{paddingLeft:"3px"}}>{errors?.itemPrice?.message}</h6>
                         </div>
                         {/*<div className={"item-image"}>*/}
                         {/*    <label>Image</label>*/}

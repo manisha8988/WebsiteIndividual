@@ -1,6 +1,6 @@
 package com.example.feast.Pojo;
 
-import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Item;
 import com.example.feast.Entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -25,7 +25,7 @@ public class OrderPojo {
 
     @ManyToOne
     @JoinColumn(name="item_id")
-    private Items item;
+    private Item item;
 
     @NotNull
     private Date createdDate;

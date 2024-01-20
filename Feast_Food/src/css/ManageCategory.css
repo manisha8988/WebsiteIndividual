@@ -65,14 +65,6 @@
     color: grey;
 }
 
-.btn1{
-    height: 9vh;
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    padding-right: 3.6rem;
-    border-radius: 12px;
-}
 
 button{
     font-size: 1.3rem;
@@ -96,10 +88,21 @@ button:hover{
     box-shadow: 6px 6px 10px -1px rgb(231, 223, 216);
 }
 
+.btn1{
+    height: 9vh;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    padding-right: 3.6rem;
+    /*background-color: #888888;*/
+}
+
+
 .btn1 button{
-    width: 6vw;
-    height: 7vh;
+    width: 4.5vw;
+    height: 4.3vw;
     box-shadow: 5px 5px 10px -1px rgb(157, 137, 118);
+    border-radius: 50%;
 }
 
 .category-main-content{

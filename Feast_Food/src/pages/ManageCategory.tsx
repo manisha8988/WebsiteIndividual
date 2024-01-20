@@ -2,9 +2,7 @@ import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import CategoryData from "../components/CategoryData.tsx";
-import { IoIosAddCircle } from "react-icons/io";
-import {FaPlusSquare, FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlus, FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -139,7 +137,7 @@ const ManageCategory: React.FC = () =>  {
                     <div className={"category-main-content"}>
                         <div className={"c-main-content"}>
                             <div className={"btn1"}>
-                                <button type={"button"} onClick={toggleCatgModal}><span><FaPlusSquare style={{fontSize:"1.8rem",marginBottom:"-1px",color:"white"}}/></span></button>
+                                <button type={"button"} onClick={toggleCatgModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"white"}}/></span></button>
                             </div>
 
                             <div className={"table-container2"}>
