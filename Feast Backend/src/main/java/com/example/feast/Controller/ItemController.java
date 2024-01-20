@@ -1,40 +1,41 @@
 package com.example.feast.Controller;
 
-import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Item;
 import com.example.feast.Pojo.ItemPojo;
 import com.example.feast.Service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("item")
 @RequiredArgsConstructor
 public class ItemController {
 
     private final ItemService itemService;
 
-
     @PostMapping("/save")
-    public String saveItem(@RequestBody ItemPojo itemPojo) {
-        System.out.println(itemPojo);
+    public String savePItem(@RequestBody @ModelAttribute ItemPojo itemPojo) throws IOException {
         itemService.saveItem(itemPojo);
-        return "Item successfully created";
-    }
-    @GetMapping("/get-by-id/{id}")
-    public Optional<Items> findById(@PathVariable("id") Integer id) {
-        return itemService.findById(id);
+        return "Saved successfully";
     }
 
-    @DeleteMapping("/delete-by-id/{id}")
+    @GetMapping("/findAll")
+    public List<Item> findAll() {
+        return itemService.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    public Optional<Item> getItemById(@PathVariable("id") Integer id) {
+        return itemService.getItemById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
     public void deleteItemById(@PathVariable("id") Integer id) {
-        itemService.deleteById(id);
-    }
-
-
-    @PutMapping("/update/{id}")
-    public  String update(@PathVariable("id") Integer id){
-        return this.itemService.update(id, new ItemPojo());
+        itemService.deleteItemById(id);
     }
 }

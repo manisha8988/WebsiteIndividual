@@ -45,7 +45,7 @@
     z-index: 1;
     width: 16rem;
     border-radius: 10px;
-    /*height: 20rem;*/
+    transition: 0.3s all ease;
 }
 .menu-card:hover{
     background-color: rgba(229, 228, 225, 0.34);
@@ -84,19 +84,20 @@
 }
 
 .price-addtocart-div button{
-    width: 8vw;
+    font-size: 1.4vw;
+    width: 9.5vw;
     height: 3.8vw;
     margin-top: -0.4rem;
     position: absolute;
     right: 0;
-    background-color: rgba(232, 232, 232, 0.55);
+    background-color: #bbbbb5;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border-radius: 3px;
 }
 .price-addtocart-div button:hover {
-    background: #aaa;
+    background: #7c7462;
     color: black;
-    box-shadow: 5px 5px 10px -1px rgba(10,99,169,0.16);
+    box-shadow: 8px 8px 10px -1px rgba(25, 47, 65, 0.16);
 }
 
 .menu-card-media {

@@ -1,10 +1,9 @@
 import "../css/ManageItem.css"
 import React, { useEffect, useState } from "react";
-import { IoIosAddCircle } from "react-icons/io";
-import {FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlus, FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {CiEdit} from "react-icons/ci";
@@ -12,21 +11,10 @@ import {MdDelete} from "react-icons/md";
 import {useForm} from "react-hook-form";
 
 
-const ManageCategory: React.FC = () => {
+const ManageItem: React.FC = () => {
 
     const[search,setSearch] = useState('');
-
-    // // Add Items modal
-    // const [modal, setModal] = useState(false);
-    // const toggleItemModal = () => {
-    //     setModal(!modal);
-    // };
-    //
-    // if (modal) {
-    //     document.body.classList.add('active-modal');
-    // } else {
-    //     document.body.classList.remove('active-modal');
-    // }
+    const navigate = useNavigate();
 
     // Add Items modal
     const [modal, setModal] = useState(false);
@@ -71,7 +59,7 @@ const ManageCategory: React.FC = () => {
         mutationKey:["POST_ITEM_DATA"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8080/product/save",payload)
+            return axios.post("http://localhost:8080/item/save",payload)
         },onSuccess: () => {
             // notify();
             reset();
@@ -82,10 +70,10 @@ const ManageCategory: React.FC = () => {
     const onSubmit=(value:any)=>{
         console.log(value);
         const fd= new FormData();
-        fd.append("productName",value?.productName)
-        fd.append("price",value?.price)
+        fd.append("itemName",value?.itemName)
+        fd.append("itemPrice",value?.itemPrice)
         fd.append("categoryId",value?.categoryId)
-        fd.append("productImage",value?.productImage[0])
+        fd.append("itemImage",value?.itemImage[0])
         useApiCall.mutate(fd)
     }
 
@@ -94,13 +82,13 @@ const ManageCategory: React.FC = () => {
     const{data,refetch} = useQuery({
         queryKey:["GET_ITEM_DATA"],
         queryFn(){
-            return axios.get("http://localhost:8080/product/findAll")
+            return axios.get("http://localhost:8080/item/findAll")
         }
     })
 
     //Searching data
     const filteredItemData = data?.data.filter((item) =>
-        item.productName.toLowerCase().includes(search.toLowerCase()) ||
+        item.itemName.toLowerCase().includes(search.toLowerCase()) ||
         item.id.toString().includes(search.toLowerCase()) ||
         item.category?.name.toLowerCase().includes(search.toLowerCase())
     );
@@ -117,10 +105,12 @@ const ManageCategory: React.FC = () => {
         {
             mutationKey:["DELETE_ITEM_BY_ID"],
             mutationFn(id:number){
-                return axios.delete("http://localhost:8080/product/delete/"+id);
+                return axios.delete("http://localhost:8080/item/delete/"+id);
             },onSuccess(){refetch()}
         }
     )
+
+    console.log(filteredItemData)
 
     return(
         <div>
@@ -150,7 +140,7 @@ const ManageCategory: React.FC = () => {
                     <div className={"item-main-content"}>
                         <div className={"i-main-content"}>
                             <div className={"btn3"}>
-                                <button type={"button"} onClick={toggleItemModal}><span><IoIosAddCircle /></span>Add Items</button>
+                                <button type={"button"} onClick={toggleItemModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"white"}}/></span></button>
                             </div>
 
                             <div className={"table-container3"}>
@@ -175,29 +165,31 @@ const ManageCategory: React.FC = () => {
                                             filteredItemData
                                                 ?.sort((a, b) => a.id - b.id)
                                                 .map((i) =>{
-                                                return(
-                                                    <tr key={i?.id}>
-                                                        <td>{i?.id}</td>
-                                                        <td>{i?.productName}</td>
-                                                        <td>{i?.category?.name}</td>
-                                                        <td style={{display:"flex",justifyContent:"center"}}>
-                                                            <img src={i?.productImage} width={"45px"}/>
-                                                        </td>
-                                                        <td>{i?.price}</td>
-                                                        <td><button className={"edit-btn3"}><CiEdit /></button>
-                                                            <button className={"delete-btn3"} onClick={() => {
-                                                                if (window.confirm("Are you sure you want to delete this category?")) {
-                                                                    deleteByIdApi.mutate(i?.id);
-                                                                }
-                                                            }}><MdDelete /></button></td>
-                                                        {/*<td>{i?.itemStatus ? (*/}
-                                                        {/*    <span style={{ color: 'green' }}>Available</span>*/}
-                                                        {/*) : (*/}
-                                                        {/*    <span style={{ color: 'red' }}>Inactive</span>*/}
-                                                        {/*)}</td>*/}
-                                                    </tr>
-                                                )
-                                            })
+                                                    return(
+                                                        <tr key={i?.id}>
+                                                            <td>{i?.id}</td>
+                                                            <td>{i?.itemName}</td>
+                                                            <td>{i?.category?.name}</td>
+                                                            <td style={{display:"flex",justifyContent:"center"}}>
+                                                                <img src={'data:image/jpeg;base64,'+i?.itemImage} width={"45px"}/>
+                                                            </td>
+                                                            <td>{i?.itemPrice}</td>
+                                                            <td>
+                                                                <button className={"edit-btn3"} onClick={()=>{
+                                                                    navigate("/editItem/"+i?.id);
+                                                                    // console.log(i?.id)
+                                                                    }}><CiEdit />
+                                                                </button>
+                                                                <button className={"delete-btn3"} onClick={() => {
+                                                                    if (window.confirm("Are you sure you want to delete this category?")) {
+                                                                        deleteByIdApi.mutate(i?.id);
+                                                                    }
+                                                                    }}><MdDelete />
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })
                                         }
                                         </tbody>
                                     </table>
@@ -212,7 +204,7 @@ const ManageCategory: React.FC = () => {
                 <div className="add-item-modal">
                     <div onClick={toggleItemModal} className="add-item-overlay"></div>
                     <div className="add-item-modal-content">
-                        <h2>#Add Item</h2>
+                        <h2>Add Item</h2>
                         <button className="close-add-item-btn" onClick={toggleItemModal}>
                             <FaRegWindowClose />
                         </button>
@@ -232,19 +224,19 @@ const ManageCategory: React.FC = () => {
                             </div>
                             <div className={"item-name"}>
                                 <label>Item Name</label>
-                                <input type={"text"} placeholder={"Enter item Name"} {...register("productName",{required:"Item Name is required!!"})}/>
-                                <h6 style={{paddingLeft:"3px"}}>{errors?.productName?.message}</h6>
+                                <input type={"text"} placeholder={"Enter item Name"} {...register("itemName",{required:"Item Name is required!!"})}/>
+                                <h6 style={{paddingLeft:"3px"}}>{errors?.itemName?.message}</h6>
                             </div>
                             <div className={"item-price"}>
                                 <label>Price</label>
-                                <input type={"number"} placeholder={"Enter the Price"} {...register("price",{required:"Price is required!!"})}/>
-                                <h6 style={{paddingLeft:"3px"}}>{errors?.price?.message}</h6>
+                                <input type={"number"} placeholder={"Enter the Price"} {...register("itemPrice",{required:"Price is required!!"})}/>
+                                <h6 style={{paddingLeft:"3px"}}>{errors?.itemPrice?.message}</h6>
                             </div>
                             <div className={"item-image"}>
                                 <label>Image</label>
                                 <span>
-                                    <input type={"file"} placeholder={"Add image here"} {...register("productImage",{required:"Item Image is required!!"})}/>
-                                     <h6 style={{paddingLeft:"3px"}}>{errors?.productImage?.message}</h6>
+                                    <input type={"file"} placeholder={"Add image here"} {...register("itemImage",{required:"Item Image is required!!"})}/>
+                                     <h6 style={{paddingLeft:"3px"}}>{errors?.itemImage?.message}</h6>
                                 </span>
                             </div>
 
@@ -259,4 +251,4 @@ const ManageCategory: React.FC = () => {
     );
 };
 
-export default ManageCategory
+export default ManageItem

@@ -1,6 +1,6 @@
 package com.example.feast.Pojo;
 
-import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Item;
 import com.example.feast.Entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +22,7 @@ public class CartPojo {
 
     @OneToOne
     @JoinColumn(name="item_id")
-    private Items item;
+    private Item item;
 
 //    @OneToOne
 //    @JoinColumn(name="item_unit_price")

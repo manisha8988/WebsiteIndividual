@@ -33,7 +33,7 @@ public class Event {
     private List<User> users;
 
     @Column (name = "contact")
-    private Long contact;
+    private Integer contact;
 
     @Column(name="event_status")
     private Boolean eventStatus;

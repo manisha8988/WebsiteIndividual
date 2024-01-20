@@ -13,12 +13,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/book-tables")
 public class BookTableController {
+
     private final BookTableRepository bookTableRepository;
 
     @Autowired
     public BookTableController(BookTableRepository bookTableRepository) {
         this.bookTableRepository = bookTableRepository;
     }
+
+
     @GetMapping
     public List<BookTable> getAllBookTables() {
         return bookTableRepository.findAll();

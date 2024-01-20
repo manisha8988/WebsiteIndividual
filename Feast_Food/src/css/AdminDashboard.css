@@ -7,7 +7,7 @@
 }
 
 .admin-dashboard-page{
-    background: #edf3fa;
+    background: #f6f4ef;
     display: flex;
 }
 
@@ -24,7 +24,8 @@
     height: 12vh;
     width: 79vw;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    align-items: center;
+    padding: 1rem 3rem;
     background-color: white;
     border-radius: 14px;
     box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
@@ -80,5 +81,42 @@
 .d-main-content{
     margin-top: 13vh;
     padding: 5px 10px;
-
+}
+.dashboard-cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    /*background-color: #f3ad16;*/
+}
+.dashboard-cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 9vh;
+    width: 20vw;
+    height: 25vh;
+    padding: 15px 20px 20px 20px;
+    cursor: pointer;
+    border-radius: 7px;
+    border-left: 0.9vw solid #8d6c24;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.dashboard-cards h2{
+    font-size: 2vw;
+    color: #252323;
+}
+.dashboard-cards h3{
+    font-family: "Gilroy SemiBold";
+    color: #252323;
+    font-size: 2vw;
+    margin-left: 3px;
+}
+.dashboard-cards span{
+    color: #000000;
+}
+.dashboard-cards:hover{
+    background-color: rgba(234, 234, 234, 0.88);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }

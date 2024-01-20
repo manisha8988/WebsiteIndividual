@@ -20,7 +20,7 @@ const OurMenu: React.FC = () => {
     const { data: Menu2 } = useQuery({
         queryKey: ["GET_ITEM_DATA"],
         queryFn() {
-            return axios.get<MenuItem[]>("http://localhost:8080/product/findAll");
+            return axios.get<MenuItem[]>("http://localhost:8080/item/findAll");
         },
     });
 

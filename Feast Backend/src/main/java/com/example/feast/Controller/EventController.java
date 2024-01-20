@@ -1,9 +1,6 @@
 package com.example.feast.Controller;
 import com.example.feast.Entity.Event;
-import com.example.feast.Entity.Items;
-import com.example.feast.Entity.Order;
 import com.example.feast.Pojo.EventPojo;
-import com.example.feast.Pojo.ItemPojo;
 import com.example.feast.Service.EventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

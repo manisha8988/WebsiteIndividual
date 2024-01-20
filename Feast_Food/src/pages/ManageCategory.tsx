@@ -2,8 +2,7 @@ import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { IoIosAddCircle } from "react-icons/io";
-import {FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlus, FaRegWindowClose, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -52,7 +51,7 @@ const ManageCategory: React.FC = () =>  {
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8080/category/save",payload)
+            return axios.post("http://localhost:8088/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -138,7 +137,7 @@ const ManageCategory: React.FC = () =>  {
                     <div className={"category-main-content"}>
                         <div className={"c-main-content"}>
                             <div className={"btn1"}>
-                                <button type={"button"} onClick={toggleCatgModal}><span><IoIosAddCircle style={{fontSize:"1.5rem",marginBottom:"-4px"}}/></span>Add Category</button>
+                                <button type={"button"} onClick={toggleCatgModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"white"}}/></span></button>
                             </div>
 
                             <div className={"table-container2"}>
@@ -157,9 +156,7 @@ const ManageCategory: React.FC = () =>  {
                                         </thead>
                                         <tbody>
                                         {
-                                            filteredData
-                                                ?.sort((a, b) => a.id - b.id)
-                                                .map((i) =>{
+                                            filteredData?.map((i) =>{
                                                 return(
                                                     <tr key={i?.id}>
                                                         <td>{i?.id}</td>
@@ -195,7 +192,7 @@ const ManageCategory: React.FC = () =>  {
                     <div onClick={toggleCatgModal} className="add-category-overlay"></div>
                     <div className="add-category-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <h2>#Add Category</h2>
+                            <h2>Add Category</h2>
                             <button className="close-add-category-btn"  onClick={() => {
                                 toggleCatgModal();
                                 reset(); // Reset the form

@@ -4,17 +4,29 @@ import {Link, useLocation} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
 import ImageSlider from "./imgSliderBar/imageSlider1.tsx";
 import {useState} from "react";
-import Menu from "./menuPage/menuApi.tsx";
 import HomePageSearch from "./homePageSearch.tsx";
+import {useQuery} from "@tanstack/react-query";
+import axios from "axios";
 
 const HomePage = () => {
 
-    const[menuData]=useState(Menu);
-
-    const [search,setSearch] = useState('');
+    const [search,setSearch] = useState(null);
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+
+    // Fetching data from API
+    const { data: menuData } = useQuery({
+        queryKey: ["GET_ITEMMENU_DATA"],
+        queryFn() {
+            return axios.get("http://localhost:8080/item/findAll");
+        }
+    });
+
+    // Searching data
+    const filteredItemData = menuData?.data.filter((item) =>
+        item?.itemName?.toLowerCase().includes(search?.toLowerCase())
+    );
 
     return(
         <>
@@ -26,7 +38,7 @@ const HomePage = () => {
                             <h1>Savor the flavor Straight to your door.</h1>
                         </div>
                         <div className={"hp-search-wrapper"}>
-                            <input type={"search"} placeholder={"Search your food here..."} value={search} onChange={(e)=> setSearch(e.target.value)}/>
+                            <input type={"search"} placeholder={"Search your food here..."} onChange={(e)=> setSearch(e.target.value)}/>
                             <span><FaSearch/></span>
                         </div>
                     </div>
@@ -34,7 +46,7 @@ const HomePage = () => {
 
                 <div className={"hp-second-div"}>
                     <div className={"home-search-div"}>
-                        <HomePageSearch menuData={menuData} search={search}/>
+                        <HomePageSearch filteredItemData={filteredItemData}/>
                     </div>
 
                     {search && <div className={"line2"}></div>}

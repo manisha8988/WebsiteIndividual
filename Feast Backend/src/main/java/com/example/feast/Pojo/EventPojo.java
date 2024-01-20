@@ -25,7 +25,7 @@ public class EventPojo {
     private Boolean eventStatus;
 
     @NotNull
-    private Long contact;
+    private Integer contact;
 
     @NotNull
     private String eventName;
@@ -40,5 +40,14 @@ public class EventPojo {
     private Integer noOfGuest;
 
     private String specialRequest;
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "event_user",
+//            joinColumns = @JoinColumn(name = "event_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private Set<User> users;
+
 
 }

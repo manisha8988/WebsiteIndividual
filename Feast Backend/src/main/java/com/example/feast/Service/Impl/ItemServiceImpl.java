@@ -1,69 +1,80 @@
 package com.example.feast.Service.Impl;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.example.feast.Entity.Category;
-import com.example.feast.Repo.CategoryRepo;
-import org.springframework.stereotype.Service;
-
-import com.example.feast.Entity.Items;
+import com.example.feast.Entity.Item;
 import com.example.feast.Pojo.ItemPojo;
+import com.example.feast.Repo.CategoryRepo;
 import com.example.feast.Repo.ItemRepo;
 import com.example.feast.Service.ItemService;
-
+import com.example.feast.util.ImageToBase64;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
 
     private final ItemRepo itemRepo;
-    private final CategoryRepo categoryRepo;
+    private final CategoryRepo categoryRepository;
+
+    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Feast-Images/Items-images").toString();
+    ImageToBase64 imageToBase64 = new ImageToBase64();
 
     @Override
-    public void saveItem(ItemPojo itemPojo) {
-//        Items item;
-        Items item;
+    public void saveItem(ItemPojo itemPojo) throws IOException {
+        Item item;
         if (itemPojo.getId() != null) {
-            item = itemRepo.findById(itemPojo.getId()).orElseThrow(() -> new EntityNotFoundException("SystemUser not found with ID: " + itemPojo.getId()));
+            item = itemRepo.findById(itemPojo.getId())
+                    .orElseThrow(() -> new EntityNotFoundException("Item not found with ID: " + itemPojo.getId()));
         } else {
-            item = new Items();
+            item = new Item();
         }
+
         item.setItemName(itemPojo.getItemName());
-        item.setItemImage(itemPojo.getItemImage());
         item.setItemPrice(itemPojo.getItemPrice());
-        item.setItemStatus(itemPojo.getItemStatus());
 
-        Category category=categoryRepo.findById(itemPojo.getCategoriesId()).orElseThrow( ()-> new EntityNotFoundException("Category not found with ID: " + itemPojo.getCategoriesId()));
+        Category category = categoryRepository.findById(itemPojo.getCategoryId())
+                .orElseThrow(() -> new EntityNotFoundException("Category not found with ID: " + itemPojo.getCategoryId()));
 
-        item.setCategories((category));
+
+        if (itemPojo.getItemImage() != null) {
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, itemPojo.getItemImage().getOriginalFilename());
+            Files.write(fileNameAndPath, itemPojo.getItemImage().getBytes());
+        }
+        item.setItemImage(itemPojo.getItemImage().getOriginalFilename());
+
+
+        item.setCategory(category);
         itemRepo.save(item);
-        System.out.println("Saved Successfully");
-
     }
 
     @Override
-    public List<Items> findAll() {
-        return null;
+    public List<Item> findAll(){
+        List<Item> items = itemRepo.findAll();
+        items = items.stream().map(item -> {
+            item.setItemImage(imageToBase64.getImageBase64("/Items-images/" + item.getItemImage()));
+            return item;
+        }).collect(Collectors.toList());
+        return items;
     }
 
     @Override
-    public Optional<Items> findById(Integer id) {
-        return Optional.empty();
+    public Optional<Item> getItemById(Integer id) {
+        return itemRepo.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteItemById(Integer id) {
         itemRepo.deleteById(id);
     }
-
-    @Override
-    public String update(Integer id, ItemPojo itempojo){
-        Items item = itemRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("user not found with ID : "+ id));
-        item.setItemPrice(itempojo.getItemPrice());
-        return "Update successfully";
-    }
-
 }
+

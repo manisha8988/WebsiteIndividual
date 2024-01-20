@@ -26,7 +26,7 @@ const CustomerPage = () =>{
     //Searching data
     // Filtered data based on the search input (name, email, or ID)
     const filteredData = data?.data.filter((customer) =>
-        customer.id.toString().includes(search.toLowerCase()) ||
+        customer.id.toString().includes(search.toLowerCase()) || // Include ID
         customer.fullName.toLowerCase().includes(search.toLowerCase()) ||
         customer.email.toLowerCase().includes(search.toLowerCase())
     );
@@ -76,7 +76,7 @@ const CustomerPage = () =>{
                             <tbody>
                             {filteredData?.map((customer) => (
                                 <tr key={customer?.id}>
-                                <td>{customer?.id}</td>
+                                    <td>{customer?.id}</td>
                                     <td>{customer?.fullName}</td>
                                     <td>{customer?.email}</td>
                                     <td>
