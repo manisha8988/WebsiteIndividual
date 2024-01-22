@@ -32,10 +32,10 @@ public class OrderServiceImpl implements OrderService {
         if (orderPojo.getId() != null){
             order = orderRepo.findById(orderId).get();
         }
-        User user=userRepo.findById(orderPojo.getUser().getId()).get();
+        User user=userRepo.findById(orderPojo.getUser()).get();
         order.setUser(user);
 
-        Item item=itemRepo.findById(orderPojo.getItem().getId()).get();
+        Item item=itemRepo.findById(orderPojo.getItem()).get();
         order.setItem(item);
 
         order.setQuantity(orderPojo.getQuantity());

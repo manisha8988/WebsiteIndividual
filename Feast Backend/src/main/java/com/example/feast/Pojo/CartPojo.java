@@ -12,17 +12,12 @@ import lombok.Setter;
 
 
 public class CartPojo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+    private Long user;
 
-    @OneToOne
-    @JoinColumn(name="item_id")
-    private Item item;
+    private Long item;
 
 //    @OneToOne
 //    @JoinColumn(name="item_unit_price")

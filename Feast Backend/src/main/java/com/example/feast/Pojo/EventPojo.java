@@ -14,9 +14,7 @@ public class EventPojo {
 
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name="user_id" , referencedColumnName = "first_name")
-    private User user;
+    private Long user;
 
     @NotNull
     private Integer eventPrice;
@@ -25,7 +23,7 @@ public class EventPojo {
     private Boolean eventStatus;
 
     @NotNull
-    private Integer contact;
+    private Long contact;
 
     @NotNull
     private String eventName;
