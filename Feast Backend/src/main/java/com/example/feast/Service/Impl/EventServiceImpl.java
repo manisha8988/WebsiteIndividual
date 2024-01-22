@@ -4,42 +4,63 @@ import com.example.feast.Pojo.EventPojo;
 import com.example.feast.Repo.EventRepo;
 import com.example.feast.Repo.UserRepo;
 import com.example.feast.Service.EventService;
+import com.example.feast.util.ImageToBase64;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class EventServiceImpl implements EventService {
 
+    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Feast-Images/Items-images").toString();
+    ImageToBase64 imageToBase64 = new ImageToBase64();
     private final EventRepo eventRepo;
     private final UserRepo userRepo;
 
 
     @Override
-    public void saveEvent(EventPojo eventPojo) {
+    public void saveEvent(EventPojo eventPojo) throws IOException {
         Event event=new Event();
 
         event.setEventName(eventPojo.getEventName());
         event.setEventPrice(eventPojo.getEventPrice());
-        event.setEventStatus(eventPojo.getEventStatus());
-        event.setEventDate(eventPojo.getEventDate());
-        event.setNoOfGuest(eventPojo.getNoOfGuest());
-        event.setContact(eventPojo.getContact());
-        event.setSpecialRequest(eventPojo.getSpecialRequest());
-        event.getEventTime();
+        event.setEventImage(event.getEventImage());
+        event.setEventDescription(event.getEventDescription());
 
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();
         }
+        if (eventPojo.getEventImage() != null) {
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, eventPojo.getEventImage().getOriginalFilename());
+            Files.write(fileNameAndPath, eventPojo.getEventImage().getBytes());
+        }
+        event.setEventImage(eventPojo.getEventImage().getOriginalFilename());
+
+
         eventRepo.save(event); // insert query
     }
+
+
+    public List<Event> findAll(){
+        List<Event> events = eventRepo.findAll();
+        events = events.stream().map(event -> {
+            event.setEventImage(imageToBase64.getImageBase64("/event-images/" + event.getEventImage()));
+            return event;
+        }).collect(Collectors.toList());
+        return events;
+    }
     @Override
-    public List<Event> getALl() {
+    public List<Event> getAll() {
         return this.eventRepo.findAll();
     }
 
