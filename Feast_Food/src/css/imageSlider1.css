@@ -32,7 +32,7 @@
     position: relative;
     height: 40vh;
     width: 15vw;
-    filter: saturate(10%);
+    /*filter: saturate(10%);*/
     transition: 0.7s;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
