@@ -93,6 +93,8 @@ const ManageItem: React.FC = () => {
         item.category?.name.toLowerCase().includes(search.toLowerCase())
     );
 
+    console.log(filteredItemData)
+
     const { data: categories } = useQuery({
         queryKey: ["GET_CATEGORIES"],
         queryFn() {

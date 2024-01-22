@@ -1,6 +1,38 @@
 import React from "react";
 
 const MenuCard: React.FC<{ menuData: any }> = ({ menuData }) => {
+
+
+
+    const addToCartHandler = async (item) => {
+        try {
+            const response = await fetch("http://localhost:8080/cart/save", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    itemName: item.itemName,
+                    // Add other properties as needed
+                }),
+            });
+
+            if (response.ok) {
+                // Handle success, e.g., update UI or show a notification
+                console.log("Item added to cart successfully");
+            } else {
+                // Handle error, e.g., show an error message
+                console.error("Failed to add item to cart");
+            }
+        } catch (error) {
+            console.error("Error adding item to cart:", error);
+        }
+
+        // Call the parent onAddToCart handler
+    };
+
+
+
     return (
         <>
             <section className="menu-card--cointainer">

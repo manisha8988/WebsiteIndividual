@@ -25,7 +25,7 @@ function AdminDashboard(){
     const{data:itemData} = useQuery({
         queryKey:["GETITEM"],
         queryFn(){
-            return axios.get("http://localhost:8080/product/findAll")
+            return axios.get("http://localhost:8080/item/findAll")
         }
     })
     return(
