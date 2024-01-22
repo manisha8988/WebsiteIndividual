@@ -29,14 +29,7 @@ body, html {
     /*background: #faf7f2;*/
     padding-bottom: 5vh;
 }
-.recommended-text{
-    display: flex;
-    padding-top: 1.5vh;
-    padding-left: 2vw;
-    align-items: center;
-    font-family: "Alex Brush";
-    color: #2f2f2f;
-}
+
 .hp-main-container{
     display: flex;
     flex-direction: column;
@@ -93,12 +86,24 @@ body, html {
     padding-left: 6vw;
     display: flex;
     justify-content: center;
-    /*background-color: #312e2e;*/
+    background-color: #faf7f2;
+}
+.recommended-text{
+    display: flex;
+    padding-left: 2vw;
+    align-items: center;
+    font-family: "Alex Brush";
+    color: #eae5e5;
+    text-decoration: underline;
+    /*background-color: #f3ad16;*/
+}
+.recommendation-div{
+    /*background-color: #f3ad16;*/
 }
 .view-more-btn{
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    margin-top: 14vh;
 }
 
 
