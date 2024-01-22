@@ -33,7 +33,7 @@ public class Event {
     private List<User> users;
 
     @Column (name = "contact")
-    private Integer contact;
+    private Long contact;
 
     @Column(name="event_status")
     private Boolean eventStatus;
@@ -47,10 +47,10 @@ public class Event {
     @Column(name="event_time", nullable = false)
     private LocalTime eventTime;
 
-    @Column(name="noOfGuest" , nullable = false)
+    @Column(name="no_of_Guest" , nullable = false)
     private Integer noOfGuest;
 
-    @Column(name="specialRequest")
+    @Column(name="special_request")
     private String specialRequest;
 
 
