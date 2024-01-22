@@ -9,7 +9,7 @@ const HomePageSearch = ( {filteredItemData} ) => {
                         <div className="menu-card">
                             <div className="menu-card-body">
                                 <span className="menu-card-author subtle"> {curElem?.category?.name}</span>
-                                <img src={curElem?.itemImage} alt="images" className="menu-card-media" />
+                                <img src={'data:image/jpeg;base64,'+curElem?.itemImage} alt="images" className="menu-card-media" />
                                 <h2 className="menu-card-title"> {curElem?.itemName} </h2>
                                 <div className={"price-addtocart-div"}>
                                     <h4 className="menu-card-price subtle">{curElem?.itemPrice}</h4>
