@@ -29,7 +29,7 @@ public class Event {
     private String eventImage;
 
     @Column(name="event_description")
-    private Boolean eventDescription;
+    private String eventDescription;
 
     @Column(name="event_price", nullable=false)
     private Integer eventPrice;

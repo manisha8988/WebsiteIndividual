@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class EventServiceImpl implements EventService {
 
-    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Feast-Images/Items-images").toString();
+    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/Feast-Images/event-images").toString();
     ImageToBase64 imageToBase64 = new ImageToBase64();
     private final EventRepo eventRepo;
     private final UserRepo userRepo;
@@ -34,8 +34,8 @@ public class EventServiceImpl implements EventService {
 
         event.setEventName(eventPojo.getEventName());
         event.setEventPrice(eventPojo.getEventPrice());
-        event.setEventImage(event.getEventImage());
-        event.setEventDescription(event.getEventDescription());
+//        event.setEventImage(event.getEventImage());
+        event.setEventDescription(eventPojo.getEventDescription());
 
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();

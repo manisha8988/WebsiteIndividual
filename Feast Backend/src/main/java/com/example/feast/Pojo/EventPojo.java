@@ -23,6 +23,9 @@ public class EventPojo {
     private MultipartFile eventImage;
 
     @NotNull
+    private String eventDescription;
+
+    @NotNull
     private Integer eventPrice;
 
 }

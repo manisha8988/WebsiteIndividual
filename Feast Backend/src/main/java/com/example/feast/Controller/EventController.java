@@ -24,7 +24,7 @@ public class EventController {
     }
 
     @GetMapping("/getAll")
-    public List<Event> getALl() {
+    public List<Event> getAll() {
         return eventService.getAll();
     }
 
