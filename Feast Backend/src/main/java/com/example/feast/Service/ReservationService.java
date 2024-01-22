@@ -10,14 +10,14 @@ import java.util.Optional;
 
 @Service
 public interface ReservationService {
-    void saveReservation(ReservationPojo reservationPojoPojo);
+    Reservation saveReservation(ReservationPojo reservationPojoPojo);
 
 
     List<Reservation> findAll();
 
     Optional<Reservation> findById(Integer id);
 
-    void deleteById(Integer id);
+    Integer deleteById(Integer id);
 
 }
 

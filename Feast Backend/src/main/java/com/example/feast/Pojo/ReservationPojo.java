@@ -24,4 +24,7 @@ public class ReservationPojo {
     @NotNull
     private String date;
 
+    private  Integer tableId;
+
+
 }

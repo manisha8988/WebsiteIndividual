@@ -1,9 +1,12 @@
 package com.example.feast.Controller;
 
+import com.example.feast.Entity.ManageTable;
 import com.example.feast.Entity.Reservation;
 
+import com.example.feast.Pojo.ManageTablePojo;
 import com.example.feast.Pojo.ReservationPojo;
 
+import com.example.feast.Service.ManageTableService;
 import com.example.feast.Service.ReservationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +21,15 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ReservationController {
     private final ReservationService reservationService;
+    private final ManageTableService manageTableService;
 
     @PostMapping("/save")
     public String saveUser(@Valid @RequestBody ReservationPojo reservationPojo){
-        reservationService.saveReservation(reservationPojo);
+        Reservation newReservation=reservationService.saveReservation(reservationPojo);
+        ManageTable table =newReservation.getTable();
+        ManageTablePojo manageTablePojo= new ManageTablePojo();
+        manageTablePojo.setStatus("Booked");
+        manageTableService.update(table.getId(), manageTablePojo);
         return "Table Reserved Successfully";
     }
 
@@ -37,7 +45,11 @@ public class ReservationController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable("id") Integer id){
-        this.reservationService.deleteById(id);
+        Integer tableId =this.reservationService.deleteById(id);
+        ManageTablePojo manageTablePojo= new ManageTablePojo();
+        manageTablePojo.setStatus("Available");
+        manageTableService.update(tableId, manageTablePojo);
+
     }
 
 }

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name="name" , nullable=false)
@@ -29,5 +29,10 @@ public class Reservation {
 
     @Column(name="date" , nullable=false)
     private String date;
+
+
+    @ManyToOne
+    @JoinColumn(name="table_Id")//, referencedColumnName = "id"
+    private ManageTable table;
 
 }

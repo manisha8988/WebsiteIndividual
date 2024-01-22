@@ -1,12 +1,15 @@
 package com.example.feast.Service.Impl;
 
-
+import com.example.feast.Entity.ManageTable;
 import com.example.feast.Entity.Reservation;
 import com.example.feast.Pojo.ReservationPojo;
+import com.example.feast.Repo.ManageTableRepo;
 import com.example.feast.Repo.ReservationRepo;
 import com.example.feast.Service.ReservationService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,26 +19,40 @@ import java.util.Optional;
 public class ReservationServiceImpl implements ReservationService {
 
     private final ReservationRepo reservationRepo;
-    @Override
-    public void saveReservation(ReservationPojo reservationPojo){
-        Reservation reservation=new Reservation();
+    private final ManageTableRepo manageTableRepo;
 
-        if(reservationPojo.getId()!=null){
-            reservation=reservationRepo.findById(reservationPojo.getId()).get();
+    @Override
+    @Transactional // Added transactional annotation for better database consistency
+    public Reservation saveReservation(ReservationPojo reservationPojo) {
+        Reservation reservation;
+
+        if (reservationPojo.getId() != null) {
+            reservation = reservationRepo.findById(reservationPojo.getId())
+                    .orElseThrow(() -> new EntityNotFoundException("Reservation not found with ID: " + reservationPojo.getId()));
+        } else {
+            reservation = new Reservation();
         }
 
         reservation.setName(reservationPojo.getName());
         reservation.setPhone(reservationPojo.getPhone());
         reservation.setPersons(reservationPojo.getPersons());
         reservation.setDate(reservationPojo.getDate());
-
         reservation.setId(reservationPojo.getId());
 
-        reservationRepo.save(reservation); // insert query
+        ManageTable manageTable = manageTableRepo.findById(reservationPojo.getTableId())
+                .orElseThrow(() -> new EntityNotFoundException("Table not found with ID: " + reservationPojo.getTableId()));
+
+        if ("Booked".equals(manageTable.getStatus())) {
+            throw new IllegalArgumentException("Table Not Available");
+        }
+
+        reservation.setTable(manageTable);
+        reservationRepo.save(reservation);
         System.out.println("Table Reserved Successfully");
+        return reservation;
+
 
     }
-
 
     @Override
     public List<Reservation> findAll() {
@@ -43,8 +60,11 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public Integer deleteById(Integer id) {
+        Integer tableId =reservationRepo.findById(id).get().getTable().getId();
         reservationRepo.deleteById(id);
+        System.out.println("Delete Successfully");
+        return tableId;
     }
 
     @Override
