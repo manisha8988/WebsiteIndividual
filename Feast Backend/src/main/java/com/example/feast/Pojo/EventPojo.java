@@ -20,7 +20,7 @@ public class EventPojo {
     private String eventName;
 
     @NotNull
-    private MultipartFile eventImage;
+    private String eventImage;
 
     @NotNull
     private String eventDescription;

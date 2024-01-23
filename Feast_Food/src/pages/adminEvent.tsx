@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import { useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import AdminSidebar from "./adminSidebar.tsx";
@@ -9,6 +9,7 @@ function AdminEvent(){
 
     const location = useLocation();
     const currentLocation = location.pathname;
+    const navigate = useNavigate();
 
     // const[search, setSearch] = useState('');
 
@@ -59,7 +60,8 @@ function AdminEvent(){
                                 </tr>
                             </thead>
                              <tbody>
-                                {filteredData?.map((customer) => (
+                                {filteredData?.sort((a, b) => a.id - b.id)
+                                .map((customer) => (
                                     <tr key={customer?.id}>
                                         <td>{customer?.id}</td>
                                         <td>{customer?.eventName}</td>
@@ -68,7 +70,7 @@ function AdminEvent(){
                                         <td>{customer?.eventPrice}</td>
                                         <td>
                                             <button className={"edit-btn2"} onClick={()=>{
-                                                // navigate("/edit/"+customer?.id);
+                                                navigate("/EditEvent/"+customer?.id);
                                                 console.log(customer?.id)
                                             }}><CiEdit /></button>
                                         </td>
@@ -101,7 +103,7 @@ function AdminEvent(){
                                     <td>{customer?.id}</td>
                                     <td>
                                         <button className={"edit-btn2"} onClick={()=>{
-                                            // navigate("/edit/"+customer?.id);
+                                            navigate("/edit/"+customer?.id);
                                             console.log(customer?.id)
                                         }}><CiEdit /></button>
                                     </td>

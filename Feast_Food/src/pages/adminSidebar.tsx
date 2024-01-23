@@ -53,8 +53,8 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                             </li>
                         </Link>
 
-                        <Link to={"/EventPage"}>
-                            <li className={`sidebar-list-item ${activePage === "/EventPage" ? "active" : ""}`}>
+                        <Link to={"/AdminEvent"}>
+                            <li className={`sidebar-list-item ${activePage === "/AdminEvent" ? "active" : ""}`}>
                                 <span><BsFillCalendar2EventFill style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Events</a>
                             </li>

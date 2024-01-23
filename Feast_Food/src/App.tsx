@@ -21,6 +21,7 @@ import RatingSection from "./pages/Rating/RatingSection.tsx";
 import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
 import EditItem from "./pages/editItem.tsx";
+import EditEvent from "./pages/editEvent.tsx";
 
 
 
@@ -39,7 +40,8 @@ function App() {
                     {path: "/ManageItem", element: <ManageItem/>},
                     {path: "/editItem/:pk_id", element: <EditItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
-                    {path: "/EventPage", element: <AdminEvent/>},
+                    {path: "/AdminEvent", element: <AdminEvent/>},
+                    {path: "/EditEvent/:pk_id", element: <EditEvent/>},
                     {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},

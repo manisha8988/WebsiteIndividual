@@ -32,22 +32,25 @@ public class EventServiceImpl implements EventService {
     public void saveEvent(EventPojo eventPojo) throws IOException {
         Event event=new Event();
 
-        event.setEventName(eventPojo.getEventName());
-        event.setEventPrice(eventPojo.getEventPrice());
-//        event.setEventImage(event.getEventImage());
-        event.setEventDescription(eventPojo.getEventDescription());
 
         if(eventPojo.getId()!=null){
             event=eventRepo.findById(eventPojo.getId()).get();
         }
-        if (eventPojo.getEventImage() != null) {
-            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, eventPojo.getEventImage().getOriginalFilename());
-            Files.write(fileNameAndPath, eventPojo.getEventImage().getBytes());
-        }
-        event.setEventImage(eventPojo.getEventImage().getOriginalFilename());
+
+        event.setEventName(eventPojo.getEventName());
+        event.setEventPrice(eventPojo.getEventPrice());
+        event.setEventImage(event.getEventImage());
+        event.setEventDescription(eventPojo.getEventDescription());
+
+//        if (eventPojo.getEventImage() != null) {
+//            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, eventPojo.getEventImage().getOriginalFilename());
+//            Files.write(fileNameAndPath, eventPojo.getEventImage().getBytes());
+//        }
+//        event.setEventImage(eventPojo.getEventImage().getOriginalFilename());
 
 
         eventRepo.save(event); // insert query
+        System.out.println("Saved succesfully");
     }
 
 
@@ -66,7 +69,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Optional<Event> getById(Long id) {
-        return Optional.empty();
+//        return Optional.empty();
+        return eventRepo.findById(id);
     }
 
     @Override
