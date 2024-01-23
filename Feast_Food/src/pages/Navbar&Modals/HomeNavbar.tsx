@@ -201,7 +201,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <span className={"icon-cart"}><FaCartArrowDown /></span>
+                    <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown /></span></Link>
                     {user && (
                         <>
                             <span className={"fullnamedisplay"}>{user.fullName}</span>

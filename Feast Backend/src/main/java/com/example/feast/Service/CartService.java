@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CartService {
 
-    String saveCart(CartPojo cartPojo);
+    void saveCart(CartPojo cartPojo);
 
     List<Cart> getAll();
 

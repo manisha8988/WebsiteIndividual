@@ -15,16 +15,12 @@ public class CartPojo {
 
     private Long id;
 
-    private Long user;
+    private Long userId;
 
-    private Long item;
+    private Integer itemId;
 
-//    @OneToOne
-//    @JoinColumn(name="item_unit_price")
-//    private Items item;
-//
     @NotNull
-    private Integer total_pricee;
+    private Integer total_price;
 
     @NotNull
     private Integer quantity;
