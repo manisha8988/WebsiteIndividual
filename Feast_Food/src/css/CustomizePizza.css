@@ -1,8 +1,8 @@
 .menu {
     max-width: 600px;
     min-width: 10px;
-    width: 500px;
-    height: 500px;
+    width: 560px;
+    height: 700px;
     margin-top: 100px;
     position: absolute;
     margin-left: 35%;
@@ -69,10 +69,12 @@
 
 .item {
     margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 .item-price {
     margin-bottom: 8px;
+    letter-spacing: 2px;
 }
 
 .customize-button {
@@ -90,7 +92,7 @@
     color: #281e07;
     font-weight: 800;
     text-transform: uppercase;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Gilroy Bold";
 }
 
 .close-button{
@@ -99,4 +101,21 @@
     margin-top: 10px;
     background-color: #dcdbdb;
     border: none;
+}
+
+/* Add the following styles for messages */
+.messages-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    background-color: #f3ad16;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
 }
