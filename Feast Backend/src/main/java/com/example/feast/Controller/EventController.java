@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,14 +18,14 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping(value="/save")
-    public String saveEvent(@Valid @RequestBody EventPojo eventPojo){
+    public String saveEvent(@Valid @RequestBody EventPojo eventPojo) throws IOException {
         eventService.saveEvent(eventPojo);
         return "Saved";
     }
 
     @GetMapping("/getAll")
-    public List<Event> getALl() {
-        return eventService.getALl();
+    public List<Event> getAll() {
+        return eventService.getAll();
     }
 
     @GetMapping("/getById/{id}")

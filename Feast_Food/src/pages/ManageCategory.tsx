@@ -51,7 +51,7 @@ const ManageCategory: React.FC = () =>  {
         mutationKey:["POST_CATEGORY_MANAGECATEGORY"],
         mutationFn:(payload:any)=>{
             console.log(payload)
-            return axios.post("http://localhost:8088/category/save",payload)
+            return axios.post("http://localhost:8080/category/save",payload)
         },onSuccess: () => {
             notify();
             reset();
@@ -200,10 +200,10 @@ const ManageCategory: React.FC = () =>  {
                                 <FaRegWindowClose />
                             </button>
 
-                            <div className={"category-id-number"}>
-                                <label>ID</label>
-                                <input type={"number"} placeholder={"Enter ID"}/>
-                            </div>
+                            {/*<div className={"category-id-number"}>*/}
+                            {/*    <label>ID</label>*/}
+                            {/*    <input type={"number"} placeholder={"Enter ID"}/>*/}
+                            {/*</div>*/}
                             <div className={"category-name"}>
                                 <label>Category Name</label>
                                 <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>

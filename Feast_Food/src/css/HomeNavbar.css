@@ -30,6 +30,7 @@
     color: black;
     font-family: "Gilroy Medium";
 }
+
 .home-options:active{
     color: #f3ad16;
 }
@@ -43,6 +44,7 @@
 .hp-navright{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .hp-navright span{
     padding-top: 0.45rem;
@@ -74,4 +76,13 @@
     font-family: "Gilroy Medium";
 }.hp-sign-btn h3:hover{
     color: #f3ad16;
+ }
+
+ .logout-btn{
+     width: 4.2rem;
+     height: 1.8rem;
+     font-size: 1rem;
+     border-radius: 6px;
+     padding-bottom: 6px;
+     margin-right: 10px;
  }

@@ -45,12 +45,11 @@ const HomePage = () => {
                 </div>
 
                 <div className={"hp-second-div"}>
-                    <div className={"home-search-div"}>
+                    {search && <div className={"line2"}></div> &&  <div className={"home-search-div"}>
                         <HomePageSearch filteredItemData={filteredItemData}/>
-                    </div>
-
-                    {search && <div className={"line2"}></div>}
+                    </div>}
                     <div className={"recommendation-div"}>
+                        <h2 className={"recommended-text"}>Recommended for you</h2>
                         <ImageSlider/>
                         <div className={"view-more-btn"}>
                             <Link to={"/OurMenu"}><button>View More</button></Link>
@@ -59,7 +58,7 @@ const HomePage = () => {
 
                     <div className={"line2"}></div>
                     <div className={"copyright-text"}>
-                        <h5>Copyright ©2024 Feast</h5>
+                        <h5 style={{color:"white"}}>Copyright ©2024 Feast</h5>
                     </div>
                 </div>
             </div>

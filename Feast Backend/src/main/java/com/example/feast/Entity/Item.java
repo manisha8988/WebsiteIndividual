@@ -18,14 +18,14 @@ public class Item {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "itemName", nullable = false)
+    @Column(name = "item_name", nullable = false)
     private String itemName;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(name = "itemImage")
+    @Column(name = "item_image")
     private String itemImage;
 
     @Column(name = "itemPrice", nullable = false)

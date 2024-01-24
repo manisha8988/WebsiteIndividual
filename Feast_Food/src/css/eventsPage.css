@@ -149,7 +149,7 @@
     position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 40vw;   height: 70vh;   z-index: 109;
+    width: 40vw;   min-height: 60vh;   z-index: 109;
 }
 .close-anniversary-modal-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
@@ -166,7 +166,7 @@
     position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 40vw;   height: 70vh;   z-index: 109;
+    width: 40vw;   min-height: 60vh;   z-index: 109;
 }
 
 .close-birthday-modal-btn {
@@ -185,12 +185,12 @@
     margin-top: 10px;
 }
 
-.event-modal-name-input,.event-modal-contact-input,.event-modal-guests-input,.event-modal-request-input{
+.event-modal-name-input,.event-modal-contact-input,.event-modal-guests-input{
     height: 5.5vh;
 }
 .event-modal-date-time-guests{
     display: flex;
-    padding: 0 5px 0 0 ;
+    padding: 4vh 5px 0 0 ;
     justify-content: space-between;
     /*background-color: #5b4511;*/
 }
@@ -204,6 +204,9 @@
 }
 .event-modal-guests-input{
     width: 11vw;
+}
+.event-modal-request-input{
+    height: 10vh;
 }
 .event-modal-date-time {
     display: flex;

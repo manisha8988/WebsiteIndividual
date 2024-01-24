@@ -19,13 +19,9 @@ public class OrderPojo {
 
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+    private Long user;
 
-    @ManyToOne
-    @JoinColumn(name="item_id")
-    private Item item;
+    private Integer item;
 
     @NotNull
     private Date createdDate;

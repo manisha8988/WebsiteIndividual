@@ -9,6 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 public class UserPojo {
 
+    private Long id;
+
     @NotNull(message = "Email is required")
     private String email;
 
@@ -23,4 +25,6 @@ public class UserPojo {
 
     @NotNull(message="security question is required")
     private String securityQuestion;
+
+    private String roles;
 }

@@ -1,6 +1,7 @@
-import React from "react";
 
-const MenuCard: React.FC<{ menuData: any }> = ({ menuData }) => {
+const MenuCard = ({ menuData }) => {
+
+
     return (
         <>
             <section className="menu-card--cointainer">

@@ -1,5 +1,5 @@
 import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
 // import {IoMdMail} from "react-icons/io";
@@ -21,7 +21,17 @@ interface HomeNavbarProps {
     activePage: string;
 }
 
+interface LoginProps {
+    onLoginSuccess: () => void;
+}
+
+
 const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
+
+    const [loginSuccess, setLoginSuccess] = useState(false);
+
+    const navigate = useNavigate();
+
 
     // Login modal
     const [login_popup, setLModal] = useState(false);
@@ -42,6 +52,15 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     } else {
         document.body.classList.remove('active-modal');
     }
+
+    useEffect(() => {
+        const storedData = localStorage.getItem("userDetails");
+        if (storedData) {
+            setUser(JSON.parse(storedData));
+
+            console.log(user)
+        }
+    }, []);
 
     useEffect(() => {
         const modalAnimation = (modalClass: string | null) => {
@@ -86,12 +105,83 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
             difftoast();
             reset();
         },
+    })
+
+    const [user, setUser] = useState({
 
     })
+    console.log("User",user.fullName)
+
+    const useApiCallLogin = useMutation({
+        mutationKey: ["POST_USER_LOGIN"],
+        mutationFn: (payload: any) => {
+            console.log(payload);
+            return axios.post("http://localhost:8080/register/login", payload);
+        },
+        onSuccess: (response) => {
+            const userData = response.data;
+
+            if (userData) {
+                console.log("User Data:", userData);
+
+                try {
+                    localStorage.setItem("userDetails", JSON.stringify(userData));
+                    handleLoginSuccess();
+                    const data: any = JSON.parse(localStorage.getItem("userDetails"));
+                    console.log(data);
+                    console.log(typeof data);
+                    setUser(data);
+                    reset();
+
+                    if (userData.roles === "ADMIN") {
+                        // Redirect to admin page or perform admin-related actions
+                        navigate('/AdminDashboard'); // Assuming you have a route for the admin page
+                    }
+                } catch (error) {
+                    console.error("Error storing user details in local storage:", error);
+                }
+            } else {
+                console.error("User details not found in the response");
+            }
+        },
+    });
+
+
+    const handleLoginSuccess = () => {
+        setLoginSuccess(true);
+    };
+
+
+    useEffect(() => {
+        // Close login popup when login success state is true
+        if (loginSuccess) {
+            toggleLoginModal();
+            setLoginSuccess(false);  // Reset login success state
+        }
+    }, [loginSuccess, toggleLoginModal]);
 
     const onSubmit=(value:any)=>{
         useApiCall.mutate(value)
     }
+
+    const onSubmitLogin = (values: any) => {
+        useApiCallLogin.mutate(values);
+    };
+
+    const handleLogout = () => {
+        // Check if a user is currently logged in
+        const isLoggedIn = Boolean(localStorage.getItem('userDetails'));
+
+        if (isLoggedIn) {
+            // Clear user details from localStorage
+            localStorage.removeItem('userDetails');
+
+            // Update the state to reflect logout
+            setUser(null);
+
+            navigate('/');
+        }
+    };
 
     const difftoast =() => {
         toast.success("wow! you just register", {position: "top-center"})
@@ -115,18 +205,29 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <Link to={"/cart"}><span  className={"icon-cart"}><FaCartArrowDown /></span></Link>
-                    <div className={"hp-sign-btn"}>
-                        <h3 onClick={toggleLoginModal}>Sign in</h3>
-                    </div>
+                    <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown style={{fontSize:"1.2rem" ,marginBottom:"-3px",marginRight:"3px"}}/></span></Link>
+                    {user && (
+                        <>
+                            <span className={"fullnamedisplay"}>{user.fullName}</span>
+                            <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
+                        </>
+                    )}
+                    {!localStorage.getItem("userDetails") &&
+                        <div className={"hp-sign-btn"}>
+                            <h3 onClick={toggleLoginModal}>Sign in</h3>
+                        </div>
+                    }
                 </div>
 
-
+                {/*<div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>*/}
+                {/*    <span style={{fontSize:"1.7rem"}}><RxHamburgerMenu /></span>*/}
+                {/*</div>*/}
 
             </div>
 
 
             {login_popup && (
+
                 <div className="login-modal">
                     <div onClick={toggleLoginModal} className="login-overlay"></div>
                     <div className="login-modal-content">
@@ -134,25 +235,35 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         <button className="close-login-btn" onClick={toggleLoginModal}>
                             <FaRegWindowClose />
                         </button>
-
-                        <div className={"input-box"}>
-                            <span className={"iconmail"}> <FaUser /></span>
-                            <div className={"username"}>
-                                <input type={"email"} placeholder={"Username"}   />
+                        <form onSubmit={handleSubmit(onSubmitLogin)}>
+                            <div className={"input-box"}>
+                                <span className={"iconmail"}> <FaUser /></span>
+                                <div className={"username"}>
+                                    <input
+                                        type={"email"}
+                                        placeholder={"Email"}
+                                        {...register("email")}
+                                    />
+                                </div>
+                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <div className={"password"}>
+                                    <input
+                                        type={"password"}
+                                        placeholder={"Password"}
+                                        {...register("password")}
+                                    />
+                                </div>
                             </div>
-                            <span className={"iconpassword"}><RiLockPasswordFill /></span>
-                            <div className={"password"}>
-                                <input type={"password"} placeholder={"Password"}/></div>
-                        </div>
-                        <div className={"Remember-forget"}>
-                            <label><input type={"checkbox"}/>Remember me</label>
-                            <a href={"#"} >Forget passsword</a>
-                        </div>
-                        <button type={"submit"} className={"btn-login10"} >Login</button>
-                        <div className={"register-text"}>
-                            <p> Don't have an account?
-                                <a href={"#"} onClick={toggleRegisterModal}>Register</a></p>
-                        </div>
+                            <div className={"Remember-forget"}>
+                                <label><input type={"checkbox"}/>Remember me</label>
+                                <a href={"#"} >Forget passsword</a>
+                            </div>
+                            <button type={"submit"} className={"btn-login10"} >Login</button>
+                            <div className={"register-text"}>
+                                <p> Don't have an account?
+                                    <a href={"#"} onClick={toggleRegisterModal}>Register</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}
@@ -206,14 +317,14 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                            {...register("confirmPassword", {
 
 
-                                            required: "Confirm Password is required",
-                                            validate: {
-                                                matchesPassword: (value) =>
-                                                    value === watch("password") || "Confirm Password does not match Password",
-                                            },
-                                        })}
+                                               required: "Confirm Password is required",
+                                               validate: {
+                                                   matchesPassword: (value) =>
+                                                       value === watch("password") || "Confirm Password does not match Password",
+                                               },
+                                           })}
                                     />
-                                    
+
                                     {errors.confirmPassword && (
                                         <p className="error-message">{errors?.confirmPassword?.message}
                                         </p>
@@ -233,7 +344,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                             </div>
                             <button type={"submit"} className={"btn-signup10"}
-                                    onClick={difftoast}
+                                // onClick={difftoast}
                             >Sign Up</button>
                             <ToastContainer/>
                         </form>

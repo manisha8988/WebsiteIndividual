@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import "../../css/RatingSection.css";
@@ -8,7 +8,7 @@ const RatingSection: React.FC = () => {
 
     const useApiCall = useMutation({
         mutationKey: ['POST_RATING'],
-        mutationFn: async (payload: { value: number }) => {
+        mutationFn: async (payload: { value: number; userId: number; itemId: number }) => {
             try {
                 const response = await axios.post('http://localhost:8080/api/ratings/submit', payload);
                 return response.data; // Assuming the backend responds with data
@@ -24,10 +24,11 @@ const RatingSection: React.FC = () => {
 
     const handleRating = async (value: number) => {
         try {
-            const response = await useApiCall.mutateAsync({ value: value });
-            if (response) {
-                setRating(value);
-            }
+            const userId = 1; // Replace with actual user ID
+            const itemId = 1; // Replace with actual item ID
+
+            await useApiCall.mutateAsync({ value, userId, itemId });
+            setRating(value);
         } catch (error) {
             console.error('Failed to submit rating:', error);
         }

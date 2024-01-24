@@ -1,10 +1,10 @@
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
-import {Link, useLocation} from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import "../../css/eventsPage.css"
 import {useEffect, useState} from "react";
 import gsap from "gsap";
 import {toast, ToastContainer} from "react-toastify";
-import { useMutation} from "@tanstack/react-query";
+import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {FaRegWindowClose} from "react-icons/fa";
@@ -69,6 +69,18 @@ const EventsPage = () =>{
 
     const{errors} = formState;
 
+    // Fetching data from API
+    const{data:eventData} = useQuery({
+        queryKey:["GET_EVENT_DATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/event/getAll")
+        }
+    })
+
+    // Separate anniversary and birthday events
+    const anniversaryEvents = eventData?.data.filter(event => event?.eventName === 'Wedding Anniversary') || [];
+    const birthdayEvents = eventData?.data.filter(event => event?.eventName === 'Birthday') || [];
+
     return(
         <>
             <div className={"events-page-div"}>
@@ -77,37 +89,47 @@ const EventsPage = () =>{
                     <h1>events<b>.</b></h1>
                 </div>
                 <div className={"events-main-container"}>
-                    <div className={"anniversary-div"}>
-                        <div className={"anniversary-img"}>
-                            <img src={"https://i.pinimg.com/564x/3e/45/6d/3e456db18497f04e41d7bb5a7c40d67f.jpg"} alt={"Anniversary"}/>
-                            <div className={"img-overlay"}></div>
-                            <Link to={"/AnniversaryPage"}><div className={"book-btn"}>
-                                <h2>BOOK</h2>
-                            </div></Link>
+                    {/* Display Anniversary Events */}
+                    {anniversaryEvents.map((event, index) => (
+                        <div className={"anniversary-div"} key={`anniversary-${index}`}>
+                            <div className={"anniversary-img"}>
+                                <img src={event?.eventImage} alt={event?.eventName} />
+                                <div className={"img-overlay"}></div>
+                                <div className={"book-btn"} onClick={() => handleBookClick('anniversary')}>
+                                    <h2>BOOK</h2>
+                                </div>
+                            </div>
+                            <div className={"anniversary-info"}>
+                                <h1>{event?.eventName}</h1>
+                                {/*{event?.eventDescription}*/}
+                                <p>Create unforgettable anniversary celebrations with feast! Our user-friendly platform streamlines the planning process, allowing you to personalize every detail, from decorations to invitations.Explore romantic decor options, and customize your celebration with cake and catering choices.</p>
+                                <p style={{fontSize:"1.6rem"}}>Rs. {event?.eventPrice}</p>
+                                <button onClick={() => handleBookClick('anniversary')}>Book</button>
+                            </div>
                         </div>
-                        <div className={"anniversary-info"}>
-                            <h1>Wedding Anniversary</h1>
-                            <p> - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum nisi sem, quis luctus arcu malesuada ac. Suspendisse a tempor lorem. Donec eu arcu at sapien laoreet auctor. Mauris tincidunt ornare efficitur. Nulla erat risus, pulvinar aliquet sapien eget, posuere</p>
-                            <button onClick={() => handleBookClick('anniversary')}>Book</button>
+                    ))}
+
+                    {/* Display Birthday Events */}
+                    {birthdayEvents.map((event, index) => (
+                        <div className={"birthday-div"} key={`birthday-${index}`}>
+                            <div className={"birthday-info"}>
+                                <h1>{event?.eventName}</h1>
+                                {/*{event?.eventDescription}*/}
+                                <p>Celebrate birthdays like never before with our dedicated birthday party planning feature! feast is your go-to companion for creating magical moments that will be cherished forever.Our easy-to-use platform lets you plan your party with cool themes and decorations in a snap.</p>
+                                <p style={{fontSize:"1.6rem"}}>Rs. {event?.eventPrice}</p>
+                                <button onClick={() => handleBookClick('birthday')}>Book</button>
+                            </div>
+                            <div className={"birthday-img"}>
+                                <img src={event?.eventImage} alt={event?.eventName} />
+                                <div className={"img-overlay"}></div>
+                                <div className={"book-btn"} onClick={() => handleBookClick('birthday')}>
+                                    <h2>BOOK</h2>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className={"birthday-div"}>
-                        <div className={"birthday-info"}>
-                            <h1>Birthday</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum nisi sem, quis luctus arcu malesuada ac. Suspendisse a tempor lorem. Donec eu arcu at sapien laoreet auctor. Mauris tincidunt ornare efficitur. Nulla erat risus, pulvinar aliquet sapien eget, posuere
-                            </p>
-                            <button onClick={() => handleBookClick('birthday')}>Book</button>
-                        </div>
-                        <div className={"birthday-img"}>
-                            <img src={"https://i.pinimg.com/564x/6a/bc/fc/6abcfcc48c9c35224ccf6e8b1ac90cc6.jpg"} alt={"Birthday image"}/>
-                            <div className={"img-overlay"}></div>
-                            <Link to={"/BirthdayPage"}><div className={"book-btn"}>
-                                <h2>BOOK</h2>
-                            </div></Link>
-                        </div>
-                    </div>
+                    ))}
                 </div>
+
                 <div className={"line2"}></div>
                 <div className={"copyright-text"}>
                     <h5>Copyright © 2023/2024 Feast</h5>
@@ -124,16 +146,16 @@ const EventsPage = () =>{
                         </button>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className={"event-modal-name"}>
-                                <label>Name:</label>
-                                <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>
-                                <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>
-                            </div>
-                            <div className={"event-modal-contact"}>
-                                <label>Contact:</label>
-                                <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>
-                                <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>
-                            </div>
+                            {/*<div className={"event-modal-name"}>*/}
+                            {/*    <label>Name:</label>*/}
+                            {/*    <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>*/}
+                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>*/}
+                            {/*</div>*/}
+                            {/*<div className={"event-modal-contact"}>*/}
+                            {/*    <label>Contact:</label>*/}
+                            {/*    <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>*/}
+                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>*/}
+                            {/*</div>*/}
                             <div className={"event-modal-date-time-guests"}>
                                 <div className={"event-modal-date"}>
                                     <label>Date:</label>

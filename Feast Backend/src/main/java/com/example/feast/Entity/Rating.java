@@ -1,39 +1,28 @@
+// Rating.java
 package com.example.feast.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ratings")
-public class
-Rating {
+public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rating_id", nullable = false)
     private Long id;
 
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    private Long productId;
+    @Column(name = "item_id", nullable = false)
+    private Long itemId;
 
+    @Column(name = "value", nullable = false)
     private int value; // Rating value (1-5)
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-
 }
