@@ -101,8 +101,9 @@ const EventsPage = () =>{
                             </div>
                             <div className={"anniversary-info"}>
                                 <h1>{event?.eventName}</h1>
-                                <p>{event?.eventDescription}</p>
-                                <p>Rs. {event?.eventPrice}</p>
+                                {/*{event?.eventDescription}*/}
+                                <p>Create unforgettable anniversary celebrations with feast! Our user-friendly platform streamlines the planning process, allowing you to personalize every detail, from decorations to invitations.Explore romantic decor options, and customize your celebration with cake and catering choices.</p>
+                                <p style={{fontSize:"1.6rem"}}>Rs. {event?.eventPrice}</p>
                                 <button onClick={() => handleBookClick('anniversary')}>Book</button>
                             </div>
                         </div>
@@ -113,8 +114,9 @@ const EventsPage = () =>{
                         <div className={"birthday-div"} key={`birthday-${index}`}>
                             <div className={"birthday-info"}>
                                 <h1>{event?.eventName}</h1>
-                                <p>{event?.eventDescription}</p>
-                                <p>Rs. {event?.eventPrice}</p>
+                                {/*{event?.eventDescription}*/}
+                                <p>Celebrate birthdays like never before with our dedicated birthday party planning feature! feast is your go-to companion for creating magical moments that will be cherished forever.Our easy-to-use platform lets you plan your party with cool themes and decorations in a snap.</p>
+                                <p style={{fontSize:"1.6rem"}}>Rs. {event?.eventPrice}</p>
                                 <button onClick={() => handleBookClick('birthday')}>Book</button>
                             </div>
                             <div className={"birthday-img"}>

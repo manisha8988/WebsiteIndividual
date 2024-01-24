@@ -205,11 +205,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown /></span></Link>
+                    <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown style={{fontSize:"1.2rem" ,marginBottom:"-3px",marginRight:"3px"}}/></span></Link>
                     {user && (
                         <>
                             <span className={"fullnamedisplay"}>{user.fullName}</span>
-                            <button className={"logout-btn"} onClick={handleLogout}>Logout</button>
+                            <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
                         </>
                     )}
                     {!localStorage.getItem("userDetails") &&

@@ -47,11 +47,11 @@ public class EventBooking {
     private boolean eventStatus;
 
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "event_user",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<User> users;
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "event_user",
+//            joinColumns = @JoinColumn(name = "event_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private Set<User> users;
 }

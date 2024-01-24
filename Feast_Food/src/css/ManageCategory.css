@@ -157,7 +157,7 @@ body.active-modal {
     position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
     background: #dcdbdb;
     padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 30vw;   height: 55vh;   z-index: 109;  text-decoration: underline;
+    width: 30vw;   height: 45vh;   z-index: 109;  text-decoration: underline;
 }
 .close-add-category-btn {
     width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
@@ -174,7 +174,7 @@ body.active-modal {
     display: block;
 }
 .category-name{
-    position: absolute;  top: 12rem;
+    position: absolute;  top: 6rem;
     font-size: 1.7rem;
 }
 .category-name input{

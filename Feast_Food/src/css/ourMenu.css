@@ -67,11 +67,14 @@
     font-size: 25px;
     font-weight: 300;
     line-height: 60px;
-    margin: 10px 0;
+    /*margin: 10px 0;*/
     text-transform: capitalize;
 }
 .price-addtocart-div{
     /*background-color: #222222;*/
+    display: flex;
+    height: 3rem;
+    align-items: center;
     position: relative;
 }
 
@@ -79,23 +82,25 @@
     font-weight: 300;
     font-size: 1.3rem;
     line-height: 22px;
-    margin: 10px 0;
+    /*margin: 10px 0;*/
     display: inline-block;
 }
 
 .price-addtocart-div button{
     font-size: 1.4vw;
-    width: 9.5vw;
-    height: 3.8vw;
-    margin-top: -0.4rem;
+    width: 9.3vw;
+    height: 3.2vw;
+    margin-top: -1.2rem;
+    padding-bottom: 5px;
     position: absolute;
     right: 0;
-    background-color: #bbbbb5;
+    color: white;
+    background-color: #afa193;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border-radius: 3px;
 }
 .price-addtocart-div button:hover {
-    background: #7c7462;
+    background: #bbbbb5;
     color: black;
     box-shadow: 8px 8px 10px -1px rgba(25, 47, 65, 0.16);
 }

@@ -200,10 +200,10 @@ const ManageCategory: React.FC = () =>  {
                                 <FaRegWindowClose />
                             </button>
 
-                            <div className={"category-id-number"}>
-                                <label>ID</label>
-                                <input type={"number"} placeholder={"Enter ID"}/>
-                            </div>
+                            {/*<div className={"category-id-number"}>*/}
+                            {/*    <label>ID</label>*/}
+                            {/*    <input type={"number"} placeholder={"Enter ID"}/>*/}
+                            {/*</div>*/}
                             <div className={"category-name"}>
                                 <label>Category Name</label>
                                 <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>

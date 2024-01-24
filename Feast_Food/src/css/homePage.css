@@ -97,8 +97,9 @@ body, html {
     text-decoration: underline;
     /*background-color: #f3ad16;*/
 }
-.recommendation-div{
+.recommendation-div h2{
     /*background-color: #f3ad16;*/
+    font-size: 3rem;
 }
 .view-more-btn{
     display: flex;

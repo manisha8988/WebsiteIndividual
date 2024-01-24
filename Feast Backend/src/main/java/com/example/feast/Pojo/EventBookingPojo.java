@@ -18,6 +18,7 @@ public class EventBookingPojo {
 
     private Long event;
 
+    @NotNull
     private Date eventDate;
 
     private LocalTime eventTime;
@@ -27,6 +28,4 @@ public class EventBookingPojo {
     private String specialRequest;
 
     private boolean eventStatus;
-
-
 }
