@@ -20,6 +20,7 @@ public interface ManageTableService {
     void deleteById(Integer id);
 
     String update(Integer id, ManageTablePojo manageTablePojo);
+    public Boolean checkTable(String table);
 
 }
 

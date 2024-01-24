@@ -1,5 +1,5 @@
 import "../css/adminSidebar.css"
-import { MdSpaceDashboard} from "react-icons/md";
+import {MdSpaceDashboard, MdTableRestaurant} from "react-icons/md";
 import { BiSolidCategoryAlt} from "react-icons/bi";
 import {TiHome} from "react-icons/ti";
 import {IoMdLogOut} from "react-icons/io";
@@ -46,12 +46,12 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                             </li>
                         </Link>
 
-                        <Link to={"/booking"}>
-                            <li className={`sidebar-list-item ${activePage === "/booking" ? "active" : ""}`}>
-                                <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
-                                <a>Booking</a>
-                            </li>
-                        </Link>
+                        {/*<Link to={"/booking"}>*/}
+                        {/*    <li className={`sidebar-list-item ${activePage === "/booking" ? "active" : ""}`}>*/}
+                        {/*        <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>*/}
+                        {/*        <a>Booking</a>*/}
+                        {/*    </li>*/}
+                        {/*</Link>*/}
 
                         <Link to={"/EventPage"}>
                             <li className={`sidebar-list-item ${activePage === "/EventPage" ? "active" : ""}`}>
@@ -73,8 +73,25 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                                 <a>Manage items</a>
                             </li>
                         </Link>
+
+                        <Link to={"/manageTable"}>
+                            <li className={`sidebar-list-item ${activePage === "/manageTable" ? "active" : ""}`}>
+                                <span><MdTableRestaurant style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <a>ManageTable</a>
+                            </li>
+                        </Link>
+
+                        <Link to={"/reservedTable"}>
+                            <li className={`sidebar-list-item ${activePage === "/reservedTable" ? "active" : ""}`}>
+                                <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <a>ReservedTable</a>
+                            </li>
+                        </Link>
+
                     </ul>
                 </div>
+
+
 
                 <div className={"sidebar-btn"}>
                     <button type={"button"}><span><IoMdLogOut style={{fontSize:"1.3rem" ,marginBottom:"-3px",marginRight:"3px"}}/></span>Log Out</button>

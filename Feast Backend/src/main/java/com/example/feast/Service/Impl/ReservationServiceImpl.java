@@ -63,7 +63,7 @@ public class ReservationServiceImpl implements ReservationService {
     public Integer deleteById(Integer id) {
         Integer tableId =reservationRepo.findById(id).get().getTable().getId();
         reservationRepo.deleteById(id);
-        System.out.println("Delete Successfully");
+
         return tableId;
     }
 
