@@ -113,26 +113,30 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     console.log("User",user.fullName)
 
     const useApiCallLogin = useMutation({
-
         mutationKey: ["POST_USER_LOGIN"],
         mutationFn: (payload: any) => {
             console.log(payload);
             return axios.post("http://localhost:8080/register/login", payload);
         },
         onSuccess: (response) => {
-            const userData = response.data; // Assuming that the user details are in the response data
+            const userData = response.data;
 
             if (userData) {
                 console.log("User Data:", userData);
-                try {
 
+                try {
                     localStorage.setItem("userDetails", JSON.stringify(userData));
-                    handleLoginSuccess(); // Trigger login success callback
-                    const data:any=JSON.parse(localStorage.getItem("userDetails"));
+                    handleLoginSuccess();
+                    const data: any = JSON.parse(localStorage.getItem("userDetails"));
                     console.log(data);
                     console.log(typeof data);
                     setUser(data);
                     reset();
+
+                    if (userData.roles === "ADMIN") {
+                        // Redirect to admin page or perform admin-related actions
+                        navigate('/AdminDashboard'); // Assuming you have a route for the admin page
+                    }
                 } catch (error) {
                     console.error("Error storing user details in local storage:", error);
                 }

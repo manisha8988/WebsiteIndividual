@@ -29,4 +29,7 @@ public class User {
 
     @Column(name="security_question", nullable = false)
     private String securityQuestion;
+
+    @Column(name="roles", nullable = false)
+    private String roles="users";
 }

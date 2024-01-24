@@ -25,4 +25,6 @@ public class UserPojo {
 
     @NotNull(message="security question is required")
     private String securityQuestion;
+
+    private String roles;
 }
