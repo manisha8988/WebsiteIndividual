@@ -66,43 +66,6 @@ const ReservedTable = () => {
                                         <th className={"delete-box2"}>Delete</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    {/* Uncomment and modify the following block based on your needs */}
-                                    {/* {filteredData?.map((i) => (
-                      <tr key={i?.id}>
-                        <td>{i?.id}</td>
-                        <td>{i?.name}</td>
-                        <td>
-                          <button
-                            className={"edit-btn2"}
-                            onClick={() => {
-                              // navigate("/edit/" + i?.id);
-                              console.log(i?.id);
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            className={"delete-btn2"}
-                            onClick={() => {
-                              // Display confirmation prompt before deletion
-                              // if (
-                              //   window.confirm(
-                              //     "Are you sure you want to delete this category?"
-                              //   )
-                              // ) {
-                              //   deleteByIdApi.mutate(i?.id);
-                              // }
-                            }}
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))} */}
-                                    </tbody>
                                 </table>
                             </div>
                         </div>

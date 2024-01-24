@@ -9,7 +9,6 @@ import OurMenu from "./pages/ourMenu.tsx";
 import ReservationPage from "./pages/reservation/reservationPage.tsx";
 import Payment from "./pages/payment.tsx";
 import ContactPage from "./pages/contactPage.tsx";
-import Booking from "./pages/booking.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import Reservation from "./pages/reservation/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
@@ -22,6 +21,8 @@ import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
 import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
+import ManageTable from "./pages/ManageTable.tsx";
+import ReservedTable from "./pages/ReservedTable.tsx";
 
 
 
@@ -42,7 +43,6 @@ function App() {
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/AdminEvent", element: <AdminEvent/>},
                     {path: "/EditEvent/:pk_id", element: <EditEvent/>},
-                    {path: "/Booking", element: <Booking/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},
                     {path: "/ReservationPage", element: <ReservationPage/>},
@@ -56,7 +56,10 @@ function App() {
                     {path: "/HomeDelivery", element: <HomeDelivery/>},
                     {path: "/Reservation", element: <Reservation/>},
                     {path: "/CustomizePizza", element: <CustomizePizzaPage/>},
-                    {path:"/Rate",element:<RatingSection/>}
+                    {path:"/Rate",element:<RatingSection/>},
+                    {path:"/ManageTable",element:<ManageTable/>},
+                    {path:"/ReservedTable",element:<ReservedTable/>},
+
                 ])} />
             </QueryClientProvider>
         </>

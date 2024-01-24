@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { IoIosAddCircle } from "react-icons/io";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 
@@ -54,21 +53,8 @@ const ManageTable = () => {
                 </header>
                 <div className={"manageTable-main-content"}>
                     <div className={"ManageTableMain-content"}>
-                        <div className={"btn1"}>
-                            <button type={"button"} onClick={toggleCatgModal}>
-                <span>
-                  <IoIosAddCircle
-                      style={{ fontSize: "1.5rem", marginBottom: "-4px" }}
-                  />
-                </span>
-                                Add Table
-                            </button>
-                        </div>
 
                         <div className={"table-container2"}>
-                            <div className={"card-header2"}>
-                                <h2>Tables</h2>
-                            </div>
                             <div className={"card-body2"}>
                                 <table className={"table-bordered2"}>
                                     <thead>
@@ -76,47 +62,9 @@ const ManageTable = () => {
                                         <th className={"id-box2"}>ID</th>
                                         <th className={"name-box2"}>Table Name</th>
                                         <th className={"Status-box2"}>Status</th>
-                                        <th className={"edit-box2"}>Edit</th>
                                         <th className={"delete-box2"}>Delete</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    {/* Uncomment and modify the following block based on your needs */}
-                                    {/* {filteredData?.map((i) => (
-                      <tr key={i?.id}>
-                        <td>{i?.id}</td>
-                        <td>{i?.name}</td>
-                        <td>
-                          <button
-                            className={"edit-btn2"}
-                            onClick={() => {
-                              // navigate("/edit/" + i?.id);
-                              console.log(i?.id);
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            className={"delete-btn2"}
-                            onClick={() => {
-                              // Display confirmation prompt before deletion
-                              // if (
-                              //   window.confirm(
-                              //     "Are you sure you want to delete this category?"
-                              //   )
-                              // ) {
-                              //   deleteByIdApi.mutate(i?.id);
-                              // }
-                            }}
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))} */}
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
