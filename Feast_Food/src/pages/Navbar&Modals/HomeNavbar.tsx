@@ -299,7 +299,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                     )}
                                 </div>
                                 <span className={"iconuser"}><FaUser /> </span>
-                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                {/*<span className={"iconpassword"}><RiLockPasswordFill /></span>*/}
                                 <div className={"password"}>
                                     <input type={"password"} placeholder={"Password"}   {...register("password",
                                         {required:"Password is required!!"})}/>
@@ -310,7 +310,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                     )}
 
                                 </div>
-                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                {/*<span className={"iconpassword"}><RiLockPasswordFill /></span>*/}
                                 <div className={"password"}>
 
                                     <input type={"password"} placeholder={"Confirm Password"}

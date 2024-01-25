@@ -29,6 +29,14 @@ public class OrderController {
         return "Saved Successfully!";
     }
 
+    @PostMapping(value = "/saveAll")
+    public String saveOrder(@Valid @RequestBody List<OrderPojo> orderPojos) {
+        for (OrderPojo orderpojo:orderPojos){
+            orderService.save(orderpojo);
+        }
+        return "Saved Successfully!";
+    }
+
     @GetMapping("/getAll")
     public List<Order> getALl() {
         return orderService.getALl();

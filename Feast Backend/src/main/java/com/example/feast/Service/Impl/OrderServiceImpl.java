@@ -4,6 +4,7 @@ import com.example.feast.Entity.Item;
 import com.example.feast.Entity.Order;
 import com.example.feast.Entity.User;
 import com.example.feast.Pojo.OrderPojo;
+import com.example.feast.Repo.CartRepo;
 import com.example.feast.Repo.ItemRepo;
 import com.example.feast.Repo.OrderRepo;
 import com.example.feast.Repo.UserRepo;
@@ -23,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepo orderRepo;
     private final UserRepo userRepo;
     private final ItemRepo itemRepo;
+    private final CartRepo cartRepo;
 
     @Override
     public String save(OrderPojo orderPojo) {
@@ -39,6 +41,8 @@ public class OrderServiceImpl implements OrderService {
         order.setItem(item);
 
         order.setQuantity(orderPojo.getQuantity());
+
+        cartRepo.deleteByUserId(orderPojo.getUser());
 
         return orderRepo.save(order).getUser().getEmail();
     }
