@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public interface ReservationService {
-    Reservation saveReservation(ReservationPojo reservationPojoPojo);
+    Reservation saveReservation(ReservationPojo reservationPojo);
 
 
     List<Reservation> findAll();

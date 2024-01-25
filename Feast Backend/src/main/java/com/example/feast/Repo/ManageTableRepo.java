@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ManageTableRepo extends JpaRepository<ManageTable,Integer> {
-
+    boolean existsByTableName(String tableName);
 }

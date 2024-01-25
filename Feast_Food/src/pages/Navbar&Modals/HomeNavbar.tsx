@@ -6,7 +6,7 @@ import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
 import "../../css/LoginPage.css"
-import "../../css/RegistrationPage.css"
+// import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";

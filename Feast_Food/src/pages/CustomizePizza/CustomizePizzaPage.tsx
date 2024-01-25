@@ -55,6 +55,10 @@ const CustomizePizzaPage: React.FC = () => {
 
         // Update the total price
         setTotalPrice((prevTotalPrice) => prevTotalPrice + (customization[option] ? -price : price));
+
+        setTimeout(() => {
+            setMessages((prevMessages) => prevMessages.slice(0, -1));
+        }, 3000);
     };
 
     const handleCustomizeClick = async () => {
@@ -113,11 +117,15 @@ const CustomizePizzaPage: React.FC = () => {
                         ))}
                     </div>
                     <div className="item-right">
-                        <div className={"sub-heading-right"}>Total Price</div>
-                        <div className="item-price">Rs.{totalPrice}</div>
+                        <div className={"sub-heading-right"}>Price</div>
+
                     </div>
                 </div>
                 <div className={"line-bottom"}></div>
+                <div className={"price22"}>
+                    <div className={"price-real"}>Total Price</div>
+                    <div className="item-price">Rs.{totalPrice}</div>
+                </div>
                 <div className={"send-button"}>
                     <button className={"customize-button"} onClick={handleCustomizeClick}>
                         Customize

@@ -54,4 +54,10 @@ public class ManageTableServiceImpl implements ManageTableService {
         manageTableRepo.save(manageTable);
         return "Update successfully";
     }
+
+    @Override
+    public Boolean checkTable(String table){
+        return manageTableRepo.existsByTableName(table);
+
+    }
 }
