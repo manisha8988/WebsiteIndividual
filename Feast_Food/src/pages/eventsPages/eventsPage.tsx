@@ -146,16 +146,16 @@ const EventsPage = () =>{
                         </button>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className={"event-modal-name"}>
-                                <label>Name:</label>
-                                <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>
-                                <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>
-                            </div>
-                            <div className={"event-modal-contact"}>
-                                <label>Contact:</label>
-                                <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>
-                                <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>
-                            </div>
+                            {/*<div className={"event-modal-name"}>*/}
+                            {/*    <label>Name:</label>*/}
+                            {/*    <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>*/}
+                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>*/}
+                            {/*</div>*/}
+                            {/*<div className={"event-modal-contact"}>*/}
+                            {/*    <label>Contact:</label>*/}
+                            {/*    <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>*/}
+                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>*/}
+                            {/*</div>*/}
                             <div className={"event-modal-date-time-guests"}>
                                 <div className={"event-modal-date"}>
                                     <label>Date:</label>
