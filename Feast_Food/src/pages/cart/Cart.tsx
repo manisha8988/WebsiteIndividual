@@ -3,11 +3,16 @@
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/Cart.css"
 import {Link, useLocation} from "react-router-dom";
+import {useState} from "react";
 
 
 const Cart = () => {
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+
+    const [count , setCount] =useState(0);
+
+
     return (
         <div className={"cart-container"}>
             <HomeNavbar activePage={currentLocation} />
@@ -35,10 +40,10 @@ const Cart = () => {
                         </div>
 
                         <div className={"add-minus-quantity"}>
-                            <i className={"fas fa-minus minus"}> </i>
-                            <input type={"text"} placeholder={"2"}/>
-                            <i className={"fas fa-plus add"}> </i>
-
+                            <button className={"fas fa-minus minus"} onClick={() =>
+                                (count ===0)? setCount(0): setCount(count - 1)}></button>
+                            <p>{count}</p>
+                            <button className={"fas fa-plus add"} onClick={() => setCount(count + 1)}></button>
                         </div>
 
                         <div className={"sub-total"}>
@@ -46,7 +51,7 @@ const Cart = () => {
                         </div>
 
                         <div className={"remove-item"}>
-                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                            <i className="fas fa-trash-alt remove" style={{color: 'red'}}></i>
                         </div>
                     </div>
                     <hr/>
@@ -119,7 +124,6 @@ const Cart = () => {
                             <i className={"fas fa-minus minus"}> </i>
                             <input type={"text"} placeholder={"2"}/>
                             <i className={"fas fa-plus add"}> </i>
-
                         </div>
 
                         <div className={"sub-total"}>
@@ -143,10 +147,9 @@ const Cart = () => {
                         </div>
 
                         <div className={"add-minus-quantity"}>
-                            <i className={"fas fa-minus minus"}> </i>
-                            <input type={"text"} placeholder={"2"}/>
-                            <i className={"fas fa-plus add"}> </i>
-
+                            <button className={"fas fa-minus minus"} onClick={() => setCount(count-1)}> </button>
+                            <p>{count}</p>
+                            <button className={"fas fa-plus add"} onClick={() => setCount(count + 1)}></button>
                         </div>
 
                         <div className={"sub-total"}>

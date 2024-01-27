@@ -21,8 +21,12 @@ import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
 import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
+<<<<<<< Updated upstream
 import ManageTable from "./pages/ManageTable.tsx";
 import ReservedTable from "./pages/ReservedTable.tsx";
+=======
+import AddToCart from "./pages/cart/addToCart.tsx";
+>>>>>>> Stashed changes
 
 
 
@@ -56,10 +60,15 @@ function App() {
                     {path: "/HomeDelivery", element: <HomeDelivery/>},
                     {path: "/Reservation", element: <Reservation/>},
                     {path: "/CustomizePizza", element: <CustomizePizzaPage/>},
+<<<<<<< Updated upstream
                     {path:"/Rate",element:<RatingSection/>},
                     {path:"/ManageTable",element:<ManageTable/>},
                     {path:"/ReservedTable",element:<ReservedTable/>},
 
+=======
+                    {path:"/Rate",element:<RatingSection/>}
+                    // {path:"/AddToCart",element:<AddToCart/>}
+>>>>>>> Stashed changes
                 ])} />
             </QueryClientProvider>
         </>
