@@ -28,6 +28,4 @@ public class Cart {
     @Column(name="quantity")
     private Integer quantity;
 
-
-
 }

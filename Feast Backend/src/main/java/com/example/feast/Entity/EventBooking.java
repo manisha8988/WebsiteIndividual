@@ -10,7 +10,7 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
 
-@Table(name = "eventbookings")
+@Table(name = "eventbooking")
 @Entity
 @Getter
 @Setter

@@ -6,11 +6,13 @@ import com.example.feast.Pojo.CartPojo;
 import com.example.feast.Service.CartService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("/cart")
 public class CartController {
@@ -27,8 +29,21 @@ public class CartController {
         return cartService.getAll();
     }
 
-    @DeleteMapping("/deleteById")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable("id") Long id){
       cartService.deleteById(id);
+    }
+
+    @PutMapping("/updateQuantity/{id}")
+    public ResponseEntity<String> updateQuantity(
+            @PathVariable("id") Long id,
+            @RequestParam("quantity") int quantity
+    ) {
+        try {
+            cartService.updateQuantity(id, quantity);
+            return ResponseEntity.ok("Quantity updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Failed to update quantity");
+        }
     }
 }

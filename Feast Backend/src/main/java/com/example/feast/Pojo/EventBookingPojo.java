@@ -14,13 +14,16 @@ import java.util.Date;
 public class EventBookingPojo {
     private Long id;
 
-    private Long user;
+//    @NotNull
+    private Long userId;
 
-    private Long event;
+//    @NotNull
+    private Long eventId;
 
     @NotNull
     private Date eventDate;
 
+    @NotNull
     private LocalTime eventTime;
 
     private Integer noOfGuest;

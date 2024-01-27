@@ -12,6 +12,8 @@ import com.example.feast.Service.CartService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -56,10 +58,17 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        cartRepo.deleteById(id);
+    public void deleteById(Long id) {cartRepo.deleteById(id);
     }
 
+    @Override
+    public void updateQuantity(@PathVariable Long id, @RequestParam("newQuantity") int newQuantity) {
+        Cart cartItem = cartRepo.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Cart item not found with ID: " + id));
+
+        cartItem.setQuantity(newQuantity);
+        cartRepo.save(cartItem);
+    }
 }
 
 
