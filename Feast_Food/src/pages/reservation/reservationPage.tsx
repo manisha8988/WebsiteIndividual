@@ -1,5 +1,5 @@
 import "../../css/reservationPage.css";
-import Dropdown from "./dropDown.tsx";
+// import Dropdown from "./dropDown.tsx";
 import Hour from "./hour.tsx";
 import "../../css/reservationPage.css";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx"
@@ -23,7 +23,10 @@ const ReservationPage = () =>{
                     <input type={"text"} className={"name_input"} placeholder={"Name"}/>
                     <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
                     <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
-                    <Dropdown/>
+                    <label className={"dropdown"}>Date<input type={"date"} placeholder={"Arrival Date"}/></label>
+                    {/*<Dropdown/>*/}
+                    {/*<input type={"date"} className={"dropdown"} placeholder={"Arrival Date"}/>*/}
+
                     <Hour/>
                     <button>Book A Table</button>
                 </div>
@@ -32,7 +35,6 @@ const ReservationPage = () =>{
     )
 
 }
-
 
 
 export default ReservationPage

@@ -7,6 +7,7 @@
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    font-family: "Gilroy Medium";
 }
 .reserv-container{
     width: 100vw;
@@ -47,8 +48,8 @@
     justify-content: center;
     align-items: center;
 }
-.name_input, .phno_input, .no_of_people_input{
-    font-family: Bebas Neue;
+.name_input, .phno_input, .no_of_people_input, .dropdown{
+    font-family: "Gilroy Medium";
     font-size: 20px;
     width:32vw;
     height: 4vh;
@@ -59,13 +60,14 @@
     margin:  30px 0;
     padding-left: 10px;
     background: transparent;
+    color:  rgb(133, 133, 133)
 }
 
-.select-hour, .select-day{
-    font-family: "Bebas Neue";
+.select-hour{
+    font-family: "Gilroy Medium";
     font-size: 20px;
     position: relative;
-    width:32vw;
+    width: 32vw;
     height: 4vh;
     border-top: none;
     border-right: none;
@@ -76,15 +78,34 @@
     background: transparent;
     color:  rgb(133, 133, 133)
 }
-.dropdown button{
-    background-color: transparent;
-    color: black;
-    box-shadow: none;
+.dropdown{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 32vw;
+
+}
+.dropdown input{
+    position: absolute;
+    right: 0;
+    width: 15vw;
+    height: 4vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #162938;
+    /*margin:  26px 0;*/
+    padding-left: 6px;
+    font-size: x-large;
+    background: transparent;
+    color:  rgb(133, 133, 133)
+
 }
 
 .info-reservation button{
     margin-top: 20px;
     background-color: #8d6c24;
+    font-family: "Gilroy Medium";
 }
 .info-reservation button:hover{
     color: black;
