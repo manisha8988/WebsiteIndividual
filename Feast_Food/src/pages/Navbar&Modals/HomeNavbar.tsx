@@ -13,8 +13,6 @@ import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {VscAccount} from "react-icons/vsc";
-import {IoPersonCircleOutline} from "react-icons/io5";
 // import {toast} from "react-toastify";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
@@ -33,7 +31,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const [loginSuccess, setLoginSuccess] = useState(false);
 
     const navigate = useNavigate();
-
 
 
     // Login modal
@@ -55,13 +52,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     } else {
         document.body.classList.remove('active-modal');
     }
-
-    const [userprofile_popup, setUPopup] = useState(false);
-    const toggleUSerProfileModal = () => {
-        setUPopup(!userprofile_popup);
-    };
-
-
 
     useEffect(() => {
         const storedData = localStorage.getItem("userDetails");
@@ -120,16 +110,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const [user, setUser] = useState({
 
     })
-    useEffect(() => {
-        const data: any = JSON.parse(localStorage.getItem("userDetails"));
-        setUser(data);
-
-        if (user) {
-            toggleUSerProfileModal();
-            setLoginSuccess(false);  // Reset login success state
-        }
-    }, [localStorage.getItem("userDetails")]);
-    console.log(user?.fullName)
+    console.log("User",user.fullName)
 
     const useApiCallLogin = useMutation({
         mutationKey: ["POST_USER_LOGIN"],
@@ -207,7 +188,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     }
 
 
-
     return(
         <>
             <div className={"nav-bar"}>
@@ -226,11 +206,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                 <div className={"hp-navright"}>
                     <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown style={{fontSize:"1.2rem" ,marginBottom:"-3px",marginRight:"3px"}}/></span></Link>
-
-
                     {user && (
                         <>
-                            <Link to={"/UserProfileView"}><span className={"icon-cart"}><VscAccount style={{fontSize:"1.2rem" ,marginBottom:"-3px",marginRight:"30px" , marginLeft:"30px"}}/></span></Link>
+                            <span className={"fullnamedisplay"}>{user.fullName}</span>
                             <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
                         </>
                     )}
@@ -373,54 +351,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     </div>
                 </div>
             )}
-
-
-            {userprofile_popup && (
-                <div className={"user_profile_main"}>
-                    <div className={"cross-icon"}>
-                        <button>
-                    <span>
-                        <FaRegWindowClose/>
-                    </span>
-                        </button>
-                    </div>
-                    <div className={"my_profile"}>
-                        <h1>My Profile</h1>
-
-                        <form className={"user_profile_form"}>
-                            <div className={"user_icon"}>
-                    <span>
-                        <IoPersonCircleOutline size={100}/>
-                    </span>
-                            </div>
-
-                            <div className={"name"}>
-                                <p className={"name-box"}>
-                                    Name :{user.fullName}
-                                </p>
-                                <p className={"email-box"}>
-                                    Email :{user.email}
-                                </p>
-                            </div>
-
-                            <div className={"order_history"}>
-                                <button>
-                                    Order History
-                                </button>
-                            </div>
-
-                            <div className={"login_button"}>
-                                <button>
-                                    Login
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )
-
-
-            }
 
         </>
     )
