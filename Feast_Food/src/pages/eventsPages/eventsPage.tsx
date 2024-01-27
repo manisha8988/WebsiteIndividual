@@ -28,6 +28,10 @@ const EventsPage = () =>{
     const toggleModal = (type: string | null) => {
         setModalType(type);
     };
+    const closeModal = () => {
+        toggleModal(null);
+        reset(); // Reset the form when the modal is closed
+    };
 
     const handleBookClick = (type: string) => {
         toggleModal(type);
@@ -165,7 +169,7 @@ const EventsPage = () =>{
                     <div onClick={() => toggleModal(null)} className={`${modalType}-modal-overlay`}></div>
                     <div className={`${modalType}-modal-content`}>
                         <h2>{modalType === 'anniversary' ? 'Wedding Anniversary' : 'Birthday'}</h2>
-                        <button className={`close-${modalType}-modal-btn`} onClick={() => toggleModal(null)}>
+                        <button className={`close-${modalType}-modal-btn`} onClick={closeModal}>
                             <FaRegWindowClose />
                         </button>
 
@@ -173,9 +177,19 @@ const EventsPage = () =>{
                             <div className={"event-modal-date-time-guests"}>
                                 <div className={"event-modal-date"}>
                                     <label>Date:</label>
-                                    <input type={"date"}
-                                           className={"event-modal-date-input"}{...register("eventDate", {required: "Date is required!!"})}/>
-                                    <h6 style={{paddingLeft: "3px"}}>{errors?.eventDate?.message}</h6>
+                                    <input
+                                        type={"date"}
+                                        className={"event-modal-date-input"}
+                                        {...register("eventDate", {
+                                            required: "Date is required!!",
+                                            validate: value => {
+                                                const selectedDate = new Date(value);
+                                                const currentDate = new Date();
+                                                return selectedDate >= currentDate || "Selected date cannot be in the past";
+                                            }
+                                        })}
+                                    />
+                                    <h6 style={{ paddingLeft: "3px" }}>{errors?.eventDate?.message}</h6>
                                 </div>
                                 <div className={"event-modal-time"}>
                                     <label>Arrival Time: </label>
@@ -185,19 +199,28 @@ const EventsPage = () =>{
                                 </div>
                                 <div className={"event-modal-guests"}>
                                     <label>No. of Guests: </label>
-                                    <input type={"number"}
-                                           className={"event-modal-guests-input"}{...register("noOfGuest", {required: "Number of guest is required!!"})}/>
-                                    <h6 style={{paddingLeft: "3px"}}>{errors?.noOfGuest?.message}</h6>
+                                    <input
+                                        type={"number"}
+                                        className={"event-modal-guests-input"}
+                                        {...register("noOfGuest", {
+                                            required: "Number of guests is required!!",
+                                            validate: value => {
+                                                return parseInt(value, 10) <= 25 || "Maximum number of guests allowed is 25";
+                                            }
+                                        })}
+                                    />
+                                    <h6 style={{ paddingLeft: "3px" }}>{errors?.noOfGuest?.message}</h6>
                                 </div>
                             </div>
                             <div className={"event-modal-request"}>
                                 <label>Special Request </label>
-                                <input type={"text"} className={"event-modal-request-input"}{...register("specialRequest")}/>
+                                <input type={"text"} className={"event-modal-request-input"} {...register("specialRequest")} />
                             </div>
                             <div className={"event-modal-book-btn"}>
                                 <button type={"submit"}>Book</button>
                             </div>
                         </form>
+
 
                     </div>
                     <ToastContainer/>
