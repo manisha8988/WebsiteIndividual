@@ -1,9 +1,18 @@
 import "../css/UserProfileView.css"
 import { IoPersonCircleOutline } from "react-icons/io5";
 import {FaRegWindowClose} from "react-icons/fa";
+import {useEffect, useState} from "react";
 
 
 function UserProfileView(){
+    const [user, setUser] = useState({
+    })
+    useEffect(() => {
+        const data: any = JSON.parse(localStorage.getItem("userDetails"));
+        setUser(data);
+    }, [localStorage.getItem("userDetails")]);
+    console.log(user?.fullName)
+
     return(
         <div className={"user_profile_main"}>
             <div className={"cross-icon"}>
@@ -25,10 +34,10 @@ function UserProfileView(){
 
                 <div className={"name"}>
                     <p className={"name-box"}>
-                        Name :
+                        Name :{user.fullName}
                     </p>
                     <p className={"email-box"}>
-                        Email :
+                        Email :{user.email}
                     </p>
                 </div>
 

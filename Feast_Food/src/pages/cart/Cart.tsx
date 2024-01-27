@@ -1,8 +1,11 @@
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/Cart.css"
 import {Link, useLocation} from "react-router-dom";
+<<<<<<< HEAD
+=======
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
+>>>>>>> ae5584e5089cab8344191e060552aa8f2935e867
 import {useState} from "react";
 
 
@@ -11,6 +14,10 @@ const Cart = () => {
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
 
+<<<<<<< HEAD
+    const [count , setCount] =useState(0);
+
+=======
     // Fetching data from API
     const{data:cartData,refetch} = useQuery({
         queryKey:["GET_CART_DATA"],
@@ -55,6 +62,7 @@ const Cart = () => {
             (total, item) => total + item.total_price * item.quantity,
             0
         );
+>>>>>>> ae5584e5089cab8344191e060552aa8f2935e867
 
     return (
         <div className={"cart-container"}>
@@ -84,6 +92,14 @@ const Cart = () => {
                                         <h3>Rs. {i?.total_price}</h3>
                                     </div>
 
+<<<<<<< HEAD
+                        <div className={"add-minus-quantity"}>
+                            <button className={"fas fa-minus minus"} onClick={() =>
+                                (count ===0)? setCount(0): setCount(count - 1)}></button>
+                            <p>{count}</p>
+                            <button className={"fas fa-plus add"} onClick={() => setCount(count + 1)}></button>
+                        </div>
+=======
                                     <div className={"add-minus-quantity"}>
                                         <i
                                             className={"fas fa-minus minus"}
@@ -105,6 +121,7 @@ const Cart = () => {
                                     <div className={"sub-total"}>
                                         <h3>Rs {i?.total_price*i?.quantity}</h3>
                                     </div>
+>>>>>>> ae5584e5089cab8344191e060552aa8f2935e867
 
                                     <div className={"remove-item"}>
                                         <i className="fas fa-trash-alt remove" style={{ color: 'red' }} onClick={() => {
@@ -117,7 +134,174 @@ const Cart = () => {
                             )
                         })
 
+<<<<<<< HEAD
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{color: 'red'}}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>French Fries</h2>
+                            <p>Crispy and tasty</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs250</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <i className={"fas fa-minus minus"}> </i>
+                            <input type={"text"} placeholder={"1"}/>
+                            <i className={"fas fa-plus add"}> </i>
+
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs250</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>corn</h2>
+                            <p>Fresh and healthy</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs400</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <i className={"fas fa-minus minus"}> </i>
+                            <input type={"text"} placeholder={"1"}/>
+                            <i className={"fas fa-plus add"}> </i>
+
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs400</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>Chips</h2>
+                            <p>Fresh and healthy</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs50</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <i className={"fas fa-minus minus"}> </i>
+                            <input type={"text"} placeholder={"2"}/>
+                            <i className={"fas fa-plus add"}> </i>
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs100</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>pizza</h2>
+                            <p>Fresh and healthy</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs80</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <button className={"fas fa-minus minus"} onClick={() => setCount(count-1)}> </button>
+                            <p>{count}</p>
+                            <button className={"fas fa-plus add"} onClick={() => setCount(count + 1)}></button>
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs160</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>Non-Veg-Tha</h2>
+                            <p>Fresh and healthy</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs180</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <i className={"fas fa-minus minus"}> </i>
+                            <input type={"text"} placeholder={"1"}/>
+                            <i className={"fas fa-plus add"}> </i>
+
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs180</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div className={"items-info"}>
+                        <div className={"title"}>
+                            <h2>Sweets</h2>
+                            <p>Fresh and healthy</p>
+                        </div>
+
+                        <div className={"price"}>
+                            <h3> Rs85</h3>
+                        </div>
+
+                        <div className={"add-minus-quantity"}>
+                            <i className={"fas fa-minus minus"}> </i>
+                            <input type={"text"} placeholder={"2"}/>
+                            <i className={"fas fa-plus add"}> </i>
+
+                        </div>
+
+                        <div className={"sub-total"}>
+                            <h3> Rs170</h3>
+                        </div>
+
+                        <div className={"remove-item"}>
+                            <i className="fas fa-trash-alt remove" style={{ color: 'red' }}></i>
+                        </div>
+                    </div>
+=======
                     }
+>>>>>>> ae5584e5089cab8344191e060552aa8f2935e867
                     <hr/>
                 </div>
             </div>
