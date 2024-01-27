@@ -35,11 +35,16 @@ public class EventBookingServiceImpl implements EventBookingService {
         eventBooking.setSpecialRequest(eventBookingPojo.getSpecialRequest());
         eventBooking.setEventStatus(eventBookingPojo.isEventStatus());
 
-        User user=userRepo.findById(eventBookingPojo.getUser()).get();
+        User user = userRepo.findById(eventBookingPojo.getUserId())
+                .orElseThrow(() -> new EntityNotFoundException("User not found with Id: " + eventBookingPojo.getUserId()));
         eventBooking.setUser(user);
 
-        Event event= eventRepo.findById(eventBookingPojo.getEvent()).get();
+        Event event = eventRepo.findById(eventBookingPojo.getEventId())
+                .orElseThrow(() -> new EntityNotFoundException("Event not found with Id: " + eventBookingPojo.getEventId()));
         eventBooking.setEvent(event);
+
+        // Missing save operation
+        eventBookingRepo.save(eventBooking);
     }
 
     @Override

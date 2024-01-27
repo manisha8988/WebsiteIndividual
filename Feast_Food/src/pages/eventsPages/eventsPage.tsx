@@ -17,6 +17,14 @@ const EventsPage = () =>{
 
     const [modalType, setModalType] = useState<string | null>(null);
 
+    const [user, setUser] = useState({
+    })
+    useEffect(() => {
+        const data: any = JSON.parse(localStorage.getItem("userDetails"));
+        setUser(data);
+    }, [localStorage.getItem("userDetails")]);
+    console.log(user?.id)
+
     const toggleModal = (type: string | null) => {
         setModalType(type);
     };
@@ -50,16 +58,32 @@ const EventsPage = () =>{
     const useApiCall = useMutation({
         mutationKey:["POST_EVENT_DATA"],
         mutationFn:(payload:any)=>{
-            return axios.post("http://localhost:8088/event/save",payload)
+            return axios.post("http://localhost:8080/eventBooking/save",payload)
         },onSuccess: () => {
             reservationSuccess();
             reset();
         }
     })
 
-    const onSubmit=(value:any)=>{
-        useApiCall.mutate(value)
-    }
+    const onSubmit = (value) => {
+        if (!user || !user.id) {
+            console.error("User ID is not available.");
+            return;
+        }
+        const eventId = modalType === 'anniversary' ? 1 : 2;
+        const payload = {
+            eventDate: value.eventDate,
+            eventTime: value.eventTime,
+            noOfGuest: value.noOfGuest,
+            userId: user.id,
+            eventId: eventId,
+            specialRequest: value.specialRequest || '', // Assuming specialRequest can be optional
+        };
+
+        console.log(payload);
+        useApiCall.mutate(payload);
+    };
+
 
     //hitting server on port 8081
     const{register,
@@ -146,16 +170,6 @@ const EventsPage = () =>{
                         </button>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            {/*<div className={"event-modal-name"}>*/}
-                            {/*    <label>Name:</label>*/}
-                            {/*    <input type={"text"} className={"event-modal-name-input"} {...register("user_id", {required: "Name is required!!"})}/>*/}
-                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.user_id?.message}</h6>*/}
-                            {/*</div>*/}
-                            {/*<div className={"event-modal-contact"}>*/}
-                            {/*    <label>Contact:</label>*/}
-                            {/*    <input type={"text"} className={"event-modal-contact-input"} {...register("contact", {required: "Contact is required!!"})}/>*/}
-                            {/*    <h6 style={{paddingLeft: "3px"}}>{errors?.contact?.message}</h6>*/}
-                            {/*</div>*/}
                             <div className={"event-modal-date-time-guests"}>
                                 <div className={"event-modal-date"}>
                                     <label>Date:</label>
