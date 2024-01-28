@@ -23,6 +23,9 @@ import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
 import ManageTable from "./pages/ManageTable.tsx";
 import ReservedTable from "./pages/ReservedTable.tsx";
+import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
+import ForgotPass3 from "./pages/forgotpassword/ForgotPass3.tsx";
+import ForgotPass2 from "./pages/forgotpassword/ForgotPass2.tsx";
 
 
 const queryClient = new QueryClient();
@@ -58,7 +61,11 @@ function App() {
                     {path:"/Rate",element:<RatingSection/>},
                     {path:"/ManageTable",element:<ManageTable/>},
                     {path:"/ReservedTable",element:<ReservedTable/>},
-                    {path:"/Rate",element:<RatingSection/>}
+                    {path:"/Rate",element:<RatingSection/>},
+                    {path:"/f1",element:<ForgotPass1/>},
+                    {path:"/f2",element:<ForgotPass2/>},
+                    {path:"/f3",element:<ForgotPass3/>},
+
                 ])} />
             </QueryClientProvider>
         </>

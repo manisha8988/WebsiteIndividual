@@ -20,7 +20,6 @@ public class RatingServiceImpl implements RatingService {
     public Rating saveRating(RatingPojo ratingPojo) {
         Rating rating = new Rating();
         rating.setUserId(ratingPojo.getUserId());
-        rating.setItemId(ratingPojo.getItemId());
         rating.setValue(ratingPojo.getValue());
         return ratingRepository.save(rating);
     }
@@ -31,7 +30,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> getRatingsByItemId(Long itemId) {
-        return ratingRepository.findByItemId(itemId);
+    public Rating getRateByUser(Long userId) {
+        return ratingRepository.findRatingByUserId(userId);
     }
 }

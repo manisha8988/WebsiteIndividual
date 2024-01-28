@@ -24,7 +24,7 @@ function ForgotPass3(){
 
             </div>
             <div className={"send-button"}>
-                <Link to={"/forgot_pass3"}><button className={"sendbtn"}>SAVE</button></Link>
+                <Link to={"/"}><button className={"sendbtn"}>SAVE</button></Link>
             </div>
         </div>
     )

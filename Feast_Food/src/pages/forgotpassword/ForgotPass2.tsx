@@ -18,7 +18,7 @@ function ForgotPass2(){
                 <span className={"mail-icon"}><FaQuestionCircle /></span>
             </div>
             <div className={"send-button"}>
-                <Link to={"/forgot_pass3"}><button className={"sendbtn"}>VERIFY</button></Link>
+                <Link to={"/f3"}><button className={"sendbtn"}>VERIFY</button></Link>
             </div>
         </div>
     )

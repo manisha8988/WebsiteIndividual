@@ -19,7 +19,7 @@ function ForgotPass1(){
                 <span className={"mail-icon"}><IonIcon icon={mailOutline} /></span>
             </div>
             <div className={"send-button"}>
-                <Link to={"/forgot_pass2"}><button className={"sendbtn"}>SEND</button></Link>
+                <Link to={"/f2"}><button className={"sendbtn"}>SEND</button></Link>
             </div>
         </div>
     )
