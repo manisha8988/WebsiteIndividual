@@ -48,7 +48,7 @@
     text-shadow: 3px 3px 5px rgba(52, 52, 51, 0.57);
 }
 
-.table1photo, .table2photo, .table3photo, .table4photo, .table5photo, .table6photo, .table7photo, .table8photo, .table9photo{
+.table1photo, .table2photo, .table3photo, .table4photo, .table5photo, .table6photo, .table7photo, .table8photo, .table9photo, .table10photo, .table11photo, .table12photo{
     margin-top: 10px;
     border-radius: 50%;
 }
@@ -96,7 +96,7 @@ h6{
     letter-spacing: 2px;
 }
 
-.book-button{
+.select-button{
     margin-top: 10px;
     text-align: center;
     align-items: center;

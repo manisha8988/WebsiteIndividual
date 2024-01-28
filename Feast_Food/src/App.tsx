@@ -6,11 +6,11 @@ import ManageItem from "./pages/ManageItem.tsx";
 import HomePage from "./pages/homePage.tsx";
 import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
-import ReservationPage from "./pages/reservation/reservationPage.tsx";
+import ReservationPage from "./pages/reservationUserSide/reservationPage.tsx";
 import Payment from "./pages/payment.tsx";
 import ContactPage from "./pages/contactPage.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
-import Reservation from "./pages/reservation/reserveTable.tsx";
+import Reservation from "./pages/reservationUserSide/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
 import Cart from "./pages/cart/Cart.tsx";
 import EditCategory from "./pages/editCategory.tsx";
@@ -21,8 +21,8 @@ import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
 import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
-import ManageTable from "./pages/ManageTable.tsx";
-import ReservedTable from "./pages/ReservedTable.tsx";
+import ManageTable from "./pages/reservationAdminSide/ManageTable.tsx";
+import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 
 
 

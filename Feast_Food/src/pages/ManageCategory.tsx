@@ -163,6 +163,7 @@ const ManageCategory: React.FC = () =>  {
                                                         <td>{i?.name}</td>
                                                         <td><button className={"edit-btn2"} onClick={()=>{
                                                             navigate("/edit/"+i?.id);
+
                                                             console.log(i?.id)
                                                         }}><CiEdit /></button></td>
                                                         <td><button className={"delete-btn2"} onClick={() => {
