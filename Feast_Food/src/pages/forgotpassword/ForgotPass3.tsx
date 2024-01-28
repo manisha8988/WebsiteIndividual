@@ -9,8 +9,8 @@ function ForgotPass3(){
     return(
         <div className={"wrapper1"}>
             <div className={"heading"}>
-                <h1>CREATE NEW PASSWORD</h1>
-                <p>PLEASE ENTER YOUR NEW PASSWORD!</p>
+                <div>CREATE NEW PASSWORD</div>
+                <div>PLEASE ENTER YOUR NEW PASSWORD!</div>
             </div>
             <div className={"close-button"}>
                 <button className="close-btn2"><FaRegWindowClose/></button>

@@ -71,4 +71,24 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/resetPassword")
+    public ResponseEntity<Object> resetPassword(@RequestBody UserPojo userPojo) {
+        try {
+            // Check if new password and confirm password match
+            String newPassword = userPojo.getPassword();
+            String confirmPassword = userPojo.getConfirmPassword();
+
+            if (newPassword == null || confirmPassword == null || !newPassword.equals(confirmPassword)) {
+                throw new IllegalArgumentException("New password and confirm password do not match");
+            }
+
+            userService.resetPassword(userPojo.getEmail(), userPojo.getSecurityQuestion(), newPassword);
+            return new ResponseEntity<>("Password reset successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 }

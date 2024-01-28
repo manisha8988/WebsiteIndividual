@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import "../../css/RatingSection.css";
 
 const RatingSection: React.FC = () => {
     const [rating, setRating] = useState<number>(0);
     const user: any = JSON.parse(localStorage.getItem("userDetails"));
-    console.log(user.id);
+    // console.log(user.id);
     const useApiCall = useMutation({
         mutationKey: ['POST_RATING'],
         mutationFn: async (payload: { value: number; userId: number }) => {
@@ -23,6 +23,30 @@ const RatingSection: React.FC = () => {
             }
         },
     });
+
+    const fetchRatingByUser=async ()=>{
+        try{
+
+            const response=await axios.get(`http://localhost:8080/api/ratings/getRatingByUserId/${user.id}`)
+
+            return response.data.value;
+
+        }catch(e){
+            console.error("Failed to get rating");
+        }
+    };
+
+    const {data}= useQuery({
+        queryKey:['ratingUser'],
+        queryFn:async ()=>{
+            const data=await fetchRatingByUser();
+            await setRating(data);
+            return data;
+        },
+
+    });
+    // console.log("Helo",typeof data);
+    console.log(rating);
 
 
 
