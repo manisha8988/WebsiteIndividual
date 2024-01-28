@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="payment")
@@ -34,6 +33,8 @@ public class Payment {
 
     @Column(name = "date")
     private LocalDateTime paymentDate = LocalDateTime.now();
+
+//    @Column(name="PaymentMode")
 
 
 }

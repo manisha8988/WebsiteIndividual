@@ -2,10 +2,8 @@ package com.example.feast.Controller;
 
 import com.example.feast.Entity.ManageTable;
 import com.example.feast.Entity.Reservation;
-
 import com.example.feast.Pojo.ManageTablePojo;
 import com.example.feast.Pojo.ReservationPojo;
-
 import com.example.feast.Service.ManageTableService;
 import com.example.feast.Service.ReservationService;
 import jakarta.validation.Valid;

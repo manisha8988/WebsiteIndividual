@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Entity
 @Table(name="reserve")
 @Data
@@ -30,7 +28,7 @@ public class Reservation {
     private Integer persons;
 
     @Column(name="date" , nullable=false)
-    private Date date;
+    private String date;
 
 
     @ManyToOne
