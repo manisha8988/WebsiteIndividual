@@ -34,8 +34,14 @@ public class EventBookingController {
     public Optional<EventBooking> getById(@PathVariable("id") Long id) {
         return this.eventBookingService.getById(id);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable("id") Long id){
+        this.eventBookingService.deleteById(id);
+    }
+
     @PutMapping("/update/{id}")
-    public  String update(@PathVariable("id") Integer id){
+    public  String update(@PathVariable("id") Long id){
         return this.eventBookingService.update(Long.valueOf(id), new EventBookingPojo());
     }
 }

@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Date;
+
 
 @Getter
 @Setter
@@ -22,7 +24,7 @@ public class ReservationPojo {
     private Integer persons;
 
     @NotNull
-    private String date;
+    private Date date;
 
     private  Integer tableId;
 
