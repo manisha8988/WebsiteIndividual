@@ -1,21 +1,18 @@
-
 .rating {
     text-align: center;
-    font-family: 'Bebas Neue', sans-serif;;
-    border: solid 1px red;
+    font-family: 'Bebas Neue', sans-serif;
     position: absolute;
     box-sizing: border-box;
     flex-wrap: wrap;
     min-width: 600px;
-    background-color:#FFFAF6;
     margin-left: 25%;
     margin-right: 15%;
-    margin-top:30px;
+    margin-top: 30px;
     height: 88%;
     width: 50%;
 }
 
-.rate{
+.rate {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -23,17 +20,20 @@
 }
 
 .stars {
-    font-size: 40px;
-    cursor: pointer;
-
+    position:absolute;
+    font-size: 2em; /* Adjust the font-size to increase the star size */
+    cursor: pointer;; /* Increased star font size */
+    margin-top: 200px;
+    margin-left: 900px;
 }
 
 .star {
-    color: #ccc;
+    color: #95a5a6; /* Changed default star color */
     transition: color 0.2s;
+    font-size: 50px;
 }
 
 .star:hover,
 .star.active {
-    color: #ffcc00;
+    color: #e67e22; /* Changed star color on hover and when active */
 }

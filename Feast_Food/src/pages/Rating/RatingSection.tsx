@@ -1,33 +1,60 @@
-import React, { useState} from 'react';
-import { useMutation } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import "../../css/RatingSection.css";
 
 const RatingSection: React.FC = () => {
     const [rating, setRating] = useState<number>(0);
-
+    const user: any = JSON.parse(localStorage.getItem("userDetails"));
+    // console.log(user.id);
     const useApiCall = useMutation({
         mutationKey: ['POST_RATING'],
-        mutationFn: async (payload: { value: number; userId: number; itemId: number }) => {
+        mutationFn: async (payload: { value: number; userId: number }) => {
             try {
                 const response = await axios.post('http://localhost:8080/api/ratings/submit', payload);
-                return response.data; // Assuming the backend responds with data
+                // Handle the response based on your requirements
+                console.log('Rating submitted successfully:', response.data);
             } catch (error) {
                 if (axios.isAxiosError(error)) {
-                    throw new Error(error.response?.data?.message || 'Failed to submit rating');
+                    console.error('Failed to submit rating:', error.response?.data?.message || 'Unknown error');
                 } else {
-                    throw new Error('Failed to submit rating');
+                    console.error('Failed to submit rating:', error.message || 'Unknown error');
                 }
             }
         },
     });
 
+    const fetchRatingByUser=async ()=>{
+        try{
+
+            const response=await axios.get(`http://localhost:8080/api/ratings/getRatingByUserId/${user.id}`)
+
+            return response.data.value;
+
+        }catch(e){
+            console.error("Failed to get rating");
+        }
+    };
+
+    const {data}= useQuery({
+        queryKey:['ratingUser'],
+        queryFn:async ()=>{
+            const data=await fetchRatingByUser();
+            await setRating(data);
+            return data;
+        },
+
+    });
+    // console.log("Helo",typeof data);
+    console.log(rating);
+
+
+
     const handleRating = async (value: number) => {
         try {
-            const userId = 1; // Replace with actual user ID
-            const itemId = 1; // Replace with actual item ID
+            const userId = user.id;
 
-            await useApiCall.mutateAsync({ value, userId, itemId });
+            await useApiCall.mutateAsync({ value, userId });
             setRating(value);
         } catch (error) {
             console.error('Failed to submit rating:', error);
@@ -53,11 +80,9 @@ const RatingSection: React.FC = () => {
     return (
         <div className="rating">
             <div className="rate">
-                <h2>Rate this product</h2>
                 <div className="stars">
                     {renderStars()}
                 </div>
-                <p className="selected-rating">{rating} out of 5 stars</p>
             </div>
         </div>
     );

@@ -84,4 +84,18 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("Invalid password or email");
         }
     }
+
+    public void resetPassword(String email, String securityQuestion, String newPassword) {
+        User user = userRepository.findByEmailAndSecurityQuestion(email, securityQuestion)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid email or security question"));
+
+        // Update the user's password directly
+        user.setPassword(newPassword);
+
+        // Save the updated user entity
+        userRepository.save(user);
+    }
+
+
+
 }

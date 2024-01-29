@@ -15,9 +15,6 @@ public class RatingPojo {
     @NotNull(message = "User ID is required")
     private Long userId;
 
-    @NotNull(message = "Item ID is required")
-    private Long itemId;
-
     @NotNull(message = "Rating value is required")
     private int value; // Rating value (1-5)
 }

@@ -9,5 +9,7 @@ import java.util.List;
 public interface RatingService {
     Rating saveRating(RatingPojo ratingPojo);
     List<Rating> getAllRatings();
-    List<Rating> getRatingsByItemId(Long itemId);
+
+    Rating getRateByUser(Long userId);
+
 }

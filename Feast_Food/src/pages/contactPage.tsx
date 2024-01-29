@@ -1,6 +1,7 @@
 import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
 import "../css/contactPage.css"
 import {useLocation} from "react-router-dom";
+import RatingSection from "./Rating/RatingSection.tsx";
 
 
 const ContactPage = () =>{
@@ -49,6 +50,7 @@ const ContactPage = () =>{
                             <h5>9:00 AM - 9:00 PM</h5>
                         </span>
                     </div>
+                    <RatingSection />
                 </div>
 
                 <div className={"line1"}></div>
@@ -59,6 +61,7 @@ const ContactPage = () =>{
                 <div className={"copyright-text"}>
                     <h5>Copyright © 2023/2024 Feast</h5>
                 </div>
+
             </div>
         </>
     )

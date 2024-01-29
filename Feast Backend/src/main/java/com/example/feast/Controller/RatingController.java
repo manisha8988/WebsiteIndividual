@@ -34,9 +34,10 @@ public class RatingController {
         return ResponseEntity.ok(ratings);
     }
 
-    @GetMapping("/getByItemId/{itemId}")
-    public ResponseEntity<List<Rating>> getRatingsByItemId(@PathVariable Long itemId) {
-        List<Rating> ratings = ratingService.getRatingsByItemId(itemId);
-        return ResponseEntity.ok(ratings);
+    @GetMapping("/getRatingByUserId/{userId}")
+    public ResponseEntity<Rating> getRatingByUser(@PathVariable Long userId){
+        Rating rate=ratingService.getRateByUser(userId);
+        return  ResponseEntity.ok(rate);
     }
+
 }

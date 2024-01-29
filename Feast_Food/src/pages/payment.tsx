@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar";
@@ -84,6 +84,9 @@ const Payment = () => {
         }
     };
 
+    // State for the selected delivery option
+    const [selectedDeliveryOption, setSelectedDeliveryOption] = useState<string>("");
+
 
     return (
         <>
@@ -94,40 +97,41 @@ const Payment = () => {
 
                 <div className={"delivery-mode-container"}>
                     <div className={"delivery-method"}>
-                        <div className={"delivery-text"}> <h2> Delivery Section</h2></div>
+                        <div className={"delivery-text"}>
+                            <h2> Delivery Section</h2>
+                        </div>
                         <div className={"dropdown-delivery"}>
-                            <select className={"select-delivery-option"}>
+                            <select
+                                className={"select-delivery-option"}
+                                value={selectedDeliveryOption}
+                                onChange={(e) => setSelectedDeliveryOption(e.target.value)}
+                            >
                                 <option>Select Delivery Mode</option>
                                 <option>Self PickUp</option>
                                 <option>Home Delivery</option>
                             </select>
                         </div>
-
                     </div>
 
                     <div className={"receipt-container"}>
-                        <div className={"receipt-container-text"}> <h2> Receipt</h2> </div>
-                        <div className={"receipt-text"}>
-                            <h4> Subtotal: Rs 1375</h4>
-                            <h4>Delivery-Fee: Rs 75 </h4>
-                            <h5>------------------------------------------------------------------------------------------------------</h5>
-                            <h4>Total Amount: Rs 1450</h4>
-
+                        <div className={"receipt-container-text"}>
+                            <h2> Receipt</h2>
                         </div>
-
+                        <div className={"receipt-text"}>
+                            <div className={"sub-total-box"} placeholder={"SUB-TOTAL"}>
+                                Sub-total:
+                            </div>
+                            {selectedDeliveryOption === "Home Delivery" && (
+                                <div className={'delivery-fee-box'} placeholder={"DELIVERY-FEE"}>
+                                    Delivery-Fee:
+                                </div>
+                            )}
+                            <h5>----------------------------------------------</h5>
+                            <div className={"Total-box5"} placeholder={"TOTAL"}>
+                                Total:
+                            </div>
+                        </div>
                     </div>
-
-                    {/*<div className={"payment-mode-container"}>*/}
-                    {/*    <div className={"payment-text"}> <h2> Pay Via</h2></div>*/}
-                    {/*    <div className={"dropdown-payment"}>*/}
-                    {/*        <select className={"select-payment-option"}>*/}
-                    {/*            <option>Select Delivery Option </option>*/}
-                    {/*            <option>Cash on delivery</option>*/}
-                    {/*            <option>Pay Via Khalti </option>*/}
-                    {/*        </select>*/}
-                    {/*    </div>*/}
-
-                    {/*</div>*/}
 
                     <div>
                         <div className={"payment-mode-container"}>
