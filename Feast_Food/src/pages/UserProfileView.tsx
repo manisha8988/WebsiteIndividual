@@ -9,13 +9,11 @@ function UserProfileView(){
 
     const navigate = useNavigate();
 
-    const [user, setUser] = useState({
-    })
+    const [user, setUser] = useState({})
     useEffect(() => {
         const data: any = JSON.parse(localStorage.getItem("userDetails"));
         setUser(data);
     }, [localStorage.getItem("userDetails")]);
-    console.log(user?.fullName)
 
     const   handleLogout = () => {
         // Check if a user is currently logged in
@@ -31,11 +29,15 @@ function UserProfileView(){
             navigate('/');
         }
     };
+    const handleGoBack = () => {
+        // Use the goBack function to navigate to the previous page
+        navigate(-1);
+    };
 
     return(
         <div className={"user_profile_main"}>
             <div className={"cross-icon"}>
-                <button>
+                <button onClick={handleGoBack}>
                     <span>
                         <FaRegWindowClose/>
                     </span>
