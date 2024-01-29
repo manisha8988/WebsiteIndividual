@@ -1,5 +1,6 @@
 package com.example.feast.Service.Impl;
 
+import com.example.feast.Entity.Cart;
 import com.example.feast.Entity.Item;
 import com.example.feast.Entity.Order;
 import com.example.feast.Entity.User;
@@ -23,39 +24,44 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepo orderRepo;
     private final UserRepo userRepo;
-    private final ItemRepo itemRepo;
     private final CartRepo cartRepo;
 
     @Override
-    public String save(OrderPojo orderPojo) {
-        long orderId = orderPojo.getId();
+    public void save(OrderPojo orderPojo) {
         Order order = new Order();
 
         if (orderPojo.getId() != null){
-            order = orderRepo.findById(orderId).get();
+            order = orderRepo.findById(order.getId()).get();
         }
-        User user=userRepo.findById(orderPojo.getUser()).get();
+        User user=userRepo.findById(orderPojo.getUserId()).get();
         order.setUser(user);
 
-        Item item=itemRepo.findById(orderPojo.getItem()).get();
-        order.setItem(item);
+        // Fetch all carts for the user from the database
+        List<Cart> carts = cartRepo.findByUserId(orderPojo.getUserId());
+        order.setCarts(carts);
+//        order.setOrderItems(orderPojo.getOrderItems());
 
-        order.setQuantity(orderPojo.getQuantity());
+        order.setPayVia(orderPojo.getPayVia());
+        order.setPickUpOption(orderPojo.getPickUpOption());
+        order.setTotalPrice(orderPojo.getTotalPrice());
+        order.setAddress(orderPojo.getAddress());
+        order.setPhoneNumber(orderPojo.getPhoneNumber());
 
-        cartRepo.deleteByUserId(orderPojo.getUser());
 
-        return orderRepo.save(order).getUser().getEmail();
+//        cartRepo.deleteByUserId(orderPojo.getUserId());
+
+        orderRepo.save(order);
+        System.out.println(" This Order Saved Successfully");
     }
 
     @Override
-    public List<Order> getALl() {
-        return null;
+    public List<Order> getAll() {
+        return orderRepo.findAll();
     }
 
-
     @Override
-    public Optional<Order> getById(Long id) {
-        return Optional.empty();
+    public Optional<Order> findById(Long id) {
+        return orderRepo.findById(id);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.feast.Pojo;
 
+import com.example.feast.Entity.Cart;
 import com.example.feast.Entity.Item;
 import com.example.feast.Entity.User;
 import jakarta.persistence.*;
@@ -10,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,14 +22,19 @@ public class OrderPojo {
 
     private Long id;
 
-    private Long user;
+    private Long userId;
 
-    private Integer item;
+//    private List<Cart> carts;
+    private String orderItems;
 
-    @NotNull
-    private Date createdDate;
+    private String payVia;
 
-    @NotNull
-    private Integer quantity;
+    private String pickUpOption;
+
+    private Integer totalPrice;
+
+    private String address;
+
+    private Long phoneNumber;
 
 }

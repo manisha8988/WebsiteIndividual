@@ -13,6 +13,7 @@ import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {FaCircleUser} from "react-icons/fa6";
 // import {toast} from "react-toastify";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
@@ -107,10 +108,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         },
     })
 
-    const [user, setUser] = useState({
+    const [user, setUser] = useState(null);
 
-    })
-    console.log("User",user.fullName)
+    // console.log("User",user.fullName)
 
     const useApiCallLogin = useMutation({
         mutationKey: ["POST_USER_LOGIN"],
@@ -168,7 +168,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCallLogin.mutate(values);
     };
 
-    const handleLogout = () => {
+    const   handleLogout = () => {
         // Check if a user is currently logged in
         const isLoggedIn = Boolean(localStorage.getItem('userDetails'));
 
@@ -205,18 +205,25 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <Link to={"/cart"}><span className={"icon-cart"}><FaCartArrowDown style={{fontSize:"1.2rem" ,marginBottom:"-3px",marginRight:"3px"}}/></span></Link>
-                    {user && (
-                        <>
-                            <span className={"fullnamedisplay"}>{user.fullName}</span>
-                            <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
-                        </>
+                    <Link to={"/cart"}>
+                        <span className={"icon-cart"}>
+                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                        </span>
+                    </Link>
+                    {user ? (
+                        <Link to={"/UserProfileView"}>
+                             <span className={"fullnamedisplay"}>
+                                <FaCircleUser style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                             </span>
+                        </Link>
+                    ):
+                        (
+                        !localStorage.getItem("userDetails") && (
+                            <div className={"hp-sign-btn"}>
+                                <h3 onClick={toggleLoginModal}>Sign in</h3>
+                            </div>
+                        )
                     )}
-                    {!localStorage.getItem("userDetails") &&
-                        <div className={"hp-sign-btn"}>
-                            <h3 onClick={toggleLoginModal}>Sign in</h3>
-                        </div>
-                    }
                 </div>
 
                 {/*<div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>*/}

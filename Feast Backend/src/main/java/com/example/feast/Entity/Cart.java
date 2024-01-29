@@ -22,10 +22,13 @@ public class Cart {
     private Item item;
 
 
+
     @Column(name="total_price")
     private Integer total_price;
 
     @Column(name="quantity")
     private Integer quantity;
+
+
 
 }

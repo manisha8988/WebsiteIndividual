@@ -12,15 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("order")
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
-
-//    @Autowired // Add this annotation to properly inject the OrderService bean
-//    public OrderController(OrderService orderService) {
-//        this.orderService = orderService;
-//    }
 
 
     @PostMapping(value = "/save")
@@ -39,12 +34,12 @@ public class OrderController {
 
     @GetMapping("/getAll")
     public List<Order> getALl() {
-        return orderService.getALl();
+        return orderService.getAll();
     }
 
     @GetMapping("/getById/{id}")
     public Optional<Order> getById(@PathVariable("id") Long id) {
-        return this.orderService.getById(id);
+        return this.orderService.findById(id);
     }
 
 }

@@ -2,9 +2,13 @@ import "../css/UserProfileView.css"
 import { IoPersonCircleOutline } from "react-icons/io5";
 import {FaRegWindowClose} from "react-icons/fa";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 function UserProfileView(){
+
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
     })
     useEffect(() => {
@@ -12,6 +16,21 @@ function UserProfileView(){
         setUser(data);
     }, [localStorage.getItem("userDetails")]);
     console.log(user?.fullName)
+
+    const   handleLogout = () => {
+        // Check if a user is currently logged in
+        const isLoggedIn = Boolean(localStorage.getItem('userDetails'));
+
+        if (isLoggedIn) {
+            // Clear user details from localStorage
+            localStorage.removeItem('userDetails');
+
+            // Update the state to reflect logout
+            setUser(null);
+
+            navigate('/');
+        }
+    };
 
     return(
         <div className={"user_profile_main"}>
@@ -41,16 +60,9 @@ function UserProfileView(){
                     </p>
                 </div>
 
-                <div className={"order_history"}>
-                    <button >
-                        Order History
-                    </button>
-                </div>
-
-                <div className={"login_button"}>
-                    <button >
-                        Login
-                    </button>
+                <div className={"order-history"}>
+                    <button className={"order-history-btn"}>Order History</button>
+                    <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
                 </div>
             </form>
             </div>

@@ -9,13 +9,13 @@ import java.util.Optional;
 
 public interface OrderService {
 
-    String save(OrderPojo orderpojo);
+    void save(OrderPojo orderpojo);
 
 
-    List<Order> getALl();
+    List<Order> getAll();
 
 
-    Optional<Order> getById(Long id);
+    Optional<Order> findById(Long id);
 
     String update(Long id , OrderPojo orderpojo);
 
