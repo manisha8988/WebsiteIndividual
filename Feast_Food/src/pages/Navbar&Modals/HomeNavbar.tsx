@@ -227,7 +227,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
 
             {login_popup && (
-
                 <div className="login-modal">
                     <div onClick={toggleLoginModal} className="login-overlay"></div>
                     <div className="login-modal-content">
@@ -256,7 +255,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </div>
                             <div className={"Remember-forget"}>
                                 <label><input type={"checkbox"}/>Remember me</label>
-                                <a href={"#"} >Forget passsword</a>
+                                <Link to={"/f1"}><a href={"#"} >Forget passsword</a></Link>
                             </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
                             <div className={"register-text"}>
