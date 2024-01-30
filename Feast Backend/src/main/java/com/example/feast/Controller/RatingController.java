@@ -1,4 +1,3 @@
-// RatingController.java
 package com.example.feast.Controller;
 
 import com.example.feast.Entity.Rating;
@@ -35,9 +34,8 @@ public class RatingController {
     }
 
     @GetMapping("/getRatingByUserId/{userId}")
-    public ResponseEntity<Rating> getRatingByUser(@PathVariable Long userId){
-        Rating rate=ratingService.getRateByUser(userId);
-        return  ResponseEntity.ok(rate);
+    public ResponseEntity<Rating> getRatingByUser(@PathVariable Long userId) {
+        Rating rate = ratingService.getRateByUser(userId);
+        return ResponseEntity.ok(rate);
     }
-
 }
