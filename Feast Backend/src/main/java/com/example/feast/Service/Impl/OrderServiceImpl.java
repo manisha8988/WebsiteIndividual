@@ -38,8 +38,12 @@ public class OrderServiceImpl implements OrderService {
 
         // Fetch all carts for the user from the database
         List<Cart> carts = cartRepo.findByUserId(orderPojo.getUserId());
-        order.setCarts(carts);
-//        order.setOrderItems(orderPojo.getOrderItems());
+//        order.setCarts(carts);
+
+        // Convert the List<String> to a single String (if needed)
+        String orderItemsAsString = String.join(", ", orderPojo.getOrderItems());
+        // Set the order items as a single String
+        order.setOrderItems(orderItemsAsString);
 
         order.setPayVia(orderPojo.getPayVia());
         order.setPickUpOption(orderPojo.getPickUpOption());
@@ -48,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPhoneNumber(orderPojo.getPhoneNumber());
 
 
-//        cartRepo.deleteByUserId(orderPojo.getUserId());
+        cartRepo.deleteByUserId(orderPojo.getUserId());
 
         orderRepo.save(order);
         System.out.println(" This Order Saved Successfully");
