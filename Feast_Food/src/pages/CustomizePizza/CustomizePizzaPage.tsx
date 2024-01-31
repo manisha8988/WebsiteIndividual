@@ -105,8 +105,7 @@ const CustomizePizzaPage: React.FC = () => {
                         <div className={"sub-heading-left"}>Items</div>
                         {Object.entries(staticPrices).map(([option, price]) => (
                             <div key={option} className="item">
-                                <input
-                                    className={"tick"}
+                                <input className={"tick"}
                                     type={"checkbox"}
                                     checked={customization[option]}
                                     onChange={() => handleCheckboxChange(option, price)}
