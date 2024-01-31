@@ -49,7 +49,6 @@ const Cart = () => {
         }
     )
 
-    console.log(cartData?.data.id)
     // Calculate total cart price
     const cartTotal = cartData?.data.reduce(
         (total, item) => total + item.total_price * item.quantity,

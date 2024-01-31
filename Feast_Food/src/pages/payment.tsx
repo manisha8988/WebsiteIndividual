@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, {useEffect, useState} from "react";
-import { useLocation } from "react-router-dom";
+import  {useEffect, useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 // import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar";
@@ -60,6 +60,7 @@ const config = {
 const Payment = () => {
     const location = useLocation();
     const currentLocation = location.pathname;
+    const navigate = useNavigate();
 
     const checkout = new KhaltiCheckout(config);
     const buttonStyles = {
@@ -78,16 +79,19 @@ const Payment = () => {
     // payment dropdown logic
     const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
 
-    // const handleConfirmOrder = () => {
-    //     if (selectedPaymentOption === "Pay Via Khalti") {
-    //         checkout.show({ amount: totalAmount*100});
-    //     } else if (selectedPaymentOption === "Cash on delivery") {
-    //         alert("Order placed successfully!");
-    //         // Add any additional logic for cash on delivery
-    //     } else {
-    //         alert("Please select a valid payment option");
-    //     }
-    // };
+
+    // Fetching data from API
+    const{data:cartData} = useQuery({
+        queryKey:["GET_CART_DATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/cart/getAll")
+        }
+    })
+
+    const cartTotal = cartData?.data.reduce(
+        (total, item) => total + item?.total_price * item?.quantity,
+        0
+    );
 
     // // Fetching user details // //
     const [user, setUser] = useState({
@@ -100,11 +104,13 @@ const Payment = () => {
 
     const handleConfirmOrder = async () => {
         if (selectedPaymentOption === "Cash on delivery") {
-            // Assuming you have userId, orderItems, payVia, pickUpOption, totalPrice, and other necessary data available
+            const itemIds = cartData?.data
+                .map(item => item?.item?.id)
+                .filter(id => id !== null && id !== undefined);
 
             const orderData = {
                 userId: user?.id,
-                orderItems: cartData.data.map(item => `${item.name} x${item.quantity}`),
+                orderItems: itemIds,
                 payVia: selectedPaymentOption,
                 pickUpOption: selectedDeliveryOption,
                 totalPrice: totalAmount,
@@ -112,15 +118,13 @@ const Payment = () => {
                 phoneNumber: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".phone_input").value : null,
             };
 
-            try {
-                // Send the order data to the backend
-                const response = await axios.post("http://localhost:8080/order/save", orderData);
 
-                // Handle the response accordingly
+            try {
+                const response = await axios.post("http://localhost:8080/order/save", orderData);
                 console.log(response.data);
-                // alert("Order placed successfully!");
+                alert("Order placed successfully!");
+                navigate('/OurMenu');
             } catch (error) {
-                // Handle errors
                 console.error("Error placing the order", error);
                 alert("Error placing the order. Please try again.");
             }
@@ -131,21 +135,6 @@ const Payment = () => {
             // alert("Please select a valid payment option");
         }
     };
-
-
-
-    // Fetching data from API
-    const{data:cartData,refetch} = useQuery({
-        queryKey:["GET_CART_DATA"],
-        queryFn(){
-            return axios.get("http://localhost:8080/cart/getAll")
-        }
-    })
-
-    const cartTotal = cartData?.data.reduce(
-        (total, item) => total + item.total_price * item.quantity,
-        0
-    );
 
     // State for the selected delivery option
     const [selectedDeliveryOption, setSelectedDeliveryOption] = useState<string>("");

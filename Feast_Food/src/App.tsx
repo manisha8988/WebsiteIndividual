@@ -24,6 +24,7 @@ import EditEvent from "./pages/editEvent.tsx";
 import ManageTable from "./pages/reservationAdminSide/ManageTable.tsx";
 import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
+import OrderPage from "./pages/orderPage.tsx";
 
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ function App() {
                     {path: "/editItem/:pk_id", element: <EditItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/AdminEvent", element: <AdminEvent/>},
+                    {path: "/OrderPage", element: <OrderPage/>},
                     {path: "/EditEvent/:pk_id", element: <EditEvent/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},
