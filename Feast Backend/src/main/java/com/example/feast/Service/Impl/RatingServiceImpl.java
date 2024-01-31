@@ -1,4 +1,3 @@
-
 package com.example.feast.Service.Impl;
 
 import com.example.feast.Entity.Rating;
@@ -18,10 +17,22 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public Rating saveRating(RatingPojo ratingPojo) {
-        Rating rating = new Rating();
-        rating.setUserId(ratingPojo.getUserId());
-        rating.setValue(ratingPojo.getValue());
-        return ratingRepository.save(rating);
+        Long userId = ratingPojo.getUserId();
+
+        // Check if the user already has a rating
+        Rating existingRating = ratingRepository.findRatingByUserId(userId);
+
+        if (existingRating != null) {
+            // Update the existing rating
+            existingRating.setValue(ratingPojo.getValue());
+            return ratingRepository.save(existingRating);
+        } else {
+            // Save a new rating if the user doesn't have one
+            Rating newRating = new Rating();
+            newRating.setUserId(userId);
+            newRating.setValue(ratingPojo.getValue());
+            return ratingRepository.save(newRating);
+        }
     }
 
     @Override

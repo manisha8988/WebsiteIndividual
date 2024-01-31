@@ -22,17 +22,7 @@ public class Rating {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "item_id", nullable = false)
-    private Long itemId;
-
     @Column(name = "value", nullable = false)
     private int value; // Rating value (1-5)
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "rating_recieved",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<Item> items;
 }

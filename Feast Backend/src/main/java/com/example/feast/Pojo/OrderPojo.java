@@ -24,8 +24,7 @@ public class OrderPojo {
 
     private Long userId;
 
-//    private List<Cart> carts;
-    private String orderItems;
+    private List<String> orderItems;
 
     private String payVia;
 
