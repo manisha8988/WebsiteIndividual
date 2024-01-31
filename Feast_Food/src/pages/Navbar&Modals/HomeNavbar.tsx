@@ -14,7 +14,8 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {FaCircleUser} from "react-icons/fa6";
-// import {toast} from "react-toastify";
+import UserProfileView from "../UserProfileView.tsx";
+
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -84,6 +85,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
     }, [login_popup, register_popup]);
 
+    const [userProfile , setUserProfile] = useState(false);
 
     //Register ko backend connection
     const {
@@ -207,15 +209,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 <div className={"hp-navright"}>
                     <Link to={"/cart"}>
                         <span className={"icon-cart"}>
-                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
                         </span>
                     </Link>
                     {user ? (
-                        <Link to={"/UserProfileView"}>
-                             <span className={"fullnamedisplay"}>
-                                <FaCircleUser style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                             <span className={"fullnamedisplay"} onClick={() => setUserProfile(true)}>
+                                <FaCircleUser style={{ fontSize: "3rem", marginBottom: "-3px", marginRight: "3px" }} />
                              </span>
-                        </Link>
                     ):
                         (
                         !localStorage.getItem("userDetails") && (
@@ -262,7 +262,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </div>
                             <div className={"Remember-forget"}>
                                 <label><input type={"checkbox"}/>Remember me</label>
-                                <Link to={"/f1"}><a href={"#"} >Forget passsword</a></Link>
+                                <Link to={"/f1"}><a href={"#"} >Forget passsword?</a></Link>
                             </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
                             <div className={"register-text"}>
@@ -358,8 +358,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
             )}
 
+            {userProfile && <UserProfileView />}
+
+
+
         </>
     )
 }
 
-export default HomeNavbar;
+export default HomeNavbar
