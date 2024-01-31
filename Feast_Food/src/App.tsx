@@ -26,7 +26,6 @@ import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
 import OrderPage from "./pages/orderPage.tsx";
 
-
 const queryClient = new QueryClient();
 
 function App() {
@@ -62,8 +61,7 @@ function App() {
                     {path:"/ManageTable",element:<ManageTable/>},
                     {path:"/ReservedTable",element:<ReservedTable/>},
                     {path:"/Rate",element:<RatingSection/>},
-                    {path:"/f1",element:<ForgotPass1/>}
-
+                    {path:"/f1",element:<ForgotPass1/>},
                 ])} />
             </QueryClientProvider>
         </>
