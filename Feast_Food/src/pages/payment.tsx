@@ -8,8 +8,6 @@ import "../css/payment.css";
 import {useMutation, useQuery} from "@tanstack/react-query";
 
 
-
-
 const myKey = {
     publicTestKey: "test_public_key_402c2b0e98364222bb1c1ab02369cefd",
     secretKey: "test_secret_key_d46fe88dee964ecfbd0f699a9985f2d4",
@@ -80,16 +78,61 @@ const Payment = () => {
     // payment dropdown logic
     const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
 
-    const handleConfirmOrder = () => {
-        if (selectedPaymentOption === "Pay Via Khalti") {
-            checkout.show({ amount: totalAmount*100});
-        } else if (selectedPaymentOption === "Cash on delivery") {
-            alert("Order placed successfully!");
+    // const handleConfirmOrder = () => {
+    //     if (selectedPaymentOption === "Pay Via Khalti") {
+    //         checkout.show({ amount: totalAmount*100});
+    //     } else if (selectedPaymentOption === "Cash on delivery") {
+    //         alert("Order placed successfully!");
+    //         // Add any additional logic for cash on delivery
+    //     } else {
+    //         alert("Please select a valid payment option");
+    //     }
+    // };
+
+    // // Fetching user details // //
+    const [user, setUser] = useState({
+
+    })
+    useEffect(() => {
+        const data: any = JSON.parse(localStorage.getItem("userDetails"));
+        setUser(data);
+    }, [localStorage.getItem("userDetails")]);
+
+    const handleConfirmOrder = async () => {
+        if (selectedPaymentOption === "Cash on delivery") {
+            // Assuming you have userId, orderItems, payVia, pickUpOption, totalPrice, and other necessary data available
+
+            const orderData = {
+                userId: user?.id,
+                orderItems: cartData.data.map(item => `${item.name} x${item.quantity}`),
+                payVia: selectedPaymentOption,
+                pickUpOption: selectedDeliveryOption,
+                totalPrice: totalAmount,
+                address: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".address_input").value : null,
+                phoneNumber: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".phone_input").value : null,
+            };
+
+            try {
+                // Send the order data to the backend
+                const response = await axios.post("http://localhost:8080/order/save", orderData);
+
+                // Handle the response accordingly
+                console.log(response.data);
+                // alert("Order placed successfully!");
+            } catch (error) {
+                // Handle errors
+                console.error("Error placing the order", error);
+                alert("Error placing the order. Please try again.");
+            }
+        } else if (selectedPaymentOption === "Pay Via Khalti") {
+            // alert("Order placed successfully!");
             // Add any additional logic for cash on delivery
         } else {
-            alert("Please select a valid payment option");
+            // alert("Please select a valid payment option");
         }
     };
+
+
 
     // Fetching data from API
     const{data:cartData,refetch} = useQuery({
@@ -124,7 +167,7 @@ const Payment = () => {
     //post
 
     const useApiCall = useMutation({
-        mutationKey:["POST_payment"],
+        mutationKey:["POST_order"],
         mutationFn:(payload:any)=> {
             console.log(payload)
             return axios.post("http://localhost:8080/order/save", payload)
