@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -27,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     private final CartRepo cartRepo;
 
     @Override
-    public void save(OrderPojo orderPojo) {
+    public String save(OrderPojo orderPojo) {
         Order order = new Order();
 
         if (orderPojo.getId() != null){
@@ -38,24 +39,25 @@ public class OrderServiceImpl implements OrderService {
 
         // Fetch all carts for the user from the database
         List<Cart> carts = cartRepo.findByUserId(orderPojo.getUserId());
-//        order.setCarts(carts);
+        //        order.setCarts(carts);
 
-        // Convert the List<String> to a single String (if needed)
-        String orderItemsAsString = String.join(", ", orderPojo.getOrderItems());
+        // Convert the List<Integer> to a single String
+        String orderItemsAsString = orderPojo.getOrderItems().stream()
+                .map(String::valueOf) // Convert each Integer to String
+                .collect(Collectors.joining(", "));
+
         // Set the order items as a single String
         order.setOrderItems(orderItemsAsString);
 
         order.setPayVia(orderPojo.getPayVia());
         order.setPickUpOption(orderPojo.getPickUpOption());
         order.setTotalPrice(orderPojo.getTotalPrice());
-//        order.setAddress(orderPojo.getAddress());
-//        order.setPhoneNumber(orderPojo.getPhoneNumber());
-
-
-        cartRepo.deleteByUserId(orderPojo.getUserId());
+        order.setAddress(orderPojo.getAddress());
+        order.setPhoneNumber(orderPojo.getPhoneNumber());
 
         orderRepo.save(order);
-        System.out.println(" This Order Saved Successfully");
+        return (" This Order Saved Successfully");
+//        cartRepo.deleteByUserId(orderPojo.getUserId());
     }
 
     @Override
@@ -66,6 +68,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Optional<Order> findById(Long id) {
         return orderRepo.findById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        orderRepo.deleteById(Long.valueOf(id));
     }
 
     @Override

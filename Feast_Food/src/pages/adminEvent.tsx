@@ -5,7 +5,6 @@ import AdminSidebar from "./adminSidebar.tsx";
 import {CiEdit} from "react-icons/ci";
 import "../../src/css/adminEvent.css"
 import {MdDelete} from "react-icons/md";
-import React from "react";
 
 function AdminEvent(){
 
@@ -47,7 +46,6 @@ function AdminEvent(){
         return `${formattedTime}`;
     };
 
-    console.log("baab"+bookedEventData?.data.eventTime);
 
     //Deleting booked event data
     const deleteByIdApi=useMutation(

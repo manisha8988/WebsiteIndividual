@@ -28,6 +28,14 @@ function AdminDashboard(){
             return axios.get("http://localhost:8080/item/findAll")
         }
     })
+
+    // Fetching data from API
+    const{data:userData} = useQuery({
+        queryKey:["GETCUSTOMERDATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/register/getAll")
+        }
+    })
     return(
         <>
             <div className={"admin-dashboard-page"}>
@@ -60,7 +68,7 @@ function AdminDashboard(){
                                     <div className={"dashboard-cards"}>
                                         <div className={"d-card=left"}>
                                             <h2>Customers</h2>
-                                            <h3>{}13</h3>
+                                            <h3>{userData?.data.length}</h3>
                                         </div>
                                         <span><FaUserCog style={{fontSize:"4vw",marginBottom:"-3px"}}/></span>
                                     </div>

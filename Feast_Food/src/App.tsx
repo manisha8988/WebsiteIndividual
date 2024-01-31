@@ -21,17 +21,10 @@ import CustomerPage from "./pages/customerPage.tsx";
 import AdminEvent from "./pages/adminEvent.tsx";
 import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
-<<<<<<< Updated upstream
 import ManageTable from "./pages/reservationAdminSide/ManageTable.tsx";
 import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
-=======
-import ManageTable from "./pages/ManageTable.tsx";
-import ReservedTable from "./pages/ReservedTable.tsx";
-
-
->>>>>>> Stashed changes
-
+import OrderPage from "./pages/orderPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +42,7 @@ function App() {
                     {path: "/editItem/:pk_id", element: <EditItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/AdminEvent", element: <AdminEvent/>},
+                    {path: "/OrderPage", element: <OrderPage/>},
                     {path: "/EditEvent/:pk_id", element: <EditEvent/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},
@@ -66,14 +60,8 @@ function App() {
                     {path:"/Rate",element:<RatingSection/>},
                     {path:"/ManageTable",element:<ManageTable/>},
                     {path:"/ReservedTable",element:<ReservedTable/>},
-<<<<<<< Updated upstream
                     {path:"/Rate",element:<RatingSection/>},
-                    {path:"/f1",element:<ForgotPass1/>}
-
-=======
-                    {path:"/Rate",element:<RatingSection/>}
-                    // {path:"/AddToCart",element:<AddToCart/>}
->>>>>>> Stashed changes
+                    {path:"/f1",element:<ForgotPass1/>},
                 ])} />
             </QueryClientProvider>
         </>

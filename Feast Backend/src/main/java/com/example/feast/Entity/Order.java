@@ -22,9 +22,6 @@ public class Order {
     @JoinColumn(name="user_id")
     private User user;
 
-    // Change the mapping to @OneToMany and use mappedBy to specify the inverse side
-//    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-//    private List<Cart> carts;
     @Column (name="order_items")
     private String orderItems;
 

@@ -31,8 +31,6 @@ const CustomerPage = () =>{
         customer.email.toLowerCase().includes(search.toLowerCase())
     );
 
-    console.log(filteredData)
-
     // Dynamically calculate the number of customers
     const userLength = filteredData ? filteredData.length : 0;
 
