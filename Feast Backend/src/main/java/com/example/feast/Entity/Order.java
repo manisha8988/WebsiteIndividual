@@ -45,4 +45,3 @@ public class Order {
     private Long phoneNumber;
 
 }
-

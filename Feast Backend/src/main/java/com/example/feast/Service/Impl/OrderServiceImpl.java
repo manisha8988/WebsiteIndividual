@@ -48,8 +48,8 @@ public class OrderServiceImpl implements OrderService {
         order.setPayVia(orderPojo.getPayVia());
         order.setPickUpOption(orderPojo.getPickUpOption());
         order.setTotalPrice(orderPojo.getTotalPrice());
-        order.setAddress(orderPojo.getAddress());
-        order.setPhoneNumber(orderPojo.getPhoneNumber());
+//        order.setAddress(orderPojo.getAddress());
+//        order.setPhoneNumber(orderPojo.getPhoneNumber());
 
 
         cartRepo.deleteByUserId(orderPojo.getUserId());
@@ -73,6 +73,3 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 }
-
-
-
