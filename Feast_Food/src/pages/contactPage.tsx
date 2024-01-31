@@ -49,7 +49,12 @@ const ContactPage = () =>{
                             <h4>Saturday</h4>
                             <h5>9:00 AM - 9:00 PM</h5>
                         </span>
+                        <div className={"Rating"}>
+                            <h2>Rate The System,If you like</h2>
+                        </div>
                     </div>
+
+
                     <RatingSection />
                 </div>
 
