@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
+// import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "./Navbar&Modals/HomeNavbar";
 import "../css/payment.css";
+import {useMutation, useQuery} from "@tanstack/react-query";
+
+
 
 
 const myKey = {
@@ -11,11 +15,13 @@ const myKey = {
     secretKey: "test_secret_key_d46fe88dee964ecfbd0f699a9985f2d4",
 };
 
+// const backendBaseUrl = "http://localhost:8080";
+
 const config = {
     publicKey: myKey.publicTestKey,
     productIdentity: "123766",
     productName: "Feast Food",
-    productUrl: "http://localhost:3000",
+    productUrl: "http://localhost:4004",
     eventHandler: {
         onSuccess(payload) {
             console.log(payload);
@@ -34,6 +40,7 @@ const config = {
                 })
                 .catch((error) => {
                     console.log(error);
+                    console.log('This error trigger');
                 });
         },
         onError(error) {
@@ -75,7 +82,7 @@ const Payment = () => {
 
     const handleConfirmOrder = () => {
         if (selectedPaymentOption === "Pay Via Khalti") {
-            checkout.show({ amount: 1000 });
+            checkout.show({ amount: totalAmount*100});
         } else if (selectedPaymentOption === "Cash on delivery") {
             alert("Order placed successfully!");
             // Add any additional logic for cash on delivery
@@ -84,8 +91,49 @@ const Payment = () => {
         }
     };
 
+    // Fetching data from API
+    const{data:cartData,refetch} = useQuery({
+        queryKey:["GET_CART_DATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/cart/getAll")
+        }
+    })
+
+    const cartTotal = cartData?.data.reduce(
+        (total, item) => total + item.total_price * item.quantity,
+        0
+    );
+
     // State for the selected delivery option
     const [selectedDeliveryOption, setSelectedDeliveryOption] = useState<string>("");
+
+    // State for the total amount
+    const [totalAmount, setTotalAmount] = useState<number>(0);
+
+    // Calculate total amount whenever cartTotal or selectedDeliveryOption changes
+    useEffect(() => {
+        let newTotalAmount = cartTotal || 0;
+
+        if (selectedDeliveryOption === "Home Delivery") {
+            newTotalAmount += 75; // Add delivery fee
+        }
+
+        setTotalAmount(newTotalAmount);
+    }, [cartTotal, selectedDeliveryOption]);
+
+    //post
+
+    const useApiCall = useMutation({
+        mutationKey:["POST_payment"],
+        mutationFn:(payload:any)=> {
+            console.log(payload)
+            return axios.post("http://localhost:8080/order/save", payload)
+        }
+    })
+
+    const onSubmit=(value:any)=>{
+        useApiCall.mutate(value)
+    }
 
 
     return (
@@ -110,6 +158,16 @@ const Payment = () => {
                                 <option>Self PickUp</option>
                                 <option>Home Delivery</option>
                             </select>
+
+                            {selectedDeliveryOption === "Home Delivery" && (
+                                <>
+                                    <input type="text" className="address_input" placeholder="Enter your Address"/>
+
+                                    <input type="text" className="phone_input" placeholder="Enter your phone number"/>
+                                </>
+
+                            )}
+
                         </div>
                     </div>
 
@@ -118,17 +176,19 @@ const Payment = () => {
                             <h2> Receipt</h2>
                         </div>
                         <div className={"receipt-text"}>
+
                             <div className={"sub-total-box"} placeholder={"SUB-TOTAL"}>
-                                Sub-total:
+                                Cart Total: Rs. {cartTotal}
+
                             </div>
                             {selectedDeliveryOption === "Home Delivery" && (
                                 <div className={'delivery-fee-box'} placeholder={"DELIVERY-FEE"}>
-                                    Delivery-Fee:
+                                    Delivery-Fee: Rs{75}
                                 </div>
                             )}
                             <h5>----------------------------------------------</h5>
                             <div className={"Total-box5"} placeholder={"TOTAL"}>
-                                Total:
+                                Total: Rs. {totalAmount}
                             </div>
                         </div>
                     </div>

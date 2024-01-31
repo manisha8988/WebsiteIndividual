@@ -37,9 +37,9 @@ public class OrderServiceImpl implements OrderService {
         order.setUser(user);
 
         // Fetch all carts for the user from the database
-        List<Cart> carts = cartRepo.findByUserId(orderPojo.getUserId());
-        order.setCarts(carts);
-//        order.setOrderItems(orderPojo.getOrderItems());
+//        List<Cart> carts = cartRepo.findByUserId(orderPojo.getUserId());
+//        order.setCarts(carts);
+        order.setOrderItems(orderPojo.getOrderItems());
 
         order.setPayVia(orderPojo.getPayVia());
         order.setPickUpOption(orderPojo.getPickUpOption());

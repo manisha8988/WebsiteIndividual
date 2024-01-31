@@ -19,8 +19,12 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="Order_Id" , nullable=false) // Apply join table from order
-    private Long orderId;
+//    @Column(name="Order_Id" , nullable=false) // Apply join table from order
+//    private Long orderId;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 
     @Column(name="Sub_Total" , nullable=false)  // Apply join table from cart
     private Integer subTotal;
@@ -34,7 +38,8 @@ public class Payment {
     @Column(name = "date")
     private LocalDateTime paymentDate = LocalDateTime.now();
 
-//    @Column(name="PaymentMode")
+    @Column (name="Status")
+    private String status;
 
 
 }

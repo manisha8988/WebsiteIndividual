@@ -1,9 +1,12 @@
 package com.example.feast.Service.Impl;
 
 import com.example.feast.Entity.Payment;
+import com.example.feast.Entity.User;
 import com.example.feast.Pojo.PaymentPojo;
 import com.example.feast.Repo.PaymentRepo;
+import com.example.feast.Repo.UserRepo;
 import com.example.feast.Service.PaymentService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ import java.util.Optional;
 public class PaymentServiceImpl implements PaymentService {
 
     private final PaymentRepo paymentRepo;
+    private final UserRepo userRepo;
 
     @Override
     public Payment savePayment(PaymentPojo paymentPojo) {
@@ -33,10 +37,16 @@ public class PaymentServiceImpl implements PaymentService {
 
         // Validate paymentPojo fields if necessary
 
-        payment.setOrderId(paymentPojo.getOrderId());
+//        payment.setOrderId(paymentPojo.getOrderId());
         payment.setSubTotal(paymentPojo.getSubTotal());
         payment.setDeliveryFee(paymentPojo.getDeliveryFee());
         payment.setTotal(paymentPojo.getTotal());
+        payment.setStatus("Pending");
+
+        User user = userRepo.findById(paymentPojo.getUserId())
+                .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + paymentPojo.getUserId()));
+
+        payment.setUser(user);
 
         paymentRepo.save(payment);
         // Use a logging framework in production
