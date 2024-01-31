@@ -28,7 +28,7 @@ function AdminDashboard(){
             return axios.get("http://localhost:8080/item/findAll")
         }
     })
-    
+
     // Fetching data from API
     const{data:userData} = useQuery({
         queryKey:["GETCUSTOMERDATA"],
