@@ -5,7 +5,6 @@ import { FaQuestionCircle, FaRegWindowClose } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { IonIcon } from '@ionic/react';
 import { mailOutline } from 'ionicons/icons';
-import '../../css/ForgotPass1.css';
 
 const ForgotPass1: React.FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -65,71 +64,71 @@ const ForgotPass1: React.FC = () => {
     };
 
     return (
-        <div className={'wrapper1'}>
-            <div className={'heading'}>
-                <div className={"head11"}>FORGOT PASSWORD</div>
-                <div className={"subhead11"}>PLEASE ENTER YOUR INFO TO VALIDATE</div>
-            </div>
-            <div className={'close-button'}>
-                <button className="close-btn">
-                    <FaRegWindowClose />
-                </button>
-            </div>
-            <div className={'input-section'}>
-                <input
-                    className={'username_input'}
-                    type={'text'}
-                    placeholder={'Email'}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <span className={'mail-icon'}>
-                    <IonIcon icon={mailOutline} />
-                </span>
-            </div>
-            <div className={'input-section'}>
-                <input
-                    className={'question_input'}
-                    type={'text'}
-                    placeholder={'SECURITY QUESTION HERE'}
-                    value={securityQuestion}
-                    onChange={(e) => setSecurityQuestion(e.target.value)}
-                />
-                <span className={'mail-icon'}>
-                    <FaQuestionCircle />
-                </span>
-            </div>
-            <div>
-                <input
-                    className={'password_input'}
-                    type={'password'}
-                    placeholder={'NEW PASSWORD'}
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                />
-                <span className={'iconpassword'}>
-                    <RiLockPasswordFill />
-                </span>
-            </div>
-            <div>
-                <input
-                    className={'confirm_input'}
-                    type={'password'}
-                    placeholder={'CONFIRM PASSWORD'}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <span className={'iconpassword'}>
-                    <RiLockPasswordFill />
-                </span>
-            </div>
-            <div className={'error-message'}>{error && <p>{error}</p>}</div>
-            <div className={'send-button'}>
-                <button className={'sendbtn'} onClick={handleResetPassword}>
-                    Reset
-                </button>
-            </div>
-        </div>
+                <div className={'wrapper1'}>
+                    <div className={'heading'}>
+                        <div className={"head11"}>FORGOT PASSWORD</div>
+                        <div className={"subhead11"}>PLEASE ENTER YOUR INFO TO VALIDATE</div>
+                    </div>
+                    <div className={'close-button'}>
+                        <button className="close-btn">
+                            <FaRegWindowClose />
+                        </button>
+                    </div>
+                    <div className={'input-section'}>
+                        <input
+                            className={'username_input'}
+                            type={'text'}
+                            placeholder={'Email'}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <span className={'mail-icon'}>
+                            <IonIcon icon={mailOutline} />
+                        </span>
+                    </div>
+                    <div className={'input-section'}>
+                        <input
+                            className={'question_input'}
+                            type={'text'}
+                            placeholder={'SECURITY QUESTION HERE'}
+                            value={securityQuestion}
+                            onChange={(e) => setSecurityQuestion(e.target.value)}
+                        />
+                        <span className={'mail-icon'}>
+                            <FaQuestionCircle />
+                        </span>
+                    </div>
+                    <div>
+                        <input
+                            className={'password_input'}
+                            type={'password'}
+                            placeholder={'NEW PASSWORD'}
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
+                        />
+                        <span className={'iconpassword'}>
+                            <RiLockPasswordFill />
+                        </span>
+                    </div>
+                    <div>
+                        <input
+                            className={'confirm_input'}
+                            type={'password'}
+                            placeholder={'CONFIRM PASSWORD'}
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        <span className={'iconpassword'}>
+                            <RiLockPasswordFill />
+                        </span>
+                    </div>
+                    <div className={'error-message'}>{error && <p>{error}</p>}</div>
+                    <div className={'send-button'}>
+                        <button className={'sendbtn'} onClick={handleResetPassword}>
+                            Reset
+                        </button>
+                    </div>
+                </div>
     );
 };
 

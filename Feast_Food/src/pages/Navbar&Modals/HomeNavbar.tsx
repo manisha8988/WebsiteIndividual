@@ -1,19 +1,22 @@
 import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import {FaCartArrowDown, FaRegWindowClose, FaUser} from "react-icons/fa";
+import {FaCartArrowDown, FaQuestionCircle, FaRegWindowClose, FaUser} from "react-icons/fa";
 // import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
 import "../../css/LoginPage.css"
 import "../../css/RegistrationPage.css"
 import "../../css/HomeNavbar.css"
+import '../../css/ForgotPass1.css';
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {FaCircleUser} from "react-icons/fa6";
+import {IonIcon} from "@ionic/react";
+import {mailOutline} from "ionicons/icons";
 // import {toast} from "react-toastify";
 // import {RxHamburgerMenu} from "react-icons/rx";
 
@@ -34,6 +37,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const navigate = useNavigate();
 
 
+
+
+
     // Login modal
     const [login_popup, setLModal] = useState(false);
     const toggleLoginModal = () => {
@@ -47,6 +53,69 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         setRPopup(!register_popup);
         setLModal(false); // Close the login modal
     };
+    //forget password backend
+    const [email, setEmail] = useState<string>('');
+    const [securityQuestion, setSecurityQuestion] = useState<string>('');
+    const [newPassword, setNewPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    //forget popup
+    const [forget_popup, setfPopup] = useState(false);
+    const toggleforgetModal = () => {
+        setfPopup(!forget_popup);
+        setLModal(false); // Close the login modal
+    };
+
+    // Use React Query for handling API mutations
+    const useApiforgetCall = useMutation({
+        mutationKey: ['POST_RESET_PASSWORD'],
+        mutationFn: async () => {
+            try {
+                // Validation: Check if any field is empty
+                if (!email || !securityQuestion || !newPassword || !confirmPassword) {
+                    throw new Error('Please fill in all fields');
+                }
+
+                // Check if new password and confirm password match
+                if (newPassword !== confirmPassword) {
+                    throw new Error('New password and confirm password do not match');
+                }
+
+                // Make the API call to reset the password
+                const response = await axios.post('http://localhost:8080/register/resetPassword', {
+                    email,
+                    securityQuestion,
+                    password: newPassword,
+                    confirmPassword,
+                });
+                console.log('Password reset successfully:', response.data);
+
+                // Redirect to another page on successful password reset
+                window.location.href = '/';
+
+            } catch (error) {
+                if (axios.isAxiosError(error)) {
+                    const errorMessage = error.response?.data?.message || 'Invalid email or security question';
+                    console.error('Failed to reset password:', errorMessage);
+                    setError(errorMessage);
+                } else {
+                    const errorMessage = error.message || 'Unknown error';
+                    console.error('Failed to reset password:', errorMessage);
+                    setError(errorMessage);
+                }
+
+            }
+        },
+    });
+    const handleResetPassword = () => {
+        // Clear previous error messages
+        setError('');
+
+        // Trigger the API call only if all fields are filled
+        useApiforgetCall.mutate();
+    };
+
+
 
     if (login_popup || register_popup) {
         document.body.classList.add('active-modal');
@@ -187,7 +256,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         toast.success("wow! you just register", {position: "top-center"})
     }
 
-
     return(
         <>
             <div className={"nav-bar"}>
@@ -225,13 +293,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         )
                     )}
                 </div>
-
-                {/*<div className={"nav-mobile"} onClick={()=> setNavMenuOpen(!navMenuOpen)}>*/}
-                {/*    <span style={{fontSize:"1.7rem"}}><RxHamburgerMenu /></span>*/}
-                {/*</div>*/}
-
             </div>
-
 
             {login_popup && (
                 <div className="login-modal">
@@ -251,7 +313,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                         {...register("email")}
                                     />
                                 </div>
-                                <span className={"iconpassword"}><RiLockPasswordFill /></span>
+                                <span className={"iconpassword"}><RiLockPasswordFill/></span>
                                 <div className={"password"}>
                                     <input
                                         type={"password"}
@@ -262,7 +324,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </div>
                             <div className={"Remember-forget"}>
                                 <label><input type={"checkbox"}/>Remember me</label>
-                                <Link to={"/f1"}><a href={"#"} >Forget passsword</a></Link>
+                                <a href={"#"} onClick={toggleforgetModal}>Forget passsword</a>
                             </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
                             <div className={"register-text"}>
@@ -280,12 +342,8 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     <div className="register-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <h2>Register</h2>
-                            <button className="close-register-btn" onClick={toggleRegisterModal}>
-                                <FaRegWindowClose />
-                            </button>
-
+                            <button className="close-register-btn" onClick={toggleRegisterModal}><FaRegWindowClose /></button>
                             <div className={"reg-input-box"}>
-                                {/*<span className={"iconname"}> <FaUser /></span>*/}
                                 <div className={"username"}>
                                     <input type={"text"} placeholder={"Name"} {...register("fullName",{
                                         required:"FullName is required!!"
@@ -349,15 +407,83 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 </div>
 
                             </div>
-                            <button type={"submit"} className={"btn-signup10"}
-                                // onClick={difftoast}
-                            >Sign Up</button>
+                            <button type={"submit"} className={"btn-signup10"}>Sign Up</button>
                             <ToastContainer/>
                         </form>
                     </div>
                 </div>
             )}
 
+            {forget_popup &&(
+                <div  className={"forget-modal"}>
+                    <div onClick={toggleforgetModal} className={"forget-overlay"}></div>
+                    <div className={"forget-modal-content"}>
+                        <div className={'heading'}>
+                            <div className={"head11"}>FORGOT PASSWORD</div>
+                            <div className={"subhead11"}>PLEASE ENTER YOUR INFO TO VALIDATE</div>
+                        </div>
+                        <div className={'close-button'}>
+                            <button className="close-btn" onClick={toggleforgetModal}>
+                                <FaRegWindowClose />
+                            </button>
+                        </div>
+                        <div className={'input-section'}>
+                            <input
+                                className={'username_input'}
+                                type={'text'}
+                                placeholder={'Email'}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <span className={'mail-icon'}>
+                            <IonIcon icon={mailOutline} />
+                        </span>
+                        </div>
+                        <div className={'input-section'}>
+                            <input
+                                className={'question_input'}
+                                type={'text'}
+                                placeholder={'SECURITY QUESTION HERE'}
+                                value={securityQuestion}
+                                onChange={(e) => setSecurityQuestion(e.target.value)}
+                            />
+                            <span className={'mail-icon'}>
+                            <FaQuestionCircle />
+                        </span>
+                        </div>
+                        <div>
+                            <input
+                                className={'password_input'}
+                                type={'password'}
+                                placeholder={'NEW PASSWORD'}
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                            />
+                            <span className={'iconpassword'}>
+                            <RiLockPasswordFill />
+                        </span>
+                        </div>
+                        <div>
+                            <input
+                                className={'confirm_input'}
+                                type={'password'}
+                                placeholder={'CONFIRM PASSWORD'}
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                            <span className={'iconpassword'}>
+                            <RiLockPasswordFill />
+                            </span>
+                        </div>
+                        <div className={'error-message'}>{error && <p>{error}</p>}</div>
+                        <div className={'send-button'}>
+                            <button className={'sendbtn'} onClick={handleResetPassword}>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }

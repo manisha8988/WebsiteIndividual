@@ -1,22 +1,66 @@
-.wrapper1 {
+
+
+body.active-forget-modal {
+    overflow-y: hidden;
+}
+.forget-modal, .forget-overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 101;
+    /*backdrop-filter: blur(3px);*/
+
+}
+
+
+.forget-modal-content  {
+    /*background: red;*/
+    /*text-align: center;*/
+    /*margin-left: 37%;*/
+    /*margin-right: 37%;*/
+    /*margin-top: 10%;*/
+    /*height: 550px;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*flex-wrap: wrap;*/
+    /*border-radius: 17px;*/
+    /*backdrop-filter: blur(3px);*/
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
     background: #dcdbdb;
-    text-align: center;
-    margin-left: 37%;
-    margin-right: 37%;
-    margin-top: 10%;
-    height: 550px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border-radius: 17px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 27vw;
+    height: 65vh;
+    z-index: 102;
+
 }
 
 .close-btn {
+    width: 3vw;
+    height: 3vw;
+    background: none;
+    box-shadow: none;
+    color: #222222;
+    border-radius: 9px;
     position: absolute;
-    margin-top: -145px;
-    margin-left: 210px;
-    background-color: #dcdbdb;
-    border: none;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 7px 3px 0 3px;
+    margin-bottom: -20px;
+}
+.close-btn:hover{
+    box-shadow: none;
+    color: #f3ad16
 }
 
 .question_input {
