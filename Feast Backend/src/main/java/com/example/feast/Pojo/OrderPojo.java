@@ -36,4 +36,5 @@ public class OrderPojo {
 
     private Long phoneNumber;
 
+    private Date orderDateTime;
 }

@@ -7,6 +7,7 @@ import {FaBowlFood} from "react-icons/fa6";
 import {GoHomeFill} from "react-icons/go";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
+import {useEffect, useState} from "react";
 
 function AdminDashboard(){
 
@@ -36,6 +37,16 @@ function AdminDashboard(){
             return axios.get("http://localhost:8080/register/getAll")
         }
     })
+
+    //Display user details
+    const [user, setUser] = useState({
+
+    })
+    useEffect(() => {
+        const data: any = JSON.parse(localStorage.getItem("userDetails"));
+        setUser(data);
+    }, [localStorage.getItem("userDetails")]);
+
     return(
         <>
             <div className={"admin-dashboard-page"}>
@@ -46,17 +57,11 @@ function AdminDashboard(){
                 <div className={"dashboard-right"}>
                     <header className={"dashboard-header"}>
                         <h1>Dashboard</h1>
-
-                        {/*<div className={"search-wrapper"}>*/}
-                        {/*    <span><FaSearch /></span>*/}
-                        {/*    <input type={"search"} placeholder={"Search here"}/>*/}
-                        {/*</div>*/}
-
                         <div className={"user-wrapper"}>
                             <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
                             <div>
                                 <h4>Admin</h4>
-                                <small>Super admin</small>
+                                <small>{user.fullName}</small>
                             </div>
                         </div>
                     </header>

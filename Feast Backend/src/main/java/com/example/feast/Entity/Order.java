@@ -41,4 +41,7 @@ public class Order {
     @Column(name = "phone_number")
     private Long phoneNumber;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "order_date_time")
+    private Date orderDateTime;
 }

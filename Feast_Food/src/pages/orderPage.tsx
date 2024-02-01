@@ -2,7 +2,7 @@ import {useLocation} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import AdminSidebar from "./adminSidebar.tsx";
-import "../../src/css/adminEvent.css"
+import "../../src/css/orderPage.css"
 import {MdDelete} from "react-icons/md";
 
 function OrderPage(){
@@ -47,12 +47,12 @@ function OrderPage(){
                         <table className={"event-table2"}>
                             <thead>
                             <tr>
-                                <th className={"id-box5"}>Customer's Name</th>
-                                <th className={"name-box5"}>Item ID</th>
-                                <th className={"date-box5"}>Date</th>
-                                <th className={"image-box5"}>Total Price</th>
-                                <th className={"request-box5"}>Additional Request</th>
-                                <th className={"delete-box5"}>Action</th>
+                                <th className={"name-box6"}>Customer's Name</th>
+                                <th className={"nid-box6"}>Item ID</th>
+                                <th className={"date-box6"}>Date</th>
+                                <th className={"price-box6"}>Total Price</th>
+                                <th className={"delivery-box6"}>Delivery Option</th>
+                                <th className={"action-box6"}>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -60,9 +60,18 @@ function OrderPage(){
                                 <tr key={i?.id}>
                                     <td>{i?.user?.fullName}</td>
                                     <td>{i?.orderItems}</td>
-                                    <td></td>
+                                    <td>{new Date(i?.orderDateTime).toLocaleString()}</td>
                                     <td>Rs. {i?.totalPrice}</td>
-                                    <td>{i?.specialRequest}</td>
+                                    <td className={"tddelivery-box6"}>
+                                        {i?.address ? (
+                                            <>
+                                                {i?.address} , 
+                                                {i?.phoneNumber}
+                                            </>
+                                        ) : (
+                                            "Self Pickup"
+                                        )}
+                                    </td>
                                     <td>
                                         <button className={"delete-btn3"} onClick={() => {
                                             if (window.confirm("Are you sure you want to delete this Order?")) {

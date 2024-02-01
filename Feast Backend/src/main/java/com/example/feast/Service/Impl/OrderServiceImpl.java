@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -54,6 +55,7 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(orderPojo.getTotalPrice());
         order.setAddress(orderPojo.getAddress());
         order.setPhoneNumber(orderPojo.getPhoneNumber());
+        order.setOrderDateTime(new Date());
 
         orderRepo.save(order);
         return (" This Order Saved Successfully");
