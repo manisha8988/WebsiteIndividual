@@ -18,6 +18,8 @@ import {FaCircleUser} from "react-icons/fa6";
 import {IonIcon} from "@ionic/react";
 import {mailOutline} from "ionicons/icons";
 // import {toast} from "react-toastify";
+import UserProfileView from "../UserProfileView.tsx";
+
 // import {RxHamburgerMenu} from "react-icons/rx";
 
 
@@ -153,6 +155,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
     }, [login_popup, register_popup]);
 
+    const [userProfile , setUserProfile] = useState(false);
 
     //Register ko backend connection
     const {
@@ -275,15 +278,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 <div className={"hp-navright"}>
                     <Link to={"/cart"}>
                         <span className={"icon-cart"}>
-                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
                         </span>
                     </Link>
                     {user ? (
-                        <Link to={"/UserProfileView"}>
-                             <span className={"fullnamedisplay"}>
-                                <FaCircleUser style={{ fontSize: "1.2rem", marginBottom: "-3px", marginRight: "3px" }} />
+                             <span className={"fullnamedisplay"} onClick={() => setUserProfile(true)}>
+                                <FaCircleUser style={{ fontSize: "3rem", marginBottom: "-3px", marginRight: "3px" }} />
                              </span>
-                        </Link>
                     ):
                         (
                         !localStorage.getItem("userDetails") && (
@@ -324,7 +325,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             </div>
                             <div className={"Remember-forget"}>
                                 <label><input type={"checkbox"}/>Remember me</label>
-                                <a href={"#"} onClick={toggleforgetModal}>Forget passsword</a>
+                                <a href={"#"} onClick={toggleforgetModal}>Forget passsword?</a>
                             </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
                             <div className={"register-text"}>
@@ -374,7 +375,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                     )}
 
                                 </div>
-                                {/*<span className={"iconpassword"}><RiLockPasswordFill /></span>*/}
                                 <div className={"password"}>
 
                                     <input type={"password"} placeholder={"Confirm Password"}
@@ -484,8 +484,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     </div>
                 </div>
             )}
+
+            {userProfile && <UserProfileView />}
+
         </>
     )
 }
 
-export default HomeNavbar;
+export default HomeNavbar

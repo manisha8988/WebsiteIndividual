@@ -25,7 +25,6 @@
 //                     <label className={"dropdown"}>Date<input type={"date"} placeholder={"Arrival Date"}/></label>
 //                     <Dropdown/>
 //                     <input type={"date"} className={"dropdown"} placeholder={"Arrival Date"}/>
-//
 //                     <Hour/>
 //                     <button>Book A Table</button>
 //                 </div>

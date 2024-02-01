@@ -9,13 +9,15 @@ import java.util.Optional;
 
 public interface OrderService {
 
-    void save(OrderPojo orderpojo);
+    String save(OrderPojo orderpojo);
 
 
     List<Order> getAll();
 
 
     Optional<Order> findById(Long id);
+
+    void deleteById(Long id);
 
     String update(Long id , OrderPojo orderpojo);
 

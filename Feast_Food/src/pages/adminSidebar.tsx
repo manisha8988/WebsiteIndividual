@@ -10,6 +10,7 @@ import {TbBrandBooking} from "react-icons/tb";
 import {FaUserCog} from "react-icons/fa";
 import {IoNewspaper} from "react-icons/io5";
 import {BsFillCalendar2EventFill} from "react-icons/bs";
+import {CiMoneyBill} from "react-icons/ci";
 
 
 interface AdminSidebarProps {
@@ -39,8 +40,8 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                             </li>
                         </Link>
 
-                        <Link to={"##"}>
-                            <li className={`sidebar-list-item ${activePage === "##" ? "active" : ""}`}>
+                        <Link to={"/OrderPage"}>
+                            <li className={`sidebar-list-item ${activePage === "/OrderPage" ? "active" : ""}`}>
                                 <span><IoNewspaper style={{fontSize:"18px",marginBottom:"-3px"}}/></span>
                                 <a>Orders</a>
                             </li>
@@ -85,6 +86,13 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
                             <li className={`sidebar-list-item ${activePage === "/reservedTable" ? "active" : ""}`}>
                                 <span><TbBrandBooking style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
                                 <a>ReservedTable</a>
+                            </li>
+                        </Link>
+
+                        <Link to={"/paymentManagement"}>
+                            <li className={`sidebar-list-item ${activePage === "/paymentManagement" ? "active" : ""}`}>
+                                <span><CiMoneyBill  style={{fontSize:"20px",marginBottom:"-3px"}}/></span>
+                                <a>PaymentManagement</a>
                             </li>
                         </Link>
 

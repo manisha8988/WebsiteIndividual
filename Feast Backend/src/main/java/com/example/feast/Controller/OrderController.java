@@ -19,9 +19,8 @@ public class OrderController {
 
 
     @PostMapping(value = "/save")
-    public String saveOrder(@Valid @RequestBody OrderPojo orderpojo) {
+    public void saveOrder(@Valid @RequestBody OrderPojo orderpojo) {
         orderService.save(orderpojo);
-        return "Saved Successfully!";
     }
 
     @PostMapping(value = "/saveAll")
@@ -40,6 +39,11 @@ public class OrderController {
     @GetMapping("/getById/{id}")
     public Optional<Order> getById(@PathVariable("id") Long id) {
         return this.orderService.findById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable("id") Long id){
+        this.orderService.deleteById(id);
     }
 
 }

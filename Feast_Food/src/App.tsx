@@ -7,7 +7,7 @@ import HomePage from "./pages/homePage.tsx";
 import UserProfileView from "./pages/UserProfileView.tsx";
 import OurMenu from "./pages/ourMenu.tsx";
 import ReservationPage from "./pages/reservationUserSide/reservationPage.tsx";
-import Payment from "./pages/payment.tsx";
+import Payment from "./pages/payment/payment.tsx";
 import ContactPage from "./pages/contactPage.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
 import Reservation from "./pages/reservationUserSide/reserveTable.tsx";
@@ -24,6 +24,8 @@ import EditEvent from "./pages/editEvent.tsx";
 import ManageTable from "./pages/reservationAdminSide/ManageTable.tsx";
 import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 
+import OrderPage from "./pages/orderPage.tsx";
+import PaymentManagement from "./pages/payment/paymentManagement.tsx";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +43,7 @@ function App() {
                     {path: "/editItem/:pk_id", element: <EditItem/>},
                     {path: "/CustomerPage", element: <CustomerPage/>},
                     {path: "/AdminEvent", element: <AdminEvent/>},
+                    {path: "/OrderPage", element: <OrderPage/>},
                     {path: "/EditEvent/:pk_id", element: <EditEvent/>},
                     {path: "/", element: <HomePage/>},
                     {path: "/OurMenu", element: <OurMenu/>},
@@ -60,7 +63,8 @@ function App() {
                     {path:"/ReservedTable",element:<ReservedTable/>},
                     {path:"/Rate",element:<RatingSection/>},
 
-
+                    // {path:"/f1",element:<ForgotPass1/>},
+                    {path:"/PaymentManagement",element:<PaymentManagement/>}
                 ])} />
             </QueryClientProvider>
         </>

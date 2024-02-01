@@ -21,19 +21,19 @@
 
 .stars {
     position:absolute;
-    font-size: 2em; /* Adjust the font-size to increase the star size */
-    cursor: pointer;; /* Increased star font size */
+    font-size: 2em;
+    cursor: pointer;
     margin-top: 200px;
-    margin-left: 900px;
+    margin-left: 650px;
 }
 
 .star {
-    color: #95a5a6; /* Changed default star color */
+    color: #95a5a6;
     transition: color 0.2s;
     font-size: 50px;
 }
 
 .star:hover,
 .star.active {
-    color: #e67e22; /* Changed star color on hover and when active */
+    color: #e67e22;
 }

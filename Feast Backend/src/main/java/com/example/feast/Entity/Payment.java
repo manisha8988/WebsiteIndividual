@@ -19,8 +19,8 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name="Order_Id" , nullable=false) // Apply join table from order
-//    private Long orderId;
+    @Column (name="order_items")
+    private String orderItems;
 
     @ManyToOne
     @JoinColumn(name="user_id")

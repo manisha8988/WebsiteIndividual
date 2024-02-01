@@ -23,7 +23,6 @@ public class ItemPojo {
     @NotNull
     private Integer categoryId;
 
-    //    private String itemImage;
     private MultipartFile itemImage;
 
     @NotNull
