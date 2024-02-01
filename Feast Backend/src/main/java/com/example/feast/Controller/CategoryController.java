@@ -3,8 +3,6 @@ package com.example.feast.Controller;
 import com.example.feast.Entity.Category;
 import com.example.feast.Pojo.CategoryPojo;
 import com.example.feast.Service.CategoryService;
-//import com.example.feast.Service.Impl.CategoryServiceImpl;
-//import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
