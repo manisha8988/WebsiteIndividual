@@ -19,6 +19,7 @@ import {IonIcon} from "@ionic/react";
 import {mailOutline} from "ionicons/icons";
 // import {toast} from "react-toastify";
 import UserProfileView from "../UserProfileView.tsx";
+import {MdEmail} from "react-icons/md";
 
 // import {RxHamburgerMenu} from "react-icons/rx";
 
@@ -419,8 +420,8 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     <div onClick={toggleforgetModal} className={"forget-overlay"}></div>
                     <div className={"forget-modal-content"}>
                         <div className={'heading'}>
-                            <div className={"head11"}>FORGOT PASSWORD</div>
-                            <div className={"subhead11"}>PLEASE ENTER YOUR INFO TO VALIDATE</div>
+                            <h2>FORGOT PASSWORD</h2>
+                            <h3>Please fill your crediantials</h3>
                         </div>
                         <div className={'close-button'}>
                             <button className="close-btn" onClick={toggleforgetModal}>
@@ -436,7 +437,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <span className={'mail-icon'}>
-                            <IonIcon icon={mailOutline} />
+                            <MdEmail />
                         </span>
                         </div>
                         <div className={'input-section'}>
@@ -447,11 +448,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 value={securityQuestion}
                                 onChange={(e) => setSecurityQuestion(e.target.value)}
                             />
-                            <span className={'mail-icon'}>
-                            <FaQuestionCircle />
+                            <span className={'security-question-icon'}>
+                            <FaQuestionCircle/>
                         </span>
                         </div>
-                        <div>
+                        <div className={"input-section"}>
                             <input
                                 className={'password_input'}
                                 type={'password'}
@@ -463,7 +464,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <RiLockPasswordFill />
                         </span>
                         </div>
-                        <div>
+                        <div className={"input-section"}>
                             <input
                                 className={'confirm_input'}
                                 type={'password'}
