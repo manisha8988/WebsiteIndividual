@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +19,8 @@ public class PaymentPojo {
 //    private Long orderId;
 
     private Long userId;
+
+    private List<Integer> orderItems;
 
     @NotNull
     private Integer subTotal;

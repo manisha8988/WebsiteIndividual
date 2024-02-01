@@ -40,4 +40,9 @@ public class PaymentController {
 
     }
 
+    @PutMapping("/update/{id}")
+    public String updatePayment(@PathVariable Long id, @RequestBody PaymentPojo paymentPojo) {
+        return paymentService.update(id, paymentPojo);
+    }
+
 }
