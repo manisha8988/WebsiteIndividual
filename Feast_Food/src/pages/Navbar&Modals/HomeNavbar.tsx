@@ -15,9 +15,8 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {FaCircleUser} from "react-icons/fa6";
-import {IonIcon} from "@ionic/react";
-import {mailOutline} from "ionicons/icons";
-// import {toast} from "react-toastify";
+// import {IonIcon} from "@ionic/react";
+// import {mailOutline} from "ionicons/icons";
 import UserProfileView from "../UserProfileView.tsx";
 import {MdEmail} from "react-icons/md";
 
@@ -36,6 +35,7 @@ interface LoginProps {
 const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
     const [loginSuccess, setLoginSuccess] = useState(false);
+    const [loginError, setLoginError] = useState<string>('');
 
     const navigate = useNavigate();
 
@@ -193,7 +193,6 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         },
         onSuccess: (response) => {
             const userData = response.data;
-
             if (userData) {
                 console.log("User Data:", userData);
 
@@ -209,12 +208,20 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     if (userData.roles === "ADMIN") {
                         // Redirect to admin page or perform admin-related actions
                         navigate('/AdminDashboard'); // Assuming you have a route for the admin page
+                    } else {
+                        console.error("User details not found in the response");
                     }
                 } catch (error) {
-                    console.error("Error storing user details in local storage:", error);
+                    if (axios.isAxiosError(error)) {
+                        const errorMessage = error.response?.data?.message || 'Invalid email or password';
+                        console.error('Failed to login:', errorMessage);
+                        setLoginError((prevError) => {
+                            console.log('Previous Error:', prevError); // Debug statement
+                            console.log('New Error:', errorMessage); // Debug statement
+                            return errorMessage;
+                        });
+                    }
                 }
-            } else {
-                console.error("User details not found in the response");
             }
         },
     });
@@ -259,6 +266,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const difftoast =() => {
         toast.success("wow! you just register", {position: "top-center"})
     }
+    // const difftoast1 =() => {
+    //     toast.success("inavalid", {position: "top-center"})
+    // }
 
     return(
         <>
@@ -328,7 +338,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 <label><input type={"checkbox"}/>Remember me</label>
                                 <a href={"#"} onClick={toggleforgetModal}>Forget passsword?</a>
                             </div>
+                            <div className={'error-message'}>
+                                {loginError && <p>{loginError}</p>}
+                            </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
+
                             <div className={"register-text"}>
                                 <p> Don't have an account?
                                     <a href={"#"} onClick={toggleRegisterModal}>Register</a></p>

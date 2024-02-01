@@ -129,18 +129,7 @@ body.active-login-modal {
 }
 
 .btn-login10{
-    width: 16vw;
-    height: 7vh;
-    background: #f3ad16;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #ffffff;
-    font-weight: 500;
-    margin: 15px 50px;
-}
+
 
 .register-text {
     position: absolute;
@@ -152,4 +141,10 @@ body.active-login-modal {
 }
 .register-text a:hover{
     text-decoration: underline;
+}
+
+.error-message{
+    color: red;
+}
+
 }
