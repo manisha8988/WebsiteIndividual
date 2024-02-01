@@ -3,8 +3,8 @@ import  {useEffect, useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 // import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
-import HomeNavbar from "./Navbar&Modals/HomeNavbar";
-import "../css/payment.css";
+import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
+import "../../css/payment.css";
 import {useMutation, useQuery} from "@tanstack/react-query";
 
 
@@ -12,8 +12,6 @@ const myKey = {
     publicTestKey: "test_public_key_402c2b0e98364222bb1c1ab02369cefd",
     secretKey: "test_secret_key_d46fe88dee964ecfbd0f699a9985f2d4",
 };
-
-// const backendBaseUrl = "http://localhost:8080";
 
 const config = {
     publicKey: myKey.publicTestKey,
@@ -28,11 +26,19 @@ const config = {
                 amount: payload.amount,
             };
 
+
+
             axios
                 .get(
                     `https://meslaforum.herokuapp.com/khalti/${data.token}/${data.amount}/${myKey.secretKey}`
                 )
                 .then((response) => {
+
+                    // api hit to updtae status
+                    if (response.status==200){
+                        axios.put("http://localhost:8080/payment/update/"+id);
+                    }
+
                     console.log(response.data);
                     alert("Thank you for your generosity");
                 })
@@ -108,6 +114,8 @@ const Payment = () => {
                 .map(item => item?.item?.id)
                 .filter(id => id !== null && id !== undefined);
 
+            //oder connection//
+
             const orderData = {
                 userId: user?.id,
                 orderItems: itemIds,
@@ -128,11 +136,48 @@ const Payment = () => {
                 console.error("Error placing the order", error);
                 alert("Error placing the order. Please try again.");
             }
-        } else if (selectedPaymentOption === "Pay Via Khalti") {
-            // alert("Order placed successfully!");
-            // Add any additional logic for cash on delivery
-        } else {
-            // alert("Please select a valid payment option");
+
+        }
+        // both
+        if (selectedPaymentOption === "Pay Via Khalti") {
+            const itemIds = cartData?.data
+                .map(item => item?.item?.id)
+                .filter(id => id !== null && id !== undefined);
+
+            const orderData = {
+                userId: user?.id,
+                orderItems: itemIds,
+                payVia: selectedPaymentOption,
+                pickUpOption: selectedDeliveryOption,
+                totalPrice: totalAmount,
+                address: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".address_input").value : null,
+                phoneNumber: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".phone_input").value : null,
+            };
+
+            const paymentData = {
+                userId: user?.id,
+                orderItems: itemIds,
+                subTotal: cartTotal,
+                deliveryFee: selectedDeliveryOption === "Home Delivery" ? 75 : 0, // Add delivery fee only for Home Delivery
+                total: totalAmount,
+            };
+
+            try {
+                // Make API call for order data
+                const response = await axios.post("http://localhost:8080/order/save", orderData);
+                console.log(response.data);
+
+                // Make API call for payment data
+                const paymentResponse = await axios.post("http://localhost:8080/payment/save", paymentData);
+                console.log(paymentResponse.data);
+
+                alert("Order placed successfully!");
+                checkout.show({ amount: totalAmount*100 });
+                // navigate('/OurMenu');
+            } catch (error) {
+                console.error("Error placing the order or payment", error);
+                alert("Error placing the order or payment. Please try again.");
+            }
         }
     };
 
@@ -153,19 +198,7 @@ const Payment = () => {
         setTotalAmount(newTotalAmount);
     }, [cartTotal, selectedDeliveryOption]);
 
-    //post
 
-    const useApiCall = useMutation({
-        mutationKey:["POST_order"],
-        mutationFn:(payload:any)=> {
-            console.log(payload)
-            return axios.post("http://localhost:8080/order/save", payload)
-        }
-    })
-
-    const onSubmit=(value:any)=>{
-        useApiCall.mutate(value)
-    }
 
 
     return (

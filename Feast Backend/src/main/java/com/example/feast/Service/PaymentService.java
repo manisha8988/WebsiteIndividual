@@ -17,4 +17,8 @@ public interface PaymentService {
 
     Integer deleteById(Long id);
 
+    String update(Long id, PaymentPojo paymentPojo);
+
+
+
 }

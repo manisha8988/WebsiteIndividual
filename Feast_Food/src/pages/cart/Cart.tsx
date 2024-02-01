@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/Cart.css"
 import {Link, useLocation} from "react-router-dom";
@@ -137,7 +136,6 @@ const Cart = () => {
 }
 
 export default Cart;
-=======
 // import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 // import "../../css/Cart.css"
 // import {Link, useLocation} from "react-router-dom";
@@ -277,4 +275,3 @@ export default Cart;
 // }
 //
 // export default Cart;
->>>>>>> Stashed changes
