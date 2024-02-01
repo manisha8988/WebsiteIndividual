@@ -49,7 +49,7 @@ function OrderPage(){
                             <tr>
                                 <th className={"name-box6"}>Customer's Name</th>
                                 <th className={"nid-box6"}>Item ID</th>
-                                <th className={"date-box6"}>Date</th>
+                                <th className={"date-box6"}>Order date&time</th>
                                 <th className={"price-box6"}>Total Price</th>
                                 <th className={"delivery-box6"}>Delivery Option</th>
                                 <th className={"action-box6"}>Action</th>
@@ -65,7 +65,7 @@ function OrderPage(){
                                     <td className={"tddelivery-box6"}>
                                         {i?.address ? (
                                             <>
-                                                {i?.address} , 
+                                                {i?.address} ,
                                                 {i?.phoneNumber}
                                             </>
                                         ) : (
