@@ -268,7 +268,7 @@ const Payment = () => {
                                     className={"select-payment-option"}
                                     onChange={(e) => setSelectedPaymentOption(e.target.value)}
                                 >
-                                    <option>Select Delivery Option</option>
+                                    <option>Select Payment Option</option>
                                     <option>Cash on delivery</option>
                                     <option>Pay Via Khalti</option>
                                 </select>

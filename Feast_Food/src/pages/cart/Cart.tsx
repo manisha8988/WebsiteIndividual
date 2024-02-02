@@ -11,6 +11,16 @@ const Cart = () => {
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
 
+    const [amount , setAmount] = useState(1);
+    const setDecrease = () =>{
+        amount > 1? setAmount ( amount - 1) : setAmount (1);
+    };
+
+    const setIncrease = () =>{
+        amount == 1 ? setAmount ( amount + 1) : setAmount (1);
+    };
+
+
     // Fetching data from API
     const{data:cartData,refetch} = useQuery({
         queryKey:["GET_CART_DATA"],
@@ -20,24 +30,24 @@ const Cart = () => {
     })
 
     // State to manage cart items
-    const [cartItems, setCartItems] = useState(cartData?.data || []);
+    // const [cartItems, setCartItems] = useState(cartData?.data || []);
 
     // Function to update quantity in the cart
-    const updateQuantity = (itemId, newQuantity) => {
-        // Update the quantity in the local state
-        const updatedCartItems = cartItems.map((item) =>
-            item.id === itemId ? { ...item, quantity: newQuantity } : item
-        );
-
-        // Update the quantity on the server
-        axios.put(`http://localhost:8080/cart/updateQuantity/${itemId}`, {
-            quantity: newQuantity,
-        });
-
-        // Update the local state and trigger a refetch if needed
-        setCartItems(updatedCartItems);
-        refetch();
-    };
+    // const updateQuantity = (itemId, newQuantity) => {
+    //     // Update the quantity in the local state
+    //     const updatedCartItems = cartItems.map((item) =>
+    //         item.id === itemId ? { ...item, quantity: newQuantity } : item
+    //     );
+    //
+    //     // Update the quantity on the server
+    //     axios.put(http://localhost:8080/cart/updateQuantity/${itemId}, {
+    //         quantity: newQuantity,
+    //     });
+    //
+    //     // Update the local state and trigger a refetch if needed
+    //     setCartItems(updatedCartItems);
+    //     refetch();
+    // };
 
     //Deleting cart item by id
     const deleteByIdApi=useMutation(
@@ -51,7 +61,7 @@ const Cart = () => {
 
     // Calculate total cart price
     const cartTotal = cartData?.data.reduce(
-        (total, item) => total + item.total_price * item.quantity,
+        (total, item) => total + item.total_price * amount,
         0
     );
 
@@ -87,22 +97,20 @@ const Cart = () => {
                                         <i
                                             className={"fas fa-minus minus"}
                                             onClick={() => {
-                                                const newQuantity = Math.max(0, i?.quantity - 1);
-                                                updateQuantity(i?.id, newQuantity);
+                                                setDecrease();
                                             }}
                                         ></i>
-                                        <input type={"text"} value={i?.quantity} readOnly />
+                                        <input type={"text"} value={amount} readOnly />
                                         <i
                                             className={"fas fa-plus add"}
                                             onClick={() => {
-                                                const newQuantity = i?.quantity + 1;
-                                                updateQuantity(i?.id, newQuantity);
+                                                setIncrease();
                                             }}
                                         ></i>
                                     </div>
 
                                     <div className={"sub-total"}>
-                                        <h3>Rs {i?.total_price*i?.quantity}</h3>
+                                        <h3>Rs {i?.total_price*amount}</h3>
                                     </div>
 
                                     <div className={"remove-item"}>
@@ -120,7 +128,7 @@ const Cart = () => {
                     <hr/>
                 </div>
             </div>
-            <hr />
+
 
             <div className={"CheckOut-Container"}>
                 <div className={"cart-total"}>
@@ -136,6 +144,7 @@ const Cart = () => {
 }
 
 export default Cart;
+
 // import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 // import "../../css/Cart.css"
 // import {Link, useLocation} from "react-router-dom";
@@ -273,5 +282,4 @@ export default Cart;
 //
 // );
 // }
-//
-// export default Cart;
+
