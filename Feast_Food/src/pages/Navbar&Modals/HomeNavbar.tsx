@@ -458,7 +458,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <input
                                 className={'question_input'}
                                 type={'text'}
-                                placeholder={'SECURITY QUESTION HERE'}
+                                placeholder={'Security question here'}
                                 value={securityQuestion}
                                 onChange={(e) => setSecurityQuestion(e.target.value)}
                             />
@@ -470,7 +470,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <input
                                 className={'password_input'}
                                 type={'password'}
-                                placeholder={'NEW PASSWORD'}
+                                placeholder={'New password'}
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
                             />
@@ -482,7 +482,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                             <input
                                 className={'confirm_input'}
                                 type={'password'}
-                                placeholder={'CONFIRM PASSWORD'}
+                                placeholder={'Confirm password'}
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
