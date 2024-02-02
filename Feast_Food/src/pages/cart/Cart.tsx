@@ -1,6 +1,6 @@
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/Cart.css"
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {useState} from "react";
@@ -10,7 +10,11 @@ const Cart = () => {
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+    const { parss } = useParams();
+    let price="0";
+    let custom_id="0";
 
+    // console.log(custom_id,"id")
     // Fetching data from API
     const{data:cartData,refetch} = useQuery({
         queryKey:["GET_CART_DATA"],
@@ -30,16 +34,13 @@ const Cart = () => {
         );
 
         // Update the quantity on the server
-        axios.put(`http://localhost:8080/cart/updateQuantity`, {
-            id:itemId,
+        axios.put(`http://localhost:8080/cart/updateQuantity/${itemId}`, {
             quantity: newQuantity,
-        }).then(res=>{
-            refetch()
         });
 
         // Update the local state and trigger a refetch if needed
         setCartItems(updatedCartItems);
-
+        refetch();
     };
 
     //Deleting cart item by id
@@ -53,11 +54,18 @@ const Cart = () => {
     )
 
     // Calculate total cart price
-    const cartTotal = cartData?.data.reduce(
+    let cartTotal = cartData?.data.reduce(
         (total, item) => total + item.total_price * item.quantity,
         0
     );
-
+    if (parss) {
+        const id_priceArray = parss.split('+');
+        custom_id = id_priceArray[0];
+        price = id_priceArray[1];
+        cartTotal=cartTotal+ +price;
+    }
+    console.log(cartTotal,"cartTotal")
+    // console.log(cartData)
     return (
         <div className={"cart-container"}>
             <HomeNavbar activePage={currentLocation} />
@@ -105,7 +113,8 @@ const Cart = () => {
                                     </div>
 
                                     <div className={"sub-total"}>
-                                        <h3>Rs {i?.total_price*i?.quantity}</h3>
+                                        Rs {+custom_id===i?.item.id? (+price +i?.total_price):
+                                        i?.price ? i?.price * i?.quantity : i?.total_price * i?.quantity}
                                     </div>
 
                                     <div className={"remove-item"}>
@@ -115,6 +124,7 @@ const Cart = () => {
                                             }
                                         }}></i>
                                     </div>
+                                    <Link to={`/customizepizza/${i?.item.id}+${i?.total_price}`}><button className={"custom"}>Customize</button></Link>
                                 </div>
                             )
                         })
@@ -128,7 +138,7 @@ const Cart = () => {
             <div className={"CheckOut-Container"}>
                 <div className={"cart-total"}>
                     <h3> Cart Total: Rs. {cartTotal}</h3>
-                    <Link to={"/payment"}><button className={"checkout-button"}>CHECKOUT</button></Link>
+                    <Link to={`/payment/${cartTotal}`}><button className={"checkout-button"}>CHECKOUT</button></Link>
                 </div>
 
             </div>

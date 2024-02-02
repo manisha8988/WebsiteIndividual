@@ -1,4 +1,3 @@
-import React from "react";
 import "../../css/reservationPage.css";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
