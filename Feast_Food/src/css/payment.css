@@ -1,14 +1,15 @@
 .payment-container {
     background: #faf7f2;
     width: 100%;
-    height: 300vh;
+    height: 100%;
+    /*font-family: Gilroy;*/
     /*overflow-x: hidden;*/
 }
 
 .payment-text-div {
     display: block;
     color: #443f3f;
-    font-family: "Gilroy Bold", serif;
+    font-family: "Gilroy Bold";
     font-size: 1.5rem;
     border-top: 1px solid #ccc;
     text-align: center;
@@ -30,7 +31,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px 60px;
-    margin: 40px;
+    /*margin: 40px;*/
     margin-inline: auto;
     width: 70vw;
     height: 100vh;
@@ -41,7 +42,7 @@
     background: white;
     display: flex;
     padding: 10px 20px;
-    margin: 1px;
+    /*margin: 1px;*/
     margin-inline: auto;
     width: 60vw;
     height: 30vh;
@@ -54,24 +55,24 @@
     padding: 10px 20px;
     margin: 20px;
     margin-inline: auto;
-    width: 100%;
+    width: 60vw;
     height: 55vh;
     box-shadow: 5px 5px 10px -1px rgba(10, 99, 169, 0.16);
     font-style: normal;
     font-weight: lighter;
     text-align: center;
-
+    flex-direction: column;
 }
 .receipt-container-text{
     font-style: normal;
     font-weight: lighter;
-    text-align: center;
+    text-align: left;
 
 }
 
 .receipt-tex{
     font-style: normal;
-    font-weight: lighter;
+    font-weight: bold;
     text-align: center;
     margin: 20px;
 
@@ -80,6 +81,7 @@
 .payment-mode-container {
     background: white;
     display: flex;
+    flex-direction: column;
     padding: 8px 20px;
     margin: 10px;
     margin-inline: auto;
@@ -98,7 +100,7 @@
 }
 
 .select-delivery-option{
-    font-family: "Bebas Neue";
+    /*font-family: "Bebas Neue";*/
     font-size: 20px;
     position: relative;
     text-align: center;
@@ -124,7 +126,7 @@
 }
 
 .select-payment-option{
-    font-family: "Bebas Neue";
+
     font-size: 20px;
     text-align: center;
     position: relative;
@@ -146,12 +148,18 @@
     display: flex;
     flex-direction: column;
     padding: 20px 60px;
-    margin: 40px;
+    /*margin: 40px;*/
     margin-inline: auto;
     width: 30vw;
     height: 30vh;
     align-items: center;
-
 }
-
-
+.address_input, .phone_input{
+    width: 15vw;
+    margin-bottom: 4px;
+    height: 5vh;
+    font-family: "Gilroy Medium";
+    background-color: white;
+    border-radius: 4px;
+    padding-left: 5px;
+}

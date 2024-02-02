@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { FaRegWindowClose } from 'react-icons/fa';
 import '../../css/CustomizePizza.css';
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 const staticPrices = {
     addExtraCheese: 60,
@@ -16,16 +17,23 @@ const staticPrices = {
 
 
 const CustomizePizzaPage: React.FC = () => {
+    const {parss}=useParams();
+    // console.log(parss)
+    const id_priceArray=parss.split('+');
+    const id=id_priceArray[0];
+    const price=id_priceArray[1];
+    // console.log(price)
     const [customization, setCustomization] = useState({
         addExtraCheese: false,
         addExtraMeat: false,
         addExtraMozzarella: false,
         addExtraBasil: false,
         addExtraVeggies: false,
+        item:id
     });
 
     const [messages, setMessages] = useState<string[]>([]);
-    const [totalPrice, setTotalPrice] = useState<number>(800); // Initial base price
+    const [totalPrice, setTotalPrice] = useState<number>(+price); // Initial base price
 
     const useApiCall = useMutation({
         mutationKey: ['POST_CUSTOMIZATION'],
@@ -61,6 +69,7 @@ const CustomizePizzaPage: React.FC = () => {
         }, 3000);
     };
 
+    const navigate = useNavigate();
     const handleCustomizeClick = async () => {
         // Prepare payload for API call
         const payload = {
@@ -69,6 +78,7 @@ const CustomizePizzaPage: React.FC = () => {
             addExtraMozzarella: customization.addExtraMozzarella,
             addExtraBasil: customization.addExtraBasil,
             addExtraVeggies: customization.addExtraVeggies,
+            item:id
         };
 
         try {
@@ -82,9 +92,12 @@ const CustomizePizzaPage: React.FC = () => {
                 addExtraMozzarella: false,
                 addExtraBasil: false,
                 addExtraVeggies: false,
+                item:id
             });
-            setTotalPrice(800); // Reset to initial base price
+            setTotalPrice(+price); // Reset to initial base price
             setMessages([]);
+
+            navigate(`/cart/${id}+${totalPrice-+price}`);
         } catch (error) {
             console.error('Failed to customize pizza:', error);
         }
@@ -94,9 +107,8 @@ const CustomizePizzaPage: React.FC = () => {
         <>
             <div className="menu">
                 <div className={"closee"}>
-                    <button className="close-button">
-                        <FaRegWindowClose />
-                    </button>
+
+                    <Link to={"/cart"}><button className="close-button"><FaRegWindowClose /></button></Link>
                 </div>
                 <div className="menu-heading">Customize Your Order</div>
                 <div className={"line-top"}></div>
@@ -105,8 +117,7 @@ const CustomizePizzaPage: React.FC = () => {
                         <div className={"sub-heading-left"}>Items</div>
                         {Object.entries(staticPrices).map(([option, price]) => (
                             <div key={option} className="item">
-                                <input
-                                    className={"tick"}
+                                <input className={"tick"}
                                     type={"checkbox"}
                                     checked={customization[option]}
                                     onChange={() => handleCheckboxChange(option, price)}
