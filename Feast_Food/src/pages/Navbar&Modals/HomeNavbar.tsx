@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {FaCircleUser} from "react-icons/fa6";
 import UserProfileView from "../UserProfileView.tsx";
 import {MdEmail} from "react-icons/md";
+import {useQuery} from "@tanstack/react-query";
 
 
 interface HomeNavbarProps {
@@ -35,7 +36,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     const navigate = useNavigate();
 
 
-
+    // Fetching cartdata from API
+    const{data:cartData} = useQuery({
+        queryKey:["GET_CART_DATA"],
+        queryFn(){
+            return axios.get("http://localhost:8080/cart/getAll")
+        }
+    })
 
 
     // Login modal
@@ -287,6 +294,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                         <Link to={"/cart"}>
                             <span className={"icon-cart"}>
                                 <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
+                                <h6 className={"icon-cart-number"}>{cartData?.data.length}</h6>
                             </span>
                         </Link>
                     ) : (

@@ -20,7 +20,7 @@ const MenuCard = ({ menuData }) => {
             // Update the endpoint and headers according to your backend requirements
             return axios.post("http://localhost:8080/cart/save", payload);
         },onSuccess:()=>{
-            // console.log(payload);
+            alert("Item added to cart successfully")
         }
     });
 

@@ -15,6 +15,7 @@ const Cart = () => {
     let custom_id="0";
 
     // console.log(custom_id,"id")
+
     // Fetching data from API
     const{data:cartData,refetch} = useQuery({
         queryKey:["GET_CART_DATA"],
@@ -34,13 +35,16 @@ const Cart = () => {
         );
 
         // Update the quantity on the server
-        axios.put(`http://localhost:8080/cart/updateQuantity/${itemId}`, {
+        axios.put(`http://localhost:8080/cart/updateQuantity`, {
+            id:itemId,
             quantity: newQuantity,
+        }).then(res=>{
+            refetch()
         });
 
         // Update the local state and trigger a refetch if needed
         setCartItems(updatedCartItems);
-        refetch();
+
     };
 
     //Deleting cart item by id

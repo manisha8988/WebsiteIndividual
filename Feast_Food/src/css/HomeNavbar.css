@@ -84,3 +84,21 @@
 }.hp-sign-btn h3:hover{
     color: #f3ad16;
  }
+
+.icon-cart{
+    position: relative;
+    /*background-color: #888888;*/
+}
+.icon-cart-number{
+    font-size: 12px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:10%;
+    right: 10%;
+    background-color: rgba(243, 173, 22, 0.71);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}
