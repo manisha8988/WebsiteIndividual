@@ -25,6 +25,7 @@ import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
 
 import OrderPage from "./pages/orderPage.tsx";
 import PaymentManagement from "./pages/payment/paymentManagement.tsx";
+import React from "react";
 
 const queryClient = new QueryClient();
 
@@ -52,11 +53,7 @@ function App() {
                     {path: "/payment", element: <Payment/>},
                     {path: "/payment/:cartTotal", element: <Payment/>},
                     {path: "/homedelivery", element: <Homedelivery/>},
-<<<<<<< Updated upstream
-                    {path: "/reservation", element: <Reservation/>},
                     {path: "/customizepizza/:parss", element: <CustomizePizzaPage/>},
-=======
->>>>>>> Stashed changes
                     {path: "/customizepizza", element: <CustomizePizzaPage/>},
                     {path: "/cart/:parss", element: <Cart/>},
                     {path: "/cart", element: <Cart/>},

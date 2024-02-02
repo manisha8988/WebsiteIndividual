@@ -1,48 +1,14 @@
-<<<<<<< Updated upstream
-import "../../css/reservationPage.css";
-import Dropdown from "./dropDown.tsx";
-// import Hour from "./hour.tsx";
-import "../../css/reservationPage.css";
-import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx"
-import {useLocation} from "react-router-dom";
-=======
 import React from "react";
 import "../../css/reservationPage.css";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
->>>>>>> Stashed changes
 
-
-const ReservationPage = () =>{
-
-    const location = useLocation(); // Use useLocation to get the current location
+const ReservationPage = () => {
+    const location = useLocation();
     const currentLocation = location.pathname;
 
-<<<<<<< Updated upstream
-    return(
-        <>
-            <div className={"reservation-page"} >
-                <HomeNavbar activePage={currentLocation}/>
-                <div className={"reserv-text"}>
-                    <h2>Reservations</h2>
-                    <h1>Book a table</h1>
-                </div>
-                <div className={"info-reservation"}>
-                    <input type={"text"} className={"name_input"} placeholder={"Name"}/>
-                    <input type={"text"} className={"phno_input"} placeholder={"Phone Number"}/>
-                    <input type={"text"} className={"no_of_people_input"} placeholder={"Number of Persons"}/>
-                    <Dropdown/>
-                    {/*<Hour/>*/}
-                    <button>Book A Table</button>
-                </div>
-            </div>
-        </>
-    )
-
-}
-=======
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -124,13 +90,13 @@ const ReservationPage = () =>{
                 <div className={"dropdown"}>
                     <select style={{minWidth:500,height:30}} className={"select-day"} onChange={(e) => handleInputChange({ target: { name: "day", value: e.target.value } })}>
                         <option>Reservation Day</option>
-                            <option>Sunday</option>
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Wednesday</option>
-                            <option>Thursday</option>
-                            <option>Friday</option>
-                            <option>Saturday</option>
+                        <option>Sunday</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
                     </select>
                 </div>
                 <div className={"dropdown"}>
@@ -149,8 +115,5 @@ const ReservationPage = () =>{
         </div>
     );
 };
->>>>>>> Stashed changes
 
-
-
-export default ReservationPage
+export default ReservationPage;
