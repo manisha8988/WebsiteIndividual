@@ -27,8 +27,8 @@ public class Reservation {
     @Column(name="persons" , nullable=false)
     private Integer persons;
 
-    @Column(name="date" , nullable=false)
-    private String date;
+    @Column(name="day" , nullable=false)
+    private String day;
 
 
     @ManyToOne

@@ -36,7 +36,7 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setName(reservationPojo.getName());
         reservation.setPhone(reservationPojo.getPhone());
         reservation.setPersons(reservationPojo.getPersons());
-        reservation.setDate(reservationPojo.getDate());
+        reservation.setDay(reservationPojo.getDay());
         reservation.setId(reservationPojo.getId());
 
         ManageTable manageTable = manageTableRepo.findById(reservationPojo.getTableId())

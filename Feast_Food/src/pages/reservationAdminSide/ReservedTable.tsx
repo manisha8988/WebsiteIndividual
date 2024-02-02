@@ -95,8 +95,8 @@ const ReservedTable = () => {
                                             <td>{i?.name}</td>
                                             <td>{i?.phone}</td>
                                             <td>{i?.persons}</td>
-                                            <td>{i?.date}</td>
-                                            <td>{i?.tableId}</td>
+                                            <td>{i?.day}</td>
+                                            <td>{i?.table.id}</td>
                                             <td>
                                                 <button
                                                     className="delete-btn2"

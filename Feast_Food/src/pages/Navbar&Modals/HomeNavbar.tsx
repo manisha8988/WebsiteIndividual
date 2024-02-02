@@ -2,7 +2,6 @@ import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
 import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {FaCartArrowDown, FaQuestionCircle, FaRegWindowClose, FaUser} from "react-icons/fa";
-// import {IoMdMail} from "react-icons/io";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
 import "../../css/LoginPage.css"
@@ -12,15 +11,11 @@ import '../../css/ForgotPass1.css';
 import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {FaCircleUser} from "react-icons/fa6";
-// import {IonIcon} from "@ionic/react";
-// import {mailOutline} from "ionicons/icons";
 import UserProfileView from "../UserProfileView.tsx";
 import {MdEmail} from "react-icons/md";
-
-// import {RxHamburgerMenu} from "react-icons/rx";
 
 
 interface HomeNavbarProps {
@@ -198,6 +193,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                 try {
                     localStorage.setItem("userDetails", JSON.stringify(userData));
+
                     handleLoginSuccess();
                     const data: any = JSON.parse(localStorage.getItem("userDetails"));
                     console.log(data);
@@ -287,11 +283,19 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
 
                 <div className={"hp-navright"}>
-                    <Link to={"/cart"}>
-                        <span className={"icon-cart"}>
+                    {user ? (
+                        <Link to={"/cart"}>
+                            <span className={"icon-cart"}>
                                 <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
+                            </span>
+                        </Link>
+                    ) : (
+                        <span className={"unclickable-cart-icon"} onClick={() => alert("Please sign in to access the cart.")}>
+                            <span className={"icon-cart"}>
+                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px", color: "gray" }} />
+                            </span>
                         </span>
-                    </Link>
+                    )}
                     {user ? (
                              <span className={"fullnamedisplay"} onClick={() => setUserProfile(true)}>
                                 <FaCircleUser style={{ fontSize: "3rem", marginBottom: "-3px", marginRight: "3px" }} />

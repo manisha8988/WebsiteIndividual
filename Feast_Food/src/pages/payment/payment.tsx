@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import axios from "axios";
 import  {useEffect, useState} from "react";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
@@ -7,40 +8,71 @@ import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/payment.css";
 import {useMutation, useQuery} from "@tanstack/react-query";
 
+=======
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import KhaltiCheckout from 'khalti-checkout-web';
+import HomeNavbar from '../Navbar&Modals/HomeNavbar.tsx';
+import '../../css/payment.css';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { useHistory } from "react-router-dom";
+>>>>>>> Stashed changes
 
 const myKey = {
-    publicTestKey: "test_public_key_402c2b0e98364222bb1c1ab02369cefd",
-    secretKey: "test_secret_key_d46fe88dee964ecfbd0f699a9985f2d4",
+    publicTestKey: 'test_public_key_402c2b0e98364222bb1c1ab02369cefd',
+    secretKey: 'test_secret_key_d46fe88dee964ecfbd0f699a9985f2d4',
 };
+
+console.log('Fetched ID::::',localStorage.getItem("userDetails"));
+
 
 const config = {
     publicKey: myKey.publicTestKey,
-    productIdentity: "123766",
-    productName: "Feast Food",
-    productUrl: "http://localhost:4004",
+    productIdentity: '123766',
+    productName: 'Feast Food',
+    productUrl: 'http://localhost:4004',
     eventHandler: {
         onSuccess(payload) {
             console.log(payload);
+
             const data = {
                 token: payload.token,
                 amount: payload.amount,
             };
-
-
+            alert("Payment done successfully!");
 
             axios
                 .get(
                     `https://meslaforum.herokuapp.com/khalti/${data.token}/${data.amount}/${myKey.secretKey}`
+
+
                 )
                 .then((response) => {
+                    const userDetails = localStorage.getItem("userDetails");
+                    const userObject = userDetails ? JSON.parse(userDetails) : null;
 
-                    // api hit to updtae status
-                    if (response.status==200){
-                        axios.put("http://localhost:8080/payment/update/"+id);
+                    if (userObject && userObject.id) {
+                        const userId = userObject.id;
+
+                        const payId = localStorage.getItem("pay");
+
+                        // api hit to update status
+                        if (response.status === 200) {
+                            axios.put(`http://localhost:8080/payment/update/${payId}`, { userId })
+                                .then((updateResponse) => {
+                                    console.log(updateResponse.data);
+                                })
+                                .catch((error) => {
+                                    console.error("Error updating payment:", error);
+                                });
+                        } else {
+                            console.error("Received non-200 status code:", response.status);
+                        }
+
+                    } else {
+                        console.log('User details not found or invalid format');
                     }
-
-                    console.log(response.data);
-                    alert("Thank you for your generosity");
                 })
                 .catch((error) => {
                     console.log(error);
@@ -51,16 +83,10 @@ const config = {
             console.log(error);
         },
         onClose() {
-            console.log("widget is closing");
+            console.log('widget is closing');
         },
     },
-    paymentPreference: [
-        "KHALTI",
-        "EBANKING",
-        "MOBILE_BANKING",
-        "CONNECT_IPS",
-        "SCT",
-    ],
+    paymentPreference: ['KHALTI', 'EBANKING', 'MOBILE_BANKING', 'CONNECT_IPS', 'SCT'],
 };
 
 const Payment = () => {
@@ -68,6 +94,8 @@ const Payment = () => {
     const location = useLocation();
     const currentLocation = location.pathname;
     const navigate = useNavigate();
+
+    const [currentPaymentId, setCurrentPaymentId] = useState();
 
     const checkout = new KhaltiCheckout(config);
     const buttonStyles = {
@@ -106,7 +134,8 @@ const Payment = () => {
     })
     useEffect(() => {
         const data: any = JSON.parse(localStorage.getItem("userDetails"));
-        setUser(data);
+        setUser(data)
+
     }, [localStorage.getItem("userDetails")]);
 
     const handleConfirmOrder = async () => {
@@ -127,11 +156,15 @@ const Payment = () => {
                 phoneNumber: selectedDeliveryOption === "Home Delivery" ? document.querySelector(".phone_input").value : null,
             };
 
-
             try {
                 const response = await axios.post("http://localhost:8080/order/save", orderData);
                 console.log(response.data);
+                localStorage.setItem("pay", currentPaymentId);
+                const storedPaymentId = parseInt(localStorage.getItem("pay"), 10);
+                console.log('Payment Test ID::::', storedPaymentId);
                 alert("Order placed successfully!");
+
+
                 navigate('/OurMenu');
             } catch (error) {
                 console.error("Error placing the order", error);
@@ -139,7 +172,9 @@ const Payment = () => {
             }
 
         }
-        // both
+
+
+        // both payment and order
         if (selectedPaymentOption === "Pay Via Khalti") {
             const itemIds = cartData?.data
                 .map(item => item?.item?.id)
@@ -170,17 +205,23 @@ const Payment = () => {
 
                 // Make API call for payment data
                 const paymentResponse = await axios.post("http://localhost:8080/payment/save", paymentData);
-                console.log(paymentResponse.data);
+                console.log(typeof paymentResponse.data,paymentResponse.data);  // latest Payment Id
+                setCurrentPaymentId(paymentResponse.data);
+
+
 
                 alert("Order placed successfully!");
                 checkout.show({ amount: totalAmount*100 });
                 // navigate('/OurMenu');
+
             } catch (error) {
                 console.error("Error placing the order or payment", error);
                 alert("Error placing the order or payment. Please try again.");
             }
         }
     };
+
+    console.log("currentPaymentId",currentPaymentId);
 
     // State for the selected delivery option
     const [selectedDeliveryOption, setSelectedDeliveryOption] = useState<string>("");
@@ -197,9 +238,8 @@ const Payment = () => {
         }
 
         setTotalAmount(newTotalAmount);
+
     }, [cartTotal, selectedDeliveryOption]);
-
-
 
 
     return (

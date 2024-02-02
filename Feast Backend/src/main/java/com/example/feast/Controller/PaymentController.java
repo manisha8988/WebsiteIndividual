@@ -19,9 +19,10 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @PostMapping("/save")
-    public String savePayment(@RequestBody PaymentPojo paymentPojo) throws IOException {
-        paymentService.savePayment(paymentPojo);
-        return "payment successfully";
+    public Long savePayment(@RequestBody PaymentPojo paymentPojo) throws IOException {
+        Payment successPayment=paymentService.savePayment(paymentPojo);
+
+        return successPayment.getId();
     }
 
     @GetMapping("/findAll")
