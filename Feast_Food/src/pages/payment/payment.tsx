@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-// import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/payment.css";
@@ -24,30 +23,32 @@ const config = {
     productUrl: 'http://localhost:4004',
     eventHandler: {
         onSuccess(payload) {
+            // Handle successful payment
             console.log(payload);
 
             const data = {
                 token: payload.token,
                 amount: payload.amount,
             };
+
+            // Display success alert
             alert("Payment done successfully!");
 
-            axios
-                .get(
-                    `https://meslaforum.herokuapp.com/khalti/${data.token}/${data.amount}/${myKey.secretKey}`
-
-
-                )
+            // Make an API call using Axios to update payment status
+            axios.get(`https://meslaforum.herokuapp.com/khalti/${data.token}/${data.amount}/${myKey.secretKey}`)
                 .then((response) => {
+                    // Get user details from localStorage
                     const userDetails = localStorage.getItem("userDetails");
                     const userObject = userDetails ? JSON.parse(userDetails) : null;
 
+                    // Check if user details are valid
                     if (userObject && userObject.id) {
                         const userId = userObject.id;
 
+                        // Get payment ID from localStorage
                         const payId = localStorage.getItem("pay");
 
-                        // api hit to update status
+                        // API hit to update payment status
                         if (response.status === 200) {
                             axios.put(`http://localhost:8080/payment/update/${payId}`, { userId })
                                 .then((updateResponse) => {
@@ -59,25 +60,27 @@ const config = {
                         } else {
                             console.error("Received non-200 status code:", response.status);
                         }
-
                     } else {
                         console.log('User details not found or invalid format');
                     }
                 })
                 .catch((error) => {
                     console.log(error);
-                    console.log('This error trigger');
+                    console.log('Error triggering this block');
                 });
         },
         onError(error) {
+            // Handle payment error
             console.log(error);
         },
         onClose() {
-            console.log('widget is closing');
+            // Handle widget closure
+            console.log('Widget is closing');
         },
     },
     paymentPreference: ['KHALTI', 'EBANKING', 'MOBILE_BANKING', 'CONNECT_IPS', 'SCT'],
 };
+
 
 const Payment = () => {
     const {cartTotal}=useParams();
@@ -96,10 +99,6 @@ const Payment = () => {
         fontWeight: "bold",
         border: "1px solid white",
     };
-
-    //delivery dropdown logic
-
-
 
     // payment dropdown logic
     const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
