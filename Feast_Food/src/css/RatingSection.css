@@ -33,7 +33,6 @@
     font-size: 50px;
 }
 
-.star:hover,
-.star.active {
+.star:hover, .star.active {
     color: #e67e22;
 }
