@@ -13,5 +13,5 @@ public interface CartService {
 
     void deleteById(Long id);
 
-    void updateQuantity(Long id, int quantity);
+    void updateQuantity(Long id, Integer quantity);
 }

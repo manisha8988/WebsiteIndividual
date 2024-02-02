@@ -1,6 +1,6 @@
 import axios from "axios";
 import  {useEffect, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 // import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
@@ -64,6 +64,7 @@ const config = {
 };
 
 const Payment = () => {
+    const {cartTotal}=useParams();
     const location = useLocation();
     const currentLocation = location.pathname;
     const navigate = useNavigate();
@@ -94,10 +95,10 @@ const Payment = () => {
         }
     })
 
-    const cartTotal = cartData?.data.reduce(
-        (total, item) => total + item?.total_price * item?.quantity,
-        0
-    );
+    // const cartTotal = cartData?.data.reduce(
+    //     (total, item) => total + item?.total_price * item?.quantity,
+    //     0
+    // );
 
     // // Fetching user details // //
     const [user, setUser] = useState({
@@ -189,7 +190,7 @@ const Payment = () => {
 
     // Calculate total amount whenever cartTotal or selectedDeliveryOption changes
     useEffect(() => {
-        let newTotalAmount = cartTotal || 0;
+        let newTotalAmount = +cartTotal || 0;
 
         if (selectedDeliveryOption === "Home Delivery") {
             newTotalAmount += 75; // Add delivery fee
@@ -268,7 +269,7 @@ const Payment = () => {
                                     className={"select-payment-option"}
                                     onChange={(e) => setSelectedPaymentOption(e.target.value)}
                                 >
-                                    <option>Select Delivery Option</option>
+                                    <option>Select Payment Option</option>
                                     <option>Cash on delivery</option>
                                     <option>Pay Via Khalti</option>
                                 </select>

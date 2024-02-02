@@ -1,9 +1,12 @@
 package com.example.feast.Service;
 
 import com.example.feast.Entity.CustomizePizzaEntity;
+import com.example.feast.Entity.User;
 import com.example.feast.Repo.CustomizePizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CustomizePizzaService {
@@ -18,6 +21,11 @@ public class CustomizePizzaService {
     public CustomizePizzaEntity saveCustomizePizza(CustomizePizzaEntity customizePizzaEntity) {
         // Perform any additional operations if needed
         return customizePizzaRepository.save(customizePizzaEntity);
+    }
+
+
+    public Optional<CustomizePizzaEntity> getCustomPizzaById(long id) {
+        return customizePizzaRepository.findById(id);
     }
 
     public double calculateTotalPrice(boolean addExtraCheese, boolean addExtraMeat, boolean addExtraMozzarella,

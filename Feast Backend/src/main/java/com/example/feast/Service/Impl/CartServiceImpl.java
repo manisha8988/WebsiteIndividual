@@ -40,12 +40,10 @@ public class CartServiceImpl implements CartService {
 
         User user = userRepo.findById(cartPojo.getUserId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + cartPojo.getUserId()));
-
         cart.setUser(user);
 
         Item item = itemRepo.findById(cartPojo.getItemId())
                 .orElseThrow(() -> new EntityNotFoundException("Item not found with ID: " + cartPojo.getItemId()));
-
         cart.setItem(item);
 
         cartRepo.save(cart);
@@ -62,10 +60,9 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void updateQuantity(@PathVariable Long id, @RequestParam("newQuantity") int newQuantity) {
+    public void updateQuantity(@PathVariable Long id, @RequestParam("newQuantity") Integer newQuantity) {
         Cart cartItem = cartRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cart item not found with ID: " + id));
-
         cartItem.setQuantity(newQuantity);
         cartRepo.save(cartItem);
     }
