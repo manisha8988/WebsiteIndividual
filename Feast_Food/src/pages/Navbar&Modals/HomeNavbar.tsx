@@ -247,8 +247,33 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
         useApiCall.mutate(value)
     }
 
-    const onSubmitLogin = (values: any) => {
-        useApiCallLogin.mutate(values);
+    const onSubmitLogin = async (values: any) => {
+        try {
+            const response = await useApiCallLogin.mutate(values);
+            console.log('Login API Response:', response);
+
+            // Check if the response has data indicating a successful login
+            if (response.data) {
+                // Handle successful login (if needed)
+                handleLoginSuccess();
+            } else {
+                // If no data is received, consider it an unsuccessful login
+                throw new Error('Invalid email or password');
+            }
+        } catch (error) {
+            console.error('Login Error:', error);
+
+            // Check for specific error cases, such as 401 Unauthorized
+            if (axios.isAxiosError(error) && error.response?.status === 401) {
+                setLoginError('Invalid email or password');
+            } else {
+                // Handle other error cases
+                setLoginError('Invalid email or password');
+            }
+            setTimeout(() => {
+                setLoginError('');
+            }, 2000);
+        }
     };
 
     const   handleLogout = () => {
@@ -350,7 +375,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 <label><input type={"checkbox"}/>Remember me</label>
                                 <a href={"#"} onClick={toggleforgetModal}>Forget passsword?</a>
                             </div>
-                            <div className={'error-message'}>
+                            <div className={'error-message top-error-message'}>
                                 {loginError && <p>{loginError}</p>}
                             </div>
                             <button type={"submit"} className={"btn-login10"} >Login</button>
@@ -393,14 +418,20 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                                 <span className={"iconuser"}><FaUser /> </span>
                                 {/*<span className={"iconpassword"}><RiLockPasswordFill /></span>*/}
                                 <div className={"password"}>
-                                    <input type={"password"} placeholder={"Password"}   {...register("password",
-                                        {required:"Password is required!!"})}/>
-
+                                    <input
+                                        type={"password"}
+                                        placeholder={"Password"}
+                                        {...register("password", {
+                                            required: "Password is required!!",
+                                            minLength: {
+                                                value: 6,
+                                                message: "Password should be at least 6 characters long",
+                                            },
+                                        })}
+                                    />
                                     {errors.password && (
-                                        <p className="error-message">{errors?.password?.message}
-                                        </p>
+                                        <p className="error-message">{errors?.password?.message}</p>
                                     )}
-
                                 </div>
                                 <div className={"password"}>
 
