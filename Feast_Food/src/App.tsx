@@ -66,7 +66,6 @@ function App() {
                     {path:"/ReservedTable",element:<ReservedTable/>},
                     {path:"/Rate",element:<RatingSection/>},
 
-                    // {path:"/f1",element:<ForgotPass1/>},
                     {path:"/PaymentManagement",element:<PaymentManagement/>}
                 ])} />
             </QueryClientProvider>
