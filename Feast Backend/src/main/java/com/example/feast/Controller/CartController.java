@@ -8,7 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.feast.Pojo.CartUpdatePojo;
 import java.util.List;
 
 @RestController
@@ -34,16 +34,13 @@ public class CartController {
       cartService.deleteById(id);
     }
 
-    @PutMapping("/updateQuantity/{id}")
-    public ResponseEntity<String> updateQuantity(
-            @PathVariable("id") Long id,
-            @RequestParam("quantity") int quantity
-    ) {
-        try {
-            cartService.updateQuantity(id, quantity);
+    @PutMapping("/updateQuantity")
+    public ResponseEntity<String> updateQuantity(@RequestBody CartUpdatePojo cartUpdatePojo) {
+//        try {
+            cartService.updateQuantity(cartUpdatePojo.getId(), cartUpdatePojo.getQuantity());
             return ResponseEntity.ok("Quantity updated successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Failed to update quantity");
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body("Failed to update quantity");
+//        }
     }
 }

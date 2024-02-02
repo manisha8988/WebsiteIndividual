@@ -23,7 +23,7 @@ import EditItem from "./pages/editItem.tsx";
 import EditEvent from "./pages/editEvent.tsx";
 import ManageTable from "./pages/reservationAdminSide/ManageTable.tsx";
 import ReservedTable from "./pages/reservationAdminSide/ReservedTable.tsx";
-import ForgotPass1 from "./pages/forgotpassword/ForgotPass1.tsx";
+
 import OrderPage from "./pages/orderPage.tsx";
 import PaymentManagement from "./pages/payment/paymentManagement.tsx";
 
@@ -51,9 +51,12 @@ function App() {
                     {path: "/ContactPage", element: <ContactPage/>},
                     {path: "/UserProfileView", element: <UserProfileView/>},
                     {path: "/payment", element: <Payment/>},
+                    {path: "/payment/:cartTotal", element: <Payment/>},
                     {path: "/homedelivery", element: <Homedelivery/>},
                     {path: "/reservation", element: <Reservation/>},
+                    {path: "/customizepizza/:parss", element: <CustomizePizzaPage/>},
                     {path: "/customizepizza", element: <CustomizePizzaPage/>},
+                    {path: "/cart/:parss", element: <Cart/>},
                     {path: "/cart", element: <Cart/>},
                     {path: "/HomeDelivery", element: <HomeDelivery/>},
                     {path: "/Reservation", element: <Reservation/>},
@@ -62,7 +65,8 @@ function App() {
                     {path:"/ManageTable",element:<ManageTable/>},
                     {path:"/ReservedTable",element:<ReservedTable/>},
                     {path:"/Rate",element:<RatingSection/>},
-                    {path:"/f1",element:<ForgotPass1/>},
+
+                    // {path:"/f1",element:<ForgotPass1/>},
                     {path:"/PaymentManagement",element:<PaymentManagement/>}
                 ])} />
             </QueryClientProvider>

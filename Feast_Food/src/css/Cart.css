@@ -160,5 +160,25 @@
     text-align: center;
 }
 
+.custom{
+    display: flex;
+    position: absolute;
+    margin-top: -74px;
+    margin-left: 1010px;
+    height: 35px;
+    width: 85px;
+    text-align: center;
+    color: #000000;
+    background-color: #afa193;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    border-radius: 3px;
+}
+
+.custom:hover{
+    background: #bbbbb5;
+    color: #000000;
+    box-shadow: 8px 8px 10px -1px rgba(25, 47, 65, 0.16);
+}
+
 
 

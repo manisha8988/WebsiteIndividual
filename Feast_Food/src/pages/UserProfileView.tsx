@@ -46,27 +46,27 @@ function UserProfileView(){
             <div className={"my_profile"}>
                 <h1>My Profile</h1>
 
-            <form className={"user_profile_form"}>
-                <div className={"user_icon"}>
+                <form className={"user_profile_form"}>
+                    <div className={"user_icon"}>
                     <span >
                         <IoPersonCircleOutline size={100} />
                     </span>
-                </div>
+                    </div>
 
-                <div className={"name"}>
-                    <p className={"name-box"}>
-                        Name :{user.fullName}
-                    </p>
-                    <p className={"email-box"}>
-                        Email :{user.email}
-                    </p>
-                </div>
+                    <div className={"name"}>
+                        <p className={"name-box"}>
+                            Name :{user.fullName}
+                        </p>
+                        <p className={"email-box"}>
+                            Email :{user.email}
+                        </p>
+                    </div>
 
-                <div className={"order-history"}>
-                    <button className={"order-history-btn"}>Order History</button>
-                    <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
-                </div>
-            </form>
+                    <div className={"order-history"}>
+                        <button className={"order-history-btn"}>Order History</button>
+                        <button className={"logout-btn"} onClick={handleLogout}>Sign out</button>
+                    </div>
+                </form>
             </div>
         </div>
     )
