@@ -193,6 +193,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
 
                 try {
                     localStorage.setItem("userDetails", JSON.stringify(userData));
+
                     handleLoginSuccess();
                     const data: any = JSON.parse(localStorage.getItem("userDetails"));
                     console.log(data);

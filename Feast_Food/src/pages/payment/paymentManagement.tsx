@@ -81,7 +81,7 @@ const PaymentManagement = () => {
                                             <tr key={i?.id}>
                                                 <td>{i?.id}</td>
                                                 <td>{i?.paymentDate}</td>
-                                                <td>{i?.userId}</td>
+                                                <td>{i?.user.id}</td>
                                                 <td>{i?.orderItems}</td>
                                                 <td>{i?.subTotal}</td>
                                                 <td>{i?.deliveryFee}</td>

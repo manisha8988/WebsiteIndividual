@@ -22,7 +22,7 @@ public class ReservationPojo {
     private Integer persons;
 
     @NotNull
-    private String date;
+    private String day;
 
     private  Integer tableId;
 

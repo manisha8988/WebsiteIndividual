@@ -10,7 +10,6 @@ import ReservationPage from "./pages/reservationUserSide/reservationPage.tsx";
 import Payment from "./pages/payment/payment.tsx";
 import ContactPage from "./pages/contactPage.tsx";
 import EventsPage from "./pages/eventsPages/eventsPage.tsx";
-import Reservation from "./pages/reservationUserSide/reserveTable.tsx";
 import CustomizePizzaPage from "./pages/CustomizePizza/CustomizePizzaPage.tsx";
 import Cart from "./pages/cart/Cart.tsx";
 import EditCategory from "./pages/editCategory.tsx";
@@ -53,13 +52,15 @@ function App() {
                     {path: "/payment", element: <Payment/>},
                     {path: "/payment/:cartTotal", element: <Payment/>},
                     {path: "/homedelivery", element: <Homedelivery/>},
+<<<<<<< Updated upstream
                     {path: "/reservation", element: <Reservation/>},
                     {path: "/customizepizza/:parss", element: <CustomizePizzaPage/>},
+=======
+>>>>>>> Stashed changes
                     {path: "/customizepizza", element: <CustomizePizzaPage/>},
                     {path: "/cart/:parss", element: <Cart/>},
                     {path: "/cart", element: <Cart/>},
                     {path: "/HomeDelivery", element: <HomeDelivery/>},
-                    {path: "/Reservation", element: <Reservation/>},
                     {path: "/CustomizePizza", element: <CustomizePizzaPage/>},
                     {path:"/Rate",element:<RatingSection/>},
                     {path:"/ManageTable",element:<ManageTable/>},

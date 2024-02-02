@@ -49,17 +49,19 @@ public class PaymentServiceImpl implements PaymentService {
         payment.setSubTotal(paymentPojo.getSubTotal());
         payment.setDeliveryFee(paymentPojo.getDeliveryFee());
         payment.setTotal(paymentPojo.getTotal());
-        payment.setStatus("Pending");
+        payment.setStatus("Paid");
 
         User user = userRepo.findById(paymentPojo.getUserId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + paymentPojo.getUserId()));
 
         payment.setUser(user);
 
-        paymentRepo.save(payment);
+        Payment successPayment= paymentRepo.save(payment);
+        System.out.println(successPayment.getId());
+
         // Use a logging framework in production
         System.out.println("Payment processed successfully");
-        return payment;
+        return successPayment;
     }
 
     @Override
@@ -82,10 +84,10 @@ public class PaymentServiceImpl implements PaymentService {
         Payment payment = paymentRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Payment not found with ID: " + id));
 
-//        payment.setUserId(paymentPojo.getUserId());
-//        payment.setAmount(paymentPojo.getAmount());
-//        payment.setDescription(paymentPojo.getDescription());
-//        payment.setPaymentDate(paymentPojo.getPaymentDate());
+        User user = userRepo.findById(paymentPojo.getUserId())
+                .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + paymentPojo.getUserId()));
+
+        payment.setUser(user);
         payment.setStatus("Paid via Khalti");
 
         paymentRepo.save(payment);
