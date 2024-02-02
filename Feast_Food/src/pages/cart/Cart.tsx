@@ -4,6 +4,8 @@ import {Link, useLocation} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {useState} from "react";
+import {toast} from "react-toastify";
+import success = toast.success;
 
 
 const Cart = () => {
@@ -30,13 +32,16 @@ const Cart = () => {
         );
 
         // Update the quantity on the server
-        axios.put(`http://localhost:8080/cart/updateQuantity/${itemId}`, {
+        axios.put(`http://localhost:8080/cart/updateQuantity`, {
+            id:itemId,
             quantity: newQuantity,
+        }).then(res=>{
+            refetch()
         });
 
         // Update the local state and trigger a refetch if needed
         setCartItems(updatedCartItems);
-        refetch();
+
     };
 
     //Deleting cart item by id
