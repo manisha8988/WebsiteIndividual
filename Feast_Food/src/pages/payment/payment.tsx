@@ -1,23 +1,13 @@
-<<<<<<< Updated upstream
-import axios from "axios";
-import  {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 // import Cart from "./cart/Cart.tsx";
 import KhaltiCheckout from "khalti-checkout-web";
 import HomeNavbar from "../Navbar&Modals/HomeNavbar.tsx";
 import "../../css/payment.css";
-import {useMutation, useQuery} from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 
-=======
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import KhaltiCheckout from 'khalti-checkout-web';
-import HomeNavbar from '../Navbar&Modals/HomeNavbar.tsx';
 import '../../css/payment.css';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { useHistory } from "react-router-dom";
->>>>>>> Stashed changes
 
 const myKey = {
     publicTestKey: 'test_public_key_402c2b0e98364222bb1c1ab02369cefd',
