@@ -1,6 +1,6 @@
 import "../css/ManageItem.css"
 import React, { useEffect, useState } from "react";
-import {FaPlus, FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlus, FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -9,6 +9,8 @@ import axios from "axios";
 import {CiEdit} from "react-icons/ci";
 import {MdDelete} from "react-icons/md";
 import {useForm} from "react-hook-form";
+import {X} from "lucide-react";
+import {toast} from "react-toastify";
 
 
 const ManageItem: React.FC = () => {
@@ -61,7 +63,7 @@ const ManageItem: React.FC = () => {
             console.log(payload)
             return axios.post("http://localhost:8080/item/save",payload)
         },onSuccess: () => {
-            // notify();
+            notify();
             reset();
             refetch();
         }
@@ -77,7 +79,16 @@ const ManageItem: React.FC = () => {
         useApiCall.mutate(fd)
     }
 
-
+    const notify = () =>toast.success('Item Added Successfully', {
+        position: "top-center",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+    });
     // Fetching data from API
     const{data,refetch} = useQuery({
         queryKey:["GET_ITEM_DATA"],
@@ -115,7 +126,7 @@ const ManageItem: React.FC = () => {
     console.log(filteredItemData)
 
     return(
-        <div>
+        <div className={"manage-category-page"}>
             <div className={"add-item-page"}>
                 <div className={"itempage-left"} >
                     <AdminSidebar activePage={currentLocation} />
@@ -141,14 +152,12 @@ const ManageItem: React.FC = () => {
 
                     <div className={"item-main-content"}>
                         <div className={"i-main-content"}>
-                            <div className={"btn3"}>
-                                <button type={"button"} onClick={toggleItemModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"white"}}/></span></button>
+                            <div className={"btn1"}>
+                                <button type={"button"} onClick={toggleItemModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"#de0505"}}/></span></button>
                             </div>
 
                             <div className={"table-container3"}>
-                                <div className={"card-header3"}>
-                                    <h2>Items</h2>
-                                </div>
+
                                 <div className={"card-body3"}>
                                     <table className={"table-bordered3"}>
                                         <thead>
@@ -177,16 +186,16 @@ const ManageItem: React.FC = () => {
                                                             </td>
                                                             <td>{i?.itemPrice}</td>
                                                             <td>
-                                                                <button className={"edit-btn3"} onClick={()=>{
+                                                                <button className={"edit-btn2"} onClick={()=>{
                                                                     navigate("/editItem/"+i?.id);
                                                                     // console.log(i?.id)
-                                                                    }}><CiEdit />
+                                                                    }}><CiEdit style={{fontSize:"1.5rem",marginBottom:"-1px",color:"black"}}/>
                                                                 </button>
-                                                                <button className={"delete-btn3"} onClick={() => {
+                                                                <button className={"delete-btn2"} onClick={() => {
                                                                     if (window.confirm("Are you sure you want to delete this category?")) {
                                                                         deleteByIdApi.mutate(i?.id);
                                                                     }
-                                                                    }}><MdDelete />
+                                                                    }}><MdDelete style={{fontSize:"1.5rem",marginBottom:"-1px",color:" #de0505"}} />
                                                                 </button>
                                                             </td>
                                                         </tr>
@@ -203,12 +212,12 @@ const ManageItem: React.FC = () => {
             </div>
 
             {modal && (
-                <div className="add-item-modal">
+                <div className="add-items-modal">
                     <div onClick={toggleItemModal} className="add-item-overlay"></div>
                     <div className="add-item-modal-content">
                         <h2>Add Item</h2>
                         <button className="close-add-item-btn" onClick={toggleItemModal}>
-                            <FaRegWindowClose />
+                            <X />
                         </button>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -224,17 +233,17 @@ const ManageItem: React.FC = () => {
                                         ))}
                                 </select>
                             </div>
-                            <div className={"item-name"}>
+                            <div className={"items-name"}>
                                 <label>Item Name</label>
                                 <input type={"text"} placeholder={"Enter item Name"} {...register("itemName",{required:"Item Name is required!!"})}/>
                                 <h6 style={{paddingLeft:"3px"}}>{errors?.itemName?.message}</h6>
                             </div>
-                            <div className={"item-price"}>
+                            <div className={"item-price1"}>
                                 <label>Price</label>
-                                <input type={"number"} placeholder={"Enter the Price"} {...register("itemPrice",{required:"Price is required!!"})}/>
+                                <input type={"number"} placeholder={"Price"} {...register("itemPrice",{required:"Price is required!!"})}/>
                                 <h6 style={{paddingLeft:"3px"}}>{errors?.itemPrice?.message}</h6>
                             </div>
-                            <div className={"item-image"}>
+                            <div className={"items-image"}>
                                 <label>Image</label>
                                 <span>
                                     <input type={"file"} placeholder={"Add image here"} {...register("itemImage",{required:"Item Image is required!!"})}/>
@@ -242,7 +251,7 @@ const ManageItem: React.FC = () => {
                                 </span>
                             </div>
 
-                            <div className={"item-name-add-btn"}>
+                            <div className={"item-name-add-btn2"}>
                                 <button type={"submit"}>Add</button>
                             </div>
                         </form>

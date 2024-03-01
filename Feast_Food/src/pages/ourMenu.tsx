@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import "../css/ourMenu.css";
 import MenuCard from "./menuPage/menuCard.tsx";
 import Navbar from "./menuPage/menuNavbar.tsx";
-import HomeNavbar from "./Navbar&Modals/HomeNavbar.tsx";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import "./Navbar&Modals/HomeNavbar"
 
 interface MenuItem {
     category: {
@@ -58,13 +58,10 @@ const OurMenu: React.FC = () => {
         <>
             <div className={"menu-page-div"}>
                 <HomeNavbar activePage={currentLocation} />
-                <div className={"check-out-container"}>
-                    <h2>Check out our</h2>
-                    <h1>MENU</h1>
-                </div>
-
+               <h1 style={{fontWeight:'bold' , fontSize: '50px'}}>Our Collection</h1>
+                <h2 className={"category-title"}>Category</h2>
                 <div className={"menu-contents"}>
-                    <Navbar filterItem={filterItem} menuList={menuList} />
+                    <Navbar filterItem={filterItem} menuList={menuList}  />
                     <MenuCard menuData={menuData} />
                 </div>
             </div>

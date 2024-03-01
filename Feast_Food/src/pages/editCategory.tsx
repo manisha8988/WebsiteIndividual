@@ -4,7 +4,9 @@ import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import "../css/editCategory.css"
-import AdminSidebar from "./adminSidebar.tsx";
+import ManageCategory from "./ManageCategory.tsx";
+import {X} from "lucide-react";
+import React, {useState} from "react";
 // import React from "react";
 
 
@@ -61,10 +63,20 @@ const EditCategory = () =>{
 
     const location = useLocation(); // Use useLocation to get the current location
     const currentLocation = location.pathname;
+    const [editCategory, setEdit] = useState(false);
+    const toggleEdit = () => {
+        setEdit(!editCategory);
+    };
+
+    if (editCategory) {
+        document.body.classList.add('active-modal');
+    } else {
+        document.body.classList.remove('active-modal');
+    }
 
     return(
         <>
-            <AdminSidebar activePage={currentLocation} />
+            <ManageCategory activePage={currentLocation} />
             <div className="edit-category-modal" >
                 <div className="edit-category-modal-content">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -75,15 +87,22 @@ const EditCategory = () =>{
                         </div>
                         <div className={"category-name2"}>
                             <label>Category Name</label>
-                            <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>
-                            <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
+                            <button className="close-add-category-btn" onClick={() => {
+                                toggleEdit();
+                                reset(); // Reset the form
+                            }}>
+                                <X/>
+                            </button>
+                            <input type={"text"}
+                                   placeholder={"Enter Category Name"} {...register("name", {required: "Category Name is required!!"})}/>
+                            <h6 style={{paddingLeft: "3px"}}>{errors?.name?.message}</h6>
                         </div>
                         <div className={"category-name-add-btn2"}>
-                            <button type={"submit"} >Update</button>
+                            <button type={"submit"}>Update</button>
                         </div>
                     </form>
                 </div>
-                <ToastContainer />
+                <ToastContainer/>
             </div>
         </>
     )

@@ -1,52 +1,60 @@
 .manage-category-page{
-    background: #f6f4ef;
-    padding-bottom: 2rem;
+    background-color:  #f6f4ef;
+    overflow-x: hidden;
     min-height: 100vh;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    font-family: Poppins;
 }
 
 .category-header{
+    font-weight: bold;
     display: flex;
     position: fixed;
-    height: 12vh;
-    width: 79vw;
+    height: 10vh;
+    width: 84vw;
+    align-items: center;
+    margin-top: 4px;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background-color: white;
-    border-radius: 14px;
+    padding: 0.5rem 2.5rem;
+    border-radius: 5px;
+    border-bottom: 2px solid black;
     box-shadow: 10px 10px 10px -1px rgba(119, 111, 93, 0.52);
 }
 
 .category-right{
-    width: 79vw;
     position: relative;
-    margin-left: 19.7vw;
-    margin-bottom: 20rem;
+    margin-left: 17.5vw;
+    width: 1vw;
+    min-height: 100vh;
 }
 
 .search-wrapper2{
     border: 1px solid #ccc;
-    border-radius: 30px;
-    height: 50px;
-    width: 20vw;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 20px;
+    height: 30px;
+    width: 30vw;
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #f6f4ef;
 }
 
 .search-wrapper2 span{
     display: inline-block;
     padding: 0.7rem 0 0 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .search-wrapper2 input{
     height: 100%;
     padding: 0 1rem;
-    font-family: "Gilroy Regular";
-    font-size: 1rem;
     letter-spacing: 0.6px;
     border: none;
     outline: none;
+    background-color: transparent;
 }
 
 .user-wrapper2{
@@ -66,30 +74,29 @@
 }
 
 
-button{
-    font-size: 1.3rem;
-    font-family: "Gilroy Regular";
-    font-weight: 500;
-    padding: 5px 0 0 0 ;
-    width: 15vw;
-    height: 8vh;
-    background: #735f18;
-    cursor: pointer;
-    border: none;
-    color: #ffffff;
-    /*box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);*/
-    border-radius: 10px;
-    transition: 0.2s all ease;
-}
+/*button{*/
+/*    font-size: 1.3rem;*/
+/*    font-weight: 500;*/
+/*    padding: 5px 0 0 0 ;*/
+/*    width: 15vw;*/
+/*    height: 8vh;*/
+/*    background: #735f18;*/
+/*    cursor: pointer;*/
+/*    border: none;*/
+/*    color: #ffffff;*/
+/*    !*box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16);*!*/
+/*    border-radius: 10px;*/
+/*    transition: 0.2s all ease;*/
+/*}*/
 
-button:hover{
-    background: #b9b09c;
-    color: black;
-    box-shadow: 6px 6px 10px -1px rgb(231, 223, 216);
-}
+/*button:hover{*/
+/*    background: #b9b09c;*/
+/*    color: black;*/
+/*    box-shadow: 6px 6px 10px -1px rgb(231, 223, 216);*/
+/*}*/
 
 .btn1{
-    height: 9vh;
+    height: 5vh;
     width: 100%;
     display: flex;
     justify-content: right;
@@ -99,22 +106,21 @@ button:hover{
 
 
 .btn1 button{
-    width: 4.5vw;
-    height: 4.3vw;
+    color: #de0505;
+    width: 3vw;
+    height: 3vw;
     box-shadow: 5px 5px 10px -1px rgb(157, 137, 118);
     border-radius: 50%;
 }
-
+.btn1 button:hover{
+    color: #b64646;
+    box-shadow: 5px 5px 5px -1px rgb(185, 184, 182)
+}
 .category-main-content{
     width: 77vw;
     padding-top: 15vh;
 }
 
-
-.card-header2 h2{
-    margin: -2rem 0 -.5rem 2.2rem;
-    text-decoration: underline;
-}
 
 .id-box2{
     min-width: 8rem;
@@ -127,7 +133,9 @@ button:hover{
 
 .edit-box2{
     min-width: 12rem;
-}.delete-box2{
+}
+
+.delete-box2{
      min-width: 12rem;
  }
 
@@ -139,54 +147,80 @@ button:hover{
     margin: -1rem 1rem -1.2rem 2.3rem;
 }
 
-.delete-btn2:hover{
-    background: #443f39;
+.edit-btn2:hover, .delete-btn2:hover{
     color: #b64646;
-    box-shadow: 10px 10px 10px -1px rgb(190, 154, 124);
-}
+    box-shadow: 5px 5px 5px -1px rgb(185, 184, 182)}
 
 /*css fro add-category-modal*/
 body.active-modal {
     overflow-y: hidden;
+    font-family: "Gilroy Medium";
 }
+
 .add-category-modal, .add-category-overlay {
+
     width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; position: fixed; z-index: 101;
     backdrop-filter: blur(3px);
 }
 .add-category-modal-content {
-    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); line-height: 1.4;
-    background: #dcdbdb;
-    padding: 14px 28px; border-radius: 10px;  font-size: 1.1rem;
-    width: 30vw;   height: 45vh;   z-index: 109;  text-decoration: underline;
+    position: absolute; top: 45%; left: 55%;
+    transform: translate(-50%, -50%); line-height: 1.4;
+    background: transparent;
+    border: black solid 2px;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 20vw;   height: 35vh;
+    z-index: 109;
 }
 .close-add-category-btn {
-    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;  border-radius: 9px;
+    border: none;
+    width: 3vw;  height: 3vw; background: none; box-shadow: none; color: #222222;
     position: absolute; top: 0.4rem; right: 0.4rem; padding: 7px 3px 0 3px;  margin-bottom: -20px;
-}  .close-add-category-btn:hover{ box-shadow: none; color: #831515  }
+}
+.close-add-category-btn:hover{
+    box-shadow: none;
+    color: #d20202
+}
 
-.category-id-number{
-    position: absolute;   top: 5.6rem;  font-size: 1.7rem;
-}
-.category-id-number input{
-    width: 25vw;   height: 5.7vh; padding-left: 0.8rem; border-color: #281e07; border-radius: 7px;
-}
-.category-id-number label,.category-id-number input{
-    display: block;
-}
-.category-name{
+.category-name-div{
     position: absolute;  top: 6rem;
-    font-size: 1.7rem;
+    font-size:0.9rem;
 }
-.category-name input{
-    width: 25vw;   height: 5.7vh;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
-    font-family: "Gilroy Medium";
+.category-name-div input{
+    font-family: "Gilroy";
+    background-color: rgba(232, 230, 230, 0.8);
+    width:16vw;   height: 5vh; margin-top: 10px;  padding-left: 0.8rem;  border-color: #281e07; border-radius: 7px;
 }
-.category-name label,.category-name input{
+.category-name-div label,.category-name-div input{
     display: block;
 }
 .category-name-add-btn{
     position: absolute; right: 2rem;  bottom: 1.5rem;
 }
 .category-name-add-btn button{
-    width: 7rem;  height: 3rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 4rem;  height: 2rem;
+}
+.category-name-add-btn button:hover{
+    background-color: black;
+    color: white;
+}
+
+.add-categor-modal, .add-categor-overlay {
+    width: 100vw; height: 100vh; top: 0; left: 0; right: 0;
+    bottom: 0; position: fixed; z-index: 101;
+    backdrop-filter: blur(10px);
+}
+.add-categor-modal-content {
+    position: absolute; top: 45%; left: 55%;
+    transform: translate(-50%, -50%); line-height: 1.4;
+    background: transparent;
+    border: black solid 2px;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 20vw;   height: 70vh;
+    z-index: 109;
 }

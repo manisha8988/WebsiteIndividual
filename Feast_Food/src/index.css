@@ -4,8 +4,8 @@
     font-weight: 400;
     color: rgba(0, 0, 0, 0.87);
 
-    --clr-light: #0e0a0a; /* Define a CSS variable */
-    --clr-primary: #f3ad16; /* Define another CSS variable */
+    --clr-light: #070000; /* Define a CSS variable */
+    --clr-primary: #110200; /* Define another CSS variable */
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -51,35 +51,42 @@ input {
 }
 
 table {
+    font-family: Poppins;
     margin: 1rem auto;
     border-radius: 7px;
-    border: 3rem hidden #be9a7c;
-/*box-shadow: 0 0 0 1px black;*/
-overflow: hidden;
+    border: 3rem  #676665;
+    overflow: hidden;
     max-width: 80rem;
-    background-color: rgb(227, 219, 206);
+    background-color: rgba(23, 22, 22, 0.12);
 }
 
 thead {
     font-size: 1.2rem;
-    background-color: #e7dfd8;
+    background-color: #c9e1ee;
     color: #2c2100;
+    height: 0.5rem;
 }
 
-th,td {
-/*border: 1px solid #000000B7;*/
-/*    min-width: 5rem;*/
+th {
+    font-size: 1rem;
     padding: 1.5rem;
-    line-height: 0.2;
+    line-height: 0.02;
     border-radius: 2px;
+    background-color: #070003;
+    color: #ffffff;
+}
+td{
+    padding: 1.5rem;
+    line-height: 0.1px;
+    border-radius: 2px;
+    color: #000000;
+    font-size: 1rem;
+    background-color: rgba(201, 225, 238, 0.3);
 }
 th{
     font-family: "Gilroy SemiBold";
 }
-td {
-    font-size: 1rem;
-    background-color: white;
-}
+
 
 h6{
     font-size: 1rem;

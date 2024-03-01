@@ -32,15 +32,3 @@
 .name-box3{
     min-width: 18rem;
 }
-
-.no-of-customer{
-    margin-top: 1rem;
-    padding: 2vh 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*background-color: #312e2e;*/
-}
-.no-of-customer h2{
-
-}

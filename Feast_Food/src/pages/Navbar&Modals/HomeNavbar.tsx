@@ -1,7 +1,7 @@
-import logo from "../../images/Feast logo 8small-PhotoRoom.png-PhotoRoom.png";
-import {Link, useNavigate} from "react-router-dom";
+import logo from "../../assets/logo2.gif";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import {FaCartArrowDown, FaQuestionCircle, FaRegWindowClose, FaUser} from "react-icons/fa";
+import {FaCartArrowDown, FaQuestionCircle, FaRegWindowClose, FaSearch} from "react-icons/fa";
 import {RiLockPasswordFill} from "react-icons/ri";
 import gsap from "gsap";
 import "../../css/LoginPage.css"
@@ -17,6 +17,8 @@ import {FaCircleUser} from "react-icons/fa6";
 import UserProfileView from "../UserProfileView.tsx";
 import {MdEmail} from "react-icons/md";
 import {useQuery} from "@tanstack/react-query";
+import HomePageSearch from "../homePageSearch.tsx";
+import {X} from "lucide-react";
 
 
 interface HomeNavbarProps {
@@ -298,27 +300,59 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
     //     toast.success("inavalid", {position: "top-center"})
     // }
 
+
+    const [search,setSearch] = useState(null);
+
+    const location = useLocation(); // Use useLocation to get the current location
+    const currentLocation = location.pathname;
+
+    // Fetching data from API
+    const { data: menuData } = useQuery({
+        queryKey: ["GET_ITEMMENU_DATA"],
+        queryFn() {
+            return axios.get("http://localhost:8080/item/findAll");
+        }
+    });
+
+    // Searching data
+    const filteredItemData = menuData?.data.filter((item) =>
+        item?.itemName?.toLowerCase().includes(search?.toLowerCase())
+    );
+
+
     return(
         <>
             <div className={"nav-bar"}>
                 <div className={"feast-logo"}>
                     <img src={logo} width={"40px"} />
+                    <Link to={"/"}> <h2 className={activePage === "/" ? "active" : ""}>The Candle Library</h2></Link>
                 </div>
                 <div className={"home-options"}>
                     <ul>
-                        <Link to={"/"}><li className={activePage === "/" ? "active" : ""}><a>Home</a></li></Link>
-                        <Link to={"/OurMenu"}><li className={activePage === "/OurMenu" ? "active" : ""}><a>Our Menu</a></li></Link>
-                        <Link to={"/ReservationPage"}><li className={activePage === "/ReservationPage" ? "active" : ""}><a>ReservationPage</a></li></Link>
-                        <Link to={"/EventsPage"}><li className={activePage === "/EventsPage" ? "active" : ""}><a>Events</a></li></Link>
-                        <Link to={"/ContactPage"}><li className={activePage === "/ContactPage" ? "active" : ""}><a>Contact</a></li></Link>
+                        {/*{search && <div className={"line2"}></div>*/}
+                        {/*    &&  <div className={"home-search-div"}>*/}
+                        {/*    <HomePageSearch filteredItemData={filteredItemData}/>*/}
+                        {/*</div>}*/}
+                        <div className={"search-wrapper2"} style={{width: "16rem"}}>
+                            <span><FaSearch /></span>
+                            <input type={"search"} placeholder={"Search.."} value={search}
+                                   onChange={(e) => setSearch(e.target.value)}/>
+                        </div>
+                        <Link to={"/"}>
+                            <li className={activePage === "/" ? "active" : ""}><a>Home</a></li>
+                        </Link>
+                        <Link to={"/OurMenu"}>
+                            <li className={activePage === "/OurMenu" ? "active" : ""}><a>Our Collection</a></li>
+                        </Link>
                     </ul>
                 </div>
+
 
                 <div className={"hp-navright"}>
                     {user ? (
                         <Link to={"/cart"}>
                             <span className={"icon-cart"}>
-                                <FaCartArrowDown style={{ fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
+                                <FaCartArrowDown style={{fontSize: "1.2rem", marginBottom: "-6px", marginRight: "10px" }} />
                                 <h6 className={"icon-cart-number"}>{cartData?.data.length}</h6>
                             </span>
                         </Link>
@@ -344,45 +378,36 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                 </div>
             </div>
 
+
             {login_popup && (
                 <div className="login-modal">
                     <div onClick={toggleLoginModal} className="login-overlay"></div>
                     <div className="login-modal-content">
                         <h2>Login</h2>
                         <button className="close-login-btn" onClick={toggleLoginModal}>
-                            <FaRegWindowClose />
+                            <X />
                         </button>
                         <form onSubmit={handleSubmit(onSubmitLogin)}>
-                            <div className={"input-box"}>
-                                <span className={"iconmail"}> <FaUser /></span>
-                                <div className={"username"}>
-                                    <input
-                                        type={"email"}
-                                        placeholder={"Email"}
-                                        {...register("email")}
-                                    />
-                                </div>
-                                <span className={"iconpassword"}><RiLockPasswordFill/></span>
-                                <div className={"password"}>
-                                    <input
-                                        type={"password"}
-                                        placeholder={"Password"}
-                                        {...register("password")}
-                                    />
-                                </div>
+                            <div className={"login-main"}>
+                            <div className={"username"}>
+                                <input type={"email"} placeholder={"Email"}{...register("email")}/>
+                            </div>
+                            <div className={"pass"}>
+                           <input type={"password"} placeholder={"Password"}{...register("password")}/>
                             </div>
                             <div className={"Remember-forget"}>
-                                <label><input type={"checkbox"}/>Remember me</label>
-                                <a href={"#"} onClick={toggleforgetModal}>Forget passsword?</a>
+                                <div className={"rem"}> <label><input type={"checkbox"}/>Remember me</label></div>
+                                <div className={"for"}> <a href={"#"} onClick={toggleforgetModal}>Forget passsword?</a></div>
                             </div>
                             <div className={'error-message top-error-message'}>
                                 {loginError && <p>{loginError}</p>}
                             </div>
-                            <button type={"submit"} className={"btn-login10"} >Login</button>
+                            <button type={"submit"} className={"btn-login"} >Login</button>
 
                             <div className={"register-text"}>
                                 <p> Don't have an account?
                                     <a href={"#"} onClick={toggleRegisterModal}>Register</a></p>
+                            </div>
                             </div>
                         </form>
                     </div>
@@ -394,65 +419,27 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ activePage }) => {
                     <div onClick={toggleRegisterModal} className="register-overlay"></div>
                     <div className="register-modal-content">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <h2>Register</h2>
-                            <button className="close-register-btn" onClick={toggleRegisterModal}><FaRegWindowClose /></button>
-                            <div className={"reg-input-box"}>
+                            <h2 className={"heqading"}>Register</h2>
+                            <button className="close-register-btn" onClick={toggleRegisterModal}><X /></button>
                                 <div className={"username"}>
-                                    <input type={"text"} placeholder={"Name"} {...register("fullName",{
-                                        required:"FullName is required!!"
-                                    })}
-                                    />
-                                    {errors.fullName && (
-                                        <p className="error-message">{errors?.fullName?.message}
-                                        </p>
-                                    )}
+                                    <input type={"text"} placeholder={"Name"} {...register("fullName",{required:"FullName is required!!"})}/>{errors.fullName && (<p className="error-message">{errors?.fullName?.message}</p>)}
                                 </div>
                                 <div className={"username"}>
-                                    <input type={"email"} placeholder={"Email"}  {...register("email",
-                                        {required:"Email is required!!"})}/>
-                                    {errors.email && (
-                                        <p className="error-message">{errors?.email?.message}
-                                        </p>
-                                    )}
+                                    <input type={"email"} placeholder={"Email"}  {...register("email", {required:"Email is required!!"})}/>{errors.email && (<p className="error-message">{errors?.email?.message}</p>)}
                                 </div>
-                                <span className={"iconuser"}><FaUser /> </span>
-                                {/*<span className={"iconpassword"}><RiLockPasswordFill /></span>*/}
-                                <div className={"password"}>
-                                    <input
-                                        type={"password"}
-                                        placeholder={"Password"}
-                                        {...register("password", {
-                                            required: "Password is required!!",
-                                            minLength: {
-                                                value: 6,
-                                                message: "Password should be at least 6 characters long",
-                                            },
-                                        })}
-                                    />
+                                <div className={"pass1"}>
+                                    <input type={"password"} placeholder={"Password"}{...register("password", {required: "Password is required!!",minLength: {value: 6, message: "Password should be at least 6 characters long",},})}/>
                                     {errors.password && (
                                         <p className="error-message">{errors?.password?.message}</p>
                                     )}
                                 </div>
-                                <div className={"password"}>
-
-                                    <input type={"password"} placeholder={"Confirm Password"}
-                                           {...register("confirmPassword", {
-
-
-                                               required: "Confirm Password is required",
-                                               validate: {
-                                                   matchesPassword: (value) =>
-                                                       value === watch("password") || "Confirm Password does not match Password",
-                                               },
-                                           })}
-                                    />
-
+                                <div className={"pass2"}>
+                                    <input type={"password"} placeholder={"Confirm Password"}{...register("confirmPassword", {required: "Confirm Password is required", validate: {matchesPassword: (value) => value === watch("password") || "Confirm Password does not match Password"},})}/>
                                     {errors.confirmPassword && (
-                                        <p className="error-message">{errors?.confirmPassword?.message}
-                                        </p>
+                                        <p className="error-message">{errors?.confirmPassword?.message}</p>
                                     )}
                                 </div>
-                            </div>
+
                             <div className={"security-question"}>
                                 <div className={"header10"}>Security Question</div>
                                 <div className={"answer"}>

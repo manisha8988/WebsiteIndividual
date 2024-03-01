@@ -10,13 +10,13 @@ const Navbar: React.FC<NavbarProps> = ({ filterItem, menuList }) => {
     // console.log(menuList)
     return (
         <>
-            <nav className="menu-navbar">
-                <h2>Categories</h2>
-                <div className="menu-btn-group">
+            <nav className="category-list">
+                {/*<h2>Categories</h2>*/}
+                <div className="category-sublist">
                     {menuList.map((curElem) => (
                         <button
                             key={curElem}
-                            className="menu-btn-group__item"
+                            className="category-item"
                             onClick={() => filterItem(curElem)}>
                             {curElem}
                         </button>

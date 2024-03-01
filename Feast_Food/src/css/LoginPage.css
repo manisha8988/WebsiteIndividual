@@ -20,20 +20,27 @@ body.active-login-modal {
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
-    background: #dcdbdb;
+    background: rgba(190, 154, 124, 0.48);
+    border: 2px solid;
     padding: 14px 28px;
     border-radius: 10px;
     font-size: 1.1rem;
     width: 27vw;
-    height: 65vh;
+    height: 50vh;
     z-index: 102;
+    font-family: "Bell MT";
 
 }
 .login-modal-content h2{
     font-size: 2rem;
     color: #162938;
     text-align: center;
-    text-decoration: underline;
+    margin-bottom: 40px;
+}
+.login-main{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
 }
 
 .close-login-btn {
@@ -42,7 +49,7 @@ body.active-login-modal {
     background: none;
     box-shadow: none;
     color: #222222;
-    border-radius: 9px;
+    border: none;
     position: absolute;
     top: 0.4rem;
     right: 0.4rem;
@@ -53,26 +60,38 @@ body.active-login-modal {
     box-shadow: none;
     color: #f3ad16
 }
-.input-box .username{
+.username{
     position: relative;
     width: 100%;
-    height: 50px;
-    border-bottom: 2px solid#162938;
-    margin: 30px 10px;
+    height: 40px;
+    margin-bottom: 10px;
+    /*margin: 30px 10px;*/
     display: flex;
+    border: black;
+    /*border-radius: 20px;*/
 }
-.input-box .password{
-    position: relative;
+.username input{
     width: 100%;
-    height: 50px;
-    border-bottom: 2px solid#162938;
-    margin: 30px 10px;
-    display: flex;
+    border-radius: 10px;
+    padding-left: 10px;
 }
-.input-box .img{
-    width: 10px;
-    cursor: pointer;
+
+ .pass{
+     position: relative;
+     width: 100%;
+     height: 40px;
+     /*margin: 30px 10px;*/
+     display: flex;
+     /*border: 1px solid black;*/
+     /*border-radius: 10px;*/
+ }
+.pass input{
+    width: 100%;
+    padding-left: 10px;
+    border-radius: 10px;
+
 }
+
 .input-box label{
     position: absolute;
     top: 50%;
@@ -82,37 +101,13 @@ body.active-login-modal {
     color: #162938;
     pointer-events: none;
 }
-
-.input-box input {
-    margin-left: 1px;
-    width: 100%;
-    height: 120%;
-    background: transparent;
-    border: none;
-    outline: none;
-}
-.input-box .iconmail{
-    position: absolute;
-    left: 13px;
-    top: 97px;
-    font-size: 1.2rem;
-    color: #162938;
-    line-height: 57px;
-}
-.input-box .iconpassword{
-    position: absolute;
-    left: 20px;
-   top: 180px;
-    font-size: 1.2rem;
-    color: #162938;
-    line-height: 57px;
-}
 .Remember-forget{
     font-size: 1rem;
     color: #162938;
     font-weight: 500;
     margin: 15px 4px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .Remember-forget label input{
@@ -128,12 +123,28 @@ body.active-login-modal {
     text-decoration: underline;
 }
 
-.btn-login10{
-
-
+.btn-login{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: #237ff6;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btn-login:hover{
+    color: white;
+    background-color: #0770f6;
+}
+.rem{
+    margin-right: 7rem;
+}
 .register-text {
     position: absolute;
-    bottom: 55px;
+    bottom: 30px;
     right: 95px;
 }
 .register-text:hover {
@@ -142,9 +153,11 @@ body.active-login-modal {
 .register-text a:hover{
     text-decoration: underline;
 }
-
+.heqading{
+    text-decoration: none;
+    margin-bottom: 40px;
+}
 .error-message{
     color: red;
 }
 
-}

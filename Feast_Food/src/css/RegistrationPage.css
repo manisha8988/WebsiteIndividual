@@ -19,19 +19,19 @@ body.active-register-modal {
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
-    background: #dcdbdb;
+    background: rgba(190, 154, 124, 0.48);
     padding: 14px 28px;
     border-radius: 10px;
     font-size: 1.1rem;
     width: 30vw;
-    height: 87vh;
+    height: 64vh;
     z-index: 102;
+    font-family: "Bell MT";
 }
 .register-modal-content h2{
     font-size: 2rem;
     color: #162938;
     text-align: center;
-    text-decoration: underline;
 }
 
 .close-register-btn {
@@ -40,7 +40,7 @@ body.active-register-modal {
     background: none;
     box-shadow: none;
     color: #222222;
-    border-radius: 9px;
+    border: none;
     position: absolute;
     top: 0.4rem;
     right: 0.4rem;
@@ -72,7 +72,20 @@ body.active-register-modal {
 /*    align-items: center;*/
 /*}*/
 
+.pass1 input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
 
+}
+.pass2 input{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
 
 .reg-input-box .username input {
     width: 183px; /* Adjust the width as needed */
@@ -105,31 +118,30 @@ body.active-register-modal {
 
 }
 .security-question input{
-    width: 20vw;
-    height: 100%;
-    /*margin: -1px 0;*/
+    width: 100%;
+    height: 30px;
     background: transparent;
     border: none;
     outline: none;
+    color: black;
 }
 .btn-signup10{
-    width: 16vw;
-    height: 7vh;
-    background: #f3ad16;
-    border: none;
-    outline: none;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: #237ff6;
     border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #ffffff;
-    font-weight: 500;
-    margin: 15px 50px;
+    font-size: 1rem;
+    font-weight: bold;
 }
-/*.login-text{*/
-/*    position: absolute;*/
-/*    bottom: 2%;*/
-/*    right: 2%;*/
-/*}*/
-/*.login-text:hover{*/
-/*    cursor: pointer;*/
-/*}*/
+
+.btn-signup10:hover{
+    color: white;
+    background-color: #0770f6;
+}
+.header10{
+    margin-top: 10px;
+}

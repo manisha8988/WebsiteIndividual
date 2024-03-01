@@ -7,6 +7,7 @@
 }
 
 .admin-dashboard-page{
+    font-family: Poppins;
     background: #f6f4ef;
     display: flex;
 }
@@ -99,8 +100,9 @@
     padding: 15px 20px 20px 20px;
     cursor: pointer;
     border-radius: 7px;
-    border-left: 0.9vw solid #8d6c24;
-    background: rgba(255, 255, 255, 0.65);
+    border-left: 0.9vw solid #d7c0ba;
+    /*background: rgba(255, 255, 255, 0.65);*/
+    background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .dashboard-cards h2{

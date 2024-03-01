@@ -4,6 +4,7 @@ import {Link, useLocation, useParams} from "react-router-dom";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {useState} from "react";
+import {toast} from "react-toastify";
 
 
 const Cart = () => {
@@ -53,7 +54,8 @@ const Cart = () => {
             mutationKey:["DELETE_CART_BY_ID"],
             mutationFn(id:number){
                 return axios.delete("http://localhost:8080/cart/deleteById/"+id);
-            },onSuccess(){refetch()}
+            },onSuccess(){
+                refetch()}
         }
     )
 
@@ -70,9 +72,16 @@ const Cart = () => {
     }
     console.log(cartTotal,"cartTotal")
     // console.log(cartData)
+
+    const handleCheckout = () => {
+        // Display toast when checkout button is clicked
+        toast.success('Order placed successfully!');
+    };
     return (
+        <>
+        <HomeNavbar activePage={currentLocation} />
         <div className={"cart-container"}>
-            <HomeNavbar activePage={currentLocation} />
+
             <div className={"cart-text-div"}><h1> Cart<b>Page</b></h1></div>
             <div className="half-hr" />
             <div className={"cart-main-container"}>
@@ -128,7 +137,6 @@ const Cart = () => {
                                             }
                                         }}></i>
                                     </div>
-                                    <Link to={`/customizepizza/${i?.item.id}+${i?.total_price}`}><button className={"custom"}>Customize</button></Link>
                                 </div>
                             )
                         })
@@ -142,12 +150,12 @@ const Cart = () => {
             <div className={"CheckOut-Container"}>
                 <div className={"cart-total"}>
                     <h3> Cart Total: Rs. {cartTotal}</h3>
-                    <Link to={`/payment/${cartTotal}`}><button className={"checkout-button"}>CHECKOUT</button></Link>
+                    <button  className={"checkout-button"}   onClick={handleCheckout}>CHECKOUT</button>
                 </div>
 
             </div>
         </div>
-
+        </>
 
     );
 }

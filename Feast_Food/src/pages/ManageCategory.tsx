@@ -2,7 +2,7 @@ import "../css/ManageCategory.css"
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {FaPlus, FaRegWindowClose, FaSearch} from "react-icons/fa";
+import {FaPlus,  FaSearch} from "react-icons/fa";
 import gsap from "gsap";
 import AdminSidebar from "./adminSidebar.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -11,6 +11,8 @@ import axios from "axios";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import {CiEdit} from "react-icons/ci";
 import {MdDelete} from "react-icons/md";
+import {X} from "lucide-react";
+import EditCategory from "./editCategory.tsx";
 
 
 const ManageCategory: React.FC = () =>  {
@@ -32,6 +34,7 @@ const ManageCategory: React.FC = () =>  {
     } else {
         document.body.classList.remove('active-modal');
     }
+
 
 
 
@@ -137,13 +140,10 @@ const ManageCategory: React.FC = () =>  {
                     <div className={"category-main-content"}>
                         <div className={"c-main-content"}>
                             <div className={"btn1"}>
-                                <button type={"button"} onClick={toggleCatgModal}><span><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:"white"}}/></span></button>
+                                <button type={"button"} onClick={toggleCatgModal}><FaPlus style={{fontSize:"1.5rem",marginBottom:"-1px",color:" #de0505"}}/></button>
                             </div>
 
                             <div className={"table-container2"}>
-                                <div className={"card-header2"}>
-                                    <h2>Categories</h2>
-                                </div>
                                 <div className={"card-body2"}>
                                     <table className={"table-bordered2"}>
                                         <thead>
@@ -161,17 +161,16 @@ const ManageCategory: React.FC = () =>  {
                                                     <tr key={i?.id}>
                                                         <td>{i?.id}</td>
                                                         <td>{i?.name}</td>
-                                                        <td><button className={"edit-btn2"} onClick={()=>{
-                                                            navigate("/edit/"+i?.id);
+                                                        <td><button className={"edit-btn2"}
+                                                                    onClick={()=>{navigate("/edit/"+i?.id);console.log(i?.id)}}
 
-                                                            console.log(i?.id)
-                                                        }}><CiEdit /></button></td>
+                                                        ><CiEdit style={{fontSize:"1.5rem",marginBottom:"-1px",color:"black"}} /></button></td>
                                                         <td><button className={"delete-btn2"} onClick={() => {
                                                             // Display confirmation prompt before deletion
                                                             if (window.confirm("Are you sure you want to delete this category?")) {
                                                                 deleteByIdApi.mutate(i?.id);
                                                             }
-                                                        }}><MdDelete /></button></td>
+                                                        }}><MdDelete style={{fontSize:"1.5rem",marginBottom:"-1px",color:" #de0505"}} /></button></td>
                                                     </tr>
                                                 )
                                             })
@@ -198,14 +197,10 @@ const ManageCategory: React.FC = () =>  {
                                 toggleCatgModal();
                                 reset(); // Reset the form
                             }}>
-                                <FaRegWindowClose />
+                                <X  />
                             </button>
 
-                            {/*<div className={"category-id-number"}>*/}
-                            {/*    <label>ID</label>*/}
-                            {/*    <input type={"number"} placeholder={"Enter ID"}/>*/}
-                            {/*</div>*/}
-                            <div className={"category-name"}>
+                            <div className={"category-name-div"}>
                                 <label>Category Name</label>
                                 <input type={"text"} placeholder={"Enter Category Name"} {...register("name",{required:"Category Name is required!!"})}/>
                                 <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
@@ -219,6 +214,8 @@ const ManageCategory: React.FC = () =>  {
                     <ToastContainer />
                 </div>
             )}
+
+
 
         </section>
     );

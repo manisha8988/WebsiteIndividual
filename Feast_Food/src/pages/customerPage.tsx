@@ -53,15 +53,12 @@ const CustomerPage = () =>{
                     <header className={"customer-page-header"}>
                         <h1>Manage Customers</h1>
 
-                        <div className={"search-wrapper2"} style={{width:"16rem"}}>
+                        <div className={"home-search-div"} style={{width:"16rem"}}>
                             <span><FaSearch /></span>
                             <input type={"search"} placeholder={"Search Customers"} value={search} onChange={(e)=>setSearch(e.target.value)}/>
                         </div>
                     </header>
                     <div className={"customer-page-main"}>
-                        <div className={"no-of-customer"}>
-                            <h2>No. of Customer: {userLength}</h2>
-                        </div>
                         <table className={"customer-table"}>
                             <thead>
                             <tr>
